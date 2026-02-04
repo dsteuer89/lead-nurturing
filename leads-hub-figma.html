@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leads Hub - CarGurus</title>
+    <link rel="stylesheet" href="leads-hub-figma-styles.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="cargurus-logo">
+                <span class="logo-car">Car</span><span class="logo-gurus">Gurus</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <!-- Dashboard -->
+            <div class="nav-item">
+                <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M2 2h5v5H2V2zm0 7h5v5H2V9zm7-7h5v5H9V2zm0 7h5v5H9V9z"/>
+                </svg>
+                <span>Dashboard</span>
+            </div>
+
+            <!-- Pricing -->
+            <div class="nav-item">
+                <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M2 2l6 6-6 6V2zm12 0v12l-6-6 6-6z"/>
+                </svg>
+                <span>Pricing</span>
+            </div>
+            <div class="nav-item nav-item-nested">
+                <span>Pricing Tool</span>
+            </div>
+            <div class="nav-item nav-item-nested">
+                <span>Dealer Insights</span>
+            </div>
+            <div class="nav-item nav-item-nested">
+                <span>View Inventory</span>
+                <svg class="external-icon" width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                    <path d="M10 10H2V2h4V0H2C.9 0 0 .9 0 2v8c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6h-2v4zM6 0v2h2.59L3.76 6.83l1.41 1.41L10 3.41V6h2V0H6z"/>
+                </svg>
+            </div>
+
+            <!-- Marketing Analysis -->
+            <div class="nav-item">
+                <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <circle cx="7" cy="7" r="5" stroke="currentColor" fill="none" stroke-width="2"/>
+                    <path d="M11 11l4 4" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <span>Marketing Analysis</span>
+            </div>
+
+            <!-- Leads -->
+            <div class="nav-item">
+                <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M2 2h12v3H2V2zm0 5h12v3H2V7zm0 5h12v2H2v-2z"/>
+                </svg>
+                <span>Leads</span>
+            </div>
+            <div class="nav-item nav-item-nested active">
+                <span>Leads Hub</span>
+                <span class="beta-tag">Beta</span>
+            </div>
+            <div class="nav-item nav-item-nested">
+                <span>LeadAI</span>
+            </div>
+            <div class="nav-item nav-item-nested">
+                <span>Lead Reports</span>
+            </div>
+
+            <!-- Sell My Car -->
+            <div class="nav-item">
+                <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M14 6h-3l-1.5-2h-3L5 6H2L1 8v5h1v1h2v-1h8v1h2v-1h1V8l-1-2zm-6 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                </svg>
+                <span>Sell My Car</span>
+            </div>
+            <div class="nav-item nav-item-nested">
+                <span>Leads</span>
+            </div>
+            <div class="nav-item nav-item-nested">
+                <span>All Offers</span>
+            </div>
+            <div class="nav-item nav-item-nested">
+                <span>Performance</span>
+            </div>
+            <div class="nav-item nav-item-nested">
+                <span>Matrix Snapshot</span>
+            </div>
+            <div class="nav-item nav-item-nested">
+                <span>Lead Cap Details</span>
+            </div>
+
+            <!-- CG Buy Online -->
+            <div class="nav-item">
+                <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 2C5.24 2 3 4.24 3 7c0 3.54 5 9 5 9s5-5.46 5-9c0-2.76-2.24-5-5-5zm0 6.5c-.83 0-1.5-.67-1.5-1.5S7.17 5.5 8 5.5s1.5.67 1.5 1.5S8.83 8.5 8 8.5z"/>
+                </svg>
+                <span>CG Buy Online</span>
+            </div>
+            <div class="nav-item nav-item-nested">
+                <span>Reservations & Sales Hub</span>
+            </div>
+
+            <!-- CarGurus Delivery -->
+            <div class="nav-item">
+                <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M14 4h-3V2H5v2H2L1 6v6h1v2h2v-2h8v2h2v-2h1V6l-1-2zM6 3h4v1H6V3zm8 8H2V7h12v4z"/>
+                </svg>
+                <span>CarGurus Delivery</span>
+            </div>
+            <div class="nav-item nav-item-nested">
+                <span>Order</span>
+            </div>
+
+            <!-- Advertising -->
+            <div class="nav-item">
+                <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M14 2l-6 6V2H6v12h2V8l6 6V2z"/>
+                </svg>
+                <span>Advertising</span>
+            </div>
+            <div class="nav-item nav-item-nested">
+                <span>Highlight</span>
+            </div>
+            <div class="nav-item nav-item-nested">
+                <span>RPM for Dealers</span>
+            </div>
+
+            <!-- Digital Deal -->
+            <div class="nav-item">
+                <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M13 7h-2V5c0-1.1-.9-2-2-2H7c-1.1 0-2 .9-2 2v2H3c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zM7 5h2v2H7V5z"/>
+                </svg>
+                <span>Digital Deal</span>
+            </div>
+
+            <!-- Settings -->
+            <div class="nav-item" onclick="navigateTo('settings.html')">
+                <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M14.5 8c0-.3 0-.6-.1-.9l2-1.6c.2-.1.2-.4.1-.6l-1.9-3.3c-.1-.2-.4-.3-.6-.2l-2.4.9c-.5-.4-1-.7-1.6-.9L9.6.8c0-.2-.3-.4-.5-.4h-3.8c-.2 0-.5.2-.5.4L4.4 3.4c-.6.2-1.1.5-1.6.9l-2.4-.9c-.2-.1-.5 0-.6.2L-2 6.9c-.1.2-.1.5.1.6l2 1.6c-.1.3-.1.6-.1.9s0 .6.1.9l-2 1.6c-.2.1-.2.4-.1.6l1.9 3.3c.1.2.4.3.6.2l2.4-.9c.5.4 1 .7 1.6.9l.4 2.6c0 .2.3.4.5.4h3.8c.2 0 .5-.2.5-.4l.4-2.6c.6-.2 1.1-.5 1.6-.9l2.4.9c.2.1.5 0 .6-.2l1.9-3.3c.1-.2.1-.5-.1-.6l-2-1.6c.1-.3.1-.6.1-.9zM7.5 10.5c-1.4 0-2.5-1.1-2.5-2.5s1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5z"/>
+                </svg>
+                <span>Settings</span>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- App Bar -->
+        <header class="app-bar">
+            <div class="app-bar-left">
+                <button class="icon-btn">🎯</button>
+                <span>Dashboard tour</span>
+            </div>
+            <div class="app-bar-right">
+                <button class="icon-btn">🌐</button>
+                <span>EN</span>
+                <button class="icon-btn">👤</button>
+                <select class="dealership-select">
+                    <option>[Dealership name]</option>
+                </select>
+            </div>
+        </header>
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="page-title-row">
+                <h1>Leads Hub</h1>
+                <span class="beta-badge">Beta</span>
+                <div class="date-selector">
+                    <span class="calendar-icon">📅</span>
+                    <span>7/1/2025 - 7/31/2025</span>
+                    <span class="dropdown-icon">▼</span>
+                </div>
+            </div>
+
+            <!-- Search and Filters -->
+            <div class="search-filters-row">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search" />
+                </div>
+
+                <div class="filter-group">
+                    <select class="filter-dropdown">
+                        <option>Lead score</option>
+                        <option>All</option>
+                    </select>
+
+                    <select class="filter-dropdown">
+                        <option>Shopper category</option>
+                        <option>All</option>
+                    </select>
+
+                    <select class="filter-dropdown">
+                        <option>Opportunity type</option>
+                        <option>All shoppers</option>
+                    </select>
+
+                    <button class="all-filters-btn">
+                        <span class="filter-icon">⚙️</span>
+                        All filters
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results Summary -->
+            <div class="results-row">
+                <p class="results-text">275 shopper results over 32 days with 12 cross-sell opportunities</p>
+                <select class="sort-dropdown">
+                    <option>Sort by: Last activity</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Shopper Cards -->
+        <div class="shopper-cards-container">
+            <!-- Card 1 -->
+            <article class="shopper-card">
+                <div class="card-header">
+                    <div class="card-header-left">
+                        <h2 class="shopper-name">Keanu Matrix Reeves Jr.</h2>
+                        <span class="tag tag-hot">Hot lead</span>
+                        <span class="tag tag-switch">Switch opportunity</span>
+                    </div>
+                    <button class="view-profile-btn">View profile</button>
+                </div>
+
+                <div class="card-content">
+                    <div class="card-section">
+                        <h3 class="section-title">Contact</h3>
+                        <div class="contact-info">
+                            <div class="info-item">
+                                <span class="icon">✉️</span>
+                                <span>keanumatrixreevesjr@domain.com</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="icon">📞</span>
+                                <span>617-548-5569</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="icon">📍</span>
+                                <span>02138 (5.2 miles away)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-section">
+                        <h3 class="section-title">Latest Inquiry</h3>
+                        <div class="inquiry-info">
+                            <p class="inquiry-time">8 hours ago • 8 total</p>
+                            <p class="inquiry-vehicle">2025 Audi Q7 quattro Premium</p>
+                            <p class="inquiry-details">Sold • $49,100 • VIN: AJSAH8263JF23</p>
+                        </div>
+                    </div>
+
+                    <div class="card-section">
+                        <h3 class="section-title">Key Insights</h3>
+                        <div class="insights-grid">
+                            <div class="insight-item">
+                                <span class="insight-label">DEALER ENGAGEMENT</span>
+                                <p class="insight-value">Highly engaged</p>
+                            </div>
+                            <div class="insight-item">
+                                <span class="insight-label">LAST ACTIVITY WITH YOU</span>
+                                <p class="insight-value">1 hour ago</p>
+                                <p class="insight-detail">Website visit</p>
+                            </div>
+                        </div>
+                        <div class="insights-grid">
+                            <div class="insight-item">
+                                <span class="insight-label">CARGURUS ACTIVITY</span>
+                                <p class="insight-value">Very active</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="shopper-card">
+                <div class="card-header">
+                    <div class="card-header-left">
+                        <h2 class="shopper-name">Maya Stellar Johnson</h2>
+                        <span class="tag tag-hot">Hot lead</span>
+                    </div>
+                    <button class="view-profile-btn">View profile</button>
+                </div>
+
+                <div class="card-content">
+                    <div class="card-section">
+                        <h3 class="section-title">Contact</h3>
+                        <div class="contact-info">
+                            <div class="info-item">
+                                <span class="icon">✉️</span>
+                                <span>keanumatrixreevesjr@domain.com</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="icon">📞</span>
+                                <span>617-548-5569</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="icon">📍</span>
+                                <span>02138 (5.2 miles away)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-section">
+                        <h3 class="section-title">Latest Inquiry</h3>
+                        <div class="inquiry-info">
+                            <p class="inquiry-time">7/12/25 at 3:35 PM</p>
+                            <p class="inquiry-vehicle">2025 Mercedes-Benz GLE 450</p>
+                            <p class="inquiry-details">Sold • $49,100 • VIN: AJSAH8263JF23</p>
+                        </div>
+                    </div>
+
+                    <div class="card-section">
+                        <h3 class="section-title">Key Insights</h3>
+                        <div class="insights-grid">
+                            <div class="insight-item">
+                                <span class="insight-label">DEALER ENGAGEMENT</span>
+                                <p class="insight-value">Highly engaged</p>
+                            </div>
+                            <div class="insight-item">
+                                <span class="insight-label">LAST ACTIVITY WITH YOU</span>
+                                <p class="insight-value">1 hour ago</p>
+                                <p class="insight-detail">Website visit</p>
+                            </div>
+                        </div>
+                        <div class="insights-grid">
+                            <div class="insight-item">
+                                <span class="insight-label">CARGURUS ACTIVITY</span>
+                                <p class="insight-value">Very active</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="shopper-card">
+                <div class="card-header">
+                    <div class="card-header-left">
+                        <h2 class="shopper-name">Ethan Cosmic Lee</h2>
+                        <span class="tag tag-hot">Hot lead</span>
+                        <span class="tag tag-switch">Switch opportunity</span>
+                    </div>
+                    <button class="view-profile-btn">View profile</button>
+                </div>
+
+                <div class="card-content">
+                    <div class="card-section">
+                        <h3 class="section-title">Contact</h3>
+                        <div class="contact-info">
+                            <div class="info-item">
+                                <span class="icon">✉️</span>
+                                <span>keanumatrixreevesjr@domain.com</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="icon">📞</span>
+                                <span>617-548-5569</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="icon">📍</span>
+                                <span>02138 (5.2 miles away)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-section">
+                        <h3 class="section-title">Latest Inquiry</h3>
+                        <div class="inquiry-info">
+                            <p class="inquiry-time">8 hours ago • 8 total</p>
+                            <p class="inquiry-vehicle">2025 Volvo XC90 Recharge T8</p>
+                            <p class="inquiry-details">Sold • $49,100 • VIN: AJSAH8263JF23</p>
+                        </div>
+                    </div>
+
+                    <div class="card-section">
+                        <h3 class="section-title">Key Insights</h3>
+                        <div class="insights-grid">
+                            <div class="insight-item">
+                                <span class="insight-label">DEALER ENGAGEMENT</span>
+                                <p class="insight-value">Highly engaged</p>
+                            </div>
+                            <div class="insight-item">
+                                <span class="insight-label">LAST ACTIVITY WITH YOU</span>
+                                <p class="insight-value">1 hour ago</p>
+                                <p class="insight-detail">Website visit</p>
+                            </div>
+                        </div>
+                        <div class="insights-grid">
+                            <div class="insight-item">
+                                <span class="insight-label">CARGURUS ACTIVITY</span>
+                                <p class="insight-value">Very active</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+# Node modules
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+.cache/
+
+# Claude files
+.claude/
+.claude.json
+
+# PDFs and large files
+*.pdf
+
+# Documentation that's not needed for deployment
+*.md
+!README.md
+!claude.md
+!MASTER_CLAUDE_TEMPLATE.md
