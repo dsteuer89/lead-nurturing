@@ -1,0 +1,492 @@
+/* ===== CSS Variables / Design System ===== */
+:root {
+    /* CarGurus Brand Colors */
+    --cg-blue: #0763d3;
+    --cg-orange: #FF6B00;
+    --cg-text-primary: #0c0c11;
+    --cg-text-secondary: #5a5a5f;
+    --cg-white: #ffffff;
+    --cg-border-light: #e4e4e5;
+    --cg-border-dark: #c3c3c3;
+    --cg-surface-secondary: #efefef;
+    --cg-success: #00a862;
+    --cg-warning: #ff9500;
+
+    /* Typography */
+    --font-heading: 'Rund Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-body: 'Lato', 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+    /* Font Sizes */
+    --fs-heading-lg: 24px;
+    --fs-heading-md: 20px;
+    --fs-heading-sm: 18px;
+    --fs-body: 14px;
+    --fs-caption: 12px;
+    --fs-button: 16px;
+
+    /* Line Heights */
+    --lh-heading: 1.2;
+    --lh-body: 1.5;
+
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+
+    /* Border Radius */
+    --br-pill: 60px;
+    --br-card: 20px;
+    --br-tag: 2px;
+    --br-input: 8px;
+    --br-counter: 100px;
+
+    /* Shadows */
+    --shadow-btn: 0px 0.3px 0.9px rgba(0, 0, 0, 0.3), 0px 1.6px 3.6px rgba(0, 0, 0, 0.33);
+}
+
+/* ===== Reset & Base Styles ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+    color: var(--cg-text-primary);
+    background-color: var(--cg-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    line-height: var(--lh-heading);
+    letter-spacing: 0.7px;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+a {
+    color: var(--cg-blue);
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ===== Header Navigation ===== */
+.vdp-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md);
+    height: 56px;
+    background-color: var(--cg-white);
+    border-bottom: 1px solid var(--cg-border-light);
+}
+
+.header-logo svg {
+    height: 18px;
+}
+
+.header-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.icon-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cg-text-primary);
+    transition: background-color 0.2s;
+}
+
+.icon-btn:hover {
+    background-color: var(--cg-surface-secondary);
+    border-radius: 8px;
+}
+
+/* ===== All Results Link ===== */
+.all-results-link {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--cg-border-light);
+}
+
+.text-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--cg-blue);
+    font-weight: 600;
+    font-size: var(--fs-body);
+}
+
+/* ===== Photo Gallery ===== */
+.vdp-photo-gallery {
+    position: relative;
+    background-color: var(--cg-surface-secondary);
+}
+
+.gallery-container {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+}
+
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sponsored-tag {
+    position: absolute;
+    top: var(--spacing-md);
+    left: var(--spacing-md);
+    padding: 4px var(--spacing-sm);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--cg-white);
+    font-size: var(--fs-caption);
+    font-weight: 600;
+    border-radius: var(--br-tag);
+}
+
+.gallery-actions {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.icon-btn-round {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    box-shadow: var(--shadow-btn);
+    color: var(--cg-text-primary);
+    transition: transform 0.2s;
+}
+
+.icon-btn-round:hover {
+    transform: scale(1.05);
+}
+
+.photo-counter {
+    position: absolute;
+    bottom: var(--spacing-lg);
+    right: var(--spacing-md);
+    padding: 4px var(--spacing-sm);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--cg-white);
+    font-size: var(--fs-caption);
+    font-weight: 600;
+    border-radius: var(--br-counter);
+}
+
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    color: var(--cg-text-primary);
+    transition: background-color 0.2s;
+}
+
+.gallery-nav:hover {
+    background-color: var(--cg-white);
+}
+
+.gallery-nav-prev {
+    left: var(--spacing-sm);
+}
+
+.gallery-nav-next {
+    right: var(--spacing-sm);
+}
+
+/* ===== Vehicle Info Block ===== */
+.vdp-info-block {
+    padding: var(--spacing-lg) var(--spacing-md);
+}
+
+.vehicle-title {
+    font-size: var(--fs-heading-lg);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+}
+
+.vehicle-meta {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    color: var(--cg-text-secondary);
+    font-size: var(--fs-body);
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.meta-item svg {
+    width: 16px;
+    height: 16px;
+}
+
+.pricing-container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background-color: var(--cg-white);
+    border: 1px solid var(--cg-border-light);
+    border-radius: var(--br-input);
+}
+
+.price-section {
+    flex: 1;
+    text-align: center;
+}
+
+.current-price {
+    font-size: var(--fs-heading-lg);
+    font-weight: 700;
+    color: var(--cg-text-primary);
+}
+
+.original-price {
+    font-size: var(--fs-body);
+    color: var(--cg-text-secondary);
+    text-decoration: line-through;
+    margin-top: 4px;
+}
+
+.divider-line {
+    width: 1px;
+    height: 46px;
+    background-color: var(--cg-border-light);
+}
+
+.deal-rating-section {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.deal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px var(--spacing-sm);
+    border-radius: 4px;
+    font-size: var(--fs-caption);
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.deal-badge.great-deal {
+    background-color: #e6f7f0;
+    color: var(--cg-success);
+}
+
+.deal-amount {
+    font-size: var(--fs-caption);
+    color: var(--cg-text-secondary);
+}
+
+.info-icon {
+    position: absolute;
+    top: 0;
+    right: -4px;
+    width: 16px;
+    height: 16px;
+    color: var(--cg-text-secondary);
+}
+
+/* ===== Body Content ===== */
+.vdp-body {
+    padding: 0 var(--spacing-md) var(--spacing-xl);
+}
+
+/* ===== CTA Section ===== */
+.vdp-cta-section {
+    padding: var(--spacing-xl) var(--spacing-lg);
+    background-color: var(--cg-white);
+    border: 1px solid var(--cg-border-light);
+    border-radius: var(--br-card);
+    margin-bottom: var(--spacing-lg);
+}
+
+.cta-heading {
+    text-align: center;
+    font-size: var(--fs-heading-md);
+    font-weight: 600;
+    margin-bottom: var(--spacing-lg);
+}
+
+.cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    width: 100%;
+    padding: 12px var(--spacing-lg);
+    background-color: var(--cg-blue);
+    color: var(--cg-white);
+    font-family: var(--font-heading);
+    font-size: var(--fs-button);
+    font-weight: 600;
+    letter-spacing: 0.7px;
+    border-radius: var(--br-pill);
+    box-shadow: var(--shadow-btn);
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-primary:hover {
+    background-color: #0552b5;
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+.btn-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px var(--spacing-lg);
+    background-color: var(--cg-white);
+    color: var(--cg-blue);
+    font-family: var(--font-heading);
+    font-size: var(--fs-button);
+    font-weight: 600;
+    letter-spacing: 0.7px;
+    border: 2px solid var(--cg-blue);
+    border-radius: var(--br-pill);
+    transition: background-color 0.2s;
+}
+
+.btn-secondary:hover {
+    background-color: #f5f9ff;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--cg-blue);
+    font-weight: 600;
+    font-size: var(--fs-body);
+}
+
+.contact-link svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* ===== Section Styles ===== */
+.vdp-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.section-heading {
+    font-size: var(--fs-heading-md);
+    font-weight: 600;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* ===== Features Grid ===== */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+}
+
+.feature-item {
+    display: flex;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) 0;
+}
+
+.feature-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cg-text-secondary);
+}
+
+.feature-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.feature-label {
+    font-size: var(--fs-caption);
+    color: var(--cg-text-secondary);
+    margin-bottom: 2px;
+}
+
+.feature-value {
+    font-size: var(--fs-body);
+    font-weight: 600;
+    color: var(--cg-text-primary);
+}
+
+/* ===== Responsive Design ===== */
+@media (min-width: 768px) {
+    .gallery-container {
+        max-width: 768px;
+        margin: 0 auto;
+    }
+
+    .vdp-body {
+        max-width: 768px;
+        margin: 0 auto;
+    }
+}
