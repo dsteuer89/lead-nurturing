@@ -503,106 +503,371 @@ img {
     color: var(--cg-text-primary);
 }
 
-/* ===== Action Sheet Modal ===== */
-.action-sheet-overlay {
+/* ===== iOS Message Interface Modal ===== */
+.message-modal {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     z-index: 9999;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
+    background-color: #000000;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
-.action-sheet-overlay.show {
+.message-modal.show {
     opacity: 1;
 }
 
-.action-sheet-backdrop {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    cursor: pointer;
-}
-
-.action-sheet-container {
-    position: relative;
+.message-screen {
     width: 100%;
     max-width: 375px;
-    padding: 8px;
-    padding-bottom: 32px;
+    height: 100vh;
+    margin: 0 auto;
+    background-color: #000000;
     display: flex;
     flex-direction: column;
-    gap: 8px;
     transform: translateY(100%);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.action-sheet-overlay.show .action-sheet-container {
+.message-modal.show .message-screen {
     transform: translateY(0);
 }
 
-.action-sheet-content {
-    background-color: rgba(245, 245, 245, 0.95);
-    backdrop-filter: blur(40px);
-    -webkit-backdrop-filter: blur(40px);
-    border-radius: 13px;
-    overflow: hidden;
-}
-
-.action-sheet-action {
+/* iOS Status Bar */
+.ios-status-bar {
+    height: 44px;
+    background-color: rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 18px 16px;
-    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0.38px;
-    color: #007AFF;
-    text-decoration: none;
-    text-align: center;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    transition: background-color 0.2s;
+    justify-content: space-between;
+    padding: 0 21px;
 }
 
-.action-sheet-action:active {
-    background-color: rgba(0, 0, 0, 0.05);
-}
-
-.action-sheet-cancel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 18px 16px;
-    background-color: white;
-    backdrop-filter: blur(40px);
-    -webkit-backdrop-filter: blur(40px);
-    border-radius: 13px;
-    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: 20px;
+.status-time {
+    font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
     font-weight: 600;
-    line-height: 24px;
-    letter-spacing: 0.38px;
-    color: #007AFF;
-    text-align: center;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.2s;
+    color: #FFFFFF;
+    letter-spacing: -0.28px;
 }
 
-.action-sheet-cancel:active {
-    background-color: rgba(0, 0, 0, 0.05);
+.status-icons {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Message Header */
+.message-header {
+    position: relative;
+    height: 77px;
+    background-color: #F5F5F3;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px;
+    border-bottom: 0.3px solid #B2B2B2;
+}
+
+.message-title {
+    font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000000;
+    margin: 0;
+}
+
+.message-cancel {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    color: #3478F6;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Message Compose Area */
+.message-compose {
+    flex: 1;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+}
+
+/* To Field */
+.message-to-field {
+    display: flex;
+    align-items: center;
+    padding: 14px 16px;
+    background-color: #FFFFFF;
+    border-bottom: 0.5px solid #C6C5CA;
+    gap: 8px;
+}
+
+.to-label {
+    font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 15px;
+    color: #909093;
+}
+
+.to-number {
+    flex: 1;
+    font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 15px;
+    color: #3478F6;
+}
+
+.add-recipient {
+    width: 22px;
+    height: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* Messages Thread */
+.messages-thread {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px 12px;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.message-item {
+    display: flex;
+    margin-bottom: 4px;
+}
+
+.message-item.sent {
+    justify-content: flex-end;
+}
+
+.message-item.received {
+    justify-content: flex-start;
+}
+
+.message-bubble-chat {
+    max-width: 70%;
+    padding: 10px 14px;
+    border-radius: 18px;
+    font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 15px;
+    line-height: 1.4;
+    letter-spacing: -0.24px;
+    word-wrap: break-word;
+}
+
+.message-bubble-chat.sent {
+    background-color: #007AFF;
+    color: #FFFFFF;
+    border-bottom-right-radius: 4px;
+}
+
+.message-bubble-chat.received {
+    background-color: #E5E5EA;
+    color: #000000;
+    border-bottom-left-radius: 4px;
+}
+
+/* Typing indicator */
+.typing-indicator {
+    display: flex;
+    gap: 4px;
+    padding: 10px 14px;
+    background-color: #E5E5EA;
+    border-radius: 18px;
+    border-bottom-left-radius: 4px;
+    width: fit-content;
+}
+
+.typing-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #8E8E93;
+    border-radius: 50%;
+    animation: typing 1.4s infinite;
+}
+
+.typing-dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+    0%, 60%, 100% {
+        opacity: 0.3;
+        transform: translateY(0);
+    }
+    30% {
+        opacity: 1;
+        transform: translateY(-4px);
+    }
+}
+
+/* Message Input Area */
+.message-input-area {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 6px 12px 6px 12px;
+    background-color: #FFFFFF;
+}
+
+.message-bubble {
+    position: relative;
+    min-height: 74px;
+    padding: 10px 12px;
+    background-color: #FFFFFF;
+    border: 1px solid #C5C5C7;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.message-text {
+    flex: 1;
+    font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 15px;
+    color: #000000;
+    line-height: 1.4;
+    letter-spacing: -0.6px;
+    margin: 0;
+    padding-right: 35px;
+    outline: none;
+}
+
+.message-text:empty:before {
+    content: attr(data-placeholder);
+    color: #999;
+}
+
+.send-button {
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+    width: 27px;
+    height: 27px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.message-action-btn {
+    width: 34px;
+    height: 34px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 0;
+}
+
+/* iOS Keyboard */
+.ios-keyboard {
+    background: linear-gradient(180deg, rgba(210, 213, 219, 0.94) 0%, rgba(210, 213, 219, 0.94) 100%);
+    backdrop-filter: blur(13.591px);
+    -webkit-backdrop-filter: blur(13.591px);
+    padding: 7px 3px 0 3px;
+    border-top: 0.5px solid rgba(0, 0, 0, 0.3);
+}
+
+.keyboard-row {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    margin-bottom: 7px;
+}
+
+.keyboard-row:nth-child(2) {
+    padding: 0 15px;
+}
+
+.key {
+    flex: 1;
+    max-width: 32px;
+    height: 42px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 23px;
+    color: #191919;
+    cursor: pointer;
+    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.35);
+    user-select: none;
+}
+
+.key:active {
+    background-color: #E5E5EA;
+}
+
+.key-shift,
+.key-delete {
+    background-color: #C6CCD2;
+    max-width: 42px;
+}
+
+.key-wide {
+    max-width: 87px;
+    background-color: #C6CCD2;
+    font-size: 16px;
+}
+
+.key-space {
+    flex: 3;
+    max-width: 184px;
+    font-size: 16px;
+}
+
+.keyboard-bottom {
+    gap: 6px;
+}
+
+.keyboard-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 25px 9px 25px;
+}
+
+.keyboard-emoji,
+.keyboard-mic {
+    width: 27px;
+    height: 27px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-indicator {
+    width: 134px;
+    height: 5px;
+    background-color: #000000;
+    border-radius: 100px;
+    margin: 4px auto 9px auto;
 }
 
 /* ===== Responsive Design ===== */

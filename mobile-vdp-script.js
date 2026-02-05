@@ -153,43 +153,70 @@ function showMessage(message, type) {
     }, 3000);
 }
 
-// ===== Action Sheet Modal =====
+// ===== iOS Message Modal =====
 function initActionSheet() {
     const textButton = document.querySelector('.btn-text');
-    const modal = document.getElementById('textActionSheet');
-    const backdrop = document.getElementById('modalBackdrop');
-    const cancelButton = document.getElementById('cancelButton');
+    const modal = document.getElementById('messageModal');
+    const cancelButton = document.getElementById('messageCancelBtn');
+    const sendButton = document.getElementById('sendMessageBtn');
+    const messageInput = document.getElementById('messageTextInput');
 
     if (!textButton || !modal) return;
 
     // Show modal when Text button is clicked
     textButton.addEventListener('click', function(e) {
         e.preventDefault();
-        showActionSheet();
+        showMessageModal();
     });
-
-    // Hide modal when backdrop is clicked
-    if (backdrop) {
-        backdrop.addEventListener('click', hideActionSheet);
-    }
 
     // Hide modal when Cancel button is clicked
     if (cancelButton) {
-        cancelButton.addEventListener('click', hideActionSheet);
+        cancelButton.addEventListener('click', hideMessageModal);
+    }
+
+    // Handle send button
+    if (sendButton) {
+        sendButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            handleSendMessage();
+        });
+    }
+
+    // Handle Enter key to send
+    if (messageInput) {
+        messageInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                handleSendMessage();
+            }
+        });
     }
 
     // Hide modal on Escape key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && modal.style.display !== 'none') {
-            hideActionSheet();
+            hideMessageModal();
         }
     });
 }
 
-function showActionSheet() {
-    const modal = document.getElementById('textActionSheet');
+function showMessageModal() {
+    const modal = document.getElementById('messageModal');
+    const messagesThread = document.getElementById('messagesThread');
+    const messageInput = document.getElementById('messageTextInput');
+
     if (modal) {
-        modal.style.display = 'flex';
+        // Clear previous messages
+        if (messagesThread) {
+            messagesThread.innerHTML = '';
+        }
+
+        // Reset input text
+        if (messageInput) {
+            messageInput.textContent = "I'm interested in the 2024 Hyundai Ioniq 6 SEL AWD I found listed on CarGurus. Is it still available?";
+        }
+
+        modal.style.display = 'block';
         // Trigger reflow for animation
         modal.offsetHeight;
         modal.classList.add('show');
@@ -197,8 +224,8 @@ function showActionSheet() {
     }
 }
 
-function hideActionSheet() {
-    const modal = document.getElementById('textActionSheet');
+function hideMessageModal() {
+    const modal = document.getElementById('messageModal');
     if (modal) {
         modal.classList.remove('show');
         document.body.style.overflow = '';
@@ -206,6 +233,62 @@ function hideActionSheet() {
             modal.style.display = 'none';
         }, 300); // Match CSS transition duration
     }
+}
+
+function handleSendMessage() {
+    const messageTextElement = document.getElementById('messageTextInput');
+    const messageText = messageTextElement.textContent.trim();
+    const messagesThread = document.getElementById('messagesThread');
+
+    if (!messageText) return;
+
+    // Display sent message
+    const sentMessage = document.createElement('div');
+    sentMessage.className = 'message-item sent';
+    sentMessage.innerHTML = `
+        <div class="message-bubble-chat sent">${messageText}</div>
+    `;
+    messagesThread.appendChild(sentMessage);
+
+    // Clear input
+    messageTextElement.textContent = '';
+
+    // Scroll to bottom
+    messagesThread.scrollTop = messagesThread.scrollHeight;
+
+    // Show typing indicator
+    const typingIndicator = document.createElement('div');
+    typingIndicator.className = 'message-item received';
+    typingIndicator.id = 'typingIndicator';
+    typingIndicator.innerHTML = `
+        <div class="typing-indicator">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+        </div>
+    `;
+    messagesThread.appendChild(typingIndicator);
+    messagesThread.scrollTop = messagesThread.scrollHeight;
+
+    // Send automated reply after 1 second
+    setTimeout(() => {
+        // Remove typing indicator
+        const typingEl = document.getElementById('typingIndicator');
+        if (typingEl) {
+            typingEl.remove();
+        }
+
+        // Display reply message
+        const replyMessage = document.createElement('div');
+        replyMessage.className = 'message-item received';
+        replyMessage.innerHTML = `
+            <div class="message-bubble-chat received">Thanks for contacting CarGurus and your questions about the 2024 Hyundai Ioniq 6 SEL AWD. It is currently available! Do you have any additional questions I can help answer? To stop receiving messages, reply STOP. For help, reply HELP.</div>
+        `;
+        messagesThread.appendChild(replyMessage);
+
+        // Scroll to bottom
+        messagesThread.scrollTop = messagesThread.scrollHeight;
+    }, 1000);
 }
 
 // Add CSS animations

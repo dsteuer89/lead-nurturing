@@ -254,16 +254,133 @@
         <div id="additional-sections"></div>
     </main>
 
-    <!-- Action Sheet Modal -->
-    <div class="action-sheet-overlay" id="textActionSheet" style="display: none;">
-        <div class="action-sheet-backdrop" id="modalBackdrop"></div>
-        <div class="action-sheet-container">
-            <div class="action-sheet-content">
-                <a href="tel:+11234567890" class="action-sheet-action primary">
-                    Call +1 (123) 456-7890
-                </a>
+    <!-- iOS Message Interface Modal -->
+    <div class="message-modal" id="messageModal" style="display: none;">
+        <div class="message-screen">
+            <!-- iOS Status Bar -->
+            <div class="ios-status-bar">
+                <span class="status-time">9:41</span>
+                <div class="status-icons">
+                    <svg width="17" height="12" viewBox="0 0 17 12" fill="white">
+                        <path d="M15.5 0h-14C.7 0 0 .7 0 1.5v9c0 .8.7 1.5 1.5 1.5h14c.8 0 1.5-.7 1.5-1.5v-9c0-.8-.7-1.5-1.5-1.5z"/>
+                    </svg>
+                    <svg width="15" height="11" viewBox="0 0 15 11" fill="white">
+                        <path d="M0 8.5h3v2.25H0zm5.5 0h3v2.25h-3zm5.5 0h4v2.25h-4z"/>
+                    </svg>
+                    <svg width="25" height="12" viewBox="0 0 25 12" fill="white">
+                        <rect x="0" y="0" width="22" height="11.3" rx="2.5" stroke="white" fill="none"/>
+                        <rect x="23" y="3.7" width="1.5" height="4" rx="0.75" fill="white"/>
+                        <rect x="2" y="2" width="18" height="7.3" rx="1" fill="white"/>
+                    </svg>
+                </div>
             </div>
-            <button class="action-sheet-cancel" id="cancelButton">Cancel</button>
+
+            <!-- Message Header -->
+            <div class="message-header">
+                <button class="message-cancel" id="messageCancelBtn">Cancel</button>
+                <h2 class="message-title">New Message</h2>
+            </div>
+
+            <!-- Message Compose Area -->
+            <div class="message-compose">
+                <!-- To Field -->
+                <div class="message-to-field">
+                    <label class="to-label">To:</label>
+                    <span class="to-number">+1 (888) 888-8888</span>
+                    <button class="add-recipient" aria-label="Add recipient">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                            <circle cx="11" cy="11" r="10" stroke="#007AFF" stroke-width="2"/>
+                            <path d="M11 6v10M6 11h10" stroke="#007AFF" stroke-width="2"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Messages Thread -->
+                <div class="messages-thread" id="messagesThread">
+                    <!-- Messages will appear here -->
+                </div>
+
+                <!-- Message Input Area -->
+                <div class="message-input-area">
+                    <div class="message-bubble">
+                        <p class="message-text" id="messageTextInput" contenteditable="true">I'm interested in the 2024 Hyundai Ioniq 6 SEL AWD I found listed on CarGurus. Is it still available?</p>
+                        <button class="send-button" id="sendMessageBtn" aria-label="Send message">
+                            <svg width="27" height="27" viewBox="0 0 27 27" fill="none">
+                                <circle cx="13.5" cy="13.5" r="13.5" fill="#007AFF"/>
+                                <path d="M12 8l6 5.5-6 5.5" stroke="white" stroke-width="2" fill="none"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <button class="message-action-btn" aria-label="Add attachment">
+                        <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+                            <circle cx="17" cy="17" r="17" fill="#E5E5EA"/>
+                            <text x="17" y="22" text-anchor="middle" font-size="18" fill="#7D7F85">+</text>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- iOS Keyboard -->
+                <div class="ios-keyboard">
+                    <div class="keyboard-row">
+                        <div class="key">Q</div>
+                        <div class="key">W</div>
+                        <div class="key">E</div>
+                        <div class="key">R</div>
+                        <div class="key">T</div>
+                        <div class="key">Y</div>
+                        <div class="key">U</div>
+                        <div class="key">I</div>
+                        <div class="key">O</div>
+                        <div class="key">P</div>
+                    </div>
+                    <div class="keyboard-row">
+                        <div class="key">A</div>
+                        <div class="key">S</div>
+                        <div class="key">D</div>
+                        <div class="key">F</div>
+                        <div class="key">G</div>
+                        <div class="key">H</div>
+                        <div class="key">J</div>
+                        <div class="key">K</div>
+                        <div class="key">L</div>
+                    </div>
+                    <div class="keyboard-row">
+                        <div class="key key-shift">
+                            <svg width="20" height="17" viewBox="0 0 20 17" fill="#000">
+                                <path d="M10 0l8 9h-5v7h-6V9H2z"/>
+                            </svg>
+                        </div>
+                        <div class="key">Z</div>
+                        <div class="key">X</div>
+                        <div class="key">C</div>
+                        <div class="key">V</div>
+                        <div class="key">B</div>
+                        <div class="key">N</div>
+                        <div class="key">M</div>
+                        <div class="key key-delete">
+                            <svg width="23" height="17" viewBox="0 0 23 17" fill="#000">
+                                <path d="M0 8.5L6 0h17v17H6z"/>
+                                <path d="M15 5l-6 6m0-6l6 6" stroke="white" stroke-width="2"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="keyboard-row keyboard-bottom">
+                        <div class="key key-wide">123</div>
+                        <div class="key key-space">space</div>
+                        <div class="key key-wide">return</div>
+                    </div>
+                    <div class="keyboard-actions">
+                        <button class="keyboard-emoji">😀</button>
+                        <button class="keyboard-mic">
+                            <svg width="15" height="25" viewBox="0 0 15 25" fill="#7D7F85">
+                                <rect x="4" y="0" width="7" height="14" rx="3.5"/>
+                                <path d="M1 11c0 4.4 3.6 8 8 8s8-3.6 8-8M9 19v5"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="home-indicator"></div>
+                </div>
+            </div>
         </div>
     </div>
 
