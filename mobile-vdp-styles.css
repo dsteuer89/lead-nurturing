@@ -353,16 +353,10 @@ img {
 
 .cta-heading {
     text-align: center;
-    font-size: var(--fs-heading-md);
-    font-weight: 600;
+    font-size: 22px;
+    font-weight: 700;
     margin-bottom: var(--spacing-lg);
-}
-
-.cta-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md);
-    margin-bottom: var(--spacing-lg);
+    color: var(--cg-text-primary);
 }
 
 .btn-primary {
@@ -371,7 +365,7 @@ img {
     justify-content: center;
     gap: var(--spacing-sm);
     width: 100%;
-    padding: 12px var(--spacing-lg);
+    padding: 14px var(--spacing-lg);
     background-color: var(--cg-blue);
     color: var(--cg-white);
     font-family: var(--font-heading);
@@ -381,6 +375,7 @@ img {
     border-radius: var(--br-pill);
     box-shadow: var(--shadow-btn);
     transition: background-color 0.2s, transform 0.1s;
+    margin-bottom: var(--spacing-md);
 }
 
 .btn-primary:hover {
@@ -391,18 +386,24 @@ img {
     transform: scale(0.98);
 }
 
+.cta-buttons-row {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
 .btn-secondary {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    padding: 12px var(--spacing-lg);
+    flex: 1;
+    gap: var(--spacing-sm);
+    padding: 12px var(--spacing-md);
     background-color: #e8f3ff;
     color: var(--cg-text-primary);
     font-family: var(--font-heading);
-    font-size: var(--fs-button);
+    font-size: var(--fs-body);
     font-weight: 600;
-    letter-spacing: 0.7px;
     border: none;
     border-radius: var(--br-pill);
     transition: background-color 0.2s;
@@ -412,24 +413,41 @@ img {
     background-color: #d4e9ff;
 }
 
-.contact-links {
-    display: flex;
-    justify-content: center;
-    gap: var(--spacing-xl);
-}
-
-.contact-link {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--cg-blue);
-    font-weight: 600;
-    font-size: var(--fs-body);
-}
-
-.contact-link svg {
+.btn-secondary svg {
     width: 20px;
     height: 20px;
+}
+
+.finance-link {
+    display: block;
+    text-align: center;
+    color: var(--cg-text-primary);
+    font-weight: 600;
+    font-size: var(--fs-body);
+    text-decoration: underline;
+    margin-bottom: var(--spacing-lg);
+}
+
+.finance-link:hover {
+    color: var(--cg-blue);
+}
+
+.consent-text {
+    font-size: 11px;
+    line-height: 1.5;
+    color: var(--cg-text-secondary);
+    text-align: left;
+    margin: 0;
+}
+
+.consent-link {
+    color: var(--cg-blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.consent-link:hover {
+    text-decoration: underline;
 }
 
 /* ===== Section Styles ===== */
