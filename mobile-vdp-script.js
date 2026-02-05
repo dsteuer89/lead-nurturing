@@ -235,6 +235,16 @@ function hideMessageModal() {
     }
 }
 
+// Conversation state management
+let conversationState = {
+    step: 0,
+    userName: '',
+    userEmail: '',
+    appointmentDay: '',
+    appointmentTime: '',
+    additionalInfo: ''
+};
+
 function handleSendMessage() {
     const messageTextElement = document.getElementById('messageTextInput');
     const messageText = messageTextElement.textContent.trim();
@@ -257,6 +267,17 @@ function handleSendMessage() {
     messagesThread.scrollTop = messagesThread.scrollHeight;
 
     // Show typing indicator
+    showTypingIndicator();
+
+    // Process message and send reply after 1 second
+    setTimeout(() => {
+        hideTypingIndicator();
+        processConversation(messageText, messagesThread);
+    }, 1000);
+}
+
+function showTypingIndicator() {
+    const messagesThread = document.getElementById('messagesThread');
     const typingIndicator = document.createElement('div');
     typingIndicator.className = 'message-item received';
     typingIndicator.id = 'typingIndicator';
@@ -269,26 +290,125 @@ function handleSendMessage() {
     `;
     messagesThread.appendChild(typingIndicator);
     messagesThread.scrollTop = messagesThread.scrollHeight;
+}
 
-    // Send automated reply after 1 second
-    setTimeout(() => {
-        // Remove typing indicator
-        const typingEl = document.getElementById('typingIndicator');
-        if (typingEl) {
-            typingEl.remove();
-        }
+function hideTypingIndicator() {
+    const typingEl = document.getElementById('typingIndicator');
+    if (typingEl) {
+        typingEl.remove();
+    }
+}
 
-        // Display reply message
-        const replyMessage = document.createElement('div');
-        replyMessage.className = 'message-item received';
-        replyMessage.innerHTML = `
-            <div class="message-bubble-chat received">Thanks for contacting CarGurus and your questions about the 2024 Hyundai Ioniq 6 SEL AWD. It is currently available! Do you have any additional questions I can help answer? To stop receiving messages, reply STOP. For help, reply HELP.</div>
-        `;
-        messagesThread.appendChild(replyMessage);
+function sendReply(text, messagesThread) {
+    const replyMessage = document.createElement('div');
+    replyMessage.className = 'message-item received';
+    replyMessage.innerHTML = `
+        <div class="message-bubble-chat received">${text}</div>
+    `;
+    messagesThread.appendChild(replyMessage);
+    messagesThread.scrollTop = messagesThread.scrollHeight;
+}
 
-        // Scroll to bottom
-        messagesThread.scrollTop = messagesThread.scrollHeight;
-    }, 1000);
+function processConversation(userMessage, messagesThread) {
+    const lowerMessage = userMessage.toLowerCase();
+
+    switch(conversationState.step) {
+        case 0: // Initial message - ask about test drive
+            sendReply("Thanks for contacting CarGurus and your questions about the 2024 Hyundai Ioniq 6 SEL AWD. It is currently available! Would you like to schedule a test drive?", messagesThread);
+            conversationState.step = 1;
+            break;
+
+        case 1: // User responds to test drive question
+            if (lowerMessage.includes('yes') || lowerMessage.includes('yeah') || lowerMessage.includes('sure') || lowerMessage.includes('interested')) {
+                sendReply("Great! Based on our information, AutoMax Preowned is open today from 9:00 AM - 8:00 PM. Would you like to schedule your visit for today, or would another day work better?", messagesThread);
+                conversationState.step = 2;
+            } else if (lowerMessage.includes('no') || lowerMessage.includes('not')) {
+                sendReply("No problem! Is there anything else I can help you with regarding this vehicle?", messagesThread);
+                conversationState.step = 0;
+            } else {
+                sendReply("Great! Based on our information, AutoMax Preowned is open today from 9:00 AM - 8:00 PM. Would you like to schedule your visit for today, or would another day work better?", messagesThread);
+                conversationState.step = 2;
+            }
+            break;
+
+        case 2: // User picks a day
+            // Extract day from message
+            if (lowerMessage.includes('today')) {
+                conversationState.appointmentDay = 'today';
+            } else if (lowerMessage.includes('tomorrow')) {
+                conversationState.appointmentDay = 'tomorrow';
+            } else if (lowerMessage.includes('monday') || lowerMessage.includes('tuesday') || lowerMessage.includes('wednesday') ||
+                       lowerMessage.includes('thursday') || lowerMessage.includes('friday') || lowerMessage.includes('saturday') ||
+                       lowerMessage.includes('sunday')) {
+                // Extract the day mentioned
+                const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+                for (let day of days) {
+                    if (lowerMessage.includes(day)) {
+                        conversationState.appointmentDay = day.charAt(0).toUpperCase() + day.slice(1);
+                        break;
+                    }
+                }
+            } else {
+                conversationState.appointmentDay = 'your preferred day';
+            }
+
+            sendReply(`Perfect! I'll reach out to AutoMax Preowned to coordinate your appointment so they can have the car ready and waiting for you. Just to confirm, you'd like to visit ${conversationState.appointmentDay} during their business hours (9:00 AM - 8:00 PM)?`, messagesThread);
+            conversationState.step = 3;
+            break;
+
+        case 3: // Confirm time and collect contact info
+            sendReply("AutoMax Preowned will be in touch as soon as possible. To help them assist you better, may I have your name?", messagesThread);
+            conversationState.step = 4;
+            break;
+
+        case 4: // Collect name, ask for email
+            conversationState.userName = userMessage;
+            sendReply(`Thank you, ${conversationState.userName}! Apart from your phone number, would you like to provide an email address as an alternative contact method?`, messagesThread);
+            conversationState.step = 5;
+            break;
+
+        case 5: // Collect email or skip, then summarize
+            if (lowerMessage.includes('@')) {
+                conversationState.userEmail = userMessage;
+            }
+
+            const emailPart = conversationState.userEmail ? ` or via email at ${conversationState.userEmail}` : '';
+            sendReply(`Perfect, ${conversationState.userName}! Here's a quick recap: You're interested in the 2024 Hyundai Ioniq 6 SEL AWD and would like to schedule a test drive at AutoMax Preowned on ${conversationState.appointmentDay}. They'll contact you at this number${emailPart}. Is there anything else you'd like the dealer to know or any questions you'd like them to prepare for?`, messagesThread);
+            conversationState.step = 6;
+            break;
+
+        case 6: // Collect additional info, then confirm
+            if (!lowerMessage.includes('no') && !lowerMessage.includes('nope') && userMessage.length > 5) {
+                conversationState.additionalInfo = userMessage;
+            }
+
+            sendReply(`Thank you! I've forwarded your information to AutoMax Preowned and they'll be reaching out shortly to confirm your appointment. Before we wrap up, how would you rate your experience with CarGurus today? (1-5, with 5 being the best)`, messagesThread);
+            conversationState.step = 7;
+            break;
+
+        case 7: // Handle rating and close
+            const rating = userMessage.match(/[1-5]/);
+            if (rating) {
+                const ratingValue = parseInt(rating[0]);
+                if (ratingValue >= 4) {
+                    sendReply(`Thank you for the ${ratingValue}-star rating! We're so glad we could help. If you need anything else, feel free to reach out. Have a great visit at AutoMax Preowned! To stop receiving messages, reply STOP. For help, reply HELP.`, messagesThread);
+                } else {
+                    sendReply(`Thank you for your ${ratingValue}-star rating. We appreciate your feedback and will work to improve. If you need anything else, feel free to reach out. Have a great visit at AutoMax Preowned! To stop receiving messages, reply STOP. For help, reply HELP.`, messagesThread);
+                }
+            } else {
+                sendReply("Thank you for your feedback! If you need anything else, feel free to reach out. Have a great visit at AutoMax Preowned! To stop receiving messages, reply STOP. For help, reply HELP.", messagesThread);
+            }
+            // Reset conversation
+            conversationState = {
+                step: 0,
+                userName: '',
+                userEmail: '',
+                appointmentDay: '',
+                appointmentTime: '',
+                additionalInfo: ''
+            };
+            break;
+    }
 }
 
 // Add CSS animations
