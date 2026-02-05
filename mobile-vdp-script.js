@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize all interactive components
     initGallery();
     initEmailForm();
+    initActionSheet();
 });
 
 // ===== Photo Gallery Carousel =====
@@ -150,6 +151,61 @@ function showMessage(message, type) {
         toast.style.animation = 'slideDown 0.3s ease';
         setTimeout(() => toast.remove(), 300);
     }, 3000);
+}
+
+// ===== Action Sheet Modal =====
+function initActionSheet() {
+    const textButton = document.querySelector('.btn-text');
+    const modal = document.getElementById('textActionSheet');
+    const backdrop = document.getElementById('modalBackdrop');
+    const cancelButton = document.getElementById('cancelButton');
+
+    if (!textButton || !modal) return;
+
+    // Show modal when Text button is clicked
+    textButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        showActionSheet();
+    });
+
+    // Hide modal when backdrop is clicked
+    if (backdrop) {
+        backdrop.addEventListener('click', hideActionSheet);
+    }
+
+    // Hide modal when Cancel button is clicked
+    if (cancelButton) {
+        cancelButton.addEventListener('click', hideActionSheet);
+    }
+
+    // Hide modal on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.style.display !== 'none') {
+            hideActionSheet();
+        }
+    });
+}
+
+function showActionSheet() {
+    const modal = document.getElementById('textActionSheet');
+    if (modal) {
+        modal.style.display = 'flex';
+        // Trigger reflow for animation
+        modal.offsetHeight;
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function hideActionSheet() {
+    const modal = document.getElementById('textActionSheet');
+    if (modal) {
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 300); // Match CSS transition duration
+    }
 }
 
 // Add CSS animations
