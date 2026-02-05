@@ -597,10 +597,11 @@ img {
 
 /* Message Compose Area */
 .message-compose {
-    flex: 1;
+    height: calc(100vh - 121px); /* Status bar (44px) + Header (77px) = 121px */
     background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 /* To Field */
@@ -639,11 +640,14 @@ img {
 .messages-thread {
     flex: 1;
     overflow-y: auto;
+    overflow-x: hidden;
     padding: 16px 12px;
     background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
     gap: 8px;
+    min-height: 0; /* Important for flex scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
 
 .message-item {
@@ -722,11 +726,12 @@ img {
 
 /* Message Input Area */
 .message-input-area {
-    flex-shrink: 0;
+    flex-shrink: 0; /* Keep fixed at bottom */
     display: flex;
     flex-direction: column;
     padding: 6px 12px 6px 12px;
     background-color: #FFFFFF;
+    border-top: 0.5px solid #E5E5E5;
 }
 
 .message-bubble {
@@ -782,6 +787,7 @@ img {
 
 /* iOS Keyboard */
 .ios-keyboard {
+    flex-shrink: 0; /* Keep fixed at bottom */
     background: linear-gradient(180deg, rgba(210, 213, 219, 0.94) 0%, rgba(210, 213, 219, 0.94) 100%);
     backdrop-filter: blur(13.591px);
     -webkit-backdrop-filter: blur(13.591px);

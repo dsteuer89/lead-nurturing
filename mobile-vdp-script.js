@@ -245,6 +245,96 @@ let conversationState = {
     additionalInfo: ''
 };
 
+// Business hours (24-hour format)
+const BUSINESS_HOURS = {
+    open: 9,  // 9 AM
+    close: 20 // 8 PM
+};
+
+// Parse time from user message
+function parseTime(message) {
+    const lowerMessage = message.toLowerCase();
+
+    // Check for time patterns
+    // Pattern 1: "3pm", "3:00pm", "15:00"
+    const timePattern = /(\d{1,2})(?::(\d{2}))?\s*(am|pm)?/i;
+    const match = lowerMessage.match(timePattern);
+
+    if (match) {
+        let hours = parseInt(match[1]);
+        const minutes = match[2] ? parseInt(match[2]) : 0;
+        const meridiem = match[3] ? match[3].toLowerCase() : null;
+
+        // Convert to 24-hour format
+        if (meridiem === 'pm' && hours !== 12) {
+            hours += 12;
+        } else if (meridiem === 'am' && hours === 12) {
+            hours = 0;
+        }
+
+        return { hours, minutes };
+    }
+
+    // Pattern 2: "morning", "afternoon", "evening"
+    if (lowerMessage.includes('morning')) {
+        return { hours: 10, minutes: 0, description: 'morning' };
+    }
+    if (lowerMessage.includes('afternoon')) {
+        return { hours: 14, minutes: 0, description: 'afternoon' };
+    }
+    if (lowerMessage.includes('evening')) {
+        return { hours: 18, minutes: 0, description: 'evening' };
+    }
+
+    return null;
+}
+
+// Validate if time is within business hours
+function validateBusinessHours(timeObj) {
+    if (!timeObj) return { valid: false, reason: 'no_time' };
+
+    if (timeObj.hours < BUSINESS_HOURS.open) {
+        return {
+            valid: false,
+            reason: 'too_early',
+            suggestion: `${BUSINESS_HOURS.open}:00 AM`
+        };
+    }
+
+    if (timeObj.hours >= BUSINESS_HOURS.close) {
+        return {
+            valid: false,
+            reason: 'too_late',
+            suggestion: `7:30 PM`
+        };
+    }
+
+    return { valid: true };
+}
+
+// Format time for display
+function formatTime(timeObj) {
+    if (!timeObj) return '';
+
+    if (timeObj.description) {
+        return timeObj.description;
+    }
+
+    let hours = timeObj.hours;
+    const minutes = timeObj.minutes || 0;
+    const meridiem = hours >= 12 ? 'PM' : 'AM';
+
+    // Convert to 12-hour format
+    if (hours > 12) {
+        hours -= 12;
+    } else if (hours === 0) {
+        hours = 12;
+    }
+
+    const minuteStr = minutes > 0 ? `:${minutes.toString().padStart(2, '0')}` : '';
+    return `${hours}${minuteStr} ${meridiem}`;
+}
+
 function handleSendMessage() {
     const messageTextElement = document.getElementById('messageTextInput');
     const messageText = messageTextElement.textContent.trim();
@@ -331,7 +421,7 @@ function processConversation(userMessage, messagesThread) {
             }
             break;
 
-        case 2: // User picks a day
+        case 2: // User picks a day and potentially time
             // Extract day from message
             if (lowerMessage.includes('today')) {
                 conversationState.appointmentDay = 'today';
@@ -352,11 +442,51 @@ function processConversation(userMessage, messagesThread) {
                 conversationState.appointmentDay = 'your preferred day';
             }
 
-            sendReply(`Perfect! I'll reach out to AutoMax Preowned to coordinate your appointment so they can have the car ready and waiting for you. Just to confirm, you'd like to visit ${conversationState.appointmentDay} during their business hours (9:00 AM - 8:00 PM)?`, messagesThread);
-            conversationState.step = 3;
+            // Try to parse time from the message
+            const timeObj = parseTime(userMessage);
+
+            if (timeObj) {
+                const validation = validateBusinessHours(timeObj);
+
+                if (validation.valid) {
+                    // Valid time - store it and move on
+                    conversationState.appointmentTime = formatTime(timeObj);
+                    sendReply(`Perfect! I'll reach out to AutoMax Preowned to coordinate your appointment for ${conversationState.appointmentDay} at ${conversationState.appointmentTime} so they can have the car ready and waiting for you.`, messagesThread);
+                    conversationState.step = 3;
+                } else if (validation.reason === 'too_early' || validation.reason === 'too_late') {
+                    // Invalid time - suggest alternative
+                    sendReply(`I see you'd like ${conversationState.appointmentDay} at ${formatTime(timeObj)}. AutoMax Preowned is open from 9:00 AM to 8:00 PM. Would ${validation.suggestion} work instead?`, messagesThread);
+                    conversationState.step = 2; // Stay on same step to get new time
+                }
+            } else {
+                // No time specified - ask for it
+                sendReply(`Great! What time works best for you on ${conversationState.appointmentDay}? AutoMax Preowned is open from 9:00 AM to 8:00 PM.`, messagesThread);
+                conversationState.step = 2.5; // Sub-step to collect time
+            }
             break;
 
-        case 3: // Confirm time and collect contact info
+        case 2.5: // Collect specific time after day was chosen
+            const specificTime = parseTime(userMessage);
+
+            if (specificTime) {
+                const validation = validateBusinessHours(specificTime);
+
+                if (validation.valid) {
+                    conversationState.appointmentTime = formatTime(specificTime);
+                    sendReply(`Perfect! I'll reach out to AutoMax Preowned to coordinate your appointment for ${conversationState.appointmentDay} at ${conversationState.appointmentTime} so they can have the car ready and waiting for you.`, messagesThread);
+                    conversationState.step = 3;
+                } else if (validation.reason === 'too_early' || validation.reason === 'too_late') {
+                    sendReply(`I see you'd like ${formatTime(specificTime)}. AutoMax Preowned is open from 9:00 AM to 8:00 PM. Would ${validation.suggestion} work instead?`, messagesThread);
+                    conversationState.step = 2.5; // Stay here to get new time
+                }
+            } else {
+                // Still no valid time - try again
+                sendReply(`I didn't catch the time. What time works best for you? AutoMax Preowned is open from 9:00 AM to 8:00 PM.`, messagesThread);
+                conversationState.step = 2.5;
+            }
+            break;
+
+        case 3: // Move to collect contact info (no redundant confirmation needed)
             sendReply("AutoMax Preowned will be in touch as soon as possible. To help them assist you better, may I have your name?", messagesThread);
             conversationState.step = 4;
             break;
@@ -373,7 +503,8 @@ function processConversation(userMessage, messagesThread) {
             }
 
             const emailPart = conversationState.userEmail ? ` or via email at ${conversationState.userEmail}` : '';
-            sendReply(`Perfect, ${conversationState.userName}! Here's a quick recap: You're interested in the 2024 Hyundai Ioniq 6 SEL AWD and would like to schedule a test drive at AutoMax Preowned on ${conversationState.appointmentDay}. They'll contact you at this number${emailPart}. Is there anything else you'd like the dealer to know or any questions you'd like them to prepare for?`, messagesThread);
+            const timePart = conversationState.appointmentTime ? ` at ${conversationState.appointmentTime}` : '';
+            sendReply(`Perfect, ${conversationState.userName}! Here's a quick recap: You're interested in the 2024 Hyundai Ioniq 6 SEL AWD and would like to schedule a test drive at AutoMax Preowned on ${conversationState.appointmentDay}${timePart}. They'll contact you at this number${emailPart}. Is there anything else you'd like the dealer to know or any questions you'd like them to prepare for?`, messagesThread);
             conversationState.step = 6;
             break;
 
