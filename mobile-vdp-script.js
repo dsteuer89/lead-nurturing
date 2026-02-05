@@ -404,7 +404,7 @@ function processConversation(userMessage, messagesThread) {
 
     switch(conversationState.step) {
         case 0: // Initial message - ask about test drive
-            sendReply("Thanks for contacting CarGurus and your questions about the 2024 Hyundai Ioniq 6 SEL AWD. It is currently available! Would you like to schedule a test drive?", messagesThread);
+            sendReply("Thanks for contacting CarGurus and your questions about the 2024 Hyundai Ioniq 6 SEL AWD. It is currently available! Would you like to schedule a test drive? To stop receiving messages, reply STOP. For help, reply HELP.", messagesThread);
             conversationState.step = 1;
             break;
 
