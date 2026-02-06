@@ -1,13 +1,14 @@
 // Lead Nurturing Chat Tester Script
 
-// Always use proxy - it handles CORS
-const API_URL = "/api/chat-proxy";
+// Use direct API call - requires VPN access
+const API_URL = "https://lead-nurturing-na.svc.ue1.site-dev.c-gurus.com/api/lead-nurturing/v1/internal/chat";
 const STORAGE_KEY = "lead_nurturing_conversations";
 
 // Debug logging
 console.log('Chat Tester initialized');
 console.log('API URL:', API_URL);
 console.log('Current hostname:', window.location.hostname);
+console.log('⚠️ Note: You must be on CarGurus VPN to access the API');
 
 // State management
 let currentConversation = null;

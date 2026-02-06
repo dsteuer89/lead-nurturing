@@ -56,6 +56,16 @@ header h1 {
     font-size: 1rem;
 }
 
+.vpn-warning {
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: rgba(255, 193, 7, 0.15);
+    border: 1px solid var(--warning);
+    border-radius: 8px;
+    color: var(--warning);
+    font-size: 0.9rem;
+}
+
 /* Panel */
 .panel {
     background: var(--bg-secondary);
