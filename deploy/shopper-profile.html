@@ -86,7 +86,10 @@
                 <!-- Accordion: Shopper Activity -->
                 <div class="accordion-panel">
                     <button class="accordion-header" onclick="toggleAccordion(this)">
-                        <h3>Shopper activity</h3>
+                        <div class="header-left">
+                            <span class="gear-icon">⚙️</span>
+                            <h3>Shopper activity</h3>
+                        </div>
                         <svg class="chevron-icon" width="24" height="24" viewBox="0 0 24 24">
                             <path d="M7 10l5 5 5-5z" fill="currentColor"/>
                         </svg>
@@ -111,7 +114,10 @@
                 <!-- Accordion: Payment -->
                 <div class="accordion-panel">
                     <button class="accordion-header" onclick="toggleAccordion(this)">
-                        <h3>Payment</h3>
+                        <div class="header-left">
+                            <span class="gear-icon">⚙️</span>
+                            <h3>Payment</h3>
+                        </div>
                         <svg class="chevron-icon" width="24" height="24" viewBox="0 0 24 24">
                             <path d="M7 10l5 5 5-5z" fill="currentColor"/>
                         </svg>
@@ -132,7 +138,10 @@
                 <!-- Accordion: Trade-in -->
                 <div class="accordion-panel">
                     <button class="accordion-header" onclick="toggleAccordion(this)">
-                        <h3>Trade-in vehicle</h3>
+                        <div class="header-left">
+                            <span class="gear-icon">⚙️</span>
+                            <h3>Trade-in vehicle</h3>
+                        </div>
                         <svg class="chevron-icon" width="24" height="24" viewBox="0 0 24 24">
                             <path d="M7 10l5 5 5-5z" fill="currentColor"/>
                         </svg>
@@ -149,43 +158,82 @@
 
                 <!-- Stats Row -->
                 <div class="stats-row">
-                    <div class="stat-item"><div class="stat-number">12</div><div class="stat-label">unique vehicles</div></div>
-                    <div class="stat-item"><div class="stat-number">15</div><div class="stat-label">VDP views</div></div>
-                    <div class="stat-item"><div class="stat-number">2</div><div class="stat-label">leads</div></div>
-                    <div class="stat-item"><div class="stat-number">5</div><div class="stat-label">saves</div></div>
+                    <div class="stat-item">
+                        <span class="stat-icon">📊</span>
+                        <div class="stat-content">
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">unique vehicles</div>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-icon">👁️</span>
+                        <div class="stat-content">
+                            <div class="stat-number">15</div>
+                            <div class="stat-label">VDP views</div>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-icon">📧</span>
+                        <div class="stat-content">
+                            <div class="stat-number">2</div>
+                            <div class="stat-label">leads</div>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-icon">💾</span>
+                        <div class="stat-content">
+                            <div class="stat-number">5</div>
+                            <div class="stat-label">saves</div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Top Models -->
-                <h3 class="subsection-title">Top model interests</h3>
-                <div class="vehicle-cards-grid">
-                    <div class="vehicle-card">
-                        <img src="../assets/images/sample-vehicle.jpg" alt="Vehicle">
-                        <h4>2025 Audi Q5</h4>
-                        <span class="match-badge">92% Match rating</span>
+                <!-- Two Column Section -->
+                <div class="two-column-section">
+                    <!-- Left Column: Top Models -->
+                    <div class="column-left">
+                        <h3 class="subsection-title">Top model interests</h3>
+                        <div class="vehicle-cards-grid">
+                            <div class="vehicle-card">
+                                <img src="https://via.placeholder.com/80x60/e5e7eb/5e6976?text=Audi" alt="Vehicle">
+                                <div class="vehicle-card-info">
+                                    <h4>2025 Audi Q5</h4>
+                                    <span class="match-badge">92% Match rating</span>
+                                </div>
+                            </div>
+                            <div class="vehicle-card">
+                                <img src="https://via.placeholder.com/80x60/e5e7eb/5e6976?text=Tesla" alt="Vehicle">
+                                <div class="vehicle-card-info">
+                                    <h4>2024 Tesla Model Y</h4>
+                                    <span class="match-badge">72% Match rating</span>
+                                </div>
+                            </div>
+                            <div class="vehicle-card">
+                                <img src="https://via.placeholder.com/80x60/e5e7eb/5e6976?text=Volvo" alt="Vehicle">
+                                <div class="vehicle-card-info">
+                                    <h4>2025 Volvo XC90</h4>
+                                    <span class="match-badge">28% Match rating</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="vehicle-card">
-                        <img src="../assets/images/sample-vehicle.jpg" alt="Vehicle">
-                        <h4>2024 Tesla Model Y</h4>
-                        <span class="match-badge">72% Match rating</span>
-                    </div>
-                    <div class="vehicle-card">
-                        <img src="../assets/images/sample-vehicle.jpg" alt="Vehicle">
-                        <h4>2025 Volvo XC90</h4>
-                        <span class="match-badge">28% Match rating</span>
-                    </div>
-                </div>
 
-                <!-- Preferences -->
-                <h3 class="subsection-title">Vehicle preferences</h3>
-                <div class="preferences-grid">
-                    <div class="pref-item"><label>FLEXIBILITY</label><p>Flexible</p></div>
-                    <div class="pref-item"><label>EST. BUDGET</label><p>$15,000-$20,000</p></div>
-                    <div class="pref-item"><label>TOP FEATURES</label><p>Backup camera, Navigation system, Park assist</p></div>
-                    <div class="pref-item"><label>EXTERIOR COLOR</label><p><span class="color-dot gold"></span> Gold <span class="color-dot blue"></span> Blue</p></div>
-                    <div class="pref-item"><label>POWER-TRAIN</label><p>ICE</p></div>
-                    <div class="pref-item"><label>BODY STYLE</label><p>Sedan</p></div>
-                    <div class="pref-item"><label>GARAGE CONDITION</label><p>Used</p></div>
-                    <div class="pref-item"><label>MAX MILEAGE</label><p>100,000</p></div>
+                    <!-- Right Column: Preferences -->
+                    <div class="column-right">
+                        <h3 class="subsection-title">Vehicle preferences</h3>
+                        <div class="preferences-grid">
+                            <div class="pref-item"><label>FLEXIBILITY</label><p>Flexible</p></div>
+                            <div class="pref-item"><label>EST. BUDGET</label><p>$15,000-$20,000</p></div>
+                            <div class="pref-item"><label>TOP FEATURES</label><p>Backup camera</p></div>
+                            <div class="pref-item"><label></label><p>Navigation system</p></div>
+                            <div class="pref-item"><label></label><p>Park assist</p></div>
+                            <div class="pref-item"><label>EXTERIOR COLOR</label><p><span class="color-dot gold"></span> Gold <span class="color-dot blue"></span> Blue</p></div>
+                            <div class="pref-item"><label>POWER-TRAIN</label><p>ICE</p></div>
+                            <div class="pref-item"><label>BODY STYLE</label><p>Sedan</p></div>
+                            <div class="pref-item"><label>GARAGE CONDITION</label><p>Used</p></div>
+                            <div class="pref-item"><label>MAX MILEAGE</label><p>100,000</p></div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Alert -->
@@ -207,7 +255,7 @@
                         <p class="tab-note">1 other dealer in competition</p>
 
                         <div class="lead-card">
-                            <img src="../assets/images/sample-vehicle.jpg" alt="Vehicle">
+                            <img src="https://via.placeholder.com/200x150/e5e7eb/5e6976?text=Volvo+XC90" alt="Vehicle">
                             <div class="lead-details">
                                 <h4>2023 Volvo XC90 Recharge T8 eAWD</h4>
                                 <p class="lead-meta">3 days on the lot • 31 leads</p>
@@ -223,7 +271,7 @@
                         </div>
 
                         <div class="lead-card">
-                            <img src="../assets/images/ioniq6-vehicle.jpg" alt="Vehicle">
+                            <img src="https://via.placeholder.com/200x150/e5e7eb/5e6976?text=Audi+Q5" alt="Vehicle">
                             <div class="lead-details">
                                 <h4>2024 Audi Q5 quattro Progressive 45 TFSI</h4>
                                 <p class="lead-meta">45 days on the lot • 12 leads</p>
