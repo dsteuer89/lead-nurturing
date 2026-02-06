@@ -1,6 +1,10 @@
 // Lead Nurturing Chat Tester Script
 
-const API_URL = "https://lead-nurturing-na.svc.ue1.site-dev.c-gurus.com/api/lead-nurturing/v1/internal/chat";
+// Use proxy if deployed, direct API if local
+const API_URL = window.location.hostname.includes('vercel.app') || window.location.hostname.includes('localhost')
+    ? "/api/chat-proxy"
+    : "https://lead-nurturing-na.svc.ue1.site-dev.c-gurus.com/api/lead-nurturing/v1/internal/chat";
+
 const STORAGE_KEY = "lead_nurturing_conversations";
 
 // State management
