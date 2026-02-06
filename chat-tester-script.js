@@ -1,11 +1,13 @@
 // Lead Nurturing Chat Tester Script
 
-// Use proxy if deployed, direct API if local
-const API_URL = window.location.hostname.includes('vercel.app') || window.location.hostname.includes('localhost')
-    ? "/api/chat-proxy"
-    : "https://lead-nurturing-na.svc.ue1.site-dev.c-gurus.com/api/lead-nurturing/v1/internal/chat";
-
+// Always use proxy - it handles CORS
+const API_URL = "/api/chat-proxy";
 const STORAGE_KEY = "lead_nurturing_conversations";
+
+// Debug logging
+console.log('Chat Tester initialized');
+console.log('API URL:', API_URL);
+console.log('Current hostname:', window.location.hostname);
 
 // State management
 let currentConversation = null;
@@ -213,6 +215,9 @@ async function sendMessageToAPI(message) {
             payload.listing_id = parseInt(currentConversation.listingId);
         }
 
+        console.log('Sending to API:', API_URL);
+        console.log('Payload:', payload);
+
         const response = await fetch(API_URL, {
             method: "POST",
             headers: {
@@ -221,11 +226,16 @@ async function sendMessageToAPI(message) {
             body: JSON.stringify(payload)
         });
 
+        console.log('Response status:', response.status);
+
         if (!response.ok) {
-            throw new Error(`API Error: ${response.status} ${response.statusText}`);
+            const errorText = await response.text();
+            console.error('API error response:', errorText);
+            throw new Error(`API Error: ${response.status} ${response.statusText} - ${errorText}`);
         }
 
         const data = await response.json();
+        console.log('Response data:', data);
 
         // Update session info
         if (data.click_id) {
@@ -253,11 +263,25 @@ async function sendMessageToAPI(message) {
 
     } catch (error) {
         console.error("Error sending message:", error);
+        console.error("Error details:", {
+            name: error.name,
+            message: error.message,
+            stack: error.stack
+        });
 
-        // Add error message
+        // Add error message with helpful info
+        let errorText = `Error: ${error.message}`;
+
+        if (error.message.includes('Failed to fetch')) {
+            errorText += '\n\nTroubleshooting:\n';
+            errorText += '• Check if you\'re accessing via Vercel URL\n';
+            errorText += '• Open browser console (F12) for details\n';
+            errorText += `• Current URL: ${window.location.href}`;
+        }
+
         const errorMessage = {
             sender: "agent",
-            text: `Error: ${error.message}`,
+            text: errorText,
             timestamp: new Date().toISOString(),
             isError: true
         };
