@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Nurturing Chat Tester</title>
+    <link rel="stylesheet" href="chat-tester-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧪 Lead Nurturing Chat Tester</h1>
+            <p class="subtitle">Test conversations with the chat API</p>
+        </header>
+
+        <!-- Start New Conversation Panel -->
+        <div id="start-panel" class="panel">
+            <h2>Start New Conversation</h2>
+            <form id="new-conversation-form">
+                <div class="form-group">
+                    <label for="phone-number">Phone Number</label>
+                    <input
+                        type="tel"
+                        id="phone-number"
+                        placeholder="+15555551234"
+                        required
+                        pattern="\+\d{11,15}"
+                        title="Format: +15555551234">
+                    <small>Format: +1 followed by 10 digits</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="listing-id">Listing ID (Optional)</label>
+                    <input
+                        type="number"
+                        id="listing-id"
+                        placeholder="12345">
+                    <small>Leave empty if not associated with a listing</small>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Start Chat</button>
+            </form>
+
+            <!-- Active Conversations List -->
+            <div id="conversations-list" class="conversations-list">
+                <h3>Active Conversations</h3>
+                <div id="conversations-container"></div>
+            </div>
+        </div>
+
+        <!-- Chat Panel -->
+        <div id="chat-panel" class="panel hidden">
+            <div class="chat-header">
+                <div class="chat-info">
+                    <h2 id="chat-title">Chat Session</h2>
+                    <div id="session-info" class="session-info"></div>
+                </div>
+                <button id="back-button" class="btn btn-secondary">← Back</button>
+            </div>
+
+            <div id="messages-container" class="messages-container"></div>
+
+            <form id="message-form" class="message-form">
+                <input
+                    type="text"
+                    id="message-input"
+                    placeholder="Type your message..."
+                    required>
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Sending message...</p>
+        </div>
+    </div>
+
+    <script src="chat-tester-script.js"></script>
+</body>
+</html>
