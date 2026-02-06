@@ -1,0 +1,477 @@
+/* Shopper Profile Styles */
+
+/* Profile Container - Two Panel Layout */
+.profile-container {
+    display: flex;
+    gap: 0;
+    min-height: calc(100vh - 56px);
+    background: var(--surface-secondary);
+}
+
+/* LEFT PANEL */
+.profile-panel {
+    width: 360px;
+    min-width: 360px;
+    background: var(--surface-primary);
+    padding: 40px;
+    overflow-y: auto;
+    border-right: 1px solid var(--border-light);
+}
+
+.back-link {
+    display: inline-block;
+    color: var(--cg-blue);
+    text-decoration: underline;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.profile-header {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.profile-header h1 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 36px;
+}
+
+.tags-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 16px 0 24px;
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.contact-item label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+}
+
+.contact-item p {
+    font-size: 14px;
+    color: var(--text-primary);
+    line-height: 18px;
+}
+
+/* Accordion */
+.accordion-panel {
+    border-top: 1px solid var(--border-light);
+}
+
+.accordion-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0 12px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.accordion-header h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.chevron-icon {
+    transition: transform 0.2s;
+}
+
+.accordion-header.active .chevron-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.accordion-content.open {
+    max-height: 1000px;
+    padding-bottom: 32px;
+}
+
+.activity-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.activity-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--cg-green);
+}
+
+.tag-green {
+    background: var(--cg-green-bg);
+    border-color: var(--cg-green);
+}
+
+.link {
+    color: var(--cg-blue);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+/* RIGHT PANEL */
+.interests-panel {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.subsection-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 24px 0 16px;
+}
+
+/* Stats Row */
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stat-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.stat-label {
+    font-size: 11px;
+    color: var(--text-secondary);
+    text-transform: lowercase;
+}
+
+/* Vehicle Cards */
+.vehicle-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.vehicle-card {
+    background: var(--surface-primary);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.vehicle-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.vehicle-card h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.match-badge {
+    font-size: 12px;
+    color: var(--cg-blue);
+    font-weight: 500;
+}
+
+/* Preferences Grid */
+.preferences-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 32px;
+    margin-bottom: 32px;
+}
+
+.pref-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.pref-item label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+}
+
+.pref-item p {
+    font-size: 14px;
+    color: var(--text-primary);
+}
+
+.color-dot {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+.color-dot.gold {
+    background: #FFD700;
+}
+
+.color-dot.blue {
+    background: #4A90E2;
+}
+
+/* Alert Banner */
+.alert-banner {
+    background: var(--cg-blue-bg);
+    border: 1px solid var(--cg-blue-border);
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.alert-icon {
+    font-size: 20px;
+}
+
+.alert-banner span {
+    flex: 1;
+    font-size: 14px;
+}
+
+.btn-secondary {
+    padding: 8px 16px;
+    border: 1px solid var(--text-primary);
+    border-radius: 20px;
+    background: transparent;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.btn-secondary:hover {
+    background: var(--text-primary);
+    color: white;
+}
+
+/* Tabs */
+.tabs-section {
+    margin-top: 32px;
+}
+
+.tab-buttons {
+    display: flex;
+    gap: 32px;
+    border-bottom: 1px solid var(--border-light);
+    margin-bottom: 24px;
+}
+
+.tab-button {
+    padding: 12px 0;
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    position: relative;
+}
+
+.tab-button.active {
+    color: var(--text-primary);
+}
+
+.tab-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--cg-blue);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-note {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+}
+
+/* Lead Cards */
+.lead-card {
+    background: var(--surface-primary);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.lead-card img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.lead-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.lead-details h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 8px;
+}
+
+.lead-meta {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+
+.lead-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.lead-grid div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.lead-grid label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+.lead-grid p {
+    font-size: 14px;
+    color: var(--text-primary);
+}
+
+.view-details-btn {
+    padding: 8px 20px;
+    border: 1px solid var(--text-primary);
+    border-radius: 24px;
+    background: transparent;
+    font-size: 14px;
+    cursor: pointer;
+    align-self: flex-end;
+    margin-top: auto;
+}
+
+.view-details-btn:hover {
+    background: var(--text-primary);
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .vehicle-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-container {
+        flex-direction: column;
+    }
+
+    .profile-panel {
+        width: 100%;
+        min-width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border-light);
+    }
+
+    .vehicle-cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .preferences-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lead-card {
+        flex-direction: column;
+    }
+
+    .lead-card img {
+        width: 100%;
+    }
+}

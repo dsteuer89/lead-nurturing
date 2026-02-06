@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - CarGurus</title>
+    <link rel="stylesheet" href="leads-hub-figma-styles.css">
+    <link rel="stylesheet" href="settings-styles.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="cargurus-logo">
+                <span class="logo-car">Car</span><span class="logo-gurus">Gurus</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <!-- Dashboard -->
+            <div class="nav-item" onclick="navigateTo('leads-hub-figma.html')">
+                <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M2 2h5v5H2V2zm0 7h5v5H2V9zm7-7h5v5H9V2zm0 7h5v5H9V9z"/>
+                </svg>
+                <span>Dashboard</span>
+            </div>
+
+            <!-- Pricing -->
+            <div class="nav-item">
+                <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M2 2l6 6-6 6V2zm12 0v12l-6-6 6-6z"/>
+                </svg>
+                <span>Pricing</span>
+            </div>
+            <div class="nav-item nav-item-nested">
+                <span>Pricing Tool</span>
+            </div>
+            <div class="nav-item nav-item-nested">
+                <span>Dealer Insights</span>
+            </div>
+            <div class="nav-item nav-item-nested">
+                <span>View Inventory</span>
+                <svg class="external-icon" width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                    <path d="M10 10H2V2h4V0H2C.9 0 0 .9 0 2v8c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6h-2v4zM6 0v2h2.59L3.76 6.83l1.41 1.41L10 3.41V6h2V0H6z"/>
+                </svg>
+            </div>
+
+            <!-- Marketing Analysis -->
+            <div class="nav-item">
+                <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <circle cx="7" cy="7" r="5" stroke="currentColor" fill="none" stroke-width="2"/>
+                    <path d="M11 11l4 4" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <span>Marketing Analysis</span>
+            </div>
+
+            <!-- Leads -->
+            <div class="nav-item">
+                <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M2 2h12v3H2V2zm0 5h12v3H2V7zm0 5h12v2H2v-2z"/>
+                </svg>
+                <span>Leads</span>
+            </div>
+            <div class="nav-item nav-item-nested" onclick="navigateTo('leads-hub-figma.html')">
+                <span>Leads Hub</span>
+                <span class="beta-tag">Beta</span>
+            </div>
+            <div class="nav-item nav-item-nested">
+                <span>LeadAI</span>
+            </div>
+            <div class="nav-item nav-item-nested">
+                <span>Lead Reports</span>
+            </div>
+
+            <!-- Sell My Car -->
+            <div class="nav-item">
+                <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M14 6h-3l-1.5-2h-3L5 6H2L1 8v5h1v1h2v-1h8v1h2v-1h1V8l-1-2zm-6 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                </svg>
+                <span>Sell My Car</span>
+            </div>
+
+            <!-- Settings - Active -->
+            <div class="nav-item active">
+                <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M14.5 8c0-.3 0-.6-.1-.9l2-1.6c.2-.1.2-.4.1-.6l-1.9-3.3c-.1-.2-.4-.3-.6-.2l-2.4.9c-.5-.4-1-.7-1.6-.9L9.6.8c0-.2-.3-.4-.5-.4h-3.8c-.2 0-.5.2-.5.4L4.4 3.4c-.6.2-1.1.5-1.6.9l-2.4-.9c-.2-.1-.5 0-.6.2L-2 6.9c-.1.2-.1.5.1.6l2 1.6c-.1.3-.1.6-.1.9s0 .6.1.9l-2 1.6c-.2.1-.2.4-.1.6l1.9 3.3c.1.2.4.3.6.2l2.4-.9c.5.4 1 .7 1.6.9l.4 2.6c0 .2.3.4.5.4h3.8c.2 0 .5-.2.5-.4l.4-2.6c.6-.2 1.1-.5 1.6-.9l2.4.9c.2.1.5 0 .6-.2l1.9-3.3c.1-.2.1-.5-.1-.6l-2-1.6c.1-.3.1-.6.1-.9zM7.5 10.5c-1.4 0-2.5-1.1-2.5-2.5s1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5z"/>
+                </svg>
+                <span>Settings</span>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- App Bar -->
+        <header class="app-bar">
+            <div class="app-bar-left">
+                <button class="icon-btn">🎯</button>
+                <span>Dashboard tour</span>
+            </div>
+            <div class="app-bar-right">
+                <button class="icon-btn">🌐</button>
+                <span>EN</span>
+                <button class="icon-btn">👤</button>
+                <select class="dealership-select">
+                    <option>Arrigo Chrysler Dodge Jeep RAM at Sawgrass</option>
+                </select>
+            </div>
+        </header>
+
+        <!-- Settings Content -->
+        <div class="settings-container">
+            <h1 class="settings-title">Settings</h1>
+
+            <!-- Tabs -->
+            <div class="settings-tabs">
+                <button class="tab-button active">General Settings</button>
+                <button class="tab-button">Digital Deal Settings</button>
+                <button class="tab-button">API Settings</button>
+            </div>
+
+            <!-- Lead Email Addresses Section -->
+            <section class="settings-section">
+                <h2 class="section-heading">Lead Email Addresses</h2>
+                <p class="section-description">When a consumer fills out the "Contact Dealer" form on CarGurus we will send an email to these addresses.</p>
+
+                <table class="settings-table">
+                    <thead>
+                        <tr>
+                            <th>Email Address</th>
+                            <th>Email Format</th>
+                            <th>For Inventory</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>alancarol@arrigosutogroup.com</td>
+                            <td>Plain Text</td>
+                            <td>Used</td>
+                            <td>No known issues</td>
+                            <td><button class="btn-edit">Edit Email</button></td>
+                        </tr>
+                        <tr>
+                            <td>corresp@arrigosutogroup.com</td>
+                            <td>Plain Text</td>
+                            <td>Sell & Trade-In</td>
+                            <td>No known issues</td>
+                            <td><button class="btn-edit">Edit Email</button></td>
+                        </tr>
+                        <tr>
+                            <td>Cdaniford@arrigosautogroup.com</td>
+                            <td>Plain Text</td>
+                            <td>Sell & Trade-In</td>
+                            <td>No known issues</td>
+                            <td><button class="btn-edit">Edit Email</button></td>
+                        </tr>
+                        <tr>
+                            <td>gnaranj@arrigosautogroup.com</td>
+                            <td>Plain Text</td>
+                            <td>Sell & Trade-In</td>
+                            <td>No known issues</td>
+                            <td><button class="btn-edit">Edit Email</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <button class="btn-add-new">Add New Email</button>
+            </section>
+
+            <!-- Sell My Car Lead Notification Section -->
+            <section class="settings-section">
+                <h2 class="section-heading">Sell My Car Lead Notification Email Addresses</h2>
+                <p class="section-description">When you are selected for an offer, we'll email the lead details to these addresses.</p>
+
+                <table class="settings-table">
+                    <thead>
+                        <tr>
+                            <th>Email Address</th>
+                            <th>Notification Types</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>alancarol@arrigosautogroup.com</td>
+                            <td>New SMC Leads, New appointment requests</td>
+                            <td><button class="btn-delete">Delete</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <button class="btn-add-new">Add New Email</button>
+            </section>
+
+            <!-- Financing Notification Section -->
+            <section class="settings-section">
+                <h2 class="section-heading">Financing Notification Email Addresses</h2>
+                <p class="section-description">When a consumer completes a financing-related activity we will send an email to these addresses.</p>
+
+                <table class="settings-table">
+                    <thead>
+                        <tr>
+                            <th>Email Address</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>alancarol@arrigosautogroup.com</td>
+                            <td><button class="btn-delete">Delete</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <button class="btn-add-new">Add New Email</button>
+            </section>
+
+            <!-- Digital Deal Notification Section -->
+            <section class="settings-section">
+                <h2 class="section-heading">Digital Deal Notification Email Addresses</h2>
+                <p class="section-description">When a consumer completes a Digital Deal related activity we will send an email to these addresses</p>
+
+                <table class="settings-table">
+                    <thead>
+                        <tr>
+                            <th>Email Address</th>
+                            <th>Event Type</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>alanzaro@arrigoautogroup.com</td>
+                            <td>ALL</td>
+                            <td><button class="btn-delete">Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td>btabackman@arrigoautogroup.com</td>
+                            <td>ALL</td>
+                            <td><button class="btn-delete">Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td>mvergara@arrigoautogroup.com</td>
+                            <td>ALL</td>
+                            <td><button class="btn-delete">Delete</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <button class="btn-add-new">Add New Email</button>
+            </section>
+
+            <!-- Shopper Signals Section -->
+            <section class="settings-section">
+                <h2 class="section-heading">Shopper Signals</h2>
+
+                <!-- Sub-section 1: Daily Digest Emails -->
+                <div class="subsection">
+                    <h3 class="subsection-heading">Shopper Signals Daily Digest email addresses</h3>
+                    <p class="section-description">If you have CarGurus Shopper Signals™, we will send an email summary for all your new and reengaged leads to these addresses each morning. If you don't have Shopper Signals and are interested in getting additional insights on your leads, contact your account manager.</p>
+
+                    <table class="settings-table">
+                        <thead>
+                            <tr>
+                                <th>Email Address</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>alanzaro@arrigoautogroup.com</td>
+                                <td><button class="btn-delete">Delete</button></td>
+                            </tr>
+                            <tr>
+                                <td>btabackman@arrigoautogroup.com</td>
+                                <td><button class="btn-delete">Delete</button></td>
+                            </tr>
+                            <tr>
+                                <td>mvergara@arrigoautogroup.com</td>
+                                <td><button class="btn-delete">Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <button class="btn-add-new">Add New Email</button>
+                </div>
+
+                <!-- Sub-section 2: CRM Updates -->
+                <div class="subsection">
+                    <h3 class="subsection-heading">CRM Shopper Signals Updates</h3>
+                    <p class="section-description">Choose which types of shopper behavior updates you want to receive in your CRM system. These updates will appear as either additional leads for this shopper or as updates on the existing lead, depending on your integration setup with CarGurus.</p>
+
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="reengagement-updates" checked onchange="handleCheckboxChange('reengagement')">
+                            <div class="checkbox-content">
+                                <label for="reengagement-updates" class="checkbox-label">Re-engagement updates</label>
+                                <p class="checkbox-description">Get updates if a shopper revisits a vehicle or submits another lead on the same vehicle.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Save Button (hidden by default) -->
+                    <button id="save-crm-settings" class="btn-save-settings" style="display: none;" onclick="saveCRMSettings()">
+                        Save Changes
+                    </button>
+
+                    <!-- Confirmation Message (hidden by default) -->
+                    <div id="crm-confirmation" class="confirmation-message" style="display: none;">
+                        <span class="confirmation-icon">✓</span>
+                        <div class="confirmation-content">
+                            <strong>Settings saved successfully!</strong>
+                            <p id="confirmation-text"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Phone Section -->
+            <section class="settings-section">
+                <h2 class="section-heading">Phone</h2>
+                <div class="phone-section">
+                    <label class="phone-label">Current Phone: (954) 756-7999</label>
+                    <input type="text" class="phone-input" value="(954) 756-7999" placeholder="(954) 756-7999">
+                    <button class="btn-update-phone">Update Sales Phone Number</button>
+                    <p class="phone-disclaimer">By accessing this dashboard, I acknowledge that this phone number will be used for billing and/or service-related calls and messages (which may be automated).</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+
+        // Track original state
+        let originalCRMSettings = {
+            reengagement: true
+        };
+
+        // Track current state
+        let currentCRMSettings = {
+            reengagement: true
+        };
+
+        function handleCheckboxChange(settingType) {
+            const checkbox = document.getElementById(settingType + '-updates');
+            currentCRMSettings[settingType] = checkbox.checked;
+
+            // Check if settings have changed from original
+            const hasChanges = Object.keys(originalCRMSettings).some(
+                key => originalCRMSettings[key] !== currentCRMSettings[key]
+            );
+
+            // Show/hide save button based on changes
+            const saveButton = document.getElementById('save-crm-settings');
+            if (hasChanges) {
+                saveButton.style.display = 'block';
+            } else {
+                saveButton.style.display = 'none';
+            }
+
+            // Hide confirmation message when making new changes
+            document.getElementById('crm-confirmation').style.display = 'none';
+        }
+
+        function saveCRMSettings() {
+            // Get the checkbox state
+            const reengagementEnabled = currentCRMSettings.reengagement;
+
+            // Update original settings to current
+            originalCRMSettings = { ...currentCRMSettings };
+
+            // Hide save button
+            document.getElementById('save-crm-settings').style.display = 'none';
+
+            // Show confirmation message
+            const confirmationDiv = document.getElementById('crm-confirmation');
+            const confirmationText = document.getElementById('confirmation-text');
+
+            if (reengagementEnabled) {
+                confirmationText.innerHTML = 'Re-engagement updates are now <strong>enabled</strong>. You will receive notifications in your CRM when shoppers revisit vehicles or submit additional leads.';
+            } else {
+                confirmationText.innerHTML = 'Re-engagement updates are now <strong>disabled</strong>. You will no longer receive notifications in your CRM when shoppers revisit vehicles or submit additional leads.';
+            }
+
+            confirmationDiv.style.display = 'flex';
+
+            // Auto-hide confirmation after 5 seconds
+            setTimeout(() => {
+                confirmationDiv.style.opacity = '0';
+                setTimeout(() => {
+                    confirmationDiv.style.display = 'none';
+                    confirmationDiv.style.opacity = '1';
+                }, 300);
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

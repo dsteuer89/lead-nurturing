@@ -1,0 +1,346 @@
+/* Settings Page Specific Styles */
+
+.settings-container {
+    padding: var(--spacing-xl);
+    max-width: 1200px;
+}
+
+.settings-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-primary);
+}
+
+/* Tabs */
+.settings-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid var(--border-light);
+    margin-bottom: var(--spacing-xl);
+}
+
+.tab-button {
+    padding: 12px 24px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    position: relative;
+    transition: all 0.2s;
+}
+
+.tab-button:hover {
+    color: var(--text-primary);
+}
+
+.tab-button.active {
+    color: var(--text-primary);
+}
+
+.tab-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--cg-blue);
+}
+
+/* Settings Sections */
+.settings-section {
+    background: var(--surface-primary);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.section-heading {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+}
+
+.section-description {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.5;
+}
+
+/* Tables */
+.settings-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--spacing-lg);
+}
+
+.settings-table thead {
+    background: var(--surface-tertiary);
+}
+
+.settings-table th {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--border-light);
+}
+
+.settings-table td {
+    padding: 16px;
+    font-size: 14px;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.settings-table tbody tr:hover {
+    background: var(--surface-secondary);
+}
+
+/* Buttons */
+.btn-edit {
+    padding: 6px 16px;
+    background: var(--cg-green);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-edit:hover {
+    background: #066a09;
+}
+
+.btn-delete {
+    padding: 6px 16px;
+    background: var(--cg-red);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-delete:hover {
+    background: #b81728;
+}
+
+.btn-add-new {
+    padding: 10px 20px;
+    background: var(--cg-blue);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-add-new:hover {
+    background: #0380d4;
+}
+
+/* Warning Text */
+.settings-table td[style*="color"] {
+    color: #f59e0b !important;
+}
+
+/* No Configuration Message */
+.no-config-message {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+    font-style: italic;
+}
+
+/* Subsections */
+.subsection {
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.subsection:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.subsection-heading {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Checkbox Group */
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: var(--spacing-md);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    background: var(--surface-secondary);
+}
+
+.checkbox-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.checkbox-content {
+    flex: 1;
+}
+
+.checkbox-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    cursor: pointer;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.checkbox-description {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Save Settings Button */
+.btn-save-settings {
+    margin-top: var(--spacing-md);
+    padding: 10px 24px;
+    background: var(--cg-blue);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-save-settings:hover {
+    background: #0380d4;
+}
+
+/* Confirmation Message */
+.confirmation-message {
+    display: none;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: var(--cg-green-bg);
+    border: 1px solid var(--cg-green);
+    border-radius: 8px;
+    transition: opacity 0.3s;
+}
+
+.confirmation-icon {
+    width: 24px;
+    height: 24px;
+    background: var(--cg-green);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.confirmation-content {
+    flex: 1;
+}
+
+.confirmation-content strong {
+    display: block;
+    font-size: 14px;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.confirmation-content p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Phone Section */
+.phone-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.phone-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.phone-input {
+    padding: 10px 16px;
+    border: 1px solid var(--border-medium);
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.phone-input:focus {
+    outline: none;
+    border-color: var(--cg-blue);
+}
+
+.btn-update-phone {
+    padding: 10px 20px;
+    background: var(--cg-blue);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+    width: fit-content;
+}
+
+.btn-update-phone:hover {
+    background: #0380d4;
+}
+
+.phone-disclaimer {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    max-width: 600px;
+}

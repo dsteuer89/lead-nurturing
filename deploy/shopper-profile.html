@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopper Profile - CarGurus</title>
+    <link rel="stylesheet" href="leads-hub-figma-styles.css">
+    <link rel="stylesheet" href="shopper-profile-styles.css">
+</head>
+<body>
+    <!-- Sidebar (same as dashboard) -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="cargurus-logo">
+                <span class="logo-car">Car</span><span class="logo-gurus">Gurus</span>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-item"><span>Dashboard</span></div>
+            <div class="nav-item"><span>Pricing</span></div>
+            <div class="nav-item"><span>Marketing Analysis</span></div>
+            <div class="nav-item"><span>Leads</span></div>
+            <div class="nav-item nav-item-nested active" onclick="navigateTo('leads-hub-figma.html')">
+                <span>Leads Hub</span>
+                <span class="beta-tag">Beta</span>
+            </div>
+            <div class="nav-item" onclick="navigateTo('settings.html')"><span>Settings</span></div>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- App Bar -->
+        <header class="app-bar">
+            <div class="app-bar-left">
+                <button class="icon-btn">🎯</button>
+                <span>Dashboard tour</span>
+            </div>
+            <div class="app-bar-right">
+                <button class="icon-btn">🌐</button>
+                <span>EN</span>
+                <button class="icon-btn">👤</button>
+                <select class="dealership-select">
+                    <option>[Dealership name]</option>
+                </select>
+            </div>
+        </header>
+
+        <!-- Profile Container (Two Panels) -->
+        <div class="profile-container">
+            <!-- LEFT PANEL -->
+            <aside class="profile-panel">
+                <a href="leads-hub-figma.html" class="back-link">&lt; Leads Hub</a>
+
+                <div class="profile-header">
+                    <h1 id="shopperName">Emma Smith Johnson</h1>
+                    <div class="tags-row">
+                        <span class="tag tag-hot">Hot lead</span>
+                        <span class="tag tag-switch">Switch opportunity</span>
+                    </div>
+                </div>
+
+                <div class="contact-section">
+                    <div class="contact-item">
+                        <label>EMAIL</label>
+                        <p id="email">ejohnson@gmail.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <label>PHONE</label>
+                        <p id="phone">(617) 238-2347</p>
+                    </div>
+                    <div class="contact-item">
+                        <label>LOCATION</label>
+                        <p id="location">01886 (24 miles)</p>
+                    </div>
+                    <div class="contact-item">
+                        <label>DELIVERY</label>
+                        <p id="delivery">Requested</p>
+                    </div>
+                    <div class="contact-item">
+                        <label>APPOINTMENT</label>
+                        <p id="appointment">Monday, 6/21/25, 9:45 AM</p>
+                    </div>
+                </div>
+
+                <!-- Accordion: Shopper Activity -->
+                <div class="accordion-panel">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <h3>Shopper activity</h3>
+                        <svg class="chevron-icon" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M7 10l5 5 5-5z" fill="currentColor"/>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="contact-item">
+                            <label>CARGURUS ACTIVITY</label>
+                            <div class="activity-row">
+                                <span class="activity-dot"></span>
+                                <p>12/23/25 | <span class="tag tag-green">High activity</span></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <label>ACTIVITY WITH YOU</label>
+                            <p>VDP view | 12/22/25</p>
+                            <p>Engaged with 3 listings</p>
+                        </div>
+                        <a href="#" class="link">View all activity</a>
+                    </div>
+                </div>
+
+                <!-- Accordion: Payment -->
+                <div class="accordion-panel">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <h3>Payment</h3>
+                        <svg class="chevron-icon" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M7 10l5 5 5-5z" fill="currentColor"/>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="contact-item"><label>PAYMENT PREFERENCE</label><p>Financing</p></div>
+                        <div class="contact-item"><label>FINANCING STATUS</label><p>Qualified</p></div>
+                        <div class="contact-item"><label>DOWN PAYMENT</label><p>$4,000</p></div>
+                        <div class="contact-item"><label>EST. MONTHLY PAYMENT</label><p>$425.00</p></div>
+                        <div class="contact-item"><label>LOAN TERM</label><p>60 - 72 months</p></div>
+                        <div class="contact-item"><label>EST. APR</label><p>10.99% - 12.99%</p></div>
+                        <div class="contact-item"><label>DEPOSIT</label><p>$500 - $1,500</p></div>
+                        <div class="contact-item"><label>CREDIT SCORE</label><p>670 - 739 (Self reported)</p></div>
+                        <div class="contact-item"><label>DEAL SUMMARY</label><p>2023 RAM 1500 Sport Quad Cab 4WD</p></div>
+                    </div>
+                </div>
+
+                <!-- Accordion: Trade-in -->
+                <div class="accordion-panel">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <h3>Trade-in vehicle</h3>
+                        <svg class="chevron-icon" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M7 10l5 5 5-5z" fill="currentColor"/>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="contact-item"><label>VEHICLE</label><p>2023 Dodge Challenger R/T SCAT</p></div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- RIGHT PANEL -->
+            <section class="interests-panel">
+                <h2 class="section-title">Shopper interests</h2>
+
+                <!-- Stats Row -->
+                <div class="stats-row">
+                    <div class="stat-item"><div class="stat-number">12</div><div class="stat-label">unique vehicles</div></div>
+                    <div class="stat-item"><div class="stat-number">15</div><div class="stat-label">VDP views</div></div>
+                    <div class="stat-item"><div class="stat-number">2</div><div class="stat-label">leads</div></div>
+                    <div class="stat-item"><div class="stat-number">5</div><div class="stat-label">saves</div></div>
+                </div>
+
+                <!-- Top Models -->
+                <h3 class="subsection-title">Top model interests</h3>
+                <div class="vehicle-cards-grid">
+                    <div class="vehicle-card">
+                        <img src="../assets/images/sample-vehicle.jpg" alt="Vehicle">
+                        <h4>2025 Audi Q5</h4>
+                        <span class="match-badge">92% Match rating</span>
+                    </div>
+                    <div class="vehicle-card">
+                        <img src="../assets/images/sample-vehicle.jpg" alt="Vehicle">
+                        <h4>2024 Tesla Model Y</h4>
+                        <span class="match-badge">72% Match rating</span>
+                    </div>
+                    <div class="vehicle-card">
+                        <img src="../assets/images/sample-vehicle.jpg" alt="Vehicle">
+                        <h4>2025 Volvo XC90</h4>
+                        <span class="match-badge">28% Match rating</span>
+                    </div>
+                </div>
+
+                <!-- Preferences -->
+                <h3 class="subsection-title">Vehicle preferences</h3>
+                <div class="preferences-grid">
+                    <div class="pref-item"><label>FLEXIBILITY</label><p>Flexible</p></div>
+                    <div class="pref-item"><label>EST. BUDGET</label><p>$15,000-$20,000</p></div>
+                    <div class="pref-item"><label>TOP FEATURES</label><p>Backup camera, Navigation system, Park assist</p></div>
+                    <div class="pref-item"><label>EXTERIOR COLOR</label><p><span class="color-dot gold"></span> Gold <span class="color-dot blue"></span> Blue</p></div>
+                    <div class="pref-item"><label>POWER-TRAIN</label><p>ICE</p></div>
+                    <div class="pref-item"><label>BODY STYLE</label><p>Sedan</p></div>
+                    <div class="pref-item"><label>GARAGE CONDITION</label><p>Used</p></div>
+                    <div class="pref-item"><label>MAX MILEAGE</label><p>100,000</p></div>
+                </div>
+
+                <!-- Alert -->
+                <div class="alert-banner">
+                    <span class="alert-icon">ℹ️</span>
+                    <span>This shopper is eligible for a switch opportunity!</span>
+                    <button class="btn-secondary">See recommendation</button>
+                </div>
+
+                <!-- Tabs -->
+                <div class="tabs-section">
+                    <div class="tab-buttons">
+                        <button class="tab-button active" onclick="switchTab('leads')">Leads</button>
+                        <button class="tab-button" onclick="switchTab('recommended')">Recommended</button>
+                    </div>
+
+                    <!-- Leads Tab -->
+                    <div id="leads-tab" class="tab-content active">
+                        <p class="tab-note">1 other dealer in competition</p>
+
+                        <div class="lead-card">
+                            <img src="../assets/images/sample-vehicle.jpg" alt="Vehicle">
+                            <div class="lead-details">
+                                <h4>2023 Volvo XC90 Recharge T8 eAWD</h4>
+                                <p class="lead-meta">3 days on the lot • 31 leads</p>
+                                <div class="lead-grid">
+                                    <div><label>SUBMITTED</label><p>12 hours ago</p></div>
+                                    <div><label>CONDITION</label><p>New</p></div>
+                                    <div><label>PRICE</label><p>$65,320</p></div>
+                                    <div><label>STOCK #</label><p>D2345678</p></div>
+                                    <div><label>VIN</label><p>MAZE7CSXJG664455Z</p></div>
+                                </div>
+                                <button class="view-details-btn">View details</button>
+                            </div>
+                        </div>
+
+                        <div class="lead-card">
+                            <img src="../assets/images/ioniq6-vehicle.jpg" alt="Vehicle">
+                            <div class="lead-details">
+                                <h4>2024 Audi Q5 quattro Progressive 45 TFSI</h4>
+                                <p class="lead-meta">45 days on the lot • 12 leads</p>
+                                <div class="lead-grid">
+                                    <div><label>SUBMITTED</label><p>7/6/25, 12:46 PM</p></div>
+                                    <div><label>CONDITION</label><p>New</p></div>
+                                    <div><label>PRICE</label><p>$72,460</p></div>
+                                    <div><label>STOCK #</label><p>A12345678</p></div>
+                                    <div><label>VIN</label><p>MAZE7CSXJG664455Z</p></div>
+                                </div>
+                                <button class="view-details-btn">View details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recommended Tab -->
+                    <div id="recommended-tab" class="tab-content">
+                        <p>Recommended vehicles will appear here.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="shopper-profile-data.js"></script>
+    <script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const isOpen = content.classList.contains('open');
+
+            content.classList.toggle('open');
+            header.classList.toggle('active');
+        }
+
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+            event.target.classList.add('active');
+            document.getElementById(tabName + '-tab').classList.add('active');
+        }
+    </script>
+</body>
+</html>
