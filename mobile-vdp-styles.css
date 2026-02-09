@@ -321,6 +321,12 @@ img {
     color: var(--cg-success);
 }
 
+.deal-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
 .deal-amount {
     font-size: var(--fs-caption);
     color: var(--cg-text-secondary);
