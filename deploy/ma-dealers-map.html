@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Massachusetts Dealers Map - Lead Nurturing</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 0;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            background-color: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 6px;
+            border-left: 3px solid #007bff;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        .stat-value {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 2px;
+        }
+
+        #map {
+            height: calc(100vh - 180px);
+            width: 100%;
+        }
+
+        .leaflet-popup-content {
+            margin: 15px;
+            min-width: 250px;
+        }
+
+        .popup-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .popup-info {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .popup-label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .popup-classification {
+            display: inline-block;
+            background-color: #e3f2fd;
+            color: #1976d2;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .legend {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            line-height: 1.6;
+            font-size: 13px;
+        }
+
+        .legend-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 8px;
+            border: 2px solid rgba(0,0,0,0.2);
+        }
+
+        .address-missing {
+            color: #d32f2f;
+            font-style: italic;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Massachusetts Dealers Map</h1>
+        <p class="subtitle">Lead Nurturing Program - DFP Dealers</p>
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-label">Total Dealers</div>
+                <div class="stat-value">20</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Mapped Locations</div>
+                <div class="stat-value" id="mapped-count">0</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Missing Addresses</div>
+                <div class="stat-value" id="missing-count">0</div>
+            </div>
+        </div>
+    </div>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Dealer data with addresses and classifications
+        const dealers = [
+            {
+                name: "Auto House USA",
+                address: "1134 Broadway, Saugus, MA 01906",
+                classification: "Independent L2",
+                owner: "Sam Kost",
+                csm: "Vick Halwadjian",
+                lat: 42.4647,
+                lng: -71.0106
+            },
+            {
+                name: "Central Chevrolet Inc",
+                address: "675 Memorial Ave, West Springfield, MA 01089",
+                classification: "Franchise L1",
+                owner: "Gilda Banos",
+                csm: "Joshua Ameen",
+                lat: 42.1070,
+                lng: -72.6204
+            },
+            {
+                name: "Haddad Subaru",
+                address: "652 East St, Pittsfield, MA 01201",
+                classification: "Franchise L3",
+                owner: "Joseph Molk",
+                csm: "Casey Smith",
+                lat: 42.4447,
+                lng: -73.2323
+            },
+            {
+                name: "Landes Family Auto Sales",
+                address: "859 Washington St, Attleboro, MA 02703",
+                classification: "Independent L1",
+                owner: "Ghaizel Espinal",
+                csm: "Kieaux Kimmon",
+                lat: 41.9398,
+                lng: -71.2856
+            },
+            {
+                name: "Mercedes-Benz of Shrewsbury",
+                address: "Boston Turnpike, Shrewsbury, MA 01545",
+                classification: "Franchise L1",
+                owner: "Jeremyah Rivera",
+                csm: "Kate Cooper",
+                lat: 42.2959,
+                lng: -71.7128
+            },
+            {
+                name: "Midstate Mitsubishi",
+                address: "810 Washington St, Auburn, MA 01501",
+                classification: "Franchise L1",
+                owner: "Jeremyah Rivera",
+                csm: "Kate Cooper",
+                lat: 42.2043,
+                lng: -71.8356
+            },
+            {
+                name: "Bahnans Auto Sales",
+                address: "359 Chandler Street, Worcester, MA 01602",
+                classification: "SDT",
+                owner: "Rob Frey",
+                csm: "",
+                lat: 42.2626,
+                lng: -71.7843
+            },
+            {
+                name: "Frontline Motors Inc",
+                address: "759 Meadow Street, Chicopee, MA 01013",
+                classification: "SDT",
+                owner: "Taylor Mulready",
+                csm: "",
+                lat: 42.1737,
+                lng: -72.5759
+            },
+            {
+                name: "McGovern Hyundai of Arlington",
+                address: "1125 Mass Ave, Arlington, MA 02476",
+                classification: "Metro",
+                owner: "Rebeca Cortazio",
+                csm: "Jonathan Noller (FAM)",
+                lat: 42.4151,
+                lng: -71.1565
+            },
+            {
+                name: "Furnace Brook Motors",
+                address: "561 Foundry St, South Easton, MA 02375",
+                classification: "Independent L1",
+                owner: "Ahmed Mustafa",
+                csm: "Stephanie Kling",
+                lat: 42.0323,
+                lng: -71.0989
+            },
+            {
+                name: "V & F Auto Sales",
+                address: "7 Harding St, Agawam, MA 01001",
+                classification: "SDT",
+                owner: "Michael McKelvey",
+                csm: "",
+                lat: 42.0695,
+                lng: -72.6148
+            },
+            {
+                name: "Matt McGovern Auto Group",
+                address: "770 Boston Turnpike, Shrewsbury, MA 01545",
+                classification: "Metro",
+                owner: "Rebeca Cortazio",
+                csm: "Jonathan Noller (FAM)",
+                lat: 42.2959,
+                lng: -71.7045
+            },
+            {
+                name: "Colonial Automotive Group",
+                address: "231 Linden St, Wellesley, MA 02882",
+                classification: "Metro",
+                owner: "Rebeca Cortazio",
+                csm: "Jonathan Noller (FAM)",
+                lat: 42.3084,
+                lng: -71.2912
+            },
+            {
+                name: "Pristine Auto",
+                address: "17 Buckley Ave, Whitman, MA 02338",
+                classification: "Independent L1",
+                owner: "Brooke Beasley",
+                csm: "Kieaux Kimmon",
+                lat: 42.0806,
+                lng: -70.9342
+            },
+            {
+                name: "Jidou Auto Sales",
+                address: "612 Mill St, Worcester, MA 01602",
+                classification: "SDT",
+                owner: "Jack Kelly",
+                csm: "",
+                lat: 42.2526,
+                lng: -71.7900
+            }
+        ];
+
+        // Dealers with missing addresses
+        const missingAddresses = [
+            "Bob Pion Cars",
+            "Tufankjian Auto Group",
+            "The Herb Chambers Companies",
+            "Village Automotive Group",
+            "Carbidz.net"
+        ];
+
+        // Initialize map centered on Massachusetts
+        const map = L.map('map').setView([42.3601, -71.0589], 8);
+
+        // Add tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            maxZoom: 19
+        }).addTo(map);
+
+        // Color coding by classification
+        const classificationColors = {
+            'Franchise L1': '#2196F3',
+            'Franchise L3': '#03A9F4',
+            'Independent L1': '#4CAF50',
+            'Independent L2': '#66BB6A',
+            'Independent L3': '#81C784',
+            'Metro': '#FF9800',
+            'National': '#F44336',
+            'SDT': '#9E9E9E'
+        };
+
+        // Create custom icon function
+        function createCustomIcon(classification) {
+            const color = classificationColors[classification] || '#757575';
+            return L.divIcon({
+                className: 'custom-icon',
+                html: `<div style="
+                    background-color: ${color};
+                    width: 25px;
+                    height: 25px;
+                    border-radius: 50%;
+                    border: 3px solid white;
+                    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+                "></div>`,
+                iconSize: [25, 25],
+                iconAnchor: [12, 12]
+            });
+        }
+
+        // Add markers for each dealer
+        dealers.forEach(dealer => {
+            const icon = createCustomIcon(dealer.classification);
+            const marker = L.marker([dealer.lat, dealer.lng], { icon: icon }).addTo(map);
+
+            const popupContent = `
+                <div class="popup-title">${dealer.name}</div>
+                <div class="popup-info">
+                    <div><span class="popup-label">Address:</span> ${dealer.address}</div>
+                    <div><span class="popup-label">Owner:</span> ${dealer.owner}</div>
+                    ${dealer.csm ? `<div><span class="popup-label">CSM:</span> ${dealer.csm}</div>` : ''}
+                    <div><span class="popup-classification">${dealer.classification}</span></div>
+                </div>
+            `;
+
+            marker.bindPopup(popupContent);
+        });
+
+        // Update stats
+        document.getElementById('mapped-count').textContent = dealers.length;
+        document.getElementById('missing-count').textContent = missingAddresses.length;
+
+        // Add legend
+        const legend = L.control({ position: 'bottomright' });
+        legend.onAdd = function(map) {
+            const div = L.DomUtil.create('div', 'legend');
+            div.innerHTML = '<div class="legend-title">Dealer Classifications</div>';
+
+            for (const [classification, color] of Object.entries(classificationColors)) {
+                div.innerHTML += `
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: ${color};"></div>
+                        <span>${classification}</span>
+                    </div>
+                `;
+            }
+
+            if (missingAddresses.length > 0) {
+                div.innerHTML += `
+                    <div style="margin-top: 15px; padding-top: 10px; border-top: 1px solid #ddd;">
+                        <div class="legend-title">Missing Addresses:</div>
+                        <div style="font-size: 11px; color: #d32f2f;">
+                            ${missingAddresses.join('<br>')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            return div;
+        };
+        legend.addTo(map);
+
+        // Fit map bounds to show all markers
+        if (dealers.length > 0) {
+            const group = L.featureGroup(dealers.map(d => L.marker([d.lat, d.lng])));
+            map.fitBounds(group.getBounds().pad(0.1));
+        }
+    </script>
+</body>
+</html>
