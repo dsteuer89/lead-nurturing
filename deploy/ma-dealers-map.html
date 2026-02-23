@@ -145,7 +145,7 @@
         <div class="stats">
             <div class="stat-box">
                 <div class="stat-label">Total Dealers</div>
-                <div class="stat-value">20</div>
+                <div class="stat-value">26</div>
             </div>
             <div class="stat-box">
                 <div class="stat-label">Mapped Locations</div>
@@ -297,15 +297,72 @@
                 csm: "",
                 lat: 42.2526,
                 lng: -71.7900
+            },
+            {
+                name: "Colonial Volkswagen Medford",
+                address: "777 Mystic Avenue, Medford, MA 02155",
+                classification: "Metro",
+                owner: "Rebeca Cortazio",
+                csm: "Jonathan Noller (FAM)",
+                spid: "273699",
+                lat: 42.4186,
+                lng: -71.1064
+            },
+            {
+                name: "Herb Chambers Toyota Boston",
+                address: "1 Brighton Avenue, Boston, MA 02134",
+                classification: "National",
+                owner: "Dan Reiss",
+                csm: "Alex Bettina (FAM)",
+                spid: "41048",
+                lat: 42.3532,
+                lng: -71.1359
+            },
+            {
+                name: "McGovern CJDR Boston",
+                address: "135 Needham Street, Newton, MA 02464",
+                classification: "Metro",
+                owner: "Rebeca Cortazio",
+                csm: "Jonathan Noller (FAM)",
+                spid: "61598",
+                lat: 42.3370,
+                lng: -71.1956
+            },
+            {
+                name: "McGovern Honda Everett",
+                address: "155 Mystic Avenue, Everett, MA 02149",
+                classification: "Metro",
+                owner: "Rebeca Cortazio",
+                csm: "Jonathan Noller (FAM)",
+                spid: "58966",
+                lat: 42.4084,
+                lng: -71.0536
+            },
+            {
+                name: "Tufankjian's Used Cars of Weymouth",
+                address: "720 Bridge St, North Weymouth, MA 02191",
+                classification: "Franchise L1",
+                owner: "PJ Abplanalp",
+                csm: "Joshua Ameen",
+                spid: "312706",
+                lat: 42.2418,
+                lng: -70.9628
+            },
+            {
+                name: "Village Automotive Group",
+                address: "75 N Beacon St, Allston, MA 02134",
+                classification: "Metro",
+                owner: "Rebeca Cortazio",
+                csm: "Jonathan Noller (FAM)",
+                spid: "342045",
+                lat: 42.3543,
+                lng: -71.1312
             }
         ];
 
         // Dealers with missing addresses
         const missingAddresses = [
-            "Bob Pion Cars",
-            "Tufankjian Auto Group",
-            "The Herb Chambers Companies",
-            "Village Automotive Group",
+            "Bob Pion Cars (Chicopee, MA - 80+ miles from Cambridge)",
             "Carbidz.net"
         ];
 
@@ -357,6 +414,7 @@
                 <div class="popup-title">${dealer.name}</div>
                 <div class="popup-info">
                     <div><span class="popup-label">Address:</span> ${dealer.address}</div>
+                    ${dealer.spid ? `<div><span class="popup-label">SPID:</span> ${dealer.spid}</div>` : ''}
                     <div><span class="popup-label">Owner:</span> ${dealer.owner}</div>
                     ${dealer.csm ? `<div><span class="popup-label">CSM:</span> ${dealer.csm}</div>` : ''}
                     <div><span class="popup-classification">${dealer.classification}</span></div>
