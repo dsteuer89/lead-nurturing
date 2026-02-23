@@ -1,24 +1,21 @@
-Dealership Name,Street Address,City,State,ZIP,Classification,Owner,CSM,FAM,Status
-Auto House USA,1134 Broadway,Saugus,MA,01906,Independent L2,Sam Kost,Vick Halwadjian,,Complete
-Central Chevrolet Inc,675 Memorial Ave,West Springfield,MA,01089,Franchise L1,Gilda Banos,Joshua Ameen,,Complete
-Haddad Subaru,652 East St,Pittsfield,MA,01201,Franchise L3,Joseph Molk,Casey Smith,,Complete
-Landes Family Auto Sales,859 Washington St,Attleboro,MA,02703,Independent L1,Ghaizel Espinal,Kieaux Kimmon,,Complete
-Mercedes-Benz of Shrewsbury,Boston Turnpike,Shrewsbury,MA,01545,Franchise L1,Jeremyah Rivera,Kate Cooper,,Complete
-Midstate Mitsubishi,810 Washington St,Auburn,MA,01501,Franchise L1,Jeremyah Rivera,Kate Cooper,,Complete
-Bahnans Auto Sales,359 Chandler Street,Worcester,MA,01602,SDT,Rob Frey,,,Complete
-Frontline Motors Inc,759 Meadow Street,Chicopee,MA,01013,SDT,Taylor Mulready,,,Complete
-McGovern Hyundai of Arlington,1125 Mass Ave,Arlington,MA,02476,Metro,Rebeca Cortazio,,Jonathan Noller,Complete
-Furnace Brook Motors,561 Foundry St,South Easton,MA,02375,Independent L1,Ahmed Mustafa,Stephanie Kling,,Complete
-V & F Auto Sales,7 Harding St,Agawam,MA,01001,SDT,Michael McKelvey,,,Complete
-Matt McGovern Auto Group,770 Boston Turnpike,Shrewsbury,MA,01545,Metro,Rebeca Cortazio,,Jonathan Noller,Complete
-Bob Pion Buick GMC,333 Memorial Drive,Chicopee,MA,01020,Franchise L1,Guhan Aravinthan,Nick Rudomin,,Complete (SPID 49887)
-Colonial Automotive Group,231 Linden St,Wellesley,MA,02882,Metro,Rebeca Cortazio,,Jonathan Noller,Complete
-Tufankjian's Used Cars of Weymouth,720 Bridge St,North Weymouth,MA,02191,Franchise L1,PJ Abplanalp,Joshua Ameen,,Complete (SPID 312706)
-Village Automotive Group,75 N Beacon St,Allston,MA,02134,Metro,Rebeca Cortazio,,Jonathan Noller,Complete (SPID 342045)
-Carbidz.net,,,MA,,Independent L3,James Holden,Vick Halwadjian,,Missing
-Pristine Auto,17 Buckley Ave,Whitman,MA,02338,Independent L1,Brooke Beasley,Kieaux Kimmon,,Complete
-Jidou Auto Sales,612 Mill St,Worcester,MA,01602,SDT,Jack Kelly,,,Complete
-Colonial Volkswagen Medford,777 Mystic Avenue,Medford,MA,02155,Metro,Rebeca Cortazio,,Jonathan Noller,Complete (SPID 273699)
-Herb Chambers Toyota Boston,1 Brighton Avenue,Boston,MA,02134,National,Dan Reiss,,Alex Bettina,Complete (SPID 41048)
-McGovern CJDR Boston,135 Needham Street,Newton,MA,02464,Metro,Rebeca Cortazio,,Jonathan Noller,Complete (SPID 61598)
-McGovern Honda Everett,155 Mystic Avenue,Everett,MA,02149,Metro,Rebeca Cortazio,,Jonathan Noller,Complete (SPID 58966)
+Salesforce Account ID,Service Provider ID,Dealership Name,Street Address,City,State,Classification,Owner,CSM,FAM,CRM,Lead Nurturing Provider,Comment
+0014S000007maJvQAI,153202,Auto House USA,1134 Broadway,Saugus,MA,Independent L2,Sam Kost,Vick Halwadjian,,Eleads,,
+0014S000007maOfQAI,49703,Central Chevrolet Inc,675 Memorial Ave,West Springfield,MA,Franchise L1,Gilda Banos,Joshua Ameen,,n.a.,Hammer,
+0014S000007mbGaQAI,67613,Haddad Subaru,652 East Street,Pittsfield,MA,Franchise L3,Joseph Molk,Casey Smith,,n.a.,,
+0014S000007mbtPQAQ,291578,Landes Family Auto Sales,859 Washington St,Attleboro,MA,Independent L1,Ghaizel Espinal,Kieaux Kimmon,,Dealer Center,,
+0014S000007mcEHQAY,273614,Mercedes-Benz of Shrewsbury,760 Boston Turnpike,Shrewsbury,MA,Franchise L1,Jeremyah Rivera,Kate Cooper,,VinSolutions,,
+0014S000007meZdQAI,290758,Midstate Mitsubishi,810 Washington St,Auburn,MA,Franchise L1,Jeremyah Rivera,Kate Cooper,,DealerSocket,,
+0014S000007mh7YQAQ,151743,Bahnans Auto Sales,359 Chandler St,Worcester,MA,SDT,Rob Frey,,,n.a.,,
+0014S000007mhdIQAQ,312525,Frontline Motors Inc,759 Meadow St,Chicopee,MA,SDT,Taylor Mulready,,,n.a.,Hammer,
+0014S000007mhfBQAQ,312734,McGovern Hyundai of Arlington,1165 Massachusetts Avenue,Arlington,MA,Metro,Rebeca Cortazio,,Jonathan Noller,Eleads,,
+0014S000007mhVEQAY,292788,Furnace Brook Motors,561 Foundry Street,South Easton,MA,Independent L1,Ahmed Mustafa,Stephanie Kling,,DealerCenter,,
+0014S000007mhwjQAA,316240,V & F Auto Sales,7 Harding St,Agawam,MA,SDT,Michael McKelvey,,,n.a.,,
+0014S000007mQLQQA2,391734,Matt McGovern Auto Group,"21 High St, Suite 303",North Andover,MA,Metro,Rebeca Cortazio,,Jonathan Noller,Eleads,,
+0014S000007mQPeQAM,398321,Bob Pion Cars,333 Memorial Dr,Chicopee,MA,Franchise L1,Guhan Aravinthan,Nick Rudomin,,DealerSocket,,
+0014S000007mRbIQAU,367730,Tufankjian Auto Group,210 Union Street,Braintree,MA,Franchise L1,PJ Abplanalp,Joshua Ameen,,DriveCentric,,Multiple dealerships
+0014S000007mRRzQAM,305881,Colonial Automotive Group,104 Mystic Ave,Medford,MA,Metro,Rebeca Cortazio,,Jonathan Noller,DealerSocket,,Multiple dealerships
+0014S000007mRS5QAM,341918,The Herb Chambers Companies,33 Cambridge St,Burlington,MA,National,Dan Reiss,,Alex Bettina,DriveCentric,,Multiple dealerships
+0014S000007mRSKQA2,342045,Village Automotive Group,371 Washington St,Newton,MA,Metro,Rebeca Cortazio,,Jonathan Noller,VinSolutions,,Multiple dealerships
+0014S000007mSSoQAM,392363,Carbidz.net,50 Eastman St,South Easton,MA,Independent L3,James Holden,Vick Halwadjian,,Dealer Center,,
+0014S000007mUb6QAE,408621,Pristine Auto,17 Buckley Ave,Whitman,MA,Independent L1,Brooke Beasley,Kieaux Kimmon,,n.a.,,
+0014S000008N6NWQA0,446806,Jidou Auto Sales,612 Mill St,Worcester,MA,SDT,Jack Kelly,,,n.a.,,

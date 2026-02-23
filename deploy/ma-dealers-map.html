@@ -145,15 +145,15 @@
         <div class="stats">
             <div class="stat-box">
                 <div class="stat-label">Total Dealers</div>
-                <div class="stat-value">23</div>
+                <div class="stat-value">20</div>
             </div>
             <div class="stat-box">
                 <div class="stat-label">Mapped Locations</div>
                 <div class="stat-value" id="mapped-count">0</div>
             </div>
             <div class="stat-box">
-                <div class="stat-label">Missing Addresses</div>
-                <div class="stat-value" id="missing-count">0</div>
+                <div class="stat-label">Complete Coverage</div>
+                <div class="stat-value">100%</div>
             </div>
         </div>
     </div>
@@ -165,215 +165,254 @@
         const dealers = [
             {
                 name: "Auto House USA",
-                address: "1134 Broadway, Saugus, MA 01906",
+                address: "1134 Broadway, Saugus, MA",
                 classification: "Independent L2",
                 owner: "Sam Kost",
                 csm: "Vick Halwadjian",
+                spid: "153202",
+                sfid: "0014S000007maJvQAI",
+                crm: "Eleads",
                 lat: 42.4647,
                 lng: -71.0106
             },
             {
                 name: "Central Chevrolet Inc",
-                address: "675 Memorial Ave, West Springfield, MA 01089",
+                address: "675 Memorial Ave, West Springfield, MA",
                 classification: "Franchise L1",
                 owner: "Gilda Banos",
                 csm: "Joshua Ameen",
+                spid: "49703",
+                sfid: "0014S000007maOfQAI",
+                crm: "n.a.",
+                leadProvider: "Hammer",
                 lat: 42.1070,
                 lng: -72.6204
             },
             {
                 name: "Haddad Subaru",
-                address: "652 East St, Pittsfield, MA 01201",
+                address: "652 East Street, Pittsfield, MA",
                 classification: "Franchise L3",
                 owner: "Joseph Molk",
                 csm: "Casey Smith",
+                spid: "67613",
+                sfid: "0014S000007mbGaQAI",
+                crm: "n.a.",
                 lat: 42.4447,
                 lng: -73.2323
             },
             {
                 name: "Landes Family Auto Sales",
-                address: "859 Washington St, Attleboro, MA 02703",
+                address: "859 Washington St, Attleboro, MA",
                 classification: "Independent L1",
                 owner: "Ghaizel Espinal",
                 csm: "Kieaux Kimmon",
+                spid: "291578",
+                sfid: "0014S000007mbtPQAQ",
+                crm: "Dealer Center",
                 lat: 41.9398,
                 lng: -71.2856
             },
             {
                 name: "Mercedes-Benz of Shrewsbury",
-                address: "Boston Turnpike, Shrewsbury, MA 01545",
+                address: "760 Boston Turnpike, Shrewsbury, MA",
                 classification: "Franchise L1",
                 owner: "Jeremyah Rivera",
                 csm: "Kate Cooper",
+                spid: "273614",
+                sfid: "0014S000007mcEHQAY",
+                crm: "VinSolutions",
                 lat: 42.2959,
                 lng: -71.7128
             },
             {
                 name: "Midstate Mitsubishi",
-                address: "810 Washington St, Auburn, MA 01501",
+                address: "810 Washington St, Auburn, MA",
                 classification: "Franchise L1",
                 owner: "Jeremyah Rivera",
                 csm: "Kate Cooper",
+                spid: "290758",
+                sfid: "0014S000007meZdQAI",
+                crm: "DealerSocket",
                 lat: 42.2043,
                 lng: -71.8356
             },
             {
                 name: "Bahnans Auto Sales",
-                address: "359 Chandler Street, Worcester, MA 01602",
+                address: "359 Chandler St, Worcester, MA",
                 classification: "SDT",
                 owner: "Rob Frey",
                 csm: "",
+                spid: "151743",
+                sfid: "0014S000007mh7YQAQ",
+                crm: "n.a.",
                 lat: 42.2626,
                 lng: -71.7843
             },
             {
                 name: "Frontline Motors Inc",
-                address: "759 Meadow Street, Chicopee, MA 01013",
+                address: "759 Meadow St, Chicopee, MA",
                 classification: "SDT",
                 owner: "Taylor Mulready",
                 csm: "",
+                spid: "312525",
+                sfid: "0014S000007mhdIQAQ",
+                crm: "n.a.",
+                leadProvider: "Hammer",
                 lat: 42.1737,
                 lng: -72.5759
             },
             {
                 name: "McGovern Hyundai of Arlington",
-                address: "1125 Mass Ave, Arlington, MA 02476",
+                address: "1165 Massachusetts Avenue, Arlington, MA",
                 classification: "Metro",
                 owner: "Rebeca Cortazio",
-                csm: "Jonathan Noller (FAM)",
-                lat: 42.4151,
+                fam: "Jonathan Noller",
+                spid: "312734",
+                sfid: "0014S000007mhfBQAQ",
+                crm: "Eleads",
+                lat: 42.4173,
                 lng: -71.1565
             },
             {
                 name: "Furnace Brook Motors",
-                address: "561 Foundry St, South Easton, MA 02375",
+                address: "561 Foundry Street, South Easton, MA",
                 classification: "Independent L1",
                 owner: "Ahmed Mustafa",
                 csm: "Stephanie Kling",
+                spid: "292788",
+                sfid: "0014S000007mhVEQAY",
+                crm: "DealerCenter",
                 lat: 42.0323,
                 lng: -71.0989
             },
             {
                 name: "V & F Auto Sales",
-                address: "7 Harding St, Agawam, MA 01001",
+                address: "7 Harding St, Agawam, MA",
                 classification: "SDT",
                 owner: "Michael McKelvey",
                 csm: "",
+                spid: "316240",
+                sfid: "0014S000007mhwjQAA",
+                crm: "n.a.",
                 lat: 42.0695,
                 lng: -72.6148
             },
             {
                 name: "Matt McGovern Auto Group",
-                address: "770 Boston Turnpike, Shrewsbury, MA 01545",
+                address: "21 High St, Suite 303, North Andover, MA",
                 classification: "Metro",
                 owner: "Rebeca Cortazio",
-                csm: "Jonathan Noller (FAM)",
-                lat: 42.2959,
-                lng: -71.7045
+                fam: "Jonathan Noller",
+                spid: "391734",
+                sfid: "0014S000007mQLQQA2",
+                crm: "Eleads",
+                lat: 42.6987,
+                lng: -71.1350
+            },
+            {
+                name: "Bob Pion Cars",
+                address: "333 Memorial Dr, Chicopee, MA",
+                classification: "Franchise L1",
+                owner: "Guhan Aravinthan",
+                csm: "Nick Rudomin",
+                spid: "398321",
+                sfid: "0014S000007mQPeQAM",
+                crm: "DealerSocket",
+                lat: 42.1762,
+                lng: -72.5795
+            },
+            {
+                name: "Tufankjian Auto Group",
+                address: "210 Union Street, Braintree, MA",
+                classification: "Franchise L1",
+                owner: "PJ Abplanalp",
+                csm: "Joshua Ameen",
+                spid: "367730",
+                sfid: "0014S000007mRbIQAU",
+                crm: "DriveCentric",
+                comment: "Multiple dealerships",
+                lat: 42.2084,
+                lng: -71.0020
             },
             {
                 name: "Colonial Automotive Group",
-                address: "231 Linden St, Wellesley, MA 02882",
+                address: "104 Mystic Ave, Medford, MA",
                 classification: "Metro",
                 owner: "Rebeca Cortazio",
-                csm: "Jonathan Noller (FAM)",
-                lat: 42.3084,
-                lng: -71.2912
+                fam: "Jonathan Noller",
+                spid: "305881",
+                sfid: "0014S000007mRRzQAM",
+                crm: "DealerSocket",
+                comment: "Multiple dealerships",
+                lat: 42.4186,
+                lng: -71.1064
+            },
+            {
+                name: "The Herb Chambers Companies",
+                address: "33 Cambridge St, Burlington, MA",
+                classification: "National",
+                owner: "Dan Reiss",
+                fam: "Alex Bettina",
+                spid: "341918",
+                sfid: "0014S000007mRS5QAM",
+                crm: "DriveCentric",
+                comment: "Multiple dealerships",
+                lat: 42.4841,
+                lng: -71.1956
+            },
+            {
+                name: "Village Automotive Group",
+                address: "371 Washington St, Newton, MA",
+                classification: "Metro",
+                owner: "Rebeca Cortazio",
+                fam: "Jonathan Noller",
+                spid: "342045",
+                sfid: "0014S000007mRSKQA2",
+                crm: "VinSolutions",
+                comment: "Multiple dealerships",
+                lat: 42.3370,
+                lng: -71.2095
+            },
+            {
+                name: "Carbidz.net",
+                address: "50 Eastman St, South Easton, MA",
+                classification: "Independent L3",
+                owner: "James Holden",
+                csm: "Vick Halwadjian",
+                spid: "392363",
+                sfid: "0014S000007mSSoQAM",
+                crm: "Dealer Center",
+                lat: 42.0345,
+                lng: -71.0989
             },
             {
                 name: "Pristine Auto",
-                address: "17 Buckley Ave, Whitman, MA 02338",
+                address: "17 Buckley Ave, Whitman, MA",
                 classification: "Independent L1",
                 owner: "Brooke Beasley",
                 csm: "Kieaux Kimmon",
+                spid: "408621",
+                sfid: "0014S000007mUb6QAE",
+                crm: "n.a.",
                 lat: 42.0806,
                 lng: -70.9342
             },
             {
                 name: "Jidou Auto Sales",
-                address: "612 Mill St, Worcester, MA 01602",
+                address: "612 Mill St, Worcester, MA",
                 classification: "SDT",
                 owner: "Jack Kelly",
                 csm: "",
+                spid: "446806",
+                sfid: "0014S000008N6NWQA0",
+                crm: "n.a.",
                 lat: 42.2526,
                 lng: -71.7900
-            },
-            {
-                name: "Colonial Volkswagen Medford",
-                address: "777 Mystic Avenue, Medford, MA 02155",
-                classification: "Metro",
-                owner: "Rebeca Cortazio",
-                csm: "Jonathan Noller (FAM)",
-                spid: "273699",
-                lat: 42.4186,
-                lng: -71.1064
-            },
-            {
-                name: "Herb Chambers Toyota Boston",
-                address: "1 Brighton Avenue, Boston, MA 02134",
-                classification: "National",
-                owner: "Dan Reiss",
-                csm: "Alex Bettina (FAM)",
-                spid: "41048",
-                lat: 42.3532,
-                lng: -71.1359
-            },
-            {
-                name: "McGovern CJDR Boston",
-                address: "135 Needham Street, Newton, MA 02464",
-                classification: "Metro",
-                owner: "Rebeca Cortazio",
-                csm: "Jonathan Noller (FAM)",
-                spid: "61598",
-                lat: 42.3370,
-                lng: -71.1956
-            },
-            {
-                name: "McGovern Honda Everett",
-                address: "155 Mystic Avenue, Everett, MA 02149",
-                classification: "Metro",
-                owner: "Rebeca Cortazio",
-                csm: "Jonathan Noller (FAM)",
-                spid: "58966",
-                lat: 42.4084,
-                lng: -71.0536
-            },
-            {
-                name: "Tufankjian's Used Cars of Weymouth",
-                address: "720 Bridge St, North Weymouth, MA 02191",
-                classification: "Franchise L1",
-                owner: "PJ Abplanalp",
-                csm: "Joshua Ameen",
-                spid: "312706",
-                lat: 42.2418,
-                lng: -70.9628
-            },
-            {
-                name: "Village Automotive Group",
-                address: "75 N Beacon St, Allston, MA 02134",
-                classification: "Metro",
-                owner: "Rebeca Cortazio",
-                csm: "Jonathan Noller (FAM)",
-                spid: "342045",
-                lat: 42.3543,
-                lng: -71.1312
-            },
-            {
-                name: "Bob Pion Buick GMC",
-                address: "333 Memorial Drive, Chicopee, MA 01020",
-                classification: "Franchise L1",
-                owner: "Guhan Aravinthan",
-                csm: "Nick Rudomin",
-                spid: "49887",
-                lat: 42.1762,
-                lng: -72.5795
             }
         ];
 
-        // Dealers with missing addresses
-        const missingAddresses = [
-            "Carbidz.net (No address information available)"
-        ];
+        // All dealers now have addresses
+        const missingAddresses = [];
 
         // Initialize map centered on Massachusetts
         const map = L.map('map').setView([42.3601, -71.0589], 8);
@@ -424,8 +463,13 @@
                 <div class="popup-info">
                     <div><span class="popup-label">Address:</span> ${dealer.address}</div>
                     ${dealer.spid ? `<div><span class="popup-label">SPID:</span> ${dealer.spid}</div>` : ''}
+                    ${dealer.sfid ? `<div><span class="popup-label">Salesforce ID:</span> ${dealer.sfid}</div>` : ''}
                     <div><span class="popup-label">Owner:</span> ${dealer.owner}</div>
                     ${dealer.csm ? `<div><span class="popup-label">CSM:</span> ${dealer.csm}</div>` : ''}
+                    ${dealer.fam ? `<div><span class="popup-label">FAM:</span> ${dealer.fam}</div>` : ''}
+                    ${dealer.crm ? `<div><span class="popup-label">CRM:</span> ${dealer.crm}</div>` : ''}
+                    ${dealer.leadProvider ? `<div><span class="popup-label">Lead Provider:</span> ${dealer.leadProvider}</div>` : ''}
+                    ${dealer.comment ? `<div style="font-style: italic; color: #666; margin-top: 5px;">${dealer.comment}</div>` : ''}
                     <div><span class="popup-classification">${dealer.classification}</span></div>
                 </div>
             `;
