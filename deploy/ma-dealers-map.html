@@ -108,6 +108,7 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
             line-height: 1.6;
             font-size: 13px;
+            z-index: 1000;
         }
 
         .legend-title {
@@ -479,7 +480,6 @@
 
         // Update stats
         document.getElementById('mapped-count').textContent = dealers.length;
-        document.getElementById('missing-count').textContent = missingAddresses.length;
 
         // Add legend
         const legend = L.control({ position: 'bottomright' });
