@@ -396,7 +396,7 @@ body {
 .opening-rate-summary-grid {
     display: grid;
     gap: 16px;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .opening-rate-metric-group {
@@ -435,6 +435,46 @@ body {
     font-size: 28px;
     font-weight: 600;
     line-height: 1.15;
+}
+
+.opening-rate-trend-row {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.opening-rate-footnote {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.35;
+    margin: 10px 0 0;
+}
+
+.trend-pill {
+    align-items: center;
+    border-radius: 999px;
+    display: inline-flex;
+    font-size: 14px;
+    font-weight: 600;
+    gap: 6px;
+    line-height: 1;
+    padding: 8px 10px;
+}
+
+.trend-up {
+    background: #e7f5ea;
+    color: #196c34;
+}
+
+.trend-down {
+    background: #fae5e5;
+    color: #9f2f2f;
+}
+
+.trend-icon {
+    font-size: 14px;
+    line-height: 1;
 }
 
 .opening-rate-chart-grid {

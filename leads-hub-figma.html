@@ -198,16 +198,25 @@
                     <div class="opening-rate-body">
                         <div class="opening-rate-summary-grid">
                             <div class="opening-rate-metric-group">
-                                <p class="opening-rate-label">Current opening rate</p>
-                                <p class="opening-rate-primary" data-opening-rate-primary>118 of 157 profiles opened (75%)</p>
+                                <p class="opening-rate-label">Average opening rate</p>
+                                <div class="opening-rate-trend-row">
+                                    <p class="opening-rate-primary" data-opening-rate-average>71%</p>
+                                    <span class="trend-pill trend-up" data-opening-rate-trend>
+                                        <span class="trend-icon" aria-hidden="true">↗</span>
+                                        <span data-opening-rate-trend-text>+4 pts</span>
+                                    </span>
+                                </div>
                             </div>
                             <div class="opening-rate-metric-group">
-                                <p class="opening-rate-label">Average opening rate</p>
-                                <p class="opening-rate-secondary" data-opening-rate-average>71%</p>
-                            </div>
-                            <div class="opening-rate-metric-group opening-rate-secondary-group">
-                                <p class="opening-rate-label">Opened by unique users</p>
-                                <p class="opening-rate-secondary" data-opening-rate-secondary>9 unique users</p>
+                                <p class="opening-rate-label">Average unique users</p>
+                                <div class="opening-rate-trend-row">
+                                    <p class="opening-rate-secondary" data-opening-rate-secondary>6.0</p>
+                                    <span class="trend-pill trend-up" data-user-trend>
+                                        <span class="trend-icon" aria-hidden="true">↗</span>
+                                        <span data-user-trend-text>+2.0 users</span>
+                                    </span>
+                                </div>
+                                <p class="opening-rate-footnote" data-user-average-footnote>Average profile openers per day</p>
                             </div>
                         </div>
                         <div class="opening-rate-chart-grid">
@@ -464,7 +473,17 @@
 
         const performanceByRange = {
             "7d": {
-                summary: { opened: 118, total: 157, percent: 75, averagePercent: 71, uniqueUsers: 9 },
+                summary: {
+                    opened: 118,
+                    total: 157,
+                    percent: 75,
+                    averagePercent: 71,
+                    openingRateTrend: { direction: "up", label: "+4 pts" },
+                    averageUsers: 6.0,
+                    userAverageLabel: "Average profile openers per day",
+                    userTrend: { direction: "up", label: "+2.0 users" },
+                    uniqueUsers: 9
+                },
                 openingRates: [
                     { label: "Feb 22", value: 62 },
                     { label: "Feb 23", value: 66 },
@@ -486,7 +505,17 @@
                 openedShopperIds: ["keanu", "maxwell"]
             },
             "30d": {
-                summary: { opened: 164, total: 200, percent: 82, averagePercent: 78, uniqueUsers: 14 },
+                summary: {
+                    opened: 164,
+                    total: 200,
+                    percent: 82,
+                    averagePercent: 78,
+                    openingRateTrend: { direction: "up", label: "+6 pts" },
+                    averageUsers: 10.2,
+                    userAverageLabel: "Average profile openers per week",
+                    userTrend: { direction: "up", label: "+3.1 users" },
+                    uniqueUsers: 14
+                },
                 openingRates: [
                     { label: "Week 1", value: 70 },
                     { label: "Week 2", value: 74 },
@@ -508,9 +537,13 @@
         };
 
         const rangeTabs = Array.from(document.querySelectorAll(".opening-rate-tab"));
-        const primaryMetric = document.querySelector("[data-opening-rate-primary]");
         const averageMetric = document.querySelector("[data-opening-rate-average]");
         const secondaryMetric = document.querySelector("[data-opening-rate-secondary]");
+        const openingRateTrend = document.querySelector("[data-opening-rate-trend]");
+        const openingRateTrendText = document.querySelector("[data-opening-rate-trend-text]");
+        const userTrend = document.querySelector("[data-user-trend]");
+        const userTrendText = document.querySelector("[data-user-trend-text]");
+        const userAverageFootnote = document.querySelector("[data-user-average-footnote]");
         const openingRateChartSubtitle = document.querySelector("[data-opening-rate-chart-subtitle]");
         const userChartSubtitle = document.querySelector("[data-user-chart-subtitle]");
         const openingRateChartCallout = document.querySelector("[data-opening-rate-chart-callout]");
@@ -615,9 +648,9 @@
             const metric = rangeData.summary;
             const openedShopperIds = new Set(rangeData.openedShopperIds || []);
 
-            primaryMetric.textContent = `${metric.opened} of ${metric.total} profiles opened (${metric.percent}%)`;
             averageMetric.textContent = `${metric.averagePercent}%`;
-            secondaryMetric.textContent = `${metric.uniqueUsers} unique users`;
+            secondaryMetric.textContent = `${metric.averageUsers.toFixed(1)}`;
+            userAverageFootnote.textContent = metric.userAverageLabel;
             openingRateChartCallout.textContent = `${range === "7d" ? "Latest" : "Current"}: ${metric.percent}%`;
             userChartCallout.textContent = `Peak: ${Math.max(...rangeData.userSeries.map((point) => point.value))} users`;
             openingRateChartSubtitle.textContent = range === "7d"
@@ -626,6 +659,14 @@
             userChartSubtitle.textContent = range === "7d"
                 ? "Unique teammates who opened shopper profiles each day"
                 : "Unique teammates who opened shopper profiles each week";
+            openingRateTrend.classList.toggle("trend-up", metric.openingRateTrend.direction === "up");
+            openingRateTrend.classList.toggle("trend-down", metric.openingRateTrend.direction === "down");
+            openingRateTrend.querySelector(".trend-icon").textContent = metric.openingRateTrend.direction === "up" ? "↗" : "↘";
+            openingRateTrendText.textContent = metric.openingRateTrend.label;
+            userTrend.classList.toggle("trend-up", metric.userTrend.direction === "up");
+            userTrend.classList.toggle("trend-down", metric.userTrend.direction === "down");
+            userTrend.querySelector(".trend-icon").textContent = metric.userTrend.direction === "up" ? "↗" : "↘";
+            userTrendText.textContent = metric.userTrend.label;
 
             rangeTabs.forEach((tab) => {
                 const isActive = tab.dataset.range === range;
