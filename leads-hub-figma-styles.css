@@ -325,6 +325,113 @@ body {
     margin-bottom: 18px;
 }
 
+.opening-rate-panel {
+    background: linear-gradient(135deg, #ffffff 0%, #f6f9fc 100%);
+    border: 1px solid var(--stroke-soft);
+    border-radius: 24px;
+    box-shadow: var(--shadow-soft);
+    margin-bottom: 20px;
+    padding: 24px 28px 26px;
+}
+
+.opening-rate-header {
+    align-items: flex-start;
+    display: flex;
+    gap: 18px;
+    justify-content: space-between;
+    margin-bottom: 22px;
+}
+
+.opening-rate-eyebrow {
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    margin: 0 0 8px;
+    text-transform: uppercase;
+}
+
+.opening-rate-header h2 {
+    font-family: "Rund Display", Graphik, "Helvetica Neue", Arial, sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin: 0;
+}
+
+.opening-rate-tabs {
+    background: #e8edf2;
+    border-radius: 999px;
+    display: inline-flex;
+    gap: 4px;
+    padding: 4px;
+}
+
+.opening-rate-tab {
+    background: transparent;
+    border: 0;
+    border-radius: 999px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 11px 16px;
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.opening-rate-tab.active {
+    background: var(--bg-surface);
+    box-shadow: 0 1px 2px rgba(13, 23, 34, 0.1);
+    color: var(--text-primary);
+}
+
+.opening-rate-body {
+    align-items: stretch;
+    display: grid;
+    gap: 16px;
+    grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr);
+}
+
+.opening-rate-metric-group {
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid #dce3ea;
+    border-radius: 18px;
+    min-height: 126px;
+    padding: 22px 24px;
+}
+
+.opening-rate-secondary-group {
+    background: linear-gradient(180deg, #f4f8fb 0%, #edf3f7 100%);
+}
+
+.opening-rate-label {
+    color: var(--text-secondary);
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 10px;
+}
+
+.opening-rate-primary,
+.opening-rate-secondary {
+    font-family: "Rund Display", Graphik, "Helvetica Neue", Arial, sans-serif;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+.opening-rate-primary {
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.opening-rate-secondary {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.15;
+}
+
 .search-row {
     align-items: center;
     display: flex;
@@ -515,6 +622,49 @@ body {
     padding: 0 24px;
 }
 
+.open-state-pill {
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    display: inline-flex;
+    font-size: 15px;
+    font-weight: 600;
+    gap: 8px;
+    line-height: 1;
+    padding: 10px 14px;
+}
+
+.open-state-opened {
+    background: #e7f5ea;
+    border-color: #b6dfc1;
+    color: #196c34;
+}
+
+.open-state-unopened {
+    background: #f3f5f7;
+    border-color: #d6dde5;
+    color: #52606e;
+}
+
+.open-state-icon {
+    align-items: center;
+    background: currentColor;
+    border-radius: 999px;
+    color: #ffffff;
+    display: inline-flex;
+    font-size: 12px;
+    font-weight: 700;
+    height: 18px;
+    justify-content: center;
+    width: 18px;
+}
+
+.open-state-unopened .open-state-icon {
+    background: transparent;
+    border: 1.5px solid currentColor;
+    color: currentColor;
+}
+
 .card-body {
     display: grid;
     grid-template-columns: 1.02fr 1fr 1.22fr;
@@ -631,6 +781,15 @@ body {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .opening-rate-body {
+        grid-template-columns: 1fr;
+    }
+
+    .opening-rate-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
     .card-body {
         gap: 24px;
         grid-template-columns: 1fr;
@@ -663,6 +822,7 @@ body {
     }
 
     .summary-panel,
+    .opening-rate-panel,
     .shopper-card {
         border-radius: 18px;
         padding-left: 18px;
@@ -670,6 +830,7 @@ body {
     }
 
     .summary-header,
+    .opening-rate-header,
     .search-row,
     .results-row,
     .card-topline {
@@ -684,6 +845,13 @@ body {
         width: 100%;
     }
 
+    .opening-rate-tabs {
+        display: grid;
+        gap: 8px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        width: 100%;
+    }
+
     .metric-grid {
         grid-template-columns: 1fr;
     }
@@ -694,5 +862,13 @@ body {
 
     .activity-grid {
         grid-template-columns: 1fr;
+    }
+
+    .opening-rate-primary {
+        font-size: 28px;
+    }
+
+    .opening-rate-secondary {
+        font-size: 24px;
     }
 }
