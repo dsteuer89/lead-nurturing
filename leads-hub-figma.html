@@ -184,6 +184,30 @@
                     </div>
                 </section>
 
+                <section class="opening-rate-panel" aria-labelledby="opening-rate-title">
+                    <div class="opening-rate-header">
+                        <div>
+                            <p class="opening-rate-eyebrow">Team performance</p>
+                            <h2 id="opening-rate-title">Profile opening rate</h2>
+                        </div>
+                        <div class="opening-rate-tabs" role="tablist" aria-label="Profile opening rate time range">
+                            <button class="opening-rate-tab active" type="button" data-range="24h" aria-pressed="true">Last 24 hours</button>
+                            <button class="opening-rate-tab" type="button" data-range="7d" aria-pressed="false">Last 7 days</button>
+                            <button class="opening-rate-tab" type="button" data-range="30d" aria-pressed="false">Last 30 days</button>
+                        </div>
+                    </div>
+                    <div class="opening-rate-body">
+                        <div class="opening-rate-metric-group">
+                            <p class="opening-rate-label">Profile opening rate</p>
+                            <p class="opening-rate-primary" data-opening-rate-primary>46 of 68 profiles opened (68%)</p>
+                        </div>
+                        <div class="opening-rate-metric-group opening-rate-secondary-group">
+                            <p class="opening-rate-label">Team reach</p>
+                            <p class="opening-rate-secondary" data-opening-rate-secondary>Opened by 4 unique users</p>
+                        </div>
+                    </div>
+                </section>
+
                 <section class="controls-panel">
                     <div class="search-row">
                         <label class="search-box" aria-label="Search shoppers">
@@ -233,7 +257,7 @@
                 </section>
 
                 <section class="shopper-list">
-                    <article class="shopper-card">
+                    <article class="shopper-card" data-shopper-id="keanu">
                         <div class="card-topline">
                             <div class="card-title-row">
                                 <h3>Keanu Matrix Reeves Jr.</h3>
@@ -247,6 +271,10 @@
                                         Switch opportunity
                                     </span>
                                 </div>
+                                <span class="open-state-pill open-state-opened" data-open-state>
+                                    <span class="open-state-icon" aria-hidden="true">✓</span>
+                                    <span class="open-state-text">Opened</span>
+                                </span>
                             </div>
                             <button class="view-profile-button" type="button">View profile</button>
                         </div>
@@ -285,7 +313,7 @@
                         </div>
                     </article>
 
-                    <article class="shopper-card">
+                    <article class="shopper-card" data-shopper-id="emma">
                         <div class="card-topline">
                             <div class="card-title-row">
                                 <h3>Emma Starlight Green</h3>
@@ -299,6 +327,10 @@
                                         Switch opportunity
                                     </span>
                                 </div>
+                                <span class="open-state-pill open-state-opened" data-open-state>
+                                    <span class="open-state-icon" aria-hidden="true">✓</span>
+                                    <span class="open-state-text">Opened</span>
+                                </span>
                             </div>
                             <button class="view-profile-button" type="button">View profile</button>
                         </div>
@@ -337,7 +369,7 @@
                         </div>
                     </article>
 
-                    <article class="shopper-card">
+                    <article class="shopper-card" data-shopper-id="maxwell">
                         <div class="card-topline">
                             <div class="card-title-row">
                                 <h3>Maxwell Starwind Smith</h3>
@@ -347,6 +379,10 @@
                                         Warm lead
                                     </span>
                                 </div>
+                                <span class="open-state-pill open-state-unopened" data-open-state>
+                                    <span class="open-state-icon" aria-hidden="true">○</span>
+                                    <span class="open-state-text">Not opened</span>
+                                </span>
                             </div>
                             <button class="view-profile-button" type="button">View profile</button>
                         </div>
@@ -393,6 +429,55 @@
         function navigateTo(page) {
             window.location.href = page;
         }
+
+        const openingRateByRange = {
+            "24h": { opened: 46, total: 68, percent: 68, uniqueUsers: 4 },
+            "7d": { opened: 118, total: 157, percent: 75, uniqueUsers: 9 },
+            "30d": { opened: 164, total: 200, percent: 82, uniqueUsers: 14 }
+        };
+
+        const openedShopperIdsByRange = {
+            "24h": ["keanu", "emma"],
+            "7d": ["keanu", "maxwell"],
+            "30d": ["keanu", "emma", "maxwell"]
+        };
+
+        const rangeTabs = Array.from(document.querySelectorAll(".opening-rate-tab"));
+        const primaryMetric = document.querySelector("[data-opening-rate-primary]");
+        const secondaryMetric = document.querySelector("[data-opening-rate-secondary]");
+        const shopperCards = Array.from(document.querySelectorAll("[data-shopper-id]"));
+
+        function updateOpeningRate(range) {
+            const metric = openingRateByRange[range];
+            const openedShopperIds = new Set(openedShopperIdsByRange[range] || []);
+
+            primaryMetric.textContent = `${metric.opened} of ${metric.total} profiles opened (${metric.percent}%)`;
+            secondaryMetric.textContent = `Opened by ${metric.uniqueUsers} unique users`;
+
+            rangeTabs.forEach((tab) => {
+                const isActive = tab.dataset.range === range;
+                tab.classList.toggle("active", isActive);
+                tab.setAttribute("aria-pressed", String(isActive));
+            });
+
+            shopperCards.forEach((card) => {
+                const indicator = card.querySelector("[data-open-state]");
+                const icon = indicator.querySelector(".open-state-icon");
+                const text = indicator.querySelector(".open-state-text");
+                const isOpened = openedShopperIds.has(card.dataset.shopperId);
+
+                indicator.classList.toggle("open-state-opened", isOpened);
+                indicator.classList.toggle("open-state-unopened", !isOpened);
+                icon.textContent = isOpened ? "✓" : "○";
+                text.textContent = isOpened ? "Opened" : "Not opened";
+            });
+        }
+
+        rangeTabs.forEach((tab) => {
+            tab.addEventListener("click", () => updateOpeningRate(tab.dataset.range));
+        });
+
+        updateOpeningRate("24h");
     </script>
 </body>
 </html>
