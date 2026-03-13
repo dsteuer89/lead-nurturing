@@ -388,10 +388,15 @@ body {
 }
 
 .opening-rate-body {
-    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.opening-rate-summary-grid {
     display: grid;
     gap: 16px;
-    grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .opening-rate-metric-group {
@@ -430,6 +435,114 @@ body {
     font-size: 28px;
     font-weight: 600;
     line-height: 1.15;
+}
+
+.opening-rate-chart-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.chart-card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #dce3ea;
+    border-radius: 20px;
+    min-width: 0;
+    padding: 18px 18px 14px;
+}
+
+.chart-card-header {
+    align-items: flex-start;
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.chart-title,
+.chart-subtitle,
+.chart-callout {
+    margin: 0;
+}
+
+.chart-title {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.chart-subtitle {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.35;
+    margin-top: 5px;
+}
+
+.chart-callout {
+    color: var(--text-primary);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.chart-frame {
+    overflow: hidden;
+}
+
+.chart-svg {
+    display: block;
+    height: auto;
+    width: 100%;
+}
+
+.chart-grid-line {
+    stroke: #d9e1e8;
+    stroke-width: 1;
+}
+
+.chart-axis-label {
+    fill: var(--text-secondary);
+    font-family: Graphik, "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+}
+
+.chart-line {
+    fill: none;
+    stroke: #1e5eff;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 3;
+}
+
+.chart-point {
+    fill: #1e5eff;
+    stroke: #ffffff;
+    stroke-width: 2;
+}
+
+.chart-point-label {
+    fill: var(--text-primary);
+    font-family: Graphik, "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.chart-average-line {
+    stroke: #7f8ea1;
+    stroke-dasharray: 6 6;
+    stroke-width: 2;
+}
+
+.chart-average-label {
+    fill: #546272;
+    font-family: Graphik, "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.chart-bar {
+    fill: #87b6ff;
 }
 
 .search-row {
@@ -781,7 +894,8 @@ body {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .opening-rate-body {
+    .opening-rate-summary-grid,
+    .opening-rate-chart-grid {
         grid-template-columns: 1fr;
     }
 
@@ -848,7 +962,7 @@ body {
     .opening-rate-tabs {
         display: grid;
         gap: 8px;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         width: 100%;
     }
 
@@ -870,5 +984,10 @@ body {
 
     .opening-rate-secondary {
         font-size: 24px;
+    }
+
+    .chart-card-header {
+        align-items: flex-start;
+        flex-direction: column;
     }
 }
