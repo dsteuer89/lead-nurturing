@@ -1,4 +1,34 @@
-/* Settings Page Specific Styles */
+.settings-page {
+    --cg-red: #dc1d34;
+    --cg-red-bg: #fef2f2;
+    --cg-red-border: #fca5a5;
+    --cg-blue: #0499fd;
+    --cg-blue-bg: #eff6ff;
+    --cg-blue-border: #93c5fd;
+    --cg-green: #078a0b;
+    --cg-green-bg: #f0fdf4;
+    --surface-primary: #ffffff;
+    --surface-secondary: #f9fafb;
+    --surface-tertiary: #f3f4f6;
+    --border-light: #e5e7eb;
+    --border-medium: #d1d5db;
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    background: var(--surface-secondary);
+    color: var(--text-primary);
+    display: flex;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    min-height: 100vh;
+}
+
+.settings-page .main-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
 
 .settings-container {
     padding: var(--spacing-xl);
@@ -12,7 +42,6 @@
     color: var(--text-primary);
 }
 
-/* Tabs */
 .settings-tabs {
     display: flex;
     gap: 0;
@@ -41,7 +70,7 @@
 }
 
 .tab-button.active::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -2px;
     left: 0;
@@ -50,7 +79,6 @@
     background: var(--cg-blue);
 }
 
-/* Settings Sections */
 .settings-section {
     background: var(--surface-primary);
     border: 1px solid var(--border-light);
@@ -73,7 +101,6 @@
     line-height: 1.5;
 }
 
-/* Tables */
 .settings-table {
     width: 100%;
     border-collapse: collapse;
@@ -104,7 +131,6 @@
     background: var(--surface-secondary);
 }
 
-/* Buttons */
 .btn-edit {
     padding: 6px 16px;
     background: var(--cg-green);
@@ -153,12 +179,10 @@
     background: #0380d4;
 }
 
-/* Warning Text */
 .settings-table td[style*="color"] {
     color: #f59e0b !important;
 }
 
-/* No Configuration Message */
 .no-config-message {
     font-size: 14px;
     color: var(--text-secondary);
@@ -166,7 +190,6 @@
     font-style: italic;
 }
 
-/* Subsections */
 .subsection {
     margin-bottom: var(--spacing-xl);
     padding-bottom: var(--spacing-xl);
@@ -186,7 +209,6 @@
     margin-bottom: var(--spacing-sm);
 }
 
-/* Checkbox Group */
 .checkbox-group {
     display: flex;
     flex-direction: column;
@@ -231,7 +253,6 @@
     margin: 0;
 }
 
-/* Save Settings Button */
 .btn-save-settings {
     margin-top: var(--spacing-md);
     padding: 10px 24px;
@@ -249,7 +270,6 @@
     background: #0380d4;
 }
 
-/* Confirmation Message */
 .confirmation-message {
     display: none;
     align-items: flex-start;
@@ -294,7 +314,6 @@
     line-height: 1.5;
 }
 
-/* Phone Section */
 .phone-section {
     display: flex;
     flex-direction: column;
