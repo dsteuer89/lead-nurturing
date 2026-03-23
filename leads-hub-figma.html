@@ -252,12 +252,26 @@
                                         Switch opportunity
                                     </span>
                                 </div>
-                                <span class="open-state-pill open-state-opened" data-open-state>
-                                    <span class="open-state-icon" aria-hidden="true">✓</span>
-                                    <span class="open-state-text">Opened</span>
-                                </span>
                             </div>
-                            <button class="view-profile-button" type="button">View profile</button>
+                            <div class="card-actions">
+                                <div class="review-indicator review-indicator-opened" data-open-state>
+                                    <div class="review-indicator-status">
+                                        <span class="review-indicator-icon" aria-hidden="true">✓</span>
+                                        <span class="review-indicator-title" data-open-state-text>Opened</span>
+                                    </div>
+                                    <div class="review-indicator-meta">
+                                        <span data-last-opened>Last opened 2 hours ago</span>
+                                        <div class="review-overlay-shell">
+                                            <button class="review-overlay-trigger" type="button">Details</button>
+                                            <div class="review-overlay-panel">
+                                                <p data-open-count>4 opens</p>
+                                                <p data-open-users>2 users</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="view-profile-button" type="button">View profile</button>
+                            </div>
                         </div>
 
                         <div class="card-body">
@@ -308,12 +322,26 @@
                                         Switch opportunity
                                     </span>
                                 </div>
-                                <span class="open-state-pill open-state-opened" data-open-state>
-                                    <span class="open-state-icon" aria-hidden="true">✓</span>
-                                    <span class="open-state-text">Opened</span>
-                                </span>
                             </div>
-                            <button class="view-profile-button" type="button">View profile</button>
+                            <div class="card-actions">
+                                <div class="review-indicator review-indicator-opened" data-open-state>
+                                    <div class="review-indicator-status">
+                                        <span class="review-indicator-icon" aria-hidden="true">✓</span>
+                                        <span class="review-indicator-title" data-open-state-text>Opened</span>
+                                    </div>
+                                    <div class="review-indicator-meta">
+                                        <span data-last-opened>Last opened 45 minutes ago</span>
+                                        <div class="review-overlay-shell">
+                                            <button class="review-overlay-trigger" type="button">Details</button>
+                                            <div class="review-overlay-panel">
+                                                <p data-open-count>7 opens</p>
+                                                <p data-open-users>3 users</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="view-profile-button" type="button">View profile</button>
+                            </div>
                         </div>
 
                         <div class="card-body">
@@ -360,12 +388,26 @@
                                         Warm lead
                                     </span>
                                 </div>
-                                <span class="open-state-pill open-state-unopened" data-open-state>
-                                    <span class="open-state-icon" aria-hidden="true">○</span>
-                                    <span class="open-state-text">Not opened</span>
-                                </span>
                             </div>
-                            <button class="view-profile-button" type="button">View profile</button>
+                            <div class="card-actions">
+                                <div class="review-indicator review-indicator-unopened" data-open-state>
+                                    <div class="review-indicator-status">
+                                        <span class="review-indicator-icon" aria-hidden="true">○</span>
+                                        <span class="review-indicator-title" data-open-state-text>Not opened</span>
+                                    </div>
+                                    <div class="review-indicator-meta">
+                                        <span data-last-opened>No opens yet</span>
+                                        <div class="review-overlay-shell">
+                                            <button class="review-overlay-trigger" type="button">Details</button>
+                                            <div class="review-overlay-panel">
+                                                <p data-open-count>0 opens</p>
+                                                <p data-open-users>0 users</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="view-profile-button" type="button">View profile</button>
+                            </div>
                         </div>
 
                         <div class="card-body">
@@ -510,8 +552,7 @@
                     { label: "Feb 26", value: 7 },
                     { label: "Feb 27", value: 9 },
                     { label: "Feb 28", value: 8 }
-                ],
-                openedShopperIds: ["keanu", "maxwell"]
+                ]
             },
             "30d": {
                 summary: {
@@ -540,8 +581,7 @@
                     { label: "Week 4", value: 12 },
                     { label: "Week 5", value: 11 },
                     { label: "Week 6", value: 14 }
-                ],
-                openedShopperIds: ["keanu", "emma", "maxwell"]
+                ]
             },
             "90d": {
                 summary: {
@@ -564,8 +604,28 @@
                     { label: "Dec", value: 10 },
                     { label: "Jan", value: 13 },
                     { label: "Feb", value: 17 }
-                ],
-                openedShopperIds: ["keanu", "emma"]
+                ]
+            }
+        };
+
+        const shopperOpenStateById = {
+            keanu: {
+                wasOpened: true,
+                openCount: 4,
+                lastOpenedLabel: "Last opened 2 hours ago",
+                openedByUsers: 2
+            },
+            emma: {
+                wasOpened: true,
+                openCount: 7,
+                lastOpenedLabel: "Last opened 45 minutes ago",
+                openedByUsers: 3
+            },
+            maxwell: {
+                wasOpened: false,
+                openCount: 0,
+                lastOpenedLabel: "No opens yet",
+                openedByUsers: 0
             }
         };
 
@@ -681,7 +741,6 @@
         function updateOpeningRate(range) {
             const rangeData = performanceByRange[range];
             const metric = rangeData.summary;
-            const openedShopperIds = new Set(rangeData.openedShopperIds || []);
 
             averageMetric.textContent = `${metric.averagePercent}%`;
             secondaryMetric.textContent = `${metric.averageUsers.toFixed(1)}`;
@@ -715,17 +774,26 @@
 
             buildLineChart(openingRateChart, rangeData.openingRates, metric.averagePercent);
             buildBarChart(usersChart, rangeData.userSeries);
+        }
 
+        function updateShopperReviewIndicators() {
             shopperCards.forEach((card) => {
                 const indicator = card.querySelector("[data-open-state]");
-                const icon = indicator.querySelector(".open-state-icon");
-                const text = indicator.querySelector(".open-state-text");
-                const isOpened = openedShopperIds.has(card.dataset.shopperId);
+                const icon = indicator.querySelector(".review-indicator-icon");
+                const title = indicator.querySelector("[data-open-state-text]");
+                const count = indicator.querySelector("[data-open-count]");
+                const lastOpened = indicator.querySelector("[data-last-opened]");
+                const users = indicator.querySelector("[data-open-users]");
+                const reviewState = shopperOpenStateById[card.dataset.shopperId];
+                const isOpened = Boolean(reviewState?.wasOpened);
 
-                indicator.classList.toggle("open-state-opened", isOpened);
-                indicator.classList.toggle("open-state-unopened", !isOpened);
+                indicator.classList.toggle("review-indicator-opened", isOpened);
+                indicator.classList.toggle("review-indicator-unopened", !isOpened);
                 icon.textContent = isOpened ? "✓" : "○";
-                text.textContent = isOpened ? "Opened" : "Not opened";
+                title.textContent = isOpened ? "Opened" : "Not opened";
+                count.textContent = `${reviewState.openCount} ${reviewState.openCount === 1 ? "open" : "opens"}`;
+                lastOpened.textContent = reviewState.lastOpenedLabel;
+                users.textContent = `${reviewState.openedByUsers} ${reviewState.openedByUsers === 1 ? "user" : "users"}`;
             });
         }
 
@@ -750,6 +818,7 @@
         });
 
         updateView("overview");
+        updateShopperReviewIndicators();
         updateOpeningRate("7d");
     </script>
 </body>
