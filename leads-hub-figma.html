@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leads Hub - CarGurus</title>
-    <link rel="stylesheet" href="leads-hub-figma-styles.css?v=20260324-1">
+    <link rel="stylesheet" href="leads-hub-figma-styles.css?v=20260324-2">
 </head>
 <body>
     <aside class="sidebar">
@@ -448,8 +448,8 @@
 
                 <section class="hub-pane" data-view-pane="performance">
                     <div class="performance-mode-tabs" role="tablist" aria-label="Performance section views">
-                        <button class="performance-mode-tab active" type="button" data-performance-mode="a" aria-pressed="true">Option A</button>
-                        <button class="performance-mode-tab" type="button" data-performance-mode="b" aria-pressed="false">Option B</button>
+                        <button class="performance-mode-tab active" type="button" data-performance-mode="a" aria-pressed="true">Single Rooftop</button>
+                        <button class="performance-mode-tab" type="button" data-performance-mode="b" aria-pressed="false">Multi Rooftop</button>
                     </div>
 
                     <section class="performance-mode-panel active" data-performance-panel="a">
@@ -460,8 +460,8 @@
                                     <h2 id="opening-rate-title">Profile opening rate</h2>
                                 </div>
                                 <div class="opening-rate-tabs" role="tablist" aria-label="Profile opening rate time range">
-                                    <button class="performance-range-tab active" type="button" data-option-a-range="7d" aria-pressed="true">Last 7 days</button>
-                                    <button class="performance-range-tab" type="button" data-option-a-range="30d" aria-pressed="false">Last 30 days</button>
+                                    <button class="performance-range-tab" type="button" data-option-a-range="7d" aria-pressed="false">Last 7 days</button>
+                                    <button class="performance-range-tab active" type="button" data-option-a-range="30d" aria-pressed="true">Last 30 days</button>
                                     <button class="performance-range-tab" type="button" data-option-a-range="90d" aria-pressed="false">Last 90 days</button>
                                 </div>
                             </div>
@@ -528,8 +528,8 @@
                                     <h2 id="multi-rooftop-title">Multi-rooftop performance</h2>
                                 </div>
                                 <div class="opening-rate-tabs" role="tablist" aria-label="Multi-rooftop performance time range">
-                                    <button class="performance-range-tab active" type="button" data-option-b-range="7d" aria-pressed="true">Last 7 days</button>
-                                    <button class="performance-range-tab" type="button" data-option-b-range="30d" aria-pressed="false">Last 30 days</button>
+                                    <button class="performance-range-tab" type="button" data-option-b-range="7d" aria-pressed="false">Last 7 days</button>
+                                    <button class="performance-range-tab active" type="button" data-option-b-range="30d" aria-pressed="true">Last 30 days</button>
                                     <button class="performance-range-tab" type="button" data-option-b-range="90d" aria-pressed="false">Last 90 days</button>
                                 </div>
                             </div>
@@ -905,7 +905,7 @@
         const multiUserChartCallout = document.querySelector("[data-multi-user-chart-callout]");
         const shopperCards = Array.from(document.querySelectorAll("[data-shopper-id]"));
         let selectedRooftopIds = ["411274", "62494", "274136"];
-        let multiRooftopRange = "7d";
+        let multiRooftopRange = "30d";
 
         function buildLineChart(svg, dataPoints, averageValue) {
             const width = 520;
@@ -998,17 +998,45 @@
             `;
         }
 
-        function buildMultiLineChart(svg, labels, seriesList, formatter, maxValueOverride) {
+        function buildRateAxisRange(values) {
+            const minValue = Math.min(...values);
+            const maxValue = Math.max(...values);
+            const paddedMin = Math.floor((minValue - 3) / 5) * 5;
+            const paddedMax = Math.ceil((maxValue + 3) / 5) * 5;
+            const span = Math.max(10, paddedMax - paddedMin);
+            const normalizedMin = Math.max(0, Math.floor(paddedMin / 5) * 5);
+            const normalizedMax = Math.min(100, normalizedMin + span);
+            const safeMin = Math.max(0, normalizedMax - span);
+            const step = span <= 20 ? 5 : 10;
+
+            return {
+                min: safeMin,
+                max: normalizedMax,
+                step
+            };
+        }
+
+        function buildMultiLineChart(svg, labels, seriesList, formatter, maxValueOverride, minValueOverride) {
             const width = 520;
             const height = 260;
             const padding = { top: 24, right: 22, bottom: 44, left: 44 };
             const chartWidth = width - padding.left - padding.right;
             const chartHeight = height - padding.top - padding.bottom;
-            const maxValue = maxValueOverride || Math.max(...seriesList.flatMap((series) => series.values), 1);
+            const maxValue = maxValueOverride ?? Math.max(...seriesList.flatMap((series) => series.values), 1);
+            const minValue = minValueOverride ?? 0;
+            const safeSpan = Math.max(1, maxValue - minValue);
             const xStep = labels.length > 1 ? chartWidth / (labels.length - 1) : chartWidth;
-            const yForValue = (value) => padding.top + chartHeight - (value / maxValue) * chartHeight;
+            const yForValue = (value) => padding.top + chartHeight - ((value - minValue) / safeSpan) * chartHeight;
             const xForIndex = (index) => padding.left + index * xStep;
-            const gridValues = Array.from({ length: 5 }, (_, index) => Math.round((maxValue / 4) * index));
+            const step = minValueOverride != null ? 5 : Math.max(1, Math.ceil(maxValue / 4));
+            const gridValues = [];
+
+            for (let value = minValue; value <= maxValue; value += step) {
+                gridValues.push(value);
+            }
+            if (gridValues[gridValues.length - 1] !== maxValue) {
+                gridValues.push(maxValue);
+            }
 
             const gridMarkup = gridValues.map((value) => {
                 const y = yForValue(value);
@@ -1161,6 +1189,10 @@
             const combinedSummary = computeCombinedSummary(rangeKey);
             const combinedOpeningSeries = computeCombinedSeries(rangeKey, "openingRates");
             const combinedUserSeries = computeCombinedSeries(rangeKey, "userSeries");
+            const openingRange = buildRateAxisRange([
+                ...combinedOpeningSeries,
+                ...selectedRooftopIds.flatMap((dealerId) => rangeData[dealerId].openingRates)
+            ]);
 
             multiOpeningRateAverage.textContent = `${combinedSummary.averagePercent}%`;
             multiUserAverage.textContent = `${combinedSummary.averageUsers.toFixed(1)}`;
@@ -1221,7 +1253,14 @@
                 })
             ];
 
-            buildMultiLineChart(multiOpeningRateChart, rangeData.labels, openingSeriesList, (value) => `${Math.round(value)}%`, 100);
+            buildMultiLineChart(
+                multiOpeningRateChart,
+                rangeData.labels,
+                openingSeriesList,
+                (value) => `${Math.round(value)}%`,
+                openingRange.max,
+                openingRange.min
+            );
             buildMultiLineChart(multiUsersChart, rangeData.labels, userSeriesList, (value) => `${Math.round(value)}`, Math.max(...userSeriesList.flatMap((series) => series.values)) + 2);
             renderRooftopSelect();
             renderRooftopChips();
@@ -1314,8 +1353,8 @@
         updateView("overview");
         updatePerformanceMode("a");
         updateShopperReviewIndicators();
-        updateOpeningRate("7d");
-        updateMultiRooftopPerformance("7d");
+        updateOpeningRate("30d");
+        updateMultiRooftopPerformance("30d");
     </script>
 </body>
 </html>
