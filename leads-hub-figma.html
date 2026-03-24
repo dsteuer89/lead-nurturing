@@ -447,70 +447,168 @@
                 </section>
 
                 <section class="hub-pane" data-view-pane="performance">
-                    <section class="opening-rate-panel" aria-labelledby="opening-rate-title">
-                        <div class="opening-rate-header">
-                            <div>
-                                <p class="opening-rate-eyebrow">Team performance</p>
-                                <h2 id="opening-rate-title">Profile opening rate</h2>
+                    <div class="performance-mode-tabs" role="tablist" aria-label="Performance section views">
+                        <button class="performance-mode-tab active" type="button" data-performance-mode="a" aria-pressed="true">Option A</button>
+                        <button class="performance-mode-tab" type="button" data-performance-mode="b" aria-pressed="false">Option B</button>
+                    </div>
+
+                    <section class="performance-mode-panel active" data-performance-panel="a">
+                        <section class="opening-rate-panel" aria-labelledby="opening-rate-title">
+                            <div class="opening-rate-header">
+                                <div>
+                                    <p class="opening-rate-eyebrow">Team performance</p>
+                                    <h2 id="opening-rate-title">Profile opening rate</h2>
+                                </div>
+                                <div class="opening-rate-tabs" role="tablist" aria-label="Profile opening rate time range">
+                                    <button class="performance-range-tab active" type="button" data-option-a-range="7d" aria-pressed="true">Last 7 days</button>
+                                    <button class="performance-range-tab" type="button" data-option-a-range="30d" aria-pressed="false">Last 30 days</button>
+                                    <button class="performance-range-tab" type="button" data-option-a-range="90d" aria-pressed="false">Last 90 days</button>
+                                </div>
                             </div>
-                            <div class="opening-rate-tabs" role="tablist" aria-label="Profile opening rate time range">
-                                <button class="opening-rate-tab active" type="button" data-range="7d" aria-pressed="true">Last 7 days</button>
-                                <button class="opening-rate-tab" type="button" data-range="30d" aria-pressed="false">Last 30 days</button>
-                                <button class="opening-rate-tab" type="button" data-range="90d" aria-pressed="false">Last 90 days</button>
+                            <div class="opening-rate-body">
+                                <div class="opening-rate-summary-grid">
+                                    <div class="opening-rate-metric-group">
+                                        <p class="opening-rate-label">Average opening rate</p>
+                                        <div class="opening-rate-trend-row">
+                                            <p class="opening-rate-primary" data-opening-rate-average>71%</p>
+                                            <span class="trend-pill trend-up" data-opening-rate-trend>
+                                                <span class="trend-icon" aria-hidden="true">↗</span>
+                                                <span data-opening-rate-trend-text>+4 pts</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="opening-rate-metric-group">
+                                        <p class="opening-rate-label">Average unique users</p>
+                                        <div class="opening-rate-trend-row">
+                                            <p class="opening-rate-secondary" data-opening-rate-secondary>6.0</p>
+                                            <span class="trend-pill trend-up" data-user-trend>
+                                                <span class="trend-icon" aria-hidden="true">↗</span>
+                                                <span data-user-trend-text>+2.0 users</span>
+                                            </span>
+                                        </div>
+                                        <p class="opening-rate-footnote" data-user-average-footnote>Average profile openers per day</p>
+                                    </div>
+                                </div>
+                                <div class="opening-rate-chart-grid">
+                                    <article class="chart-card">
+                                        <div class="chart-card-header">
+                                            <div>
+                                                <p class="chart-title">Opening rate over time</p>
+                                                <p class="chart-subtitle" data-opening-rate-chart-subtitle>Daily profile-open percentage with team average</p>
+                                            </div>
+                                            <p class="chart-callout" data-opening-rate-chart-callout>Today: 75%</p>
+                                        </div>
+                                        <div class="chart-frame">
+                                            <svg class="chart-svg" data-opening-rate-chart viewBox="0 0 520 260" aria-label="Opening rate line chart"></svg>
+                                        </div>
+                                    </article>
+
+                                    <article class="chart-card">
+                                        <div class="chart-card-header">
+                                            <div>
+                                                <p class="chart-title">Opened by users over time</p>
+                                                <p class="chart-subtitle" data-user-chart-subtitle>Unique teammates who opened shopper profiles</p>
+                                            </div>
+                                            <p class="chart-callout" data-user-chart-callout>Peak: 9 users</p>
+                                        </div>
+                                        <div class="chart-frame">
+                                            <svg class="chart-svg" data-users-chart viewBox="0 0 520 260" aria-label="Unique users bar chart"></svg>
+                                        </div>
+                                    </article>
+                                </div>
                             </div>
-                        </div>
-                        <div class="opening-rate-body">
-                            <div class="opening-rate-summary-grid">
+                        </section>
+                    </section>
+
+                    <section class="performance-mode-panel" data-performance-panel="b">
+                        <section class="opening-rate-panel multi-rooftop-panel" aria-labelledby="multi-rooftop-title">
+                            <div class="opening-rate-header">
+                                <div>
+                                    <p class="opening-rate-eyebrow">Team performance</p>
+                                    <h2 id="multi-rooftop-title">Multi-rooftop performance</h2>
+                                </div>
+                                <div class="opening-rate-tabs" role="tablist" aria-label="Multi-rooftop performance time range">
+                                    <button class="performance-range-tab active" type="button" data-option-b-range="7d" aria-pressed="true">Last 7 days</button>
+                                    <button class="performance-range-tab" type="button" data-option-b-range="30d" aria-pressed="false">Last 30 days</button>
+                                    <button class="performance-range-tab" type="button" data-option-b-range="90d" aria-pressed="false">Last 90 days</button>
+                                </div>
+                            </div>
+
+                            <div class="multi-rooftop-controls">
+                                <div class="multi-rooftop-selector">
+                                    <label class="opening-rate-label" for="rooftop-select">Compare rooftops</label>
+                                    <div class="multi-rooftop-select-row">
+                                        <select id="rooftop-select" class="rooftop-select" data-rooftop-select></select>
+                                        <button class="rooftop-add-button" type="button" data-add-rooftop>Add rooftop</button>
+                                    </div>
+                                </div>
+                                <div class="multi-rooftop-selected">
+                                    <p class="opening-rate-label">Selected rooftops</p>
+                                    <div class="rooftop-chip-row" data-rooftop-chip-row></div>
+                                </div>
+                            </div>
+
+                            <div class="multi-summary-grid">
                                 <div class="opening-rate-metric-group">
-                                    <p class="opening-rate-label">Average opening rate</p>
+                                    <p class="opening-rate-label">Combined opening rate</p>
                                     <div class="opening-rate-trend-row">
-                                        <p class="opening-rate-primary" data-opening-rate-average>71%</p>
-                                        <span class="trend-pill trend-up" data-opening-rate-trend>
+                                        <p class="opening-rate-primary" data-multi-opening-rate-average>73%</p>
+                                        <span class="trend-pill trend-up" data-multi-opening-rate-trend>
                                             <span class="trend-icon" aria-hidden="true">↗</span>
-                                            <span data-opening-rate-trend-text>+4 pts</span>
+                                            <span data-multi-opening-rate-trend-text>+5 pts</span>
                                         </span>
                                     </div>
                                 </div>
                                 <div class="opening-rate-metric-group">
-                                    <p class="opening-rate-label">Average unique users</p>
+                                    <p class="opening-rate-label">Combined unique users</p>
                                     <div class="opening-rate-trend-row">
-                                        <p class="opening-rate-secondary" data-opening-rate-secondary>6.0</p>
-                                        <span class="trend-pill trend-up" data-user-trend>
+                                        <p class="opening-rate-secondary" data-multi-user-average>7.1</p>
+                                        <span class="trend-pill trend-up" data-multi-user-trend>
                                             <span class="trend-icon" aria-hidden="true">↗</span>
-                                            <span data-user-trend-text>+2.0 users</span>
+                                            <span data-multi-user-trend-text>+1.8 users</span>
                                         </span>
                                     </div>
-                                    <p class="opening-rate-footnote" data-user-average-footnote>Average profile openers per day</p>
+                                    <p class="opening-rate-footnote" data-multi-user-footnote>Average profile openers per day across selected rooftops</p>
+                                </div>
+                                <div class="opening-rate-metric-group">
+                                    <p class="opening-rate-label">Selected rooftops</p>
+                                    <div class="opening-rate-trend-row">
+                                        <p class="opening-rate-secondary" data-selected-rooftop-count>3</p>
+                                    </div>
+                                    <p class="opening-rate-footnote">Comparison updates automatically based on your selection</p>
                                 </div>
                             </div>
+
+                            <div class="multi-rooftop-legend" data-multi-rooftop-legend></div>
+
                             <div class="opening-rate-chart-grid">
                                 <article class="chart-card">
                                     <div class="chart-card-header">
                                         <div>
-                                            <p class="chart-title">Opening rate over time</p>
-                                            <p class="chart-subtitle" data-opening-rate-chart-subtitle>Daily profile-open percentage with team average</p>
+                                            <p class="chart-title">Opening rate by rooftop</p>
+                                            <p class="chart-subtitle" data-multi-opening-rate-chart-subtitle>Compare shopper profile opening rate across selected rooftops</p>
                                         </div>
-                                        <p class="chart-callout" data-opening-rate-chart-callout>Today: 75%</p>
+                                        <p class="chart-callout" data-multi-opening-rate-chart-callout>Combined avg: 73%</p>
                                     </div>
                                     <div class="chart-frame">
-                                        <svg class="chart-svg" data-opening-rate-chart viewBox="0 0 520 260" aria-label="Opening rate line chart"></svg>
+                                        <svg class="chart-svg" data-multi-opening-rate-chart viewBox="0 0 520 260" aria-label="Multi-rooftop opening rate line chart"></svg>
                                     </div>
                                 </article>
 
                                 <article class="chart-card">
                                     <div class="chart-card-header">
                                         <div>
-                                            <p class="chart-title">Opened by users over time</p>
-                                            <p class="chart-subtitle" data-user-chart-subtitle>Unique teammates who opened shopper profiles</p>
+                                            <p class="chart-title">Users by rooftop</p>
+                                            <p class="chart-subtitle" data-multi-user-chart-subtitle>Compare unique teammates opening profiles across selected rooftops</p>
                                         </div>
-                                        <p class="chart-callout" data-user-chart-callout>Peak: 9 users</p>
+                                        <p class="chart-callout" data-multi-user-chart-callout>Combined peak: 10 users</p>
                                     </div>
                                     <div class="chart-frame">
-                                        <svg class="chart-svg" data-users-chart viewBox="0 0 520 260" aria-label="Unique users bar chart"></svg>
+                                        <svg class="chart-svg" data-multi-users-chart viewBox="0 0 520 260" aria-label="Multi-rooftop user line chart"></svg>
                                     </div>
                                 </article>
                             </div>
-                        </div>
+                        </section>
                     </section>
                 </section>
             </section>
@@ -608,6 +706,145 @@
             }
         };
 
+        const accessibleRooftops = [
+            { dealerId: "411274", rooftopName: "Boston Audi", color: "#1e5eff" },
+            { dealerId: "62494", rooftopName: "Cambridge Honda", color: "#ef5b35" },
+            { dealerId: "274136", rooftopName: "Metro Lexus", color: "#0d8a5f" },
+            { dealerId: "64785", rooftopName: "North Shore BMW", color: "#7b4dff" }
+        ];
+
+        const multiRooftopPerformanceByRange = {
+            "7d": {
+                "411274": {
+                    summary: {
+                        averagePercent: 74,
+                        averageUsers: 6.1,
+                        openingRateTrend: { direction: "up", label: "+5 pts" },
+                        userTrend: { direction: "up", label: "+1.5 users" }
+                    },
+                    openingRates: [68, 71, 72, 74, 73, 76, 74],
+                    userSeries: [4, 5, 6, 6, 7, 8, 7]
+                },
+                "62494": {
+                    summary: {
+                        averagePercent: 69,
+                        averageUsers: 5.4,
+                        openingRateTrend: { direction: "up", label: "+3 pts" },
+                        userTrend: { direction: "up", label: "+1.1 users" }
+                    },
+                    openingRates: [63, 66, 68, 69, 67, 70, 69],
+                    userSeries: [3, 4, 4, 5, 5, 6, 6]
+                },
+                "274136": {
+                    summary: {
+                        averagePercent: 77,
+                        averageUsers: 7.3,
+                        openingRateTrend: { direction: "up", label: "+6 pts" },
+                        userTrend: { direction: "up", label: "+2.0 users" }
+                    },
+                    openingRates: [70, 73, 76, 78, 77, 80, 79],
+                    userSeries: [5, 6, 7, 7, 8, 9, 9]
+                },
+                "64785": {
+                    summary: {
+                        averagePercent: 65,
+                        averageUsers: 4.9,
+                        openingRateTrend: { direction: "up", label: "+2 pts" },
+                        userTrend: { direction: "up", label: "+0.9 users" }
+                    },
+                    openingRates: [60, 62, 64, 66, 65, 67, 68],
+                    userSeries: [3, 3, 4, 4, 5, 5, 5]
+                },
+                labels: ["Feb 22", "Feb 23", "Feb 24", "Feb 25", "Feb 26", "Feb 27", "Feb 28"]
+            },
+            "30d": {
+                "411274": {
+                    summary: {
+                        averagePercent: 79,
+                        averageUsers: 10.4,
+                        openingRateTrend: { direction: "up", label: "+6 pts" },
+                        userTrend: { direction: "up", label: "+2.8 users" }
+                    },
+                    openingRates: [72, 75, 77, 79, 80, 82],
+                    userSeries: [7, 8, 9, 10, 11, 12]
+                },
+                "62494": {
+                    summary: {
+                        averagePercent: 74,
+                        averageUsers: 8.9,
+                        openingRateTrend: { direction: "up", label: "+4 pts" },
+                        userTrend: { direction: "up", label: "+2.1 users" }
+                    },
+                    openingRates: [69, 71, 72, 74, 75, 77],
+                    userSeries: [6, 7, 8, 9, 9, 10]
+                },
+                "274136": {
+                    summary: {
+                        averagePercent: 82,
+                        averageUsers: 11.8,
+                        openingRateTrend: { direction: "up", label: "+7 pts" },
+                        userTrend: { direction: "up", label: "+3.4 users" }
+                    },
+                    openingRates: [75, 78, 80, 82, 83, 85],
+                    userSeries: [8, 9, 10, 12, 12, 14]
+                },
+                "64785": {
+                    summary: {
+                        averagePercent: 71,
+                        averageUsers: 8.1,
+                        openingRateTrend: { direction: "up", label: "+3 pts" },
+                        userTrend: { direction: "up", label: "+1.9 users" }
+                    },
+                    openingRates: [66, 68, 70, 71, 72, 74],
+                    userSeries: [5, 6, 7, 8, 8, 9]
+                },
+                labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6"]
+            },
+            "90d": {
+                "411274": {
+                    summary: {
+                        averagePercent: 81,
+                        averageUsers: 13.5,
+                        openingRateTrend: { direction: "up", label: "+8 pts" },
+                        userTrend: { direction: "up", label: "+4.1 users" }
+                    },
+                    openingRates: [74, 79, 81],
+                    userSeries: [10, 12, 15]
+                },
+                "62494": {
+                    summary: {
+                        averagePercent: 76,
+                        averageUsers: 11.6,
+                        openingRateTrend: { direction: "up", label: "+5 pts" },
+                        userTrend: { direction: "up", label: "+3.3 users" }
+                    },
+                    openingRates: [70, 74, 76],
+                    userSeries: [8, 10, 12]
+                },
+                "274136": {
+                    summary: {
+                        averagePercent: 84,
+                        averageUsers: 14.7,
+                        openingRateTrend: { direction: "up", label: "+9 pts" },
+                        userTrend: { direction: "up", label: "+4.8 users" }
+                    },
+                    openingRates: [77, 82, 84],
+                    userSeries: [11, 13, 17]
+                },
+                "64785": {
+                    summary: {
+                        averagePercent: 73,
+                        averageUsers: 10.1,
+                        openingRateTrend: { direction: "up", label: "+4 pts" },
+                        userTrend: { direction: "up", label: "+2.7 users" }
+                    },
+                    openingRates: [68, 71, 73],
+                    userSeries: [7, 9, 11]
+                },
+                labels: ["Dec", "Jan", "Feb"]
+            }
+        };
+
         const shopperOpenStateById = {
             keanu: {
                 wasOpened: true,
@@ -631,7 +868,10 @@
 
         const viewTabs = Array.from(document.querySelectorAll("[data-view-tab]"));
         const viewPanes = Array.from(document.querySelectorAll("[data-view-pane]"));
-        const rangeTabs = Array.from(document.querySelectorAll(".opening-rate-tab"));
+        const performanceModeTabs = Array.from(document.querySelectorAll("[data-performance-mode]"));
+        const performanceModePanels = Array.from(document.querySelectorAll("[data-performance-panel]"));
+        const optionARangeTabs = Array.from(document.querySelectorAll("[data-option-a-range]"));
+        const optionBRangeTabs = Array.from(document.querySelectorAll("[data-option-b-range]"));
         const averageMetric = document.querySelector("[data-opening-rate-average]");
         const secondaryMetric = document.querySelector("[data-opening-rate-secondary]");
         const openingRateTrend = document.querySelector("[data-opening-rate-trend]");
@@ -645,7 +885,27 @@
         const userChartCallout = document.querySelector("[data-user-chart-callout]");
         const openingRateChart = document.querySelector("[data-opening-rate-chart]");
         const usersChart = document.querySelector("[data-users-chart]");
+        const rooftopSelect = document.querySelector("[data-rooftop-select]");
+        const addRooftopButton = document.querySelector("[data-add-rooftop]");
+        const rooftopChipRow = document.querySelector("[data-rooftop-chip-row]");
+        const multiLegend = document.querySelector("[data-multi-rooftop-legend]");
+        const multiOpeningRateAverage = document.querySelector("[data-multi-opening-rate-average]");
+        const multiOpeningRateTrend = document.querySelector("[data-multi-opening-rate-trend]");
+        const multiOpeningRateTrendText = document.querySelector("[data-multi-opening-rate-trend-text]");
+        const multiUserAverage = document.querySelector("[data-multi-user-average]");
+        const multiUserTrend = document.querySelector("[data-multi-user-trend]");
+        const multiUserTrendText = document.querySelector("[data-multi-user-trend-text]");
+        const multiUserFootnote = document.querySelector("[data-multi-user-footnote]");
+        const selectedRooftopCount = document.querySelector("[data-selected-rooftop-count]");
+        const multiOpeningRateChart = document.querySelector("[data-multi-opening-rate-chart]");
+        const multiUsersChart = document.querySelector("[data-multi-users-chart]");
+        const multiOpeningRateChartSubtitle = document.querySelector("[data-multi-opening-rate-chart-subtitle]");
+        const multiOpeningRateChartCallout = document.querySelector("[data-multi-opening-rate-chart-callout]");
+        const multiUserChartSubtitle = document.querySelector("[data-multi-user-chart-subtitle]");
+        const multiUserChartCallout = document.querySelector("[data-multi-user-chart-callout]");
         const shopperCards = Array.from(document.querySelectorAll("[data-shopper-id]"));
+        let selectedRooftopIds = ["411274", "62494", "274136"];
+        let multiRooftopRange = "7d";
 
         function buildLineChart(svg, dataPoints, averageValue) {
             const width = 520;
@@ -738,6 +998,57 @@
             `;
         }
 
+        function buildMultiLineChart(svg, labels, seriesList, formatter, maxValueOverride) {
+            const width = 520;
+            const height = 260;
+            const padding = { top: 24, right: 22, bottom: 44, left: 44 };
+            const chartWidth = width - padding.left - padding.right;
+            const chartHeight = height - padding.top - padding.bottom;
+            const maxValue = maxValueOverride || Math.max(...seriesList.flatMap((series) => series.values), 1);
+            const xStep = labels.length > 1 ? chartWidth / (labels.length - 1) : chartWidth;
+            const yForValue = (value) => padding.top + chartHeight - (value / maxValue) * chartHeight;
+            const xForIndex = (index) => padding.left + index * xStep;
+            const gridValues = Array.from({ length: 5 }, (_, index) => Math.round((maxValue / 4) * index));
+
+            const gridMarkup = gridValues.map((value) => {
+                const y = yForValue(value);
+                return `
+                    <line x1="${padding.left}" y1="${y}" x2="${width - padding.right}" y2="${y}" class="chart-grid-line"></line>
+                    <text x="${padding.left - 10}" y="${y + 5}" text-anchor="end" class="chart-axis-label">${formatter(value)}</text>
+                `;
+            }).join("");
+
+            const seriesMarkup = seriesList.map((series) => {
+                const points = series.values.map((value, index) => ({
+                    x: xForIndex(index),
+                    y: yForValue(value),
+                    value
+                }));
+                const path = points.map((point, index) => `${index === 0 ? "M" : "L"} ${point.x} ${point.y}`).join(" ");
+                const pointsMarkup = points.map((point) => `
+                    <circle cx="${point.x}" cy="${point.y}" r="${series.isCombined ? 4.5 : 3.5}" fill="${series.color}" stroke="#ffffff" stroke-width="2"></circle>
+                `).join("");
+                const dash = series.isCombined ? `stroke-dasharray="0"` : "";
+                const widthAttr = series.isCombined ? 3.2 : 2.3;
+                return `
+                    <g>
+                        <path d="${path}" fill="none" stroke="${series.color}" stroke-linecap="round" stroke-linejoin="round" stroke-width="${widthAttr}" ${dash}></path>
+                        ${pointsMarkup}
+                    </g>
+                `;
+            }).join("");
+
+            const labelsMarkup = labels.map((label, index) => `
+                <text x="${xForIndex(index)}" y="${height - 16}" text-anchor="middle" class="chart-axis-label">${label}</text>
+            `).join("");
+
+            svg.innerHTML = `
+                ${gridMarkup}
+                ${seriesMarkup}
+                ${labelsMarkup}
+            `;
+        }
+
         function updateOpeningRate(range) {
             const rangeData = performanceByRange[range];
             const metric = rangeData.summary;
@@ -766,14 +1077,155 @@
             userTrend.querySelector(".trend-icon").textContent = metric.userTrend.direction === "up" ? "↗" : "↘";
             userTrendText.textContent = metric.userTrend.label;
 
-            rangeTabs.forEach((tab) => {
-                const isActive = tab.dataset.range === range;
+            optionARangeTabs.forEach((tab) => {
+                const isActive = tab.dataset.optionARange === range;
                 tab.classList.toggle("active", isActive);
                 tab.setAttribute("aria-pressed", String(isActive));
             });
 
             buildLineChart(openingRateChart, rangeData.openingRates, metric.averagePercent);
             buildBarChart(usersChart, rangeData.userSeries);
+        }
+
+        function computeCombinedSeries(rangeKey, seriesKey) {
+            const rangeData = multiRooftopPerformanceByRange[rangeKey];
+            const values = rangeData.labels.map((_, index) => {
+                const sum = selectedRooftopIds.reduce((total, dealerId) => total + rangeData[dealerId][seriesKey][index], 0);
+                return Number((sum / selectedRooftopIds.length).toFixed(1));
+            });
+            return values;
+        }
+
+        function computeCombinedSummary(rangeKey) {
+            const rangeData = multiRooftopPerformanceByRange[rangeKey];
+            const selected = selectedRooftopIds.map((dealerId) => rangeData[dealerId].summary);
+            return {
+                averagePercent: Math.round(selected.reduce((total, item) => total + item.averagePercent, 0) / selected.length),
+                averageUsers: Number((selected.reduce((total, item) => total + item.averageUsers, 0) / selected.length).toFixed(1)),
+                openingRateTrend: {
+                    direction: "up",
+                    label: `+${Math.round(selected.reduce((total, item) => total + Number(item.openingRateTrend.label.replace(/[^0-9.-]/g, "")), 0) / selected.length)} pts`
+                },
+                userTrend: {
+                    direction: "up",
+                    label: `+${(selected.reduce((total, item) => total + Number(item.userTrend.label.replace(/[^0-9.-]/g, "")), 0) / selected.length).toFixed(1)} users`
+                }
+            };
+        }
+
+        function renderRooftopSelect() {
+            const available = accessibleRooftops.filter((rooftop) => !selectedRooftopIds.includes(rooftop.dealerId));
+            rooftopSelect.innerHTML = available.map((rooftop) => `
+                <option value="${rooftop.dealerId}">${rooftop.rooftopName}</option>
+            `).join("");
+            rooftopSelect.disabled = available.length === 0;
+            addRooftopButton.disabled = available.length === 0;
+        }
+
+        function renderRooftopChips() {
+            rooftopChipRow.innerHTML = selectedRooftopIds.map((dealerId) => {
+                const rooftop = accessibleRooftops.find((item) => item.dealerId === dealerId);
+                return `
+                    <button class="rooftop-chip" type="button" data-remove-rooftop="${dealerId}">
+                        <span class="rooftop-chip-dot" style="background:${rooftop.color}"></span>
+                        ${rooftop.rooftopName}
+                        <span class="rooftop-chip-close" aria-hidden="true">&times;</span>
+                    </button>
+                `;
+            }).join("");
+        }
+
+        function renderMultiLegend() {
+            const combinedColor = "#0d1722";
+            const selectedLegend = selectedRooftopIds.map((dealerId) => {
+                const rooftop = accessibleRooftops.find((item) => item.dealerId === dealerId);
+                return `
+                    <span class="rooftop-legend-item">
+                        <span class="rooftop-legend-dot" style="background:${rooftop.color}"></span>
+                        ${rooftop.rooftopName}
+                    </span>
+                `;
+            }).join("");
+            multiLegend.innerHTML = `
+                <span class="rooftop-legend-item rooftop-legend-item-combined">
+                    <span class="rooftop-legend-dot" style="background:${combinedColor}"></span>
+                    Combined
+                </span>
+                ${selectedLegend}
+            `;
+        }
+
+        function updateMultiRooftopPerformance(rangeKey) {
+            multiRooftopRange = rangeKey;
+            const rangeData = multiRooftopPerformanceByRange[rangeKey];
+            const combinedSummary = computeCombinedSummary(rangeKey);
+            const combinedOpeningSeries = computeCombinedSeries(rangeKey, "openingRates");
+            const combinedUserSeries = computeCombinedSeries(rangeKey, "userSeries");
+
+            multiOpeningRateAverage.textContent = `${combinedSummary.averagePercent}%`;
+            multiUserAverage.textContent = `${combinedSummary.averageUsers.toFixed(1)}`;
+            selectedRooftopCount.textContent = String(selectedRooftopIds.length);
+            multiOpeningRateTrend.classList.toggle("trend-up", combinedSummary.openingRateTrend.direction === "up");
+            multiOpeningRateTrend.classList.toggle("trend-down", combinedSummary.openingRateTrend.direction === "down");
+            multiOpeningRateTrendText.textContent = combinedSummary.openingRateTrend.label;
+            multiOpeningRateTrend.querySelector(".trend-icon").textContent = combinedSummary.openingRateTrend.direction === "up" ? "↗" : "↘";
+            multiUserTrend.classList.toggle("trend-up", combinedSummary.userTrend.direction === "up");
+            multiUserTrend.classList.toggle("trend-down", combinedSummary.userTrend.direction === "down");
+            multiUserTrendText.textContent = combinedSummary.userTrend.label;
+            multiUserTrend.querySelector(".trend-icon").textContent = combinedSummary.userTrend.direction === "up" ? "↗" : "↘";
+            multiUserFootnote.textContent = rangeKey === "7d"
+                ? "Average profile openers per day across selected rooftops"
+                : rangeKey === "30d"
+                    ? "Average profile openers per week across selected rooftops"
+                    : "Average profile openers per month across selected rooftops";
+            multiOpeningRateChartSubtitle.textContent = rangeKey === "7d"
+                ? "Daily opening rate comparison across selected rooftops"
+                : rangeKey === "30d"
+                    ? "Weekly opening rate comparison across selected rooftops"
+                    : "Monthly opening rate comparison across selected rooftops";
+            multiUserChartSubtitle.textContent = rangeKey === "7d"
+                ? "Daily unique-user comparison across selected rooftops"
+                : rangeKey === "30d"
+                    ? "Weekly unique-user comparison across selected rooftops"
+                    : "Monthly unique-user comparison across selected rooftops";
+            multiOpeningRateChartCallout.textContent = `Combined avg: ${combinedSummary.averagePercent}%`;
+            multiUserChartCallout.textContent = `Combined peak: ${Math.max(...combinedUserSeries)} users`;
+
+            optionBRangeTabs.forEach((tab) => {
+                const isActive = tab.dataset.optionBRange === rangeKey;
+                tab.classList.toggle("active", isActive);
+                tab.setAttribute("aria-pressed", String(isActive));
+            });
+
+            const openingSeriesList = [
+                { name: "Combined", color: "#0d1722", values: combinedOpeningSeries, isCombined: true },
+                ...selectedRooftopIds.map((dealerId) => {
+                    const rooftop = accessibleRooftops.find((item) => item.dealerId === dealerId);
+                    return {
+                        name: rooftop.rooftopName,
+                        color: rooftop.color,
+                        values: rangeData[dealerId].openingRates
+                    };
+                })
+            ];
+
+            const userSeriesList = [
+                { name: "Combined", color: "#0d1722", values: combinedUserSeries, isCombined: true },
+                ...selectedRooftopIds.map((dealerId) => {
+                    const rooftop = accessibleRooftops.find((item) => item.dealerId === dealerId);
+                    return {
+                        name: rooftop.rooftopName,
+                        color: rooftop.color,
+                        values: rangeData[dealerId].userSeries
+                    };
+                })
+            ];
+
+            buildMultiLineChart(multiOpeningRateChart, rangeData.labels, openingSeriesList, (value) => `${Math.round(value)}%`, 100);
+            buildMultiLineChart(multiUsersChart, rangeData.labels, userSeriesList, (value) => `${Math.round(value)}`, Math.max(...userSeriesList.flatMap((series) => series.values)) + 2);
+            renderRooftopSelect();
+            renderRooftopChips();
+            renderMultiLegend();
         }
 
         function updateShopperReviewIndicators() {
@@ -809,17 +1261,61 @@
             });
         }
 
+        function updatePerformanceMode(mode) {
+            performanceModeTabs.forEach((tab) => {
+                const isActive = tab.dataset.performanceMode === mode;
+                tab.classList.toggle("active", isActive);
+                tab.setAttribute("aria-pressed", String(isActive));
+            });
+
+            performanceModePanels.forEach((panel) => {
+                panel.classList.toggle("active", panel.dataset.performancePanel === mode);
+            });
+        }
+
         viewTabs.forEach((tab) => {
             tab.addEventListener("click", () => updateView(tab.dataset.viewTab));
         });
 
-        rangeTabs.forEach((tab) => {
-            tab.addEventListener("click", () => updateOpeningRate(tab.dataset.range));
+        performanceModeTabs.forEach((tab) => {
+            tab.addEventListener("click", () => updatePerformanceMode(tab.dataset.performanceMode));
+        });
+
+        optionARangeTabs.forEach((tab) => {
+            tab.addEventListener("click", () => updateOpeningRate(tab.dataset.optionARange));
+        });
+
+        optionBRangeTabs.forEach((tab) => {
+            tab.addEventListener("click", () => updateMultiRooftopPerformance(tab.dataset.optionBRange));
+        });
+
+        addRooftopButton.addEventListener("click", () => {
+            if (!rooftopSelect.value) {
+                return;
+            }
+            if (!selectedRooftopIds.includes(rooftopSelect.value) && selectedRooftopIds.length < 4) {
+                selectedRooftopIds = [...selectedRooftopIds, rooftopSelect.value];
+                updateMultiRooftopPerformance(multiRooftopRange);
+            }
+        });
+
+        rooftopChipRow.addEventListener("click", (event) => {
+            const button = event.target.closest("[data-remove-rooftop]");
+            if (!button) {
+                return;
+            }
+            if (selectedRooftopIds.length <= 1) {
+                return;
+            }
+            selectedRooftopIds = selectedRooftopIds.filter((dealerId) => dealerId !== button.dataset.removeRooftop);
+            updateMultiRooftopPerformance(multiRooftopRange);
         });
 
         updateView("overview");
+        updatePerformanceMode("a");
         updateShopperReviewIndicators();
         updateOpeningRate("7d");
+        updateMultiRooftopPerformance("7d");
     </script>
 </body>
 </html>
