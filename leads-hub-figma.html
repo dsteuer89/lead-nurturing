@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leads Hub - CarGurus</title>
-    <link rel="stylesheet" href="leads-hub-figma-styles.css?v=20260324-2">
+    <link rel="stylesheet" href="leads-hub-figma-styles.css?v=20260324-3">
 </head>
 <body>
     <aside class="sidebar">
@@ -465,6 +465,14 @@
                                     <button class="performance-range-tab" type="button" data-option-a-range="90d" aria-pressed="false">Last 90 days</button>
                                 </div>
                             </div>
+                            <div class="opening-window-row">
+                                <p class="opening-window-label">Opening rate window</p>
+                                <div class="opening-window-tabs" role="tablist" aria-label="Opening rate measurement window">
+                                    <button class="opening-window-tab" type="button" data-single-opening-window="24h" aria-pressed="false">First 24 hours</button>
+                                    <button class="opening-window-tab" type="button" data-single-opening-window="3d" aria-pressed="false">First 3 days</button>
+                                    <button class="opening-window-tab active" type="button" data-single-opening-window="overall" aria-pressed="true">Overall</button>
+                                </div>
+                            </div>
                             <div class="opening-rate-body">
                                 <div class="opening-rate-summary-grid">
                                     <div class="opening-rate-metric-group">
@@ -531,6 +539,14 @@
                                     <button class="performance-range-tab" type="button" data-option-b-range="7d" aria-pressed="false">Last 7 days</button>
                                     <button class="performance-range-tab active" type="button" data-option-b-range="30d" aria-pressed="true">Last 30 days</button>
                                     <button class="performance-range-tab" type="button" data-option-b-range="90d" aria-pressed="false">Last 90 days</button>
+                                </div>
+                            </div>
+                            <div class="opening-window-row">
+                                <p class="opening-window-label">Opening rate window</p>
+                                <div class="opening-window-tabs" role="tablist" aria-label="Multi-rooftop opening rate measurement window">
+                                    <button class="opening-window-tab" type="button" data-multi-opening-window="24h" aria-pressed="false">First 24 hours</button>
+                                    <button class="opening-window-tab" type="button" data-multi-opening-window="3d" aria-pressed="false">First 3 days</button>
+                                    <button class="opening-window-tab active" type="button" data-multi-opening-window="overall" aria-pressed="true">Overall</button>
                                 </div>
                             </div>
 
@@ -872,6 +888,8 @@
         const performanceModePanels = Array.from(document.querySelectorAll("[data-performance-panel]"));
         const optionARangeTabs = Array.from(document.querySelectorAll("[data-option-a-range]"));
         const optionBRangeTabs = Array.from(document.querySelectorAll("[data-option-b-range]"));
+        const singleOpeningWindowTabs = Array.from(document.querySelectorAll("[data-single-opening-window]"));
+        const multiOpeningWindowTabs = Array.from(document.querySelectorAll("[data-multi-opening-window]"));
         const averageMetric = document.querySelector("[data-opening-rate-average]");
         const secondaryMetric = document.querySelector("[data-opening-rate-secondary]");
         const openingRateTrend = document.querySelector("[data-opening-rate-trend]");
@@ -905,7 +923,111 @@
         const multiUserChartCallout = document.querySelector("[data-multi-user-chart-callout]");
         const shopperCards = Array.from(document.querySelectorAll("[data-shopper-id]"));
         let selectedRooftopIds = ["411274", "62494", "274136"];
+        let singleRooftopRange = "30d";
         let multiRooftopRange = "30d";
+        let singleOpeningRateWindow = "overall";
+        let multiOpeningRateWindow = "overall";
+
+        const openingWindowConfig = {
+            "24h": {
+                metricCopy: "opened within 24 hours",
+                offset: -17,
+                percentOffset: -16,
+                trendDelta: -2,
+                wiggle: [-2, -1, 0, 0, 1, 1, 2]
+            },
+            "3d": {
+                metricCopy: "opened within 3 days",
+                offset: -8,
+                percentOffset: -7,
+                trendDelta: -1,
+                wiggle: [-1, 0, 0, 1, 0, 1, 1]
+            },
+            overall: {
+                metricCopy: "opened overall",
+                offset: 0,
+                percentOffset: 0,
+                trendDelta: 0,
+                wiggle: [0, 0, 0, 0, 0, 0, 0]
+            }
+        };
+
+        const rooftopWindowBias = {
+            "411274": 2,
+            "62494": -1,
+            "274136": 1,
+            "64785": -2
+        };
+
+        function clampRate(value) {
+            return Math.max(0, Math.min(100, Math.round(value)));
+        }
+
+        function extractTrendMagnitude(label) {
+            return Number(label.replace(/[^0-9.-]/g, "")) || 0;
+        }
+
+        function getRangeCadenceLabel(rangeKey) {
+            if (rangeKey === "7d") {
+                return "Daily";
+            }
+            if (rangeKey === "30d") {
+                return "Weekly";
+            }
+            return "Monthly";
+        }
+
+        function buildOpeningWindowSeries(baseValues, windowKey, extraOffset = 0) {
+            const config = openingWindowConfig[windowKey];
+            return baseValues.map((value, index) => clampRate(
+                value + config.offset + extraOffset + (config.wiggle[index % config.wiggle.length] || 0)
+            ));
+        }
+
+        function deriveOpeningTrend(baseTrend, windowKey, extraOffset = 0) {
+            const config = openingWindowConfig[windowKey];
+            const magnitude = Math.max(1, Math.round(extractTrendMagnitude(baseTrend.label) + config.trendDelta + extraOffset / 2));
+            return {
+                direction: baseTrend.direction,
+                label: `+${magnitude} pts`
+            };
+        }
+
+        function getSingleOpeningWindowData(rangeKey, windowKey) {
+            const rangeData = performanceByRange[rangeKey];
+            const config = openingWindowConfig[windowKey];
+            const openingRates = buildOpeningWindowSeries(
+                rangeData.openingRates.map((point) => point.value),
+                windowKey
+            );
+
+            return {
+                summary: {
+                    averagePercent: clampRate(rangeData.summary.averagePercent + config.offset),
+                    percent: clampRate(rangeData.summary.percent + config.percentOffset),
+                    openingRateTrend: deriveOpeningTrend(rangeData.summary.openingRateTrend, windowKey)
+                },
+                openingRates: rangeData.openingRates.map((point, index) => ({
+                    label: point.label,
+                    value: openingRates[index]
+                }))
+            };
+        }
+
+        function getMultiDealerOpeningWindowData(rangeKey, dealerId, windowKey) {
+            const rangeData = multiRooftopPerformanceByRange[rangeKey][dealerId];
+            const config = openingWindowConfig[windowKey];
+            const bias = windowKey === "overall" ? 0 : rooftopWindowBias[dealerId];
+            const openingRates = buildOpeningWindowSeries(rangeData.openingRates, windowKey, bias);
+
+            return {
+                summary: {
+                    averagePercent: clampRate(rangeData.summary.averagePercent + config.offset + bias),
+                    openingRateTrend: deriveOpeningTrend(rangeData.summary.openingRateTrend, windowKey, bias)
+                },
+                openingRates
+            };
+        }
 
         function buildLineChart(svg, dataPoints, averageValue) {
             const width = 520;
@@ -1078,19 +1200,17 @@
         }
 
         function updateOpeningRate(range) {
+            singleRooftopRange = range;
             const rangeData = performanceByRange[range];
-            const metric = rangeData.summary;
+            const openingWindowData = getSingleOpeningWindowData(range, singleOpeningRateWindow);
+            const metric = openingWindowData.summary;
 
             averageMetric.textContent = `${metric.averagePercent}%`;
-            secondaryMetric.textContent = `${metric.averageUsers.toFixed(1)}`;
-            userAverageFootnote.textContent = metric.userAverageLabel;
+            secondaryMetric.textContent = `${rangeData.summary.averageUsers.toFixed(1)}`;
+            userAverageFootnote.textContent = rangeData.summary.userAverageLabel;
             openingRateChartCallout.textContent = `${range === "7d" ? "Latest" : "Current"}: ${metric.percent}%`;
             userChartCallout.textContent = `Peak: ${Math.max(...rangeData.userSeries.map((point) => point.value))} users`;
-            openingRateChartSubtitle.textContent = range === "7d"
-                ? "Daily profile-open percentage with team average"
-                : range === "30d"
-                    ? "Weekly profile-open percentage with team average"
-                    : "Monthly profile-open percentage with team average";
+            openingRateChartSubtitle.textContent = `${getRangeCadenceLabel(range)} shopper profiles ${openingWindowConfig[singleOpeningRateWindow].metricCopy}`;
             userChartSubtitle.textContent = range === "7d"
                 ? "Unique teammates who opened shopper profiles each day"
                 : range === "30d"
@@ -1100,10 +1220,10 @@
             openingRateTrend.classList.toggle("trend-down", metric.openingRateTrend.direction === "down");
             openingRateTrend.querySelector(".trend-icon").textContent = metric.openingRateTrend.direction === "up" ? "↗" : "↘";
             openingRateTrendText.textContent = metric.openingRateTrend.label;
-            userTrend.classList.toggle("trend-up", metric.userTrend.direction === "up");
-            userTrend.classList.toggle("trend-down", metric.userTrend.direction === "down");
-            userTrend.querySelector(".trend-icon").textContent = metric.userTrend.direction === "up" ? "↗" : "↘";
-            userTrendText.textContent = metric.userTrend.label;
+            userTrend.classList.toggle("trend-up", rangeData.summary.userTrend.direction === "up");
+            userTrend.classList.toggle("trend-down", rangeData.summary.userTrend.direction === "down");
+            userTrend.querySelector(".trend-icon").textContent = rangeData.summary.userTrend.direction === "up" ? "↗" : "↘";
+            userTrendText.textContent = rangeData.summary.userTrend.label;
 
             optionARangeTabs.forEach((tab) => {
                 const isActive = tab.dataset.optionARange === range;
@@ -1111,7 +1231,7 @@
                 tab.setAttribute("aria-pressed", String(isActive));
             });
 
-            buildLineChart(openingRateChart, rangeData.openingRates, metric.averagePercent);
+            buildLineChart(openingRateChart, openingWindowData.openingRates, metric.averagePercent);
             buildBarChart(usersChart, rangeData.userSeries);
         }
 
@@ -1124,19 +1244,31 @@
             return values;
         }
 
-        function computeCombinedSummary(rangeKey) {
+        function computeCombinedOpeningSeries(rangeKey, windowKey) {
             const rangeData = multiRooftopPerformanceByRange[rangeKey];
-            const selected = selectedRooftopIds.map((dealerId) => rangeData[dealerId].summary);
+            return rangeData.labels.map((_, index) => {
+                const sum = selectedRooftopIds.reduce((total, dealerId) => {
+                    const rooftopOpeningData = getMultiDealerOpeningWindowData(rangeKey, dealerId, windowKey);
+                    return total + rooftopOpeningData.openingRates[index];
+                }, 0);
+                return Number((sum / selectedRooftopIds.length).toFixed(1));
+            });
+        }
+
+        function computeCombinedSummary(rangeKey, windowKey) {
+            const rangeData = multiRooftopPerformanceByRange[rangeKey];
+            const selectedOpening = selectedRooftopIds.map((dealerId) => getMultiDealerOpeningWindowData(rangeKey, dealerId, windowKey).summary);
+            const selectedUsers = selectedRooftopIds.map((dealerId) => rangeData[dealerId].summary);
             return {
-                averagePercent: Math.round(selected.reduce((total, item) => total + item.averagePercent, 0) / selected.length),
-                averageUsers: Number((selected.reduce((total, item) => total + item.averageUsers, 0) / selected.length).toFixed(1)),
+                averagePercent: Math.round(selectedOpening.reduce((total, item) => total + item.averagePercent, 0) / selectedOpening.length),
+                averageUsers: Number((selectedUsers.reduce((total, item) => total + item.averageUsers, 0) / selectedUsers.length).toFixed(1)),
                 openingRateTrend: {
                     direction: "up",
-                    label: `+${Math.round(selected.reduce((total, item) => total + Number(item.openingRateTrend.label.replace(/[^0-9.-]/g, "")), 0) / selected.length)} pts`
+                    label: `+${Math.round(selectedOpening.reduce((total, item) => total + extractTrendMagnitude(item.openingRateTrend.label), 0) / selectedOpening.length)} pts`
                 },
                 userTrend: {
                     direction: "up",
-                    label: `+${(selected.reduce((total, item) => total + Number(item.userTrend.label.replace(/[^0-9.-]/g, "")), 0) / selected.length).toFixed(1)} users`
+                    label: `+${(selectedUsers.reduce((total, item) => total + Number(item.userTrend.label.replace(/[^0-9.-]/g, "")), 0) / selectedUsers.length).toFixed(1)} users`
                 }
             };
         }
@@ -1186,12 +1318,12 @@
         function updateMultiRooftopPerformance(rangeKey) {
             multiRooftopRange = rangeKey;
             const rangeData = multiRooftopPerformanceByRange[rangeKey];
-            const combinedSummary = computeCombinedSummary(rangeKey);
-            const combinedOpeningSeries = computeCombinedSeries(rangeKey, "openingRates");
+            const combinedSummary = computeCombinedSummary(rangeKey, multiOpeningRateWindow);
+            const combinedOpeningSeries = computeCombinedOpeningSeries(rangeKey, multiOpeningRateWindow);
             const combinedUserSeries = computeCombinedSeries(rangeKey, "userSeries");
             const openingRange = buildRateAxisRange([
                 ...combinedOpeningSeries,
-                ...selectedRooftopIds.flatMap((dealerId) => rangeData[dealerId].openingRates)
+                ...selectedRooftopIds.flatMap((dealerId) => getMultiDealerOpeningWindowData(rangeKey, dealerId, multiOpeningRateWindow).openingRates)
             ]);
 
             multiOpeningRateAverage.textContent = `${combinedSummary.averagePercent}%`;
@@ -1210,11 +1342,7 @@
                 : rangeKey === "30d"
                     ? "Average profile openers per week across selected rooftops"
                     : "Average profile openers per month across selected rooftops";
-            multiOpeningRateChartSubtitle.textContent = rangeKey === "7d"
-                ? "Daily opening rate comparison across selected rooftops"
-                : rangeKey === "30d"
-                    ? "Weekly opening rate comparison across selected rooftops"
-                    : "Monthly opening rate comparison across selected rooftops";
+            multiOpeningRateChartSubtitle.textContent = `${getRangeCadenceLabel(rangeKey)} opening rate comparison for shoppers ${openingWindowConfig[multiOpeningRateWindow].metricCopy}`;
             multiUserChartSubtitle.textContent = rangeKey === "7d"
                 ? "Daily unique-user comparison across selected rooftops"
                 : rangeKey === "30d"
@@ -1233,10 +1361,11 @@
                 { name: "Combined", color: "#0d1722", values: combinedOpeningSeries, isCombined: true },
                 ...selectedRooftopIds.map((dealerId) => {
                     const rooftop = accessibleRooftops.find((item) => item.dealerId === dealerId);
+                    const rooftopOpeningData = getMultiDealerOpeningWindowData(rangeKey, dealerId, multiOpeningRateWindow);
                     return {
                         name: rooftop.rooftopName,
                         color: rooftop.color,
-                        values: rangeData[dealerId].openingRates
+                        values: rooftopOpeningData.openingRates
                     };
                 })
             ];
@@ -1328,6 +1457,30 @@
             tab.addEventListener("click", () => updateMultiRooftopPerformance(tab.dataset.optionBRange));
         });
 
+        singleOpeningWindowTabs.forEach((tab) => {
+            tab.addEventListener("click", () => {
+                singleOpeningRateWindow = tab.dataset.singleOpeningWindow;
+                singleOpeningWindowTabs.forEach((button) => {
+                    const isActive = button.dataset.singleOpeningWindow === singleOpeningRateWindow;
+                    button.classList.toggle("active", isActive);
+                    button.setAttribute("aria-pressed", String(isActive));
+                });
+                updateOpeningRate(singleRooftopRange);
+            });
+        });
+
+        multiOpeningWindowTabs.forEach((tab) => {
+            tab.addEventListener("click", () => {
+                multiOpeningRateWindow = tab.dataset.multiOpeningWindow;
+                multiOpeningWindowTabs.forEach((button) => {
+                    const isActive = button.dataset.multiOpeningWindow === multiOpeningRateWindow;
+                    button.classList.toggle("active", isActive);
+                    button.setAttribute("aria-pressed", String(isActive));
+                });
+                updateMultiRooftopPerformance(multiRooftopRange);
+            });
+        });
+
         addRooftopButton.addEventListener("click", () => {
             if (!rooftopSelect.value) {
                 return;
@@ -1353,6 +1506,16 @@
         updateView("overview");
         updatePerformanceMode("a");
         updateShopperReviewIndicators();
+        singleOpeningWindowTabs.forEach((button) => {
+            const isActive = button.dataset.singleOpeningWindow === singleOpeningRateWindow;
+            button.classList.toggle("active", isActive);
+            button.setAttribute("aria-pressed", String(isActive));
+        });
+        multiOpeningWindowTabs.forEach((button) => {
+            const isActive = button.dataset.multiOpeningWindow === multiOpeningRateWindow;
+            button.classList.toggle("active", isActive);
+            button.setAttribute("aria-pressed", String(isActive));
+        });
         updateOpeningRate("30d");
         updateMultiRooftopPerformance("30d");
     </script>
