@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopper Profile - CarGurus</title>
+    <link rel="stylesheet" href="leads-hub-figma-styles.css?v=20260324-3">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="cargurus-logo">
+                <span class="logo-car">Car</span><span class="logo-gurus">Gurus</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="nav-item" onclick="navigateTo('leads-hub-figma.html')">
+                <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M2 2h5v5H2V2zm0 7h5v5H2V9zm7-7h5v5H9V2zm0 7h5v5H9V9"></path>
+                </svg>
+                <span>Dashboard</span>
+            </div>
+
+            <div class="nav-item">
+                <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M2 2l6 6-6 6V2zm12 0v12l-6-6 6-6z"></path>
+                </svg>
+                <span>Pricing</span>
+            </div>
+            <div class="nav-item nav-item-nested"><span>Pricing Tool</span></div>
+            <div class="nav-item nav-item-nested"><span>Dealer Insights</span></div>
+            <div class="nav-item nav-item-nested">
+                <span>View Inventory</span>
+                <svg class="external-icon" width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                    <path d="M10 10H2V2h4V0H2C.9 0 0 .9 0 2v8c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6h-2v4zM6 0v2h2.59L3.76 6.83l1.41 1.41L10 3.41V6h2V0H6z"></path>
+                </svg>
+            </div>
+
+            <div class="nav-item">
+                <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <circle cx="7" cy="7" r="5" stroke="currentColor" fill="none" stroke-width="2"></circle>
+                    <path d="M11 11l4 4" stroke="currentColor" stroke-width="2"></path>
+                </svg>
+                <span>Marketing Analysis</span>
+            </div>
+
+            <div class="nav-item">
+                <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M2 2h12v3H2V2zm0 5h12v3H2V7zm0 5h12v2H2v-2z"></path>
+                </svg>
+                <span>Leads</span>
+            </div>
+            <div class="nav-item nav-item-nested active" onclick="navigateTo('leads-hub-figma.html')">
+                <span>Leads Hub</span>
+                <span class="beta-tag">Beta</span>
+            </div>
+            <div class="nav-item nav-item-nested"><span>LeadAI</span></div>
+            <div class="nav-item nav-item-nested"><span>Lead Reports</span></div>
+
+            <div class="nav-item">
+                <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M14 6h-3l-1.5-2h-3L5 6H2L1 8v5h1v1h2v-1h8v1h2v-1h1V8l-1-2zm-6 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"></path>
+                </svg>
+                <span>Sell My Car</span>
+            </div>
+            <div class="nav-item" onclick="navigateTo('settings.html')">
+                <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M14.5 8c0-.3 0-.6-.1-.9l2-1.6c.2-.1.2-.4.1-.6l-1.9-3.3c-.1-.2-.4-.3-.6-.2l-2.4.9c-.5-.4-1-.7-1.6-.9L9.6.8c0-.2-.3-.4-.5-.4h-3.8c-.2 0-.5.2-.5.4L4.4 3.4c-.6.2-1.1.5-1.6.9l-2.4-.9c-.2-.1-.5 0-.6.2L-2 6.9c-.1.2-.1.5.1.6l2 1.6c-.1.3-.1.6-.1.9s0 .6.1.9l-2 1.6c-.2.1-.2.4-.1.6l1.9 3.3c.1.2.4.3.6.2l2.4-.9c.5.4 1 .7 1.6.9l.4 2.6c0 .2.3.4.5.4h3.8c.2 0 .5-.2.5-.4l.4-2.6c.6-.2 1.1-.5 1.6-.9l2.4.9c.2.1.5 0 .6-.2l1.9-3.3c.1-.2.1-.5-.1-.6l-2-1.6c.1-.3.1-.6.1-.9zM7.5 10.5c-1.4 0-2.5-1.1-2.5-2.5s1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5z"></path>
+                </svg>
+                <span>Settings</span>
+            </div>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header class="app-bar">
+            <div class="app-bar-left">
+                <button class="icon-btn">🎯</button>
+                <span>Dashboard tour</span>
+            </div>
+            <div class="app-bar-right">
+                <button class="icon-btn">🌐</button>
+                <span>EN</span>
+                <button class="icon-btn">👤</button>
+                <select class="dealership-select">
+                    <option>[Dealership name]</option>
+                </select>
+            </div>
+        </header>
+
+        <div class="prototype-shell">
+            <section class="leads-hub-page shopper-profile-page">
+                <button class="profile-breadcrumb" type="button" data-profile-back>
+                    <span class="profile-breadcrumb-icon" aria-hidden="true">‹</span>
+                    <span class="profile-breadcrumb-link">Leads Hub</span>
+                    <span class="profile-breadcrumb-separator">/</span>
+                    <span class="profile-breadcrumb-current">Shopper Profile</span>
+                </button>
+
+                <article class="profile-hero-card">
+                    <div class="profile-hero-copy">
+                        <div class="profile-hero-header">
+                            <h2 data-profile-name></h2>
+                            <div class="profile-hero-tags" data-profile-tags></div>
+                        </div>
+                        <div class="profile-contact-row">
+                            <span><span class="mini-icon">✉</span><span data-profile-email></span></span>
+                            <span><span class="mini-icon">◔</span><span data-profile-phone></span></span>
+                            <span><span class="mini-icon">◉</span><span data-profile-location></span></span>
+                        </div>
+                    </div>
+                    <button class="profile-primary-action" type="button">View all activity</button>
+                </article>
+
+                <div class="profile-layout">
+                    <div class="profile-left-column">
+                        <article class="profile-panel">
+                            <div class="profile-panel-header">
+                                <div class="profile-panel-title-group">
+                                    <span class="profile-panel-icon" aria-hidden="true">◉◉</span>
+                                    <h3>Shopper activity</h3>
+                                </div>
+                                <span class="profile-panel-chevron" aria-hidden="true">⌃</span>
+                            </div>
+                            <div class="profile-activity-grid">
+                                <div class="profile-key-block">
+                                    <p class="profile-key-label">CARGURUS ACTIVITY <span class="profile-inline-info">i</span></p>
+                                    <div class="profile-activity-value-row">
+                                        <span class="profile-activity-dot"></span>
+                                        <span class="profile-key-value" data-profile-last-active></span>
+                                        <span class="profile-tag profile-tag-green" data-profile-activity-level></span>
+                                    </div>
+                                </div>
+                                <div class="profile-key-block">
+                                    <p class="profile-key-label">ACTIVITY WITH YOU</p>
+                                    <p class="profile-key-value" data-profile-dealer-activity></p>
+                                    <p class="profile-key-subvalue" data-profile-engagement-copy></p>
+                                </div>
+                            </div>
+                            <button class="profile-secondary-action" type="button">View all activity</button>
+                        </article>
+
+                        <article class="profile-panel">
+                            <div class="profile-panel-header">
+                                <div class="profile-panel-title-group">
+                                    <span class="profile-panel-icon" aria-hidden="true">◔</span>
+                                    <h3>Payment</h3>
+                                </div>
+                                <span class="profile-panel-chevron" aria-hidden="true">⌃</span>
+                            </div>
+                            <div class="profile-detail-grid" data-profile-payment-grid></div>
+                        </article>
+
+                        <article class="profile-panel">
+                            <div class="profile-panel-header">
+                                <div class="profile-panel-title-group">
+                                    <span class="profile-panel-icon" aria-hidden="true">⌁</span>
+                                    <h3>Trade-in vehicle</h3>
+                                </div>
+                                <span class="profile-panel-chevron" aria-hidden="true">⌃</span>
+                            </div>
+                            <div class="profile-detail-grid" data-profile-trade-grid></div>
+                        </article>
+
+                        <article class="profile-panel">
+                            <div class="profile-panel-header">
+                                <div class="profile-panel-title-group">
+                                    <span class="profile-panel-icon" aria-hidden="true">⌘</span>
+                                    <h3>F&amp;I products</h3>
+                                </div>
+                                <span class="profile-panel-chevron" aria-hidden="true">⌃</span>
+                            </div>
+                            <div class="profile-fi-grid" data-profile-fi-grid></div>
+                        </article>
+                    </div>
+
+                    <div class="profile-right-column">
+                        <article class="profile-panel profile-interests-panel">
+                            <div class="profile-panel-header">
+                                <div class="profile-panel-title-group">
+                                    <span class="profile-panel-icon" aria-hidden="true">▥</span>
+                                    <h3>Shopper interests</h3>
+                                </div>
+                            </div>
+                            <div class="profile-interest-stats" data-profile-interest-stats></div>
+                            <div class="profile-preferences-card">
+                                <div class="profile-preferences-grid">
+                                    <div class="profile-preferences-column">
+                                        <h4>Vehicle preferences</h4>
+                                        <div class="profile-preferences-list" data-profile-preferences-list></div>
+                                    </div>
+                                    <div class="profile-models-column">
+                                        <h4>Top model interests</h4>
+                                        <div class="profile-model-list" data-profile-model-list></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="profile-panel">
+                            <div class="profile-panel-header">
+                                <div class="profile-panel-title-group">
+                                    <h3>Competition</h3>
+                                </div>
+                            </div>
+                            <p class="profile-panel-description">See the number of dealers this shopper is engaging with across CarGurus.</p>
+                            <div class="profile-competition-chip" data-profile-competition-chip></div>
+                        </article>
+
+                        <article class="profile-panel">
+                            <div class="profile-panel-header">
+                                <div class="profile-panel-title-group">
+                                    <h3>Inventory matches</h3>
+                                </div>
+                            </div>
+                            <p class="profile-panel-description">Review which of your vehicles the shopper submitted leads on and see alternative vehicles on your lot that match their preferences.</p>
+                            <div class="profile-inventory-tabs" role="tablist" aria-label="Inventory match categories">
+                                <button class="profile-inventory-tab active" type="button" data-profile-inventory-tab="submitted" aria-pressed="true">Submitted leads</button>
+                                <button class="profile-inventory-tab" type="button" data-profile-inventory-tab="alternative" aria-pressed="false">Alternative vehicles <span class="profile-inventory-tab-icon" aria-hidden="true">⇄</span></button>
+                            </div>
+                            <div class="profile-inventory-list" data-profile-inventory-list></div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+
+        const shopperProfilesById = {
+            keanu: {
+                name: "Keanu Matrix Reeves Jr.",
+                tags: [
+                    { text: "Hot", className: "status-hot", icon: "◔" },
+                    { text: "Switch opportunity", className: "status-switch", icon: "⇄" }
+                ],
+                contact: {
+                    email: "keanumatrixreevesjr@domain.com",
+                    phone: "617-548-5569",
+                    location: "02139 (5.2 miles away)"
+                },
+                activity: {
+                    lastActive: "12/24/25",
+                    level: "High activity",
+                    dealerActivity: "VDP view | 12/24/25",
+                    engagementCopy: "Engaged with 4 listings"
+                },
+                payment: {
+                    preference: "Financing",
+                    status: "Qualified",
+                    provider: "Audi Financial Services (Expires 1/16/26)",
+                    downPayment: "$4,500",
+                    monthlyPayment: "$798.00",
+                    loanTerm: "60 months",
+                    apr: "7.2%",
+                    deposit: "$750",
+                    creditScore: "700 - 759 (Self reported)",
+                    summary: "2025 Audi Q7 quattro Premium"
+                },
+                tradeIn: {
+                    preference: "Financing",
+                    status: "Qualified",
+                    provider: "Global Auto Lending (Expires 9/20/25)",
+                    downPayment: "$4,000",
+                    monthlyPayment: "$612.00",
+                    loanTerm: "60 - 72 months",
+                    apr: "8.8% - 10.2%",
+                    deposit: "$500 - $1,500",
+                    creditScore: "680 - 739",
+                    summary: "2022 BMW X5 xDrive40i"
+                },
+                fi: {
+                    totalValue: "$9,800",
+                    selectedProducts: "Vehicle service contract, tire & wheel"
+                },
+                interests: {
+                    stats: ["14 unique vehicles", "18 VDP views", "8 leads", "6 saves"],
+                    preferences: [
+                        { label: "FLEXIBILITY", type: "tag", value: "Flexible", tagClass: "profile-tag-green" },
+                        { label: "EST. BUDGET", type: "text", value: "$48,000-$62,000" },
+                        { label: "TOP FEATURES", type: "chips", values: ["Third row", "Panoramic roof", "Adaptive cruise"] },
+                        { label: "EXTERIOR COLOR", type: "colors", values: [
+                            { label: "Black", color: "#20262e" },
+                            { label: "Gray", color: "#c3c8ce" },
+                            { label: "White", color: "#f3f5f7" }
+                        ] },
+                        { label: "POWER-TRAIN", type: "text", value: "ICE" },
+                        { label: "BODY STYLE", type: "text", value: "SUV" },
+                        { label: "VEHICLE TYPE", type: "text", value: "Used" },
+                        { label: "MAX MILEAGE", type: "text", value: "55,000" }
+                    ],
+                    topModels: [
+                        { name: "2025 Audi Q7", rating: 89, color: "#dde6f3" },
+                        { name: "2024 Acura MDX", rating: 74, color: "#d7dde4" },
+                        { name: "2023 BMW X5", rating: 41, color: "#dbe8f7" }
+                    ]
+                },
+                competition: "2 other dealers in competition",
+                inventory: {
+                    submitted: [
+                        { title: "2025 Audi Q7 quattro Premium", tags: ["28 days on the lot", "8 leads"], submitted: "12/24/25", condition: "Used", price: "$49,100", stock: "Q7234501", vin: "AJSAH8263JF23", tone: "#dde7f5" },
+                        { title: "2024 Audi Q5 Prestige 45 TFSI", tags: ["33 days on the lot", "5 leads"], submitted: "12/21/25", condition: "Used", price: "$46,850", stock: "Q5231098", vin: "WA1C7AFY4R2012450", tone: "#d8dce2" }
+                    ],
+                    alternative: [
+                        { title: "2024 Volvo XC90 B6 Plus", tags: ["19 days on the lot", "3 leads"], submitted: "Match", condition: "Used", price: "$54,200", stock: "XC902331", vin: "YV4A22PK0R1981123", tone: "#dce5f1" },
+                        { title: "2023 Mercedes-Benz GLE 350", tags: ["42 days on the lot", "2 leads"], submitted: "Match", condition: "Used", price: "$57,990", stock: "GLE35012", vin: "4JGFB4KB2PA901245", tone: "#e6dde4" }
+                    ]
+                }
+            },
+            emma: {
+                name: "Emma Smith Johnson",
+                tags: [
+                    { text: "Hot", className: "status-hot", icon: "◔" },
+                    { text: "Switch opportunity", className: "status-switch", icon: "⇄" }
+                ],
+                contact: {
+                    email: "ejohnson@gmail.com",
+                    phone: "617-548-5569",
+                    location: "02139 (5.2 miles away)"
+                },
+                activity: {
+                    lastActive: "12/23/25",
+                    level: "High activity",
+                    dealerActivity: "VDP view | 12/22/25",
+                    engagementCopy: "Engaged with 3 listings"
+                },
+                payment: {
+                    preference: "Financing",
+                    status: "Qualified",
+                    provider: "Global Lending Services (Expires 1/12/26)",
+                    downPayment: "$4,000",
+                    monthlyPayment: "$425.00",
+                    loanTerm: "60 months",
+                    apr: "8%",
+                    deposit: "$500",
+                    creditScore: "670 - 739 (Self reported)",
+                    summary: "2023 RAM 1500 Sport Quad Cab 4WD"
+                },
+                tradeIn: {
+                    preference: "Financing",
+                    status: "Qualified",
+                    provider: "Global Lending Services (Expires 9/12/25)",
+                    downPayment: "$4,000",
+                    monthlyPayment: "$425.00",
+                    loanTerm: "60 - 72 months",
+                    apr: "10.99% - 12.99%",
+                    deposit: "$500 - $1,500",
+                    creditScore: "670 - 739",
+                    summary: "2023 Volvo XC90 Recharge T8 eAWD"
+                },
+                fi: {
+                    totalValue: "$8,000",
+                    selectedProducts: "Vehicle Service Contract"
+                },
+                interests: {
+                    stats: ["12 unique vehicles", "15 VDP views", "2 leads", "5 saves"],
+                    preferences: [
+                        { label: "FLEXIBILITY", type: "tag", value: "Flexible", tagClass: "profile-tag-green" },
+                        { label: "EST. BUDGET", type: "text", value: "$15,000-$20,000" },
+                        { label: "TOP FEATURES", type: "chips", values: ["Backup camera", "Navigation system", "Park assist"] },
+                        { label: "EXTERIOR COLOR", type: "colors", values: [
+                            { label: "Gold", color: "#f4be4c" },
+                            { label: "Blue", color: "#1f8de8" },
+                            { label: "Silver", color: "#e1e5ea" }
+                        ] },
+                        { label: "POWER-TRAIN", type: "text", value: "ICE" },
+                        { label: "BODY STYLE", type: "text", value: "Sedan" },
+                        { label: "VEHICLE TYPE", type: "text", value: "Used" },
+                        { label: "MAX MILEAGE", type: "text", value: "100,000" }
+                    ],
+                    topModels: [
+                        { name: "2025 Audi Q5", rating: 92, color: "#dde5ef" },
+                        { name: "2024 Tesla Model Y", rating: 72, color: "#ead7b1" },
+                        { name: "2025 Volvo XC90", rating: 28, color: "#d7e8f5" }
+                    ]
+                },
+                competition: "1 other dealer in competition",
+                inventory: {
+                    submitted: [
+                        { title: "2023 Volvo XC90 Recharge T8 eAWD", tags: ["3 days on the lot", "31 leads"], submitted: "12/22/25", condition: "New", price: "$65,320", stock: "D23456789", vin: "MAZE7C5XJG6644552", tone: "#dce5f4" },
+                        { title: "2024 Audi Q5 quattro Progressive 45 TFSI", tags: ["45 days on the lot", "12 leads"], submitted: "12/20/25", condition: "New", price: "$72,450", stock: "A12345678", vin: "MAZE7C5XJG6644552", tone: "#d8dde6" }
+                    ],
+                    alternative: [
+                        { title: "2024 Volvo XC60 B5 Ultimate Dark", tags: ["14 days on the lot", "6 leads"], submitted: "Match", condition: "Used", price: "$58,980", stock: "XC602178", vin: "YV4L12RM5R2011570", tone: "#e0e8f2" },
+                        { title: "2023 Mercedes-Benz GLC 300 4MATIC", tags: ["27 days on the lot", "4 leads"], submitted: "Match", condition: "Used", price: "$53,775", stock: "GLC30097", vin: "W1N0G8EB7PF104782", tone: "#e9dde4" }
+                    ]
+                }
+            },
+            maxwell: {
+                name: "Maxwell Starwind Smith",
+                tags: [
+                    { text: "Warm", className: "status-warm", icon: "♨" }
+                ],
+                contact: {
+                    email: "maxwellstarwindsmith@domain.com",
+                    phone: "202-555-0123",
+                    location: "02141 (7.0 miles away)"
+                },
+                activity: {
+                    lastActive: "12/18/25",
+                    level: "Medium activity",
+                    dealerActivity: "Email sent | 12/17/25",
+                    engagementCopy: "Engaged with 1 listing"
+                },
+                payment: {
+                    preference: "Cash",
+                    status: "Pending docs",
+                    provider: "No lender selected",
+                    downPayment: "$8,000",
+                    monthlyPayment: "$0.00",
+                    loanTerm: "N/A",
+                    apr: "N/A",
+                    deposit: "$0",
+                    creditScore: "Not provided",
+                    summary: "2021 BMW X5 xDrive40i"
+                },
+                tradeIn: {
+                    preference: "Lease",
+                    status: "Pre-qualified",
+                    provider: "Metro Credit Union (Expires 10/10/25)",
+                    downPayment: "$2,500",
+                    monthlyPayment: "$512.00",
+                    loanTerm: "48 months",
+                    apr: "6.9%",
+                    deposit: "$500",
+                    creditScore: "700 - 759",
+                    summary: "2019 BMW 530i xDrive"
+                },
+                fi: {
+                    totalValue: "$3,400",
+                    selectedProducts: "Wheel protection, key replacement"
+                },
+                interests: {
+                    stats: ["8 unique vehicles", "9 VDP views", "1 lead", "2 saves"],
+                    preferences: [
+                        { label: "FLEXIBILITY", type: "tag", value: "Somewhat flexible", tagClass: "profile-tag-neutral" },
+                        { label: "EST. BUDGET", type: "text", value: "$35,000-$48,000" },
+                        { label: "TOP FEATURES", type: "chips", values: ["Panoramic roof", "Heated seats", "Driver assist"] },
+                        { label: "EXTERIOR COLOR", type: "colors", values: [
+                            { label: "Black", color: "#20262e" },
+                            { label: "Blue", color: "#315ca8" },
+                            { label: "White", color: "#f2f4f6" }
+                        ] },
+                        { label: "POWER-TRAIN", type: "text", value: "Hybrid" },
+                        { label: "BODY STYLE", type: "text", value: "SUV" },
+                        { label: "VEHICLE TYPE", type: "text", value: "Used" },
+                        { label: "MAX MILEAGE", type: "text", value: "80,000" }
+                    ],
+                    topModels: [
+                        { name: "2021 BMW X5", rating: 84, color: "#e3e6eb" },
+                        { name: "2022 Lexus RX 350", rating: 69, color: "#dde4ef" },
+                        { name: "2023 Volvo XC60", rating: 46, color: "#dbe8f3" }
+                    ]
+                },
+                competition: "3 other dealers in competition",
+                inventory: {
+                    submitted: [
+                        { title: "2021 BMW X5 xDrive40i", tags: ["11 days on the lot", "7 leads"], submitted: "12/17/25", condition: "Used", price: "$62,500", stock: "BMWX5041", vin: "WBAKC4C5XJ7K12345", tone: "#dee2e8" }
+                    ],
+                    alternative: [
+                        { title: "2022 Lexus RX 350 Premium", tags: ["15 days on the lot", "4 leads"], submitted: "Match", condition: "Used", price: "$46,900", stock: "RX350712", vin: "2T2AZMDA5NC278114", tone: "#e7e1d6" },
+                        { title: "2023 Volvo XC60 B6 Core", tags: ["21 days on the lot", "2 leads"], submitted: "Match", condition: "Used", price: "$44,250", stock: "XC602284", vin: "YV4L12RL5P2092458", tone: "#dbe9f4" }
+                    ]
+                }
+            }
+        };
+
+        const profileName = document.querySelector("[data-profile-name]");
+        const profileTags = document.querySelector("[data-profile-tags]");
+        const profileEmail = document.querySelector("[data-profile-email]");
+        const profilePhone = document.querySelector("[data-profile-phone]");
+        const profileLocation = document.querySelector("[data-profile-location]");
+        const profileLastActive = document.querySelector("[data-profile-last-active]");
+        const profileActivityLevel = document.querySelector("[data-profile-activity-level]");
+        const profileDealerActivity = document.querySelector("[data-profile-dealer-activity]");
+        const profileEngagementCopy = document.querySelector("[data-profile-engagement-copy]");
+        const profilePaymentGrid = document.querySelector("[data-profile-payment-grid]");
+        const profileTradeGrid = document.querySelector("[data-profile-trade-grid]");
+        const profileFiGrid = document.querySelector("[data-profile-fi-grid]");
+        const profileInterestStats = document.querySelector("[data-profile-interest-stats]");
+        const profilePreferencesList = document.querySelector("[data-profile-preferences-list]");
+        const profileModelList = document.querySelector("[data-profile-model-list]");
+        const profileCompetitionChip = document.querySelector("[data-profile-competition-chip]");
+        const profileInventoryTabs = Array.from(document.querySelectorAll("[data-profile-inventory-tab]"));
+        const profileInventoryList = document.querySelector("[data-profile-inventory-list]");
+        const profileBackButton = document.querySelector("[data-profile-back]");
+
+        let activeProfileShopperId = new URLSearchParams(window.location.search).get("shopper") || "keanu";
+        let activeProfileInventoryTab = "submitted";
+
+        function renderProfileHeroTags(tags) {
+            return tags.map((tag) => `
+                <span class="status-pill ${tag.className}">
+                    <span class="pill-icon" aria-hidden="true">${tag.icon}</span>
+                    ${tag.text}
+                </span>
+            `).join("");
+        }
+
+        function renderDetailGrid(content) {
+            return Object.entries(content).map(([key, value]) => {
+                const label = key.replace(/([A-Z])/g, " $1").trim().toUpperCase();
+                const displayValue = key === "provider" || key === "summary"
+                    ? `<p class="profile-link-value">${value}</p>`
+                    : `<p class="profile-key-value">${value}</p>`;
+
+                return `
+                    <div class="profile-key-block">
+                        <p class="profile-key-label">${label}</p>
+                        ${displayValue}
+                    </div>
+                `;
+            }).join("");
+        }
+
+        function renderPreferences(preferences) {
+            return preferences.map((item) => {
+                let valueMarkup = "";
+
+                if (item.type === "tag") {
+                    valueMarkup = `<span class="profile-tag ${item.tagClass}">${item.value}</span>`;
+                } else if (item.type === "chips") {
+                    valueMarkup = `<div class="profile-chip-list">${item.values.map((value) => `<span class="profile-chip">${value}</span>`).join("")}</div>`;
+                } else if (item.type === "colors") {
+                    valueMarkup = `<div class="profile-color-list">${item.values.map((value) => `
+                        <span class="profile-color-item">
+                            <span class="profile-color-dot" style="background:${value.color}"></span>
+                            ${value.label}
+                        </span>
+                    `).join("")}</div>`;
+                } else {
+                    valueMarkup = `<p class="profile-key-value">${item.value}</p>`;
+                }
+
+                return `
+                    <div class="profile-key-block">
+                        <p class="profile-key-label">${item.label}</p>
+                        ${valueMarkup}
+                    </div>
+                `;
+            }).join("");
+        }
+
+        function renderTopModels(topModels) {
+            return topModels.map((model) => `
+                <div class="profile-model-row">
+                    <div class="profile-model-image" style="background:${model.color}">
+                        <span>${model.name}</span>
+                    </div>
+                    <div class="profile-model-copy">
+                        <p class="profile-model-name">${model.name}</p>
+                        <div class="profile-model-progress">
+                            <span class="profile-model-progress-fill" style="width:${model.rating}%"></span>
+                        </div>
+                        <p class="profile-model-rating">${model.rating}% Match rating</p>
+                    </div>
+                </div>
+            `).join("");
+        }
+
+        function renderInventoryMatches(matches) {
+            return matches.map((match) => `
+                <article class="profile-inventory-card">
+                    <div class="profile-inventory-image" style="background:${match.tone}">
+                        <span>${match.title}</span>
+                    </div>
+                    <div class="profile-inventory-content">
+                        <div class="profile-inventory-header">
+                            <div class="profile-inventory-title-group">
+                                <p class="profile-inventory-title">${match.title}</p>
+                                <div class="profile-chip-list">
+                                    ${match.tags.map((tag) => `<span class="profile-chip">${tag}</span>`).join("")}
+                                </div>
+                            </div>
+                            <button class="profile-secondary-action profile-secondary-action-small" type="button">View details</button>
+                        </div>
+                        <div class="profile-inventory-meta-grid">
+                            <div class="profile-key-block">
+                                <p class="profile-key-label">SUBMITTED</p>
+                                <p class="profile-key-value">${match.submitted}</p>
+                            </div>
+                            <div class="profile-key-block">
+                                <p class="profile-key-label">CONDITION</p>
+                                <p class="profile-key-value">${match.condition}</p>
+                            </div>
+                            <div class="profile-key-block">
+                                <p class="profile-key-label">PRICE</p>
+                                <p class="profile-key-value">${match.price}</p>
+                            </div>
+                            <div class="profile-key-block">
+                                <p class="profile-key-label">STOCK #</p>
+                                <p class="profile-key-value">${match.stock}</p>
+                            </div>
+                            <div class="profile-key-block">
+                                <p class="profile-key-label">VIN</p>
+                                <p class="profile-key-value">${match.vin}</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            `).join("");
+        }
+
+        function renderShopperProfile(shopperId) {
+            const profile = shopperProfilesById[shopperId] || shopperProfilesById.keanu;
+            activeProfileShopperId = shopperProfilesById[shopperId] ? shopperId : "keanu";
+
+            profileName.textContent = profile.name;
+            profileTags.innerHTML = renderProfileHeroTags(profile.tags);
+            profileEmail.textContent = profile.contact.email;
+            profilePhone.textContent = profile.contact.phone;
+            profileLocation.textContent = profile.contact.location;
+            profileLastActive.textContent = profile.activity.lastActive;
+            profileActivityLevel.textContent = profile.activity.level;
+            profileActivityLevel.className = `profile-tag ${profile.activity.level === "High activity" ? "profile-tag-green" : "profile-tag-neutral"}`;
+            profileDealerActivity.textContent = profile.activity.dealerActivity;
+            profileEngagementCopy.textContent = profile.activity.engagementCopy;
+            profilePaymentGrid.innerHTML = renderDetailGrid(profile.payment);
+            profileTradeGrid.innerHTML = renderDetailGrid(profile.tradeIn);
+            profileFiGrid.innerHTML = `
+                <div class="profile-key-block">
+                    <p class="profile-key-label">TOTAL VALUE</p>
+                    <p class="profile-key-value">${profile.fi.totalValue}</p>
+                </div>
+                <div class="profile-key-block profile-key-block-full">
+                    <p class="profile-key-label">SELECTED PRODUCTS</p>
+                    <p class="profile-key-value">${profile.fi.selectedProducts}</p>
+                </div>
+            `;
+            profileInterestStats.innerHTML = profile.interests.stats.map((stat) => `<span class="profile-chip">${stat}</span>`).join("");
+            profilePreferencesList.innerHTML = renderPreferences(profile.interests.preferences);
+            profileModelList.innerHTML = renderTopModels(profile.interests.topModels);
+            profileCompetitionChip.textContent = profile.competition;
+            profileInventoryList.innerHTML = renderInventoryMatches(profile.inventory[activeProfileInventoryTab]);
+        }
+
+        function updateProfileInventoryTab(tabName) {
+            activeProfileInventoryTab = tabName;
+            profileInventoryTabs.forEach((tab) => {
+                const isActive = tab.dataset.profileInventoryTab === tabName;
+                tab.classList.toggle("active", isActive);
+                tab.setAttribute("aria-pressed", String(isActive));
+            });
+
+            const profile = shopperProfilesById[activeProfileShopperId] || shopperProfilesById.keanu;
+            profileInventoryList.innerHTML = renderInventoryMatches(profile.inventory[tabName]);
+        }
+
+        profileBackButton.addEventListener("click", () => navigateTo("leads-hub-figma.html"));
+        profileInventoryTabs.forEach((tab) => {
+            tab.addEventListener("click", () => updateProfileInventoryTab(tab.dataset.profileInventoryTab));
+        });
+
+        renderShopperProfile(activeProfileShopperId);
+    </script>
+</body>
+</html>
