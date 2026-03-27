@@ -1472,6 +1472,10 @@ body {
     padding: 0 14px;
 }
 
+.profile-panel-primary-action {
+    display: none;
+}
+
 .profile-layout {
     display: grid;
     gap: 20px;
@@ -1508,6 +1512,39 @@ body {
 .shopper-profile-page.profile-layout-option-b .profile-right-column {
     grid-column: 2;
     grid-row: 1 / span 2;
+}
+
+.shopper-profile-page.profile-layout-option-d .profile-stage {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: minmax(300px, 0.92fr) minmax(0, 1.68fr);
+}
+
+.shopper-profile-page.profile-layout-option-d .profile-hero-card {
+    align-items: flex-start;
+    flex-direction: column;
+    grid-column: 1;
+    grid-row: 1;
+    height: fit-content;
+}
+
+.shopper-profile-page.profile-layout-option-d .profile-layout {
+    display: contents;
+}
+
+.shopper-profile-page.profile-layout-option-d .profile-left-column {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.shopper-profile-page.profile-layout-option-d .profile-right-column {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+}
+
+.shopper-profile-page.profile-layout-option-d .profile-panel-primary-action {
+    display: inline-flex;
+    margin-top: 8px;
 }
 
 .shopper-profile-page.profile-layout-option-c .profile-stage {
@@ -2103,6 +2140,10 @@ body {
     }
 
     .shopper-profile-page.profile-layout-option-b .profile-stage {
+        grid-template-columns: 1fr;
+    }
+
+    .shopper-profile-page.profile-layout-option-d .profile-stage {
         grid-template-columns: 1fr;
     }
 
