@@ -34,6 +34,10 @@ body {
     font-family: Graphik, "Helvetica Neue", Arial, sans-serif;
 }
 
+[hidden] {
+    display: none !important;
+}
+
 .sidebar {
     background: var(--sidebar-bg);
     color: #9ca3af;
@@ -1314,6 +1318,41 @@ body {
     color: var(--text-primary);
 }
 
+.profile-layout-toggle {
+    align-items: center;
+    background: #eef1f4;
+    border-radius: 999px;
+    display: inline-flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    padding: 4px;
+}
+
+.profile-layout-toggle-button {
+    background: transparent;
+    border: 0;
+    border-radius: 999px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    min-height: 34px;
+    padding: 0 14px;
+}
+
+.profile-layout-toggle-button.active {
+    background: var(--bg-surface);
+    box-shadow: 0 1px 2px rgba(13, 23, 34, 0.12);
+    color: var(--text-primary);
+}
+
+.profile-stage {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
 .profile-hero-card,
 .profile-panel,
 .profile-preferences-card {
@@ -1368,6 +1407,17 @@ body {
     gap: 16px;
 }
 
+.profile-hero-detail-list {
+    display: none;
+}
+
+.profile-hero-detail-item {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
 .profile-contact-row > span {
     align-items: center;
     display: inline-flex;
@@ -1403,6 +1453,20 @@ body {
     color: var(--text-primary);
 }
 
+.profile-inline-link {
+    background: transparent;
+    border: 0;
+    color: var(--text-primary);
+    cursor: pointer;
+    font: inherit;
+    font-size: 14px;
+    line-height: 1.2;
+    padding: 0;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
 .profile-secondary-action-small {
     min-height: 34px;
     padding: 0 14px;
@@ -1412,6 +1476,262 @@ body {
     display: grid;
     gap: 20px;
     grid-template-columns: minmax(300px, 0.92fr) minmax(0, 1.68fr);
+}
+
+.shopper-profile-page.profile-layout-option-b .profile-stage {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: minmax(300px, 0.92fr) minmax(0, 1.68fr);
+}
+
+.shopper-profile-page.profile-layout-option-b .profile-hero-card {
+    align-items: flex-start;
+    flex-direction: column;
+    grid-column: 1;
+    grid-row: 1;
+    height: fit-content;
+}
+
+.shopper-profile-page.profile-layout-option-b .profile-primary-action {
+    width: 100%;
+}
+
+.shopper-profile-page.profile-layout-option-b .profile-layout {
+    display: contents;
+}
+
+.shopper-profile-page.profile-layout-option-b .profile-left-column {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.shopper-profile-page.profile-layout-option-b .profile-right-column {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+}
+
+.shopper-profile-page.profile-layout-option-c .profile-stage {
+    display: none;
+}
+
+.profile-option-c {
+    width: 100%;
+}
+
+.profile-option-c-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: minmax(320px, 0.92fr) minmax(0, 1.68fr);
+}
+
+.profile-option-c-rail {
+    background: var(--bg-surface);
+    border: 1px solid var(--stroke-soft);
+    border-radius: 16px;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+}
+
+.profile-option-c-summary {
+    border-bottom: 1px solid var(--stroke-soft);
+    padding: 18px 20px 16px;
+}
+
+.profile-option-c-summary-header {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.profile-option-c-summary-title-row {
+    align-items: flex-start;
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+}
+
+.profile-option-c-summary-header h2 {
+    font-family: "Rund Display", Graphik, "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.profile-option-c-detail-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.profile-option-c-section {
+    padding: 16px 20px;
+}
+
+.profile-option-c-section + .profile-option-c-section {
+    border-top: 1px solid var(--stroke-soft);
+}
+
+.profile-option-c-section-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.profile-option-c-main {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.profile-option-c .profile-hero-tags .status-pill {
+    font-size: 11px;
+    gap: 4px;
+    min-height: 20px;
+    padding: 3px 6px;
+}
+
+.profile-option-c .profile-hero-tags .pill-icon {
+    font-size: 12px;
+}
+
+.profile-option-c .profile-key-label {
+    font-size: 9px;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+}
+
+.profile-option-c .profile-key-value,
+.profile-option-c .profile-link-value {
+    font-size: 13px;
+    line-height: 1.3;
+}
+
+.profile-option-c .profile-key-subvalue,
+.profile-option-c .profile-panel-description,
+.profile-option-c .profile-model-rating {
+    font-size: 12px;
+    line-height: 1.35;
+}
+
+.profile-option-c .profile-panel-title-group h3,
+.profile-option-c .profile-preferences-column h4,
+.profile-option-c .profile-models-column h4 {
+    font-size: 14px;
+}
+
+.profile-option-c .profile-secondary-action {
+    font-size: 13px;
+    min-height: 32px;
+    padding: 0 12px;
+}
+
+.profile-option-c-activity-button {
+    background: #0a68df;
+    border: 0;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.profile-option-c .profile-activity-grid {
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 14px;
+}
+
+.profile-option-c .profile-activity-dot {
+    height: 14px;
+    width: 14px;
+}
+
+.profile-option-c .profile-tag,
+.profile-option-c .profile-chip,
+.profile-option-c .profile-competition-chip {
+    font-size: 11px;
+    padding: 4px 6px;
+}
+
+.profile-option-c .profile-detail-grid {
+    gap: 10px 14px;
+}
+
+.profile-option-c .profile-panel {
+    border-radius: 16px;
+    padding: 14px 16px;
+}
+
+.profile-option-c .profile-preferences-card {
+    padding: 12px;
+}
+
+.profile-option-c .profile-preferences-grid {
+    gap: 18px;
+    grid-template-columns: minmax(0, 1.08fr) minmax(220px, 0.92fr);
+}
+
+.profile-option-c .profile-model-row {
+    gap: 10px;
+    grid-template-columns: 84px minmax(0, 1fr);
+}
+
+.profile-option-c .profile-model-image {
+    height: 56px;
+    padding: 8px;
+}
+
+.profile-option-c .profile-model-image span,
+.profile-option-c .profile-inventory-image span {
+    font-size: 11px;
+}
+
+.profile-option-c .profile-model-name,
+.profile-option-c .profile-inventory-title {
+    font-size: 13px;
+    line-height: 1.25;
+}
+
+.profile-option-c .profile-model-progress {
+    height: 6px;
+    margin: 6px 0 4px;
+}
+
+.profile-option-c .profile-inventory-tabs {
+    margin-bottom: 12px;
+}
+
+.profile-option-c .profile-inventory-tab {
+    font-size: 13px;
+    padding: 8px 6px 10px;
+}
+
+.profile-option-c .profile-inventory-card {
+    gap: 12px;
+    grid-template-columns: 92px minmax(0, 1fr);
+    padding: 10px 0;
+}
+
+.profile-option-c .profile-inventory-image {
+    height: 64px;
+    padding: 8px;
+}
+
+.profile-option-c .profile-inventory-header {
+    margin-bottom: 8px;
+}
+
+.profile-option-c .profile-inventory-meta-grid {
+    gap: 10px;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.profile-option-c .profile-secondary-action-small {
+    min-height: 30px;
+    padding: 0 10px;
 }
 
 .profile-left-column,
@@ -1782,6 +2102,38 @@ body {
         grid-template-columns: 1fr;
     }
 
+    .shopper-profile-page.profile-layout-option-b .profile-stage {
+        grid-template-columns: 1fr;
+    }
+
+    .shopper-profile-page.profile-layout-option-c .profile-stage {
+        display: none;
+    }
+
+    .shopper-profile-page.profile-layout-option-b .profile-left-column,
+    .shopper-profile-page.profile-layout-option-b .profile-right-column,
+    .shopper-profile-page.profile-layout-option-c .profile-left-column,
+    .shopper-profile-page.profile-layout-option-c .profile-right-column {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .profile-option-c-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-option-c-summary-title-row {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .profile-option-c .profile-activity-grid,
+    .profile-option-c .profile-preferences-grid,
+    .profile-option-c .profile-inventory-card,
+    .profile-option-c .profile-inventory-meta-grid {
+        grid-template-columns: 1fr;
+    }
+
     .profile-inventory-meta-grid,
     .profile-detail-grid,
     .profile-preferences-list {
@@ -1825,6 +2177,17 @@ body {
     .hub-subtabs {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        width: 100%;
+    }
+
+    .profile-layout-toggle {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+    }
+
+    .profile-layout-toggle-button {
+        min-width: 0;
         width: 100%;
     }
 

@@ -90,7 +90,7 @@
         </header>
 
         <div class="prototype-shell">
-            <section class="leads-hub-page shopper-profile-page">
+            <section class="leads-hub-page shopper-profile-page" data-profile-page>
                 <button class="profile-breadcrumb" type="button" data-profile-back>
                     <span class="profile-breadcrumb-icon" aria-hidden="true">‹</span>
                     <span class="profile-breadcrumb-link">Leads Hub</span>
@@ -98,131 +98,291 @@
                     <span class="profile-breadcrumb-current">Shopper Profile</span>
                 </button>
 
-                <article class="profile-hero-card">
-                    <div class="profile-hero-copy">
-                        <div class="profile-hero-header">
-                            <h2 data-profile-name></h2>
-                            <div class="profile-hero-tags" data-profile-tags></div>
-                        </div>
-                        <div class="profile-contact-row">
-                            <span><span class="mini-icon">✉</span><span data-profile-email></span></span>
-                            <span><span class="mini-icon">◔</span><span data-profile-phone></span></span>
-                            <span><span class="mini-icon">◉</span><span data-profile-location></span></span>
-                        </div>
-                    </div>
-                    <button class="profile-primary-action" type="button">View all activity</button>
-                </article>
+                <div class="profile-layout-toggle" role="tablist" aria-label="Profile layout options">
+                    <button class="profile-layout-toggle-button active" type="button" data-profile-layout-mode="a" aria-pressed="true">Option A</button>
+                    <button class="profile-layout-toggle-button" type="button" data-profile-layout-mode="b" aria-pressed="false">Option B</button>
+                    <button class="profile-layout-toggle-button" type="button" data-profile-layout-mode="c" aria-pressed="false">Option C</button>
+                </div>
 
-                <div class="profile-layout">
-                    <div class="profile-left-column">
-                        <article class="profile-panel">
-                            <div class="profile-panel-header">
-                                <div class="profile-panel-title-group">
-                                    <span class="profile-panel-icon" aria-hidden="true">◉◉</span>
-                                    <h3>Shopper activity</h3>
-                                </div>
-                                <span class="profile-panel-chevron" aria-hidden="true">⌃</span>
+                <div class="profile-stage" data-profile-stage>
+                    <article class="profile-hero-card">
+                        <div class="profile-hero-copy">
+                            <div class="profile-hero-header">
+                                <h2 data-profile-name></h2>
+                                <div class="profile-hero-tags" data-profile-tags></div>
                             </div>
+                            <div class="profile-contact-row">
+                                <span><span class="mini-icon">✉</span><span data-profile-email></span></span>
+                                <span><span class="mini-icon">◔</span><span data-profile-phone></span></span>
+                                <span><span class="mini-icon">◉</span><span data-profile-location></span></span>
+                            </div>
+                            <div class="profile-hero-detail-list">
+                                <div class="profile-hero-detail-item">
+                                    <p class="profile-key-label">Email</p>
+                                    <p class="profile-key-value" data-profile-email-detail></p>
+                                </div>
+                                <div class="profile-hero-detail-item">
+                                    <p class="profile-key-label">Phone</p>
+                                    <p class="profile-key-value" data-profile-phone-detail></p>
+                                </div>
+                                <div class="profile-hero-detail-item">
+                                    <p class="profile-key-label">Location</p>
+                                    <p class="profile-key-value" data-profile-location-detail></p>
+                                </div>
+                                <div class="profile-hero-detail-item">
+                                    <p class="profile-key-label">Delivery</p>
+                                    <p class="profile-key-value" data-profile-delivery-detail></p>
+                                </div>
+                                <div class="profile-hero-detail-item">
+                                    <p class="profile-key-label">Appointment</p>
+                                    <p class="profile-key-value" data-profile-appointment-detail></p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="profile-primary-action" type="button">View all activity</button>
+                    </article>
+
+                    <div class="profile-layout">
+                        <div class="profile-left-column">
+                            <article class="profile-panel">
+                                <div class="profile-panel-header">
+                                    <div class="profile-panel-title-group">
+                                        <span class="profile-panel-icon" aria-hidden="true">◉◉</span>
+                                        <h3>Shopper activity</h3>
+                                    </div>
+                                    <span class="profile-panel-chevron" aria-hidden="true">⌃</span>
+                                </div>
                             <div class="profile-activity-grid">
                                 <div class="profile-key-block">
                                     <p class="profile-key-label">CARGURUS ACTIVITY <span class="profile-inline-info">i</span></p>
                                     <div class="profile-activity-value-row">
                                         <span class="profile-activity-dot"></span>
-                                        <span class="profile-key-value" data-profile-last-active></span>
-                                        <span class="profile-tag profile-tag-green" data-profile-activity-level></span>
+                                            <span class="profile-key-value" data-profile-last-active></span>
+                                            <span class="profile-tag profile-tag-green" data-profile-activity-level></span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="profile-key-block">
-                                    <p class="profile-key-label">ACTIVITY WITH YOU</p>
+                                    <div class="profile-key-block">
+                                        <p class="profile-key-label">ACTIVITY WITH YOU</p>
                                     <p class="profile-key-value" data-profile-dealer-activity></p>
                                     <p class="profile-key-subvalue" data-profile-engagement-copy></p>
                                 </div>
                             </div>
-                            <button class="profile-secondary-action" type="button">View all activity</button>
+                            <button class="profile-inline-link" type="button">View all activity</button>
                         </article>
 
-                        <article class="profile-panel">
-                            <div class="profile-panel-header">
-                                <div class="profile-panel-title-group">
-                                    <span class="profile-panel-icon" aria-hidden="true">◔</span>
-                                    <h3>Payment</h3>
-                                </div>
-                                <span class="profile-panel-chevron" aria-hidden="true">⌃</span>
-                            </div>
-                            <div class="profile-detail-grid" data-profile-payment-grid></div>
-                        </article>
-
-                        <article class="profile-panel">
-                            <div class="profile-panel-header">
-                                <div class="profile-panel-title-group">
-                                    <span class="profile-panel-icon" aria-hidden="true">⌁</span>
-                                    <h3>Trade-in vehicle</h3>
-                                </div>
-                                <span class="profile-panel-chevron" aria-hidden="true">⌃</span>
-                            </div>
-                            <div class="profile-detail-grid" data-profile-trade-grid></div>
-                        </article>
-
-                        <article class="profile-panel">
-                            <div class="profile-panel-header">
-                                <div class="profile-panel-title-group">
-                                    <span class="profile-panel-icon" aria-hidden="true">⌘</span>
-                                    <h3>F&amp;I products</h3>
-                                </div>
-                                <span class="profile-panel-chevron" aria-hidden="true">⌃</span>
-                            </div>
-                            <div class="profile-fi-grid" data-profile-fi-grid></div>
-                        </article>
-                    </div>
-
-                    <div class="profile-right-column">
-                        <article class="profile-panel profile-interests-panel">
-                            <div class="profile-panel-header">
-                                <div class="profile-panel-title-group">
-                                    <span class="profile-panel-icon" aria-hidden="true">▥</span>
-                                    <h3>Shopper interests</h3>
-                                </div>
-                            </div>
-                            <div class="profile-interest-stats" data-profile-interest-stats></div>
-                            <div class="profile-preferences-card">
-                                <div class="profile-preferences-grid">
-                                    <div class="profile-preferences-column">
-                                        <h4>Vehicle preferences</h4>
-                                        <div class="profile-preferences-list" data-profile-preferences-list></div>
+                            <article class="profile-panel">
+                                <div class="profile-panel-header">
+                                    <div class="profile-panel-title-group">
+                                        <span class="profile-panel-icon" aria-hidden="true">◔</span>
+                                        <h3>Payment</h3>
                                     </div>
-                                    <div class="profile-models-column">
-                                        <h4>Top model interests</h4>
-                                        <div class="profile-model-list" data-profile-model-list></div>
+                                    <span class="profile-panel-chevron" aria-hidden="true">⌃</span>
+                                </div>
+                                <div class="profile-detail-grid" data-profile-payment-grid></div>
+                            </article>
+
+                            <article class="profile-panel">
+                                <div class="profile-panel-header">
+                                    <div class="profile-panel-title-group">
+                                        <span class="profile-panel-icon" aria-hidden="true">⌁</span>
+                                        <h3>Trade-in vehicle</h3>
+                                    </div>
+                                    <span class="profile-panel-chevron" aria-hidden="true">⌃</span>
+                                </div>
+                                <div class="profile-detail-grid" data-profile-trade-grid></div>
+                            </article>
+
+                            <article class="profile-panel">
+                                <div class="profile-panel-header">
+                                    <div class="profile-panel-title-group">
+                                        <span class="profile-panel-icon" aria-hidden="true">⌘</span>
+                                        <h3>F&amp;I products</h3>
+                                    </div>
+                                    <span class="profile-panel-chevron" aria-hidden="true">⌃</span>
+                                </div>
+                                <div class="profile-fi-grid" data-profile-fi-grid></div>
+                            </article>
+                        </div>
+
+                        <div class="profile-right-column">
+                            <article class="profile-panel profile-interests-panel">
+                                <div class="profile-panel-header">
+                                    <div class="profile-panel-title-group">
+                                        <span class="profile-panel-icon" aria-hidden="true">▥</span>
+                                        <h3>Shopper interests</h3>
                                     </div>
                                 </div>
-                            </div>
-                        </article>
-
-                        <article class="profile-panel">
-                            <div class="profile-panel-header">
-                                <div class="profile-panel-title-group">
-                                    <h3>Competition</h3>
+                                <div class="profile-interest-stats" data-profile-interest-stats></div>
+                                <div class="profile-preferences-card">
+                                    <div class="profile-preferences-grid">
+                                        <div class="profile-preferences-column">
+                                            <h4>Vehicle preferences</h4>
+                                            <div class="profile-preferences-list" data-profile-preferences-list></div>
+                                        </div>
+                                        <div class="profile-models-column">
+                                            <h4>Top model interests</h4>
+                                            <div class="profile-model-list" data-profile-model-list></div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <p class="profile-panel-description">See the number of dealers this shopper is engaging with across CarGurus.</p>
-                            <div class="profile-competition-chip" data-profile-competition-chip></div>
-                        </article>
+                            </article>
 
-                        <article class="profile-panel">
-                            <div class="profile-panel-header">
-                                <div class="profile-panel-title-group">
-                                    <h3>Inventory matches</h3>
+                            <article class="profile-panel">
+                                <div class="profile-panel-header">
+                                    <div class="profile-panel-title-group">
+                                        <h3>Competition</h3>
+                                    </div>
                                 </div>
-                            </div>
-                            <p class="profile-panel-description">Review which of your vehicles the shopper submitted leads on and see alternative vehicles on your lot that match their preferences.</p>
-                            <div class="profile-inventory-tabs" role="tablist" aria-label="Inventory match categories">
-                                <button class="profile-inventory-tab active" type="button" data-profile-inventory-tab="submitted" aria-pressed="true">Submitted leads</button>
-                                <button class="profile-inventory-tab" type="button" data-profile-inventory-tab="alternative" aria-pressed="false">Alternative vehicles <span class="profile-inventory-tab-icon" aria-hidden="true">⇄</span></button>
-                            </div>
-                            <div class="profile-inventory-list" data-profile-inventory-list></div>
-                        </article>
+                                <p class="profile-panel-description">See the number of dealers this shopper is engaging with across CarGurus.</p>
+                                <div class="profile-competition-chip" data-profile-competition-chip></div>
+                            </article>
+
+                            <article class="profile-panel">
+                                <div class="profile-panel-header">
+                                    <div class="profile-panel-title-group">
+                                        <h3>Inventory matches</h3>
+                                    </div>
+                                </div>
+                                <p class="profile-panel-description">Review which of your vehicles the shopper submitted leads on and see alternative vehicles on your lot that match their preferences.</p>
+                                <div class="profile-inventory-tabs" role="tablist" aria-label="Inventory match categories">
+                                    <button class="profile-inventory-tab active" type="button" data-profile-inventory-tab="submitted" aria-pressed="true">Submitted leads</button>
+                                    <button class="profile-inventory-tab" type="button" data-profile-inventory-tab="alternative" aria-pressed="false">Alternative vehicles <span class="profile-inventory-tab-icon" aria-hidden="true">⇄</span></button>
+                                </div>
+                                <div class="profile-inventory-list" data-profile-inventory-list></div>
+                            </article>
+                        </div>
                     </div>
                 </div>
+
+                <section class="profile-option-c" data-profile-option-c hidden>
+                    <div class="profile-option-c-grid">
+                        <aside class="profile-option-c-rail">
+                            <div class="profile-option-c-summary">
+                                <div class="profile-option-c-summary-header">
+                                    <div class="profile-option-c-summary-title-row">
+                                        <h2 data-profile-c-name></h2>
+                                        <button class="profile-secondary-action profile-option-c-activity-button" type="button">View all activity</button>
+                                    </div>
+                                    <div class="profile-hero-tags" data-profile-c-tags></div>
+                                </div>
+                                <div class="profile-option-c-detail-list">
+                                    <div class="profile-hero-detail-item">
+                                        <p class="profile-key-label">Email</p>
+                                        <p class="profile-key-value" data-profile-c-email></p>
+                                    </div>
+                                    <div class="profile-hero-detail-item">
+                                        <p class="profile-key-label">Phone</p>
+                                        <p class="profile-key-value" data-profile-c-phone></p>
+                                    </div>
+                                    <div class="profile-hero-detail-item">
+                                        <p class="profile-key-label">Location</p>
+                                        <p class="profile-key-value" data-profile-c-location></p>
+                                    </div>
+                                    <div class="profile-hero-detail-item">
+                                        <p class="profile-key-label">Delivery</p>
+                                        <p class="profile-key-value" data-profile-c-delivery></p>
+                                    </div>
+                                    <div class="profile-hero-detail-item">
+                                        <p class="profile-key-label">Appointment</p>
+                                        <p class="profile-key-value" data-profile-c-appointment></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <article class="profile-option-c-section">
+                                <div class="profile-option-c-section-header">
+                                    <div class="profile-panel-title-group">
+                                        <span class="profile-panel-icon" aria-hidden="true">◉◉</span>
+                                        <h3>Shopper activity</h3>
+                                    </div>
+                                    <span class="profile-panel-chevron" aria-hidden="true">⌃</span>
+                                </div>
+                                <div class="profile-activity-grid" data-profile-c-activity-grid></div>
+                            </article>
+
+                            <article class="profile-option-c-section">
+                                <div class="profile-option-c-section-header">
+                                    <div class="profile-panel-title-group">
+                                        <span class="profile-panel-icon" aria-hidden="true">◔</span>
+                                        <h3>Payment</h3>
+                                    </div>
+                                    <span class="profile-panel-chevron" aria-hidden="true">⌃</span>
+                                </div>
+                                <div class="profile-detail-grid" data-profile-c-payment-grid></div>
+                            </article>
+
+                            <article class="profile-option-c-section">
+                                <div class="profile-option-c-section-header">
+                                    <div class="profile-panel-title-group">
+                                        <span class="profile-panel-icon" aria-hidden="true">⌁</span>
+                                        <h3>Trade-in vehicle</h3>
+                                    </div>
+                                    <span class="profile-panel-chevron" aria-hidden="true">⌃</span>
+                                </div>
+                                <div class="profile-detail-grid" data-profile-c-trade-grid></div>
+                            </article>
+
+                            <article class="profile-option-c-section">
+                                <div class="profile-option-c-section-header">
+                                    <div class="profile-panel-title-group">
+                                        <span class="profile-panel-icon" aria-hidden="true">⌘</span>
+                                        <h3>F&amp;I products</h3>
+                                    </div>
+                                    <span class="profile-panel-chevron" aria-hidden="true">⌃</span>
+                                </div>
+                                <div class="profile-fi-grid" data-profile-c-fi-grid></div>
+                            </article>
+                        </aside>
+
+                        <div class="profile-option-c-main">
+                            <article class="profile-panel profile-interests-panel">
+                                <div class="profile-panel-header">
+                                    <div class="profile-panel-title-group">
+                                        <span class="profile-panel-icon" aria-hidden="true">▥</span>
+                                        <h3>Shopper interests</h3>
+                                    </div>
+                                </div>
+                                <div class="profile-interest-stats" data-profile-c-interest-stats></div>
+                                <div class="profile-preferences-card">
+                                    <div class="profile-preferences-grid">
+                                        <div class="profile-preferences-column">
+                                            <h4>Vehicle preferences</h4>
+                                            <div class="profile-preferences-list" data-profile-c-preferences-list></div>
+                                        </div>
+                                        <div class="profile-models-column">
+                                            <h4>Top model interests</h4>
+                                            <div class="profile-model-list" data-profile-c-model-list></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="profile-panel">
+                                <div class="profile-panel-header">
+                                    <div class="profile-panel-title-group">
+                                        <h3>Competition</h3>
+                                    </div>
+                                </div>
+                                <p class="profile-panel-description">See the number of dealers this shopper is engaging with across CarGurus.</p>
+                                <div class="profile-competition-chip" data-profile-c-competition-chip></div>
+                            </article>
+
+                            <article class="profile-panel">
+                                <div class="profile-panel-header">
+                                    <div class="profile-panel-title-group">
+                                        <h3>Inventory matches</h3>
+                                    </div>
+                                </div>
+                                <p class="profile-panel-description">Review which of your vehicles the shopper submitted leads on and see alternative vehicles on your lot that match their preferences.</p>
+                                <div class="profile-inventory-tabs" role="tablist" aria-label="Option C inventory match categories">
+                                    <button class="profile-inventory-tab active" type="button" data-profile-c-inventory-tab="submitted" aria-pressed="true">Submitted leads</button>
+                                    <button class="profile-inventory-tab" type="button" data-profile-c-inventory-tab="alternative" aria-pressed="false">Alternative vehicles <span class="profile-inventory-tab-icon" aria-hidden="true">⇄</span></button>
+                                </div>
+                                <div class="profile-inventory-list" data-profile-c-inventory-list></div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
             </section>
         </div>
     </main>
@@ -242,7 +402,9 @@
                 contact: {
                     email: "keanumatrixreevesjr@domain.com",
                     phone: "617-548-5569",
-                    location: "02139 (5.2 miles away)"
+                    location: "02139 (5.2 miles away)",
+                    delivery: "Not requested",
+                    appointment: "Thursday, 1/22/26, 1:15 PM"
                 },
                 activity: {
                     lastActive: "12/24/25",
@@ -320,8 +482,10 @@
                 ],
                 contact: {
                     email: "ejohnson@gmail.com",
-                    phone: "617-548-5569",
-                    location: "02139 (5.2 miles away)"
+                    phone: "(617) 238-2347",
+                    location: "01886 (24 miles)",
+                    delivery: "Requested",
+                    appointment: "Monday, 1/21/26, 9:45 AM"
                 },
                 activity: {
                     lastActive: "12/23/25",
@@ -399,7 +563,9 @@
                 contact: {
                     email: "maxwellstarwindsmith@domain.com",
                     phone: "202-555-0123",
-                    location: "02141 (7.0 miles away)"
+                    location: "02141 (7.0 miles away)",
+                    delivery: "Considering options",
+                    appointment: "No appointment scheduled"
                 },
                 activity: {
                     lastActive: "12/18/25",
@@ -475,6 +641,11 @@
         const profileEmail = document.querySelector("[data-profile-email]");
         const profilePhone = document.querySelector("[data-profile-phone]");
         const profileLocation = document.querySelector("[data-profile-location]");
+        const profileEmailDetail = document.querySelector("[data-profile-email-detail]");
+        const profilePhoneDetail = document.querySelector("[data-profile-phone-detail]");
+        const profileLocationDetail = document.querySelector("[data-profile-location-detail]");
+        const profileDeliveryDetail = document.querySelector("[data-profile-delivery-detail]");
+        const profileAppointmentDetail = document.querySelector("[data-profile-appointment-detail]");
         const profileLastActive = document.querySelector("[data-profile-last-active]");
         const profileActivityLevel = document.querySelector("[data-profile-activity-level]");
         const profileDealerActivity = document.querySelector("[data-profile-dealer-activity]");
@@ -489,9 +660,32 @@
         const profileInventoryTabs = Array.from(document.querySelectorAll("[data-profile-inventory-tab]"));
         const profileInventoryList = document.querySelector("[data-profile-inventory-list]");
         const profileBackButton = document.querySelector("[data-profile-back]");
+        const profilePage = document.querySelector("[data-profile-page]");
+        const profileStage = document.querySelector("[data-profile-stage]");
+        const profileOptionC = document.querySelector("[data-profile-option-c]");
+        const profileLayoutToggleButtons = Array.from(document.querySelectorAll("[data-profile-layout-mode]"));
+        const profileCName = document.querySelector("[data-profile-c-name]");
+        const profileCTags = document.querySelector("[data-profile-c-tags]");
+        const profileCEmail = document.querySelector("[data-profile-c-email]");
+        const profileCPhone = document.querySelector("[data-profile-c-phone]");
+        const profileCLocation = document.querySelector("[data-profile-c-location]");
+        const profileCDelivery = document.querySelector("[data-profile-c-delivery]");
+        const profileCAppointment = document.querySelector("[data-profile-c-appointment]");
+        const profileCActivityGrid = document.querySelector("[data-profile-c-activity-grid]");
+        const profileCPaymentGrid = document.querySelector("[data-profile-c-payment-grid]");
+        const profileCTradeGrid = document.querySelector("[data-profile-c-trade-grid]");
+        const profileCFiGrid = document.querySelector("[data-profile-c-fi-grid]");
+        const profileCInterestStats = document.querySelector("[data-profile-c-interest-stats]");
+        const profileCPreferencesList = document.querySelector("[data-profile-c-preferences-list]");
+        const profileCModelList = document.querySelector("[data-profile-c-model-list]");
+        const profileCCompetitionChip = document.querySelector("[data-profile-c-competition-chip]");
+        const profileCInventoryTabs = Array.from(document.querySelectorAll("[data-profile-c-inventory-tab]"));
+        const profileCInventoryList = document.querySelector("[data-profile-c-inventory-list]");
 
-        let activeProfileShopperId = new URLSearchParams(window.location.search).get("shopper") || "keanu";
+        const urlParams = new URLSearchParams(window.location.search);
+        let activeProfileShopperId = urlParams.get("shopper") || "keanu";
         let activeProfileInventoryTab = "submitted";
+        let activeProfileLayoutMode = ["a", "b", "c"].includes(urlParams.get("layout")) ? urlParams.get("layout") : "a";
 
         function renderProfileHeroTags(tags) {
             return tags.map((tag) => `
@@ -606,6 +800,24 @@
             `).join("");
         }
 
+        function renderActivityGridMarkup(activity) {
+            return `
+                <div class="profile-key-block">
+                    <p class="profile-key-label">CARGURUS ACTIVITY <span class="profile-inline-info">i</span></p>
+                    <div class="profile-activity-value-row">
+                        <span class="profile-activity-dot"></span>
+                        <span class="profile-key-value">${activity.lastActive}</span>
+                        <span class="profile-tag ${activity.level === "High activity" ? "profile-tag-green" : "profile-tag-neutral"}">${activity.level}</span>
+                    </div>
+                </div>
+                <div class="profile-key-block">
+                    <p class="profile-key-label">ACTIVITY WITH YOU</p>
+                    <p class="profile-key-value">${activity.dealerActivity}</p>
+                    <p class="profile-key-subvalue">${activity.engagementCopy}</p>
+                </div>
+            `;
+        }
+
         function renderShopperProfile(shopperId) {
             const profile = shopperProfilesById[shopperId] || shopperProfilesById.keanu;
             activeProfileShopperId = shopperProfilesById[shopperId] ? shopperId : "keanu";
@@ -615,6 +827,11 @@
             profileEmail.textContent = profile.contact.email;
             profilePhone.textContent = profile.contact.phone;
             profileLocation.textContent = profile.contact.location;
+            profileEmailDetail.textContent = profile.contact.email;
+            profilePhoneDetail.textContent = profile.contact.phone;
+            profileLocationDetail.textContent = profile.contact.location;
+            profileDeliveryDetail.textContent = profile.contact.delivery;
+            profileAppointmentDetail.textContent = profile.contact.appointment;
             profileLastActive.textContent = profile.activity.lastActive;
             profileActivityLevel.textContent = profile.activity.level;
             profileActivityLevel.className = `profile-tag ${profile.activity.level === "High activity" ? "profile-tag-green" : "profile-tag-neutral"}`;
@@ -637,6 +854,32 @@
             profileModelList.innerHTML = renderTopModels(profile.interests.topModels);
             profileCompetitionChip.textContent = profile.competition;
             profileInventoryList.innerHTML = renderInventoryMatches(profile.inventory[activeProfileInventoryTab]);
+
+            profileCName.textContent = profile.name;
+            profileCTags.innerHTML = renderProfileHeroTags(profile.tags);
+            profileCEmail.textContent = profile.contact.email;
+            profileCPhone.textContent = profile.contact.phone;
+            profileCLocation.textContent = profile.contact.location;
+            profileCDelivery.textContent = profile.contact.delivery;
+            profileCAppointment.textContent = profile.contact.appointment;
+            profileCActivityGrid.innerHTML = renderActivityGridMarkup(profile.activity);
+            profileCPaymentGrid.innerHTML = renderDetailGrid(profile.payment);
+            profileCTradeGrid.innerHTML = renderDetailGrid(profile.tradeIn);
+            profileCFiGrid.innerHTML = `
+                <div class="profile-key-block">
+                    <p class="profile-key-label">TOTAL VALUE</p>
+                    <p class="profile-key-value">${profile.fi.totalValue}</p>
+                </div>
+                <div class="profile-key-block profile-key-block-full">
+                    <p class="profile-key-label">SELECTED PRODUCTS</p>
+                    <p class="profile-key-value">${profile.fi.selectedProducts}</p>
+                </div>
+            `;
+            profileCInterestStats.innerHTML = profile.interests.stats.map((stat) => `<span class="profile-chip">${stat}</span>`).join("");
+            profileCPreferencesList.innerHTML = renderPreferences(profile.interests.preferences);
+            profileCModelList.innerHTML = renderTopModels(profile.interests.topModels);
+            profileCCompetitionChip.textContent = profile.competition;
+            profileCInventoryList.innerHTML = renderInventoryMatches(profile.inventory[activeProfileInventoryTab]);
         }
 
         function updateProfileInventoryTab(tabName) {
@@ -646,17 +889,45 @@
                 tab.classList.toggle("active", isActive);
                 tab.setAttribute("aria-pressed", String(isActive));
             });
+            profileCInventoryTabs.forEach((tab) => {
+                const isActive = tab.dataset.profileCInventoryTab === tabName;
+                tab.classList.toggle("active", isActive);
+                tab.setAttribute("aria-pressed", String(isActive));
+            });
 
             const profile = shopperProfilesById[activeProfileShopperId] || shopperProfilesById.keanu;
             profileInventoryList.innerHTML = renderInventoryMatches(profile.inventory[tabName]);
+            profileCInventoryList.innerHTML = renderInventoryMatches(profile.inventory[tabName]);
+        }
+
+        function updateProfileLayoutMode(mode) {
+            activeProfileLayoutMode = mode;
+            profilePage.classList.toggle("profile-layout-option-b", mode === "b");
+            profileStage.hidden = mode === "c";
+            profileOptionC.hidden = mode !== "c";
+            profileStage.style.display = mode === "c" ? "none" : "";
+            profileOptionC.style.display = mode === "c" ? "block" : "none";
+
+            profileLayoutToggleButtons.forEach((button) => {
+                const isActive = button.dataset.profileLayoutMode === mode;
+                button.classList.toggle("active", isActive);
+                button.setAttribute("aria-pressed", String(isActive));
+            });
         }
 
         profileBackButton.addEventListener("click", () => navigateTo("leads-hub-figma.html"));
         profileInventoryTabs.forEach((tab) => {
             tab.addEventListener("click", () => updateProfileInventoryTab(tab.dataset.profileInventoryTab));
         });
+        profileCInventoryTabs.forEach((tab) => {
+            tab.addEventListener("click", () => updateProfileInventoryTab(tab.dataset.profileCInventoryTab));
+        });
+        profileLayoutToggleButtons.forEach((button) => {
+            button.addEventListener("click", () => updateProfileLayoutMode(button.dataset.profileLayoutMode));
+        });
 
         renderShopperProfile(activeProfileShopperId);
+        updateProfileLayoutMode(activeProfileLayoutMode);
     </script>
 </body>
 </html>
