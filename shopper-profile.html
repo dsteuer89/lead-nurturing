@@ -102,6 +102,7 @@
                     <button class="profile-layout-toggle-button active" type="button" data-profile-layout-mode="a" aria-pressed="true">Option A</button>
                     <button class="profile-layout-toggle-button" type="button" data-profile-layout-mode="b" aria-pressed="false">Option B</button>
                     <button class="profile-layout-toggle-button" type="button" data-profile-layout-mode="c" aria-pressed="false">Option C</button>
+                    <button class="profile-layout-toggle-button" type="button" data-profile-layout-mode="d" aria-pressed="false">Option D</button>
                 </div>
 
                 <div class="profile-stage" data-profile-stage>
@@ -139,7 +140,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="profile-primary-action" type="button">View all activity</button>
+                        <button class="profile-primary-action" type="button" data-profile-hero-activity>View all activity</button>
                     </article>
 
                     <div class="profile-layout">
@@ -167,7 +168,8 @@
                                     <p class="profile-key-subvalue" data-profile-engagement-copy></p>
                                 </div>
                             </div>
-                            <button class="profile-inline-link" type="button">View all activity</button>
+                            <button class="profile-inline-link" type="button" data-profile-activity-link>View all activity</button>
+                            <button class="profile-primary-action profile-panel-primary-action" type="button" data-profile-activity-primary>View all activity</button>
                         </article>
 
                             <article class="profile-panel">
@@ -664,6 +666,9 @@
         const profileStage = document.querySelector("[data-profile-stage]");
         const profileOptionC = document.querySelector("[data-profile-option-c]");
         const profileLayoutToggleButtons = Array.from(document.querySelectorAll("[data-profile-layout-mode]"));
+        const profileHeroActivityButton = document.querySelector("[data-profile-hero-activity]");
+        const profileActivityLink = document.querySelector("[data-profile-activity-link]");
+        const profileActivityPrimaryButton = document.querySelector("[data-profile-activity-primary]");
         const profileCName = document.querySelector("[data-profile-c-name]");
         const profileCTags = document.querySelector("[data-profile-c-tags]");
         const profileCEmail = document.querySelector("[data-profile-c-email]");
@@ -685,7 +690,7 @@
         const urlParams = new URLSearchParams(window.location.search);
         let activeProfileShopperId = urlParams.get("shopper") || "keanu";
         let activeProfileInventoryTab = "submitted";
-        let activeProfileLayoutMode = ["a", "b", "c"].includes(urlParams.get("layout")) ? urlParams.get("layout") : "a";
+        let activeProfileLayoutMode = ["a", "b", "c", "d"].includes(urlParams.get("layout")) ? urlParams.get("layout") : "a";
 
         function renderProfileHeroTags(tags) {
             return tags.map((tag) => `
@@ -903,10 +908,14 @@
         function updateProfileLayoutMode(mode) {
             activeProfileLayoutMode = mode;
             profilePage.classList.toggle("profile-layout-option-b", mode === "b");
+            profilePage.classList.toggle("profile-layout-option-d", mode === "d");
             profileStage.hidden = mode === "c";
             profileOptionC.hidden = mode !== "c";
             profileStage.style.display = mode === "c" ? "none" : "";
             profileOptionC.style.display = mode === "c" ? "block" : "none";
+            profileHeroActivityButton.hidden = mode === "d";
+            profileActivityLink.hidden = mode === "d";
+            profileActivityPrimaryButton.hidden = mode !== "d";
 
             profileLayoutToggleButtons.forEach((button) => {
                 const isActive = button.dataset.profileLayoutMode === mode;
