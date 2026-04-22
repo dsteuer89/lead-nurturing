@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leads Hub - CarGurus</title>
-    <link rel="stylesheet" href="leads-hub-figma-styles.css?v=20260324-3">
+    <link rel="stylesheet" href="leads-hub-figma-styles.css">
 </head>
 <body>
+    <!-- Sidebar -->
     <aside class="sidebar">
         <div class="sidebar-header">
             <div class="cargurus-logo">
@@ -15,65 +16,141 @@
         </div>
 
         <nav class="sidebar-nav">
-            <div class="nav-item" onclick="navigateTo('leads-hub-figma.html')">
+            <!-- Dashboard -->
+            <div class="nav-item">
                 <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                    <path d="M2 2h5v5H2V2zm0 7h5v5H2V9zm7-7h5v5H9V2zm0 7h5v5H9V9"></path>
+                    <path d="M2 2h5v5H2V2zm0 7h5v5H2V9zm7-7h5v5H9V2zm0 7h5v5H9V9z"/>
                 </svg>
                 <span>Dashboard</span>
             </div>
 
+            <!-- Pricing -->
             <div class="nav-item">
                 <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                    <path d="M2 2l6 6-6 6V2zm12 0v12l-6-6 6-6z"></path>
+                    <path d="M2 2l6 6-6 6V2zm12 0v12l-6-6 6-6z"/>
                 </svg>
                 <span>Pricing</span>
             </div>
-            <div class="nav-item nav-item-nested"><span>Pricing Tool</span></div>
-            <div class="nav-item nav-item-nested"><span>Dealer Insights</span></div>
+            <div class="nav-item nav-item-nested">
+                <span>Pricing Tool</span>
+            </div>
+            <div class="nav-item nav-item-nested">
+                <span>Dealer Insights</span>
+            </div>
             <div class="nav-item nav-item-nested">
                 <span>View Inventory</span>
                 <svg class="external-icon" width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                    <path d="M10 10H2V2h4V0H2C.9 0 0 .9 0 2v8c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6h-2v4zM6 0v2h2.59L3.76 6.83l1.41 1.41L10 3.41V6h2V0H6z"></path>
+                    <path d="M10 10H2V2h4V0H2C.9 0 0 .9 0 2v8c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6h-2v4zM6 0v2h2.59L3.76 6.83l1.41 1.41L10 3.41V6h2V0H6z"/>
                 </svg>
             </div>
 
+            <!-- Marketing Analysis -->
             <div class="nav-item">
                 <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                    <circle cx="7" cy="7" r="5" stroke="currentColor" fill="none" stroke-width="2"></circle>
-                    <path d="M11 11l4 4" stroke="currentColor" stroke-width="2"></path>
+                    <circle cx="7" cy="7" r="5" stroke="currentColor" fill="none" stroke-width="2"/>
+                    <path d="M11 11l4 4" stroke="currentColor" stroke-width="2"/>
                 </svg>
                 <span>Marketing Analysis</span>
             </div>
 
+            <!-- Leads -->
             <div class="nav-item">
                 <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                    <path d="M2 2h12v3H2V2zm0 5h12v3H2V7zm0 5h12v2H2v-2z"></path>
+                    <path d="M2 2h12v3H2V2zm0 5h12v3H2V7zm0 5h12v2H2v-2z"/>
                 </svg>
                 <span>Leads</span>
             </div>
-            <div class="nav-item nav-item-nested active" onclick="navigateTo('leads-hub-figma.html')">
+            <div class="nav-item nav-item-nested active">
                 <span>Leads Hub</span>
                 <span class="beta-tag">Beta</span>
             </div>
-            <div class="nav-item nav-item-nested"><span>LeadAI</span></div>
-            <div class="nav-item nav-item-nested"><span>Lead Reports</span></div>
+            <div class="nav-item nav-item-nested">
+                <span>LeadAI</span>
+            </div>
+            <div class="nav-item nav-item-nested">
+                <span>Lead Reports</span>
+            </div>
 
+            <!-- Sell My Car -->
             <div class="nav-item">
                 <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                    <path d="M14 6h-3l-1.5-2h-3L5 6H2L1 8v5h1v1h2v-1h8v1h2v-1h1V8l-1-2zm-6 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"></path>
+                    <path d="M14 6h-3l-1.5-2h-3L5 6H2L1 8v5h1v1h2v-1h8v1h2v-1h1V8l-1-2zm-6 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
                 </svg>
                 <span>Sell My Car</span>
             </div>
+            <div class="nav-item nav-item-nested">
+                <span>Leads</span>
+            </div>
+            <div class="nav-item nav-item-nested">
+                <span>All Offers</span>
+            </div>
+            <div class="nav-item nav-item-nested">
+                <span>Performance</span>
+            </div>
+            <div class="nav-item nav-item-nested">
+                <span>Matrix Snapshot</span>
+            </div>
+            <div class="nav-item nav-item-nested">
+                <span>Lead Cap Details</span>
+            </div>
+
+            <!-- CG Buy Online -->
+            <div class="nav-item">
+                <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 2C5.24 2 3 4.24 3 7c0 3.54 5 9 5 9s5-5.46 5-9c0-2.76-2.24-5-5-5zm0 6.5c-.83 0-1.5-.67-1.5-1.5S7.17 5.5 8 5.5s1.5.67 1.5 1.5S8.83 8.5 8 8.5z"/>
+                </svg>
+                <span>CG Buy Online</span>
+            </div>
+            <div class="nav-item nav-item-nested">
+                <span>Reservations & Sales Hub</span>
+            </div>
+
+            <!-- CarGurus Delivery -->
+            <div class="nav-item">
+                <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M14 4h-3V2H5v2H2L1 6v6h1v2h2v-2h8v2h2v-2h1V6l-1-2zM6 3h4v1H6V3zm8 8H2V7h12v4z"/>
+                </svg>
+                <span>CarGurus Delivery</span>
+            </div>
+            <div class="nav-item nav-item-nested">
+                <span>Order</span>
+            </div>
+
+            <!-- Advertising -->
+            <div class="nav-item">
+                <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M14 2l-6 6V2H6v12h2V8l6 6V2z"/>
+                </svg>
+                <span>Advertising</span>
+            </div>
+            <div class="nav-item nav-item-nested">
+                <span>Highlight</span>
+            </div>
+            <div class="nav-item nav-item-nested">
+                <span>RPM for Dealers</span>
+            </div>
+
+            <!-- Digital Deal -->
+            <div class="nav-item">
+                <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M13 7h-2V5c0-1.1-.9-2-2-2H7c-1.1 0-2 .9-2 2v2H3c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zM7 5h2v2H7V5z"/>
+                </svg>
+                <span>Digital Deal</span>
+            </div>
+
+            <!-- Settings -->
             <div class="nav-item" onclick="navigateTo('settings.html')">
                 <svg class="nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                    <path d="M14.5 8c0-.3 0-.6-.1-.9l2-1.6c.2-.1.2-.4.1-.6l-1.9-3.3c-.1-.2-.4-.3-.6-.2l-2.4.9c-.5-.4-1-.7-1.6-.9L9.6.8c0-.2-.3-.4-.5-.4h-3.8c-.2 0-.5.2-.5.4L4.4 3.4c-.6.2-1.1.5-1.6.9l-2.4-.9c-.2-.1-.5 0-.6.2L-2 6.9c-.1.2-.1.5.1.6l2 1.6c-.1.3-.1.6-.1.9s0 .6.1.9l-2 1.6c-.2.1-.2.4-.1.6l1.9 3.3c.1.2.4.3.6.2l2.4-.9c.5.4 1 .7 1.6.9l.4 2.6c0 .2.3.4.5.4h3.8c.2 0 .5-.2.5-.4l.4-2.6c.6-.2 1.1-.5 1.6-.9l2.4.9c.2.1.5 0 .6-.2l1.9-3.3c.1-.2.1-.5-.1-.6l-2-1.6c.1-.3.1-.6.1-.9zM7.5 10.5c-1.4 0-2.5-1.1-2.5-2.5s1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5z"></path>
+                    <path d="M14.5 8c0-.3 0-.6-.1-.9l2-1.6c.2-.1.2-.4.1-.6l-1.9-3.3c-.1-.2-.4-.3-.6-.2l-2.4.9c-.5-.4-1-.7-1.6-.9L9.6.8c0-.2-.3-.4-.5-.4h-3.8c-.2 0-.5.2-.5.4L4.4 3.4c-.6.2-1.1.5-1.6.9l-2.4-.9c-.2-.1-.5 0-.6.2L-2 6.9c-.1.2-.1.5.1.6l2 1.6c-.1.3-.1.6-.1.9s0 .6.1.9l-2 1.6c-.2.1-.2.4-.1.6l1.9 3.3c.1.2.4.3.6.2l2.4-.9c.5.4 1 .7 1.6.9l.4 2.6c0 .2.3.4.5.4h3.8c.2 0 .5-.2.5-.4l.4-2.6c.6-.2 1.1-.5 1.6-.9l2.4.9c.2.1.5 0 .6-.2l1.9-3.3c.1-.2.1-.5-.1-.6l-2-1.6c.1-.3.1-.6.1-.9zM7.5 10.5c-1.4 0-2.5-1.1-2.5-2.5s1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5z"/>
                 </svg>
                 <span>Settings</span>
             </div>
         </nav>
     </aside>
 
+    <!-- Main Content -->
     <main class="main-content">
+        <!-- App Bar -->
         <header class="app-bar">
             <div class="app-bar-left">
                 <button class="icon-btn">🎯</button>
@@ -89,1926 +166,1113 @@
             </div>
         </header>
 
-        <div class="prototype-shell">
-            <section class="leads-hub-page">
-                <header class="hub-heading">
-                    <div class="hub-title-group">
-                        <h1>Leads Hub</h1>
-                        <span class="beta-badge">Beta</span>
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="page-title-row">
+                <h1>Leads Hub</h1>
+                <span class="beta-badge">Beta</span>
+                <div class="date-selector">
+                    <span class="calendar-icon">📅</span>
+                    <span>7/1/2025 - 7/31/2025</span>
+                    <span class="dropdown-icon">▼</span>
+                </div>
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="tab-nav">
+                <button class="tab-btn active" data-tab="shop-review">Shop Review</button>
+                <button class="tab-btn" data-tab="performance">Performance</button>
+                <button class="tab-btn" data-tab="inventory-demand">Inventory Demand</button>
+            </div>
+        </div>
+
+        <!-- Tab: Shop Review -->
+        <div class="tab-content active" id="tab-shop-review">
+            <div class="page-header-filters">
+                <!-- Search and Filters -->
+                <div class="search-filters-row">
+                    <div class="search-box">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" placeholder="Search" />
                     </div>
-                </header>
-                <div class="hub-subtabs" role="tablist" aria-label="Leads Hub sections">
-                    <button class="hub-subtab active" type="button" data-view-tab="overview" aria-pressed="true">Shopper Overview</button>
-                    <button class="hub-subtab" type="button" data-view-tab="performance" aria-pressed="false">Performance</button>
+
+                    <div class="filter-group">
+                        <select class="filter-dropdown">
+                            <option>Lead score</option>
+                            <option>All</option>
+                        </select>
+
+                        <select class="filter-dropdown">
+                            <option>Shopper category</option>
+                            <option>All</option>
+                        </select>
+
+                        <select class="filter-dropdown">
+                            <option>Opportunity type</option>
+                            <option>All shoppers</option>
+                        </select>
+
+                        <button class="all-filters-btn">
+                            <span class="filter-icon">⚙️</span>
+                            All filters
+                        </button>
+                    </div>
                 </div>
 
-                <section class="hub-pane active" data-view-pane="overview">
-                    <div class="shopper-overview-content" data-shopper-overview>
-                    <section class="summary-panel">
-                        <div class="summary-header">
-                            <h2>200 shopper results</h2>
-                            <button class="date-picker" type="button" aria-label="Select date range">
-                                <span class="date-picker-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 20 20" fill="none">
-                                        <rect x="2.25" y="3.25" width="15.5" height="14.5" rx="1.75"></rect>
-                                        <path d="M2.5 7.5H17.5"></path>
-                                        <path d="M6 1.75V5"></path>
-                                        <path d="M14 1.75V5"></path>
-                                        <rect x="5.25" y="9.75" width="2.5" height="2.5"></rect>
-                                        <rect x="9" y="9.75" width="2.5" height="2.5"></rect>
-                                        <rect x="12.75" y="9.75" width="2.5" height="2.5"></rect>
-                                    </svg>
-                                </span>
-                                <span>2/1/2026 - 2/28/2026</span>
-                                <span class="chevron" aria-hidden="true">
-                                    <svg viewBox="0 0 16 16" fill="none">
-                                        <path d="M3 6L8 11L13 6"></path>
-                                    </svg>
-                                </span>
-                            </button>
-                        </div>
+                <!-- Results Summary -->
+                <div class="results-row">
+                    <p class="results-text">275 shopper results over 32 days with 12 cross-sell opportunities</p>
+                    <select class="sort-dropdown">
+                        <option>Sort by: Last activity</option>
+                    </select>
+                </div>
+            </div>
 
-                        <div class="metric-grid">
-                            <article class="metric-tile">
-                                <div class="metric-copy">
-                                    <p class="metric-label">Hot leads</p>
-                                    <p class="metric-value">50%</p>
-                                    <p class="metric-detail">100 of 200</p>
-                                </div>
-                                <span class="metric-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" fill="none">
-                                        <path d="M13.5 2.5C14.1 5.7 11 7.2 11 10c0 1.4.9 2.3 2.2 2.3 2 0 3.5-1.6 3.5-4.1 0-1.3-.4-2.6-1.2-4.2 2.5 1.5 4.2 4.4 4.2 7.7 0 4.8-3.2 8.1-7.8 8.1-4.2 0-7.4-3-7.4-7.2 0-2.9 1.4-5.2 3.7-7.4.2 1.8.8 3 1.8 3 1.1 0 1.8-1.1 1.8-2.6 0-1.2-.2-2.1-.8-3.1 1-.5 1.9-.9 3-1z"></path>
-                                    </svg>
-                                </span>
-                            </article>
-
-                            <article class="metric-tile">
-                                <div class="metric-copy">
-                                    <p class="metric-label">Warm leads</p>
-                                    <p class="metric-value">25%</p>
-                                    <p class="metric-detail">50 of 200</p>
-                                </div>
-                                <span class="metric-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" fill="none">
-                                        <path d="M7 4C6.7 6.4 7.7 7.5 8.5 8.9C9.2 10 9.7 11.3 9.7 13"></path>
-                                        <path d="M12 3C11.7 5.8 12.8 7 13.5 8.4C14.2 9.7 14.6 10.8 14.6 13"></path>
-                                        <path d="M17 4C16.7 6.5 17.7 7.8 18.5 9.2C19.2 10.3 19.7 11.4 19.7 13"></path>
-                                    </svg>
-                                </span>
-                            </article>
-
-                            <article class="metric-tile">
-                                <div class="metric-copy">
-                                    <p class="metric-label">Digital Deal</p>
-                                    <p class="metric-value">14%</p>
-                                    <p class="metric-detail">28 of 200</p>
-                                </div>
-                                <span class="metric-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" fill="none">
-                                        <circle cx="12" cy="12" r="9.25"></circle>
-                                        <path d="M14.8 8.4C14.2 7.8 13.3 7.5 12.1 7.5C10.5 7.5 9.3 8.4 9.3 9.8C9.3 11.2 10.4 11.8 11.7 12.2L12.7 12.5C13.7 12.8 14.4 13.1 14.4 14C14.4 15 13.5 15.7 12.1 15.7C10.8 15.7 9.8 15.2 9.1 14.3"></path>
-                                        <path d="M12 6V18"></path>
-                                    </svg>
-                                </span>
-                            </article>
-
-                            <article class="metric-tile">
-                                <div class="metric-copy">
-                                    <p class="metric-label">Switch opportunities</p>
-                                    <p class="metric-value">73%</p>
-                                    <p class="metric-detail">146 of 200</p>
-                                </div>
-                                <span class="metric-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" fill="none">
-                                        <path d="M8 6.5V15.5C8 17.7 6.2 19.5 4 19.5C1.8 19.5 0 17.7 0 15.5V11"></path>
-                                        <path d="M16 17.5V8.5C16 6.3 17.8 4.5 20 4.5C22.2 4.5 24 6.3 24 8.5V13"></path>
-                                        <path d="M4.2 10.8L8 6.8L11.8 10.8"></path>
-                                        <path d="M12.2 13.2L16 17.2L19.8 13.2"></path>
-                                    </svg>
-                                </span>
-                            </article>
-                        </div>
-                    </section>
-
-                    <section class="controls-panel">
-                    <div class="search-row">
-                        <label class="search-box" aria-label="Search shoppers">
-                            <span class="search-icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <circle cx="10.5" cy="10.5" r="7.5"></circle>
-                                    <path d="M16.2 16.2L21 21"></path>
-                                </svg>
-                            </span>
-                            <input type="text" placeholder="Search shoppers" />
-                        </label>
-
-                        <button class="filters-button" type="button">
-                            <span class="filters-icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path d="M4 7H20"></path>
-                                    <path d="M4 17H20"></path>
-                                    <path d="M10 12H20"></path>
-                                    <path d="M4 12H6"></path>
-                                    <circle cx="8" cy="12" r="2"></circle>
-                                    <circle cx="14" cy="7" r="2"></circle>
-                                    <circle cx="10" cy="17" r="2"></circle>
-                                </svg>
-                            </span>
-                            <span>Filters</span>
-                        </button>
+            <!-- Shopper Cards -->
+            <div class="shopper-cards-container">
+            <!-- Card 1 -->
+            <article class="shopper-card">
+                <div class="card-header">
+                    <div class="card-header-left">
+                        <h2 class="shopper-name">Keanu Matrix Reeves Jr.</h2>
+                        <span class="tag tag-hot">Hot lead</span>
+                        <span class="tag tag-switch">Switch opportunity</span>
                     </div>
+                    <button class="view-profile-btn">View profile</button>
+                </div>
 
-                    <div class="chips-row">
-                        <button class="filter-chip" type="button">Hot <span>&times;</span></button>
-                        <button class="filter-chip" type="button">Digital Deal <span>&times;</span></button>
-                        <button class="filter-chip" type="button">High activity <span>&times;</span></button>
-                        <button class="reset-link" type="button">Reset</button>
-                    </div>
-
-                    <div class="results-row">
-                        <p>Showing 200 of 200 shoppers</p>
-                        <button class="sort-button" type="button">
-                            <span>Sort by: Last activity</span>
-                            <span class="chevron" aria-hidden="true">
-                                <svg viewBox="0 0 16 16" fill="none">
-                                    <path d="M3 6L8 11L13 6"></path>
-                                </svg>
-                            </span>
-                        </button>
-                    </div>
-                    </section>
-
-                    <section class="shopper-list">
-                    <article class="shopper-card" data-shopper-id="keanu">
-                        <div class="card-topline">
-                            <div class="card-title-row">
-                                <h3>Keanu Matrix Reeves Jr.</h3>
-                                <div class="pill-row">
-                                    <span class="status-pill status-hot">
-                                        <span class="pill-icon" aria-hidden="true">◔</span>
-                                        Hot lead
-                                    </span>
-                                    <span class="status-pill status-switch">
-                                        <span class="pill-icon" aria-hidden="true">⇄</span>
-                                        Switch opportunity
-                                    </span>
-                                </div>
+                <div class="card-content">
+                    <div class="card-section">
+                        <h3 class="section-title">Contact</h3>
+                        <div class="contact-info">
+                            <div class="info-item">
+                                <span class="icon">✉️</span>
+                                <span>keanumatrixreevesjr@domain.com</span>
                             </div>
-                            <div class="card-actions">
-                                <div class="review-indicator review-indicator-opened" data-open-state>
-                                    <div class="review-indicator-status">
-                                        <span class="review-indicator-icon" aria-hidden="true">✓</span>
-                                        <span class="review-indicator-title" data-open-state-text>Opened</span>
+                            <div class="info-item">
+                                <span class="icon">📞</span>
+                                <span>617-548-5569</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="icon">📍</span>
+                                <span>02138 (5.2 miles away)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-section">
+                        <h3 class="section-title">Latest Inquiry</h3>
+                        <div class="inquiry-info">
+                            <p class="inquiry-time">8 hours ago • 8 total</p>
+                            <p class="inquiry-vehicle">2025 Audi Q7 quattro Premium</p>
+                            <p class="inquiry-details">Sold • $49,100 • VIN: AJSAH8263JF23</p>
+                        </div>
+                    </div>
+
+                    <div class="card-section">
+                        <h3 class="section-title">Key Insights</h3>
+                        <div class="insights-grid">
+                            <div class="insight-item">
+                                <span class="insight-label">DEALER ENGAGEMENT</span>
+                                <p class="insight-value">Highly engaged</p>
+                            </div>
+                            <div class="insight-item">
+                                <span class="insight-label">LAST ACTIVITY WITH YOU</span>
+                                <p class="insight-value">1 hour ago</p>
+                                <p class="insight-detail">Website visit</p>
+                            </div>
+                        </div>
+                        <div class="insights-grid">
+                            <div class="insight-item">
+                                <span class="insight-label">CARGURUS ACTIVITY</span>
+                                <p class="insight-value">Very active</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="shopper-card">
+                <div class="card-header">
+                    <div class="card-header-left">
+                        <h2 class="shopper-name">Maya Stellar Johnson</h2>
+                        <span class="tag tag-hot">Hot lead</span>
+                    </div>
+                    <button class="view-profile-btn">View profile</button>
+                </div>
+
+                <div class="card-content">
+                    <div class="card-section">
+                        <h3 class="section-title">Contact</h3>
+                        <div class="contact-info">
+                            <div class="info-item">
+                                <span class="icon">✉️</span>
+                                <span>keanumatrixreevesjr@domain.com</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="icon">📞</span>
+                                <span>617-548-5569</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="icon">📍</span>
+                                <span>02138 (5.2 miles away)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-section">
+                        <h3 class="section-title">Latest Inquiry</h3>
+                        <div class="inquiry-info">
+                            <p class="inquiry-time">7/12/25 at 3:35 PM</p>
+                            <p class="inquiry-vehicle">2025 Mercedes-Benz GLE 450</p>
+                            <p class="inquiry-details">Sold • $49,100 • VIN: AJSAH8263JF23</p>
+                        </div>
+                    </div>
+
+                    <div class="card-section">
+                        <h3 class="section-title">Key Insights</h3>
+                        <div class="insights-grid">
+                            <div class="insight-item">
+                                <span class="insight-label">DEALER ENGAGEMENT</span>
+                                <p class="insight-value">Highly engaged</p>
+                            </div>
+                            <div class="insight-item">
+                                <span class="insight-label">LAST ACTIVITY WITH YOU</span>
+                                <p class="insight-value">1 hour ago</p>
+                                <p class="insight-detail">Website visit</p>
+                            </div>
+                        </div>
+                        <div class="insights-grid">
+                            <div class="insight-item">
+                                <span class="insight-label">CARGURUS ACTIVITY</span>
+                                <p class="insight-value">Very active</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="shopper-card">
+                <div class="card-header">
+                    <div class="card-header-left">
+                        <h2 class="shopper-name">Ethan Cosmic Lee</h2>
+                        <span class="tag tag-hot">Hot lead</span>
+                        <span class="tag tag-switch">Switch opportunity</span>
+                    </div>
+                    <button class="view-profile-btn">View profile</button>
+                </div>
+
+                <div class="card-content">
+                    <div class="card-section">
+                        <h3 class="section-title">Contact</h3>
+                        <div class="contact-info">
+                            <div class="info-item">
+                                <span class="icon">✉️</span>
+                                <span>keanumatrixreevesjr@domain.com</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="icon">📞</span>
+                                <span>617-548-5569</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="icon">📍</span>
+                                <span>02138 (5.2 miles away)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-section">
+                        <h3 class="section-title">Latest Inquiry</h3>
+                        <div class="inquiry-info">
+                            <p class="inquiry-time">8 hours ago • 8 total</p>
+                            <p class="inquiry-vehicle">2025 Volvo XC90 Recharge T8</p>
+                            <p class="inquiry-details">Sold • $49,100 • VIN: AJSAH8263JF23</p>
+                        </div>
+                    </div>
+
+                    <div class="card-section">
+                        <h3 class="section-title">Key Insights</h3>
+                        <div class="insights-grid">
+                            <div class="insight-item">
+                                <span class="insight-label">DEALER ENGAGEMENT</span>
+                                <p class="insight-value">Highly engaged</p>
+                            </div>
+                            <div class="insight-item">
+                                <span class="insight-label">LAST ACTIVITY WITH YOU</span>
+                                <p class="insight-value">1 hour ago</p>
+                                <p class="insight-detail">Website visit</p>
+                            </div>
+                        </div>
+                        <div class="insights-grid">
+                            <div class="insight-item">
+                                <span class="insight-label">CARGURUS ACTIVITY</span>
+                                <p class="insight-value">Very active</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+        </div>
+
+        <!-- Tab: Performance -->
+        <div class="tab-content" id="tab-performance">
+            <div class="performance-placeholder">
+                <div class="placeholder-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                        <rect x="4" y="24" width="8" height="20" rx="2" fill="var(--cg-blue)" opacity="0.3"/>
+                        <rect x="16" y="16" width="8" height="28" rx="2" fill="var(--cg-blue)" opacity="0.5"/>
+                        <rect x="28" y="8" width="8" height="36" rx="2" fill="var(--cg-blue)" opacity="0.7"/>
+                        <rect x="40" y="4" width="8" height="40" rx="2" fill="var(--cg-blue)"/>
+                    </svg>
+                </div>
+                <h2>Performance Analytics</h2>
+                <p>Performance metrics and reporting coming soon.</p>
+            </div>
+        </div>
+
+        <!-- Tab: Inventory Demand -->
+        <div class="tab-content" id="tab-inventory-demand">
+            <!-- Summary Chips -->
+            <div class="inv-summary-chips">
+                <div class="inv-chip">
+                    <span class="inv-chip-count">247</span>
+                    <span class="inv-chip-label">Active Listings</span>
+                </div>
+                <div class="inv-chip">
+                    <span class="inv-chip-count inv-chip-count--blue">89</span>
+                    <span class="inv-chip-label">With Active Shoppers</span>
+                </div>
+                <div class="inv-chip">
+                    <span class="inv-chip-count inv-chip-count--orange">34</span>
+                    <span class="inv-chip-label">Needs Attention</span>
+                </div>
+                <div class="inv-chip">
+                    <span class="inv-chip-count inv-chip-count--purple">52</span>
+                    <span class="inv-chip-label">Has Prospects</span>
+                </div>
+            </div>
+
+            <!-- Filter Pills -->
+            <div class="inv-filters">
+                <div class="inv-filter-pills">
+                    <button class="inv-pill active">All Inventory</button>
+                    <button class="inv-pill">Needs Attention</button>
+                    <button class="inv-pill">Hot Demand</button>
+                    <button class="inv-pill">Has Prospects</button>
+                    <button class="inv-pill">No Demand</button>
+                </div>
+                <div class="inv-filter-controls">
+                    <div class="inv-toggle-group">
+                        <button class="inv-toggle active">All</button>
+                        <button class="inv-toggle">New</button>
+                        <button class="inv-toggle">Used</button>
+                    </div>
+                    <select class="inv-dropdown">
+                        <option>Days on Lot</option>
+                        <option>0-30 days</option>
+                        <option>30-60 days</option>
+                        <option>60+ days</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Data Table -->
+            <div class="inv-table-wrap">
+                <table class="inv-table">
+                    <thead>
+                        <tr>
+                            <th class="inv-th-vehicle">Vehicle</th>
+                            <th>Price</th>
+                            <th>Days on Lot</th>
+                            <th>Active Shoppers</th>
+                            <th>Demand</th>
+                            <th>Prospects</th>
+                            <th>Leads</th>
+                            <th>Last Activity</th>
+                            <th>Status</th>
+                            <th class="inv-th-expand"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Row 1 - Expanded -->
+                        <tr class="inv-row inv-row--expanded" data-row="1">
+                            <td class="inv-td-vehicle">
+                                <div class="inv-vehicle-cell">
+                                    <div class="inv-vehicle-img"></div>
+                                    <div class="inv-vehicle-info">
+                                        <span class="inv-vehicle-name">2024 Honda Civic Sport</span>
+                                        <span class="inv-vehicle-meta">VIN: 2HGFE2...7K1 | Stock #HC2441</span>
                                     </div>
-                                    <div class="review-indicator-meta">
-                                        <span data-last-opened>Last opened 2 hours ago</span>
-                                        <div class="review-overlay-shell">
-                                            <button class="review-overlay-trigger" type="button">Details</button>
-                                            <div class="review-overlay-panel">
-                                                <p data-open-count>4 opens</p>
-                                                <p data-open-users>2 users</p>
+                                </div>
+                            </td>
+                            <td class="inv-td-price">$28,450</td>
+                            <td><span class="inv-days-badge inv-days--orange">47 days</span></td>
+                            <td>
+                                <span class="inv-shoppers-count">2</span>
+                                <span class="inv-shoppers-sub">1 in-market</span>
+                            </td>
+                            <td>
+                                <div class="inv-demand-cell">
+                                    <div class="inv-demand-bar"><div class="inv-demand-fill inv-demand--low"></div></div>
+                                    <span class="inv-demand-label">Low</span>
+                                </div>
+                            </td>
+                            <td><span class="inv-prospect-count">5</span></td>
+                            <td><span class="inv-lead-count">1</span></td>
+                            <td class="inv-td-activity">2h ago</td>
+                            <td><span class="inv-status inv-status--attention">Needs Attention</span></td>
+                            <td class="inv-td-expand"><button class="inv-expand-btn inv-expand-btn--open" data-target="1"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></button></td>
+                        </tr>
+                        <tr class="inv-detail-row" id="inv-detail-1">
+                            <td colspan="10">
+                                <div class="inv-detail-content">
+                                    <div class="inv-detail-col">
+                                        <h4 class="inv-detail-heading">Active Shoppers (2)</h4>
+                                        <div class="inv-detail-legend">
+                                            <span class="inv-legend-item"><span class="inv-dot inv-dot--green"></span> In-market</span>
+                                            <span class="inv-legend-item"><span class="inv-dot inv-dot--gray"></span> Likely bought</span>
+                                        </div>
+                                        <div class="inv-shopper-card">
+                                            <div class="inv-shopper-row">
+                                                <span class="inv-dot inv-dot--green"></span>
+                                                <div class="inv-shopper-info">
+                                                    <span class="inv-shopper-name">Maria Johnson</span>
+                                                    <span class="inv-shopper-detail">Lead submitted &middot; VDP x4 &middot; Last: 2h ago</span>
+                                                </div>
+                                                <span class="inv-status inv-status--hot">Hot</span>
+                                            </div>
+                                        </div>
+                                        <div class="inv-shopper-card">
+                                            <div class="inv-shopper-row">
+                                                <span class="inv-dot inv-dot--gray"></span>
+                                                <div class="inv-shopper-info">
+                                                    <span class="inv-shopper-name">Tom Kim</span>
+                                                    <span class="inv-shopper-detail">VDP view only &middot; Last: 12d ago</span>
+                                                </div>
+                                                <span class="inv-status inv-status--cold">Cold</span>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <button class="view-profile-button" type="button" data-profile-link="keanu">View profile</button>
-                            </div>
-                        </div>
-
-                        <div class="card-body">
-                            <section class="info-column">
-                                <h4>Contact</h4>
-                                <ul class="contact-list">
-                                    <li><span class="mini-icon">✉</span><span>keanumatrixreevesjr@domain.com</span></li>
-                                    <li><span class="mini-icon">◔</span><span>617-548-5569</span></li>
-                                    <li><span class="mini-icon">◉</span><span>02139 (5.2 miles away)</span></li>
-                                </ul>
-                            </section>
-
-                            <section class="info-column bordered">
-                                <h4>Latest Inquiry</h4>
-                                <p class="muted-line">8 hours ago &nbsp;•&nbsp; 8 total</p>
-                                <p class="vehicle-line">2025 Audi Q7 quattro Premium</p>
-                                <p class="muted-line">$49,100 &nbsp;•&nbsp; VIN: AJSAH8263JF23</p>
-                            </section>
-
-                            <section class="info-column bordered">
-                                <h4>Activity</h4>
-                                <div class="activity-grid">
-                                    <div class="activity-item">
-                                        <p class="activity-label"><span class="activity-icon">▱</span> CARGURUS ACTIVITY</p>
-                                        <p class="activity-value">Very active</p>
-                                    </div>
-                                    <div class="activity-item">
-                                        <p class="activity-label"><span class="activity-icon">◉</span> LAST ACTIVITY WITH YOU</p>
-                                        <p class="activity-value">1 hour ago</p>
-                                        <p class="activity-detail">Website visit</p>
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                    </article>
-
-                    <article class="shopper-card" data-shopper-id="emma">
-                        <div class="card-topline">
-                            <div class="card-title-row">
-                                <h3>Emma Starlight Green</h3>
-                                <div class="pill-row">
-                                    <span class="status-pill status-hot">
-                                        <span class="pill-icon" aria-hidden="true">◔</span>
-                                        Hot lead
-                                    </span>
-                                    <span class="status-pill status-switch">
-                                        <span class="pill-icon" aria-hidden="true">⇄</span>
-                                        Switch opportunity
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="card-actions">
-                                <div class="review-indicator review-indicator-opened" data-open-state>
-                                    <div class="review-indicator-status">
-                                        <span class="review-indicator-icon" aria-hidden="true">✓</span>
-                                        <span class="review-indicator-title" data-open-state-text>Opened</span>
-                                    </div>
-                                    <div class="review-indicator-meta">
-                                        <span data-last-opened>Last opened 45 minutes ago</span>
-                                        <div class="review-overlay-shell">
-                                            <button class="review-overlay-trigger" type="button">Details</button>
-                                            <div class="review-overlay-panel">
-                                                <p data-open-count>7 opens</p>
-                                                <p data-open-users>3 users</p>
+                                    <div class="inv-detail-col">
+                                        <h4 class="inv-detail-heading">Prospects (5)</h4>
+                                        <p class="inv-detail-sub">Flexible shoppers who match this vehicle</p>
+                                        <div class="inv-prospect-card">
+                                            <div class="inv-prospect-header">
+                                                <span class="inv-prospect-name">Rachel Santos</span>
+                                                <span class="inv-match-badge">87% match</span>
                                             </div>
+                                            <p class="inv-prospect-origin">Originally: 2024 Toyota Corolla LE (Sold)</p>
+                                            <span class="inv-flex-badge inv-flex--high">Flexible</span>
                                         </div>
-                                    </div>
-                                </div>
-                                <button class="view-profile-button" type="button" data-profile-link="emma">View profile</button>
-                            </div>
-                        </div>
-
-                        <div class="card-body">
-                            <section class="info-column">
-                                <h4>Contact</h4>
-                                <ul class="contact-list">
-                                    <li><span class="mini-icon">✉</span><span>emmastarlightgreen@domain.com</span></li>
-                                    <li><span class="mini-icon">◔</span><span>415-234-7890</span></li>
-                                    <li><span class="mini-icon">◉</span><span>02140 (3.8 miles away)</span></li>
-                                </ul>
-                            </section>
-
-                            <section class="info-column bordered">
-                                <h4>Latest Inquiry</h4>
-                                <p class="muted-line">5 hours ago &nbsp;•&nbsp; 3 total</p>
-                                <p class="vehicle-line">2023 Tesla Model Y Long Range</p>
-                                <p class="muted-line"><span class="sold-pill">Sold</span> $59,990 &nbsp;•&nbsp; VIN: 5YJ3E1EA1FFP12345</p>
-                            </section>
-
-                            <section class="info-column bordered">
-                                <h4>Activity</h4>
-                                <div class="activity-grid">
-                                    <div class="activity-item">
-                                        <p class="activity-label"><span class="activity-icon">▱</span> CARGURUS ACTIVITY</p>
-                                        <p class="activity-value">Very active</p>
-                                    </div>
-                                    <div class="activity-item">
-                                        <p class="activity-label"><span class="activity-icon">◉</span> LAST ACTIVITY WITH YOU</p>
-                                        <p class="activity-value">2 hours ago</p>
-                                        <p class="activity-detail">Website visit</p>
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                    </article>
-
-                    <article class="shopper-card" data-shopper-id="maxwell">
-                        <div class="card-topline">
-                            <div class="card-title-row">
-                                <h3>Maxwell Starwind Smith</h3>
-                                <div class="pill-row">
-                                    <span class="status-pill status-warm">
-                                        <span class="pill-icon" aria-hidden="true">♨</span>
-                                        Warm lead
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="card-actions">
-                                <div class="review-indicator review-indicator-unopened" data-open-state>
-                                    <div class="review-indicator-status">
-                                        <span class="review-indicator-icon" aria-hidden="true">○</span>
-                                        <span class="review-indicator-title" data-open-state-text>Not opened</span>
-                                    </div>
-                                    <div class="review-indicator-meta">
-                                        <span data-last-opened>No opens yet</span>
-                                        <div class="review-overlay-shell">
-                                            <button class="review-overlay-trigger" type="button">Details</button>
-                                            <div class="review-overlay-panel">
-                                                <p data-open-count>0 opens</p>
-                                                <p data-open-users>0 users</p>
+                                        <div class="inv-prospect-card">
+                                            <div class="inv-prospect-header">
+                                                <span class="inv-prospect-name">David Lee</span>
+                                                <span class="inv-match-badge">72% match</span>
                                             </div>
+                                            <p class="inv-prospect-origin">Originally: 2023 Honda Civic EX (High Demand - 8 leads)</p>
+                                            <span class="inv-flex-badge inv-flex--med">Somewhat Flexible</span>
                                         </div>
+                                        <div class="inv-prospect-card">
+                                            <div class="inv-prospect-header">
+                                                <span class="inv-prospect-name">Anna Williams</span>
+                                                <span class="inv-match-badge">68% match</span>
+                                            </div>
+                                            <p class="inv-prospect-origin">Originally: 2024 Mazda 3 Premium (Sold)</p>
+                                            <span class="inv-flex-badge inv-flex--high">Flexible</span>
+                                        </div>
+                                        <a href="#" class="inv-more-link">+ 2 more prospects</a>
                                     </div>
                                 </div>
-                                <button class="view-profile-button" type="button" data-profile-link="maxwell">View profile</button>
-                            </div>
-                        </div>
+                            </td>
+                        </tr>
 
-                        <div class="card-body">
-                            <section class="info-column">
-                                <h4>Contact</h4>
-                                <ul class="contact-list">
-                                    <li><span class="mini-icon">✉</span><span>maxwellstarwindsmith@domain.com</span></li>
-                                    <li><span class="mini-icon">◔</span><span>202-555-0123</span></li>
-                                    <li><span class="mini-icon">◉</span><span>02141 (7.0 miles away)</span></li>
-                                </ul>
-                            </section>
-
-                            <section class="info-column bordered">
-                                <h4>Latest Inquiry</h4>
-                                <p class="muted-line">1 day ago &nbsp;•&nbsp; 1 total</p>
-                                <p class="vehicle-line">2021 BMW X5 xDrive40i</p>
-                                <p class="muted-line">$62,500 &nbsp;•&nbsp; VIN: WBAKC4C5XJ7K12345</p>
-                            </section>
-
-                            <section class="info-column bordered">
-                                <h4>Activity</h4>
-                                <div class="activity-grid">
-                                    <div class="activity-item">
-                                        <p class="activity-label"><span class="activity-icon">▱</span> CARGURUS ACTIVITY</p>
-                                        <p class="activity-value">Medium activity</p>
-                                    </div>
-                                    <div class="activity-item">
-                                        <p class="activity-label"><span class="activity-icon">◉</span> LAST ACTIVITY WITH YOU</p>
-                                        <p class="activity-value">1 day ago</p>
-                                        <p class="activity-detail">Email sent</p>
+                        <!-- Row 2 -->
+                        <tr class="inv-row" data-row="2">
+                            <td class="inv-td-vehicle">
+                                <div class="inv-vehicle-cell">
+                                    <div class="inv-vehicle-img"></div>
+                                    <div class="inv-vehicle-info">
+                                        <span class="inv-vehicle-name">2024 Toyota RAV4 XLE</span>
+                                        <span class="inv-vehicle-meta">VIN: 2T3P1...9R2 | Stock #TR2442</span>
                                     </div>
                                 </div>
-                            </section>
+                            </td>
+                            <td class="inv-td-price">$35,200</td>
+                            <td><span class="inv-days-badge inv-days--green">8 days</span></td>
+                            <td>
+                                <span class="inv-shoppers-count">7</span>
+                                <span class="inv-shoppers-sub">5 in-market</span>
+                            </td>
+                            <td>
+                                <div class="inv-demand-cell">
+                                    <div class="inv-demand-bar"><div class="inv-demand-fill inv-demand--high"></div></div>
+                                    <span class="inv-demand-label">High</span>
+                                </div>
+                            </td>
+                            <td><span class="inv-prospect-count">2</span></td>
+                            <td><span class="inv-lead-count">4</span></td>
+                            <td class="inv-td-activity">18m ago</td>
+                            <td><span class="inv-status inv-status--hot">Hot</span></td>
+                            <td class="inv-td-expand"><button class="inv-expand-btn" data-target="2"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></button></td>
+                        </tr>
+                        <tr class="inv-detail-row inv-detail-row--hidden" id="inv-detail-2">
+                            <td colspan="10"><div class="inv-detail-content"><p class="inv-detail-placeholder">Expand to view shopper and prospect details.</p></div></td>
+                        </tr>
+
+                        <!-- Row 3 -->
+                        <tr class="inv-row" data-row="3">
+                            <td class="inv-td-vehicle">
+                                <div class="inv-vehicle-cell">
+                                    <div class="inv-vehicle-img"></div>
+                                    <div class="inv-vehicle-info">
+                                        <span class="inv-vehicle-name">2023 Ford F-150 XLT</span>
+                                        <span class="inv-vehicle-meta">VIN: 1FTEW...3F4 | Stock #FF2331</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="inv-td-price">$42,800</td>
+                            <td><span class="inv-days-badge inv-days--green">22 days</span></td>
+                            <td>
+                                <span class="inv-shoppers-count">3</span>
+                                <span class="inv-shoppers-sub">3 in-market</span>
+                            </td>
+                            <td>
+                                <div class="inv-demand-cell">
+                                    <div class="inv-demand-bar"><div class="inv-demand-fill inv-demand--med"></div></div>
+                                    <span class="inv-demand-label">Med</span>
+                                </div>
+                            </td>
+                            <td><span class="inv-prospect-count">1</span></td>
+                            <td><span class="inv-lead-count">2</span></td>
+                            <td class="inv-td-activity">1d ago</td>
+                            <td><span class="inv-status inv-status--covered">Covered</span></td>
+                            <td class="inv-td-expand"><button class="inv-expand-btn" data-target="3"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></button></td>
+                        </tr>
+                        <tr class="inv-detail-row inv-detail-row--hidden" id="inv-detail-3">
+                            <td colspan="10"><div class="inv-detail-content"><p class="inv-detail-placeholder">Expand to view shopper and prospect details.</p></div></td>
+                        </tr>
+
+                        <!-- Row 4 -->
+                        <tr class="inv-row" data-row="4">
+                            <td class="inv-td-vehicle">
+                                <div class="inv-vehicle-cell">
+                                    <div class="inv-vehicle-img"></div>
+                                    <div class="inv-vehicle-info">
+                                        <span class="inv-vehicle-name">2023 Nissan Altima SR</span>
+                                        <span class="inv-vehicle-meta">VIN: 1N4BL...5N6 | Stock #NA2337</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="inv-td-price">$26,900</td>
+                            <td><span class="inv-days-badge inv-days--red">78 days</span></td>
+                            <td>
+                                <span class="inv-shoppers-count inv-shoppers-count--zero">0</span>
+                            </td>
+                            <td>
+                                <div class="inv-demand-cell">
+                                    <div class="inv-demand-bar"><div class="inv-demand-fill inv-demand--none"></div></div>
+                                    <span class="inv-demand-label inv-demand-label--none">None</span>
+                                </div>
+                            </td>
+                            <td><span class="inv-prospect-count">3</span></td>
+                            <td><span class="inv-lead-count inv-lead-count--zero">0</span></td>
+                            <td class="inv-td-activity inv-td-activity--stale">31d ago</td>
+                            <td><span class="inv-status inv-status--stale">Stale</span></td>
+                            <td class="inv-td-expand"><button class="inv-expand-btn" data-target="4"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></button></td>
+                        </tr>
+                        <tr class="inv-detail-row inv-detail-row--hidden" id="inv-detail-4">
+                            <td colspan="10"><div class="inv-detail-content"><p class="inv-detail-placeholder">Expand to view shopper and prospect details.</p></div></td>
+                        </tr>
+
+                        <!-- Row 5 -->
+                        <tr class="inv-row" data-row="5">
+                            <td class="inv-td-vehicle">
+                                <div class="inv-vehicle-cell">
+                                    <div class="inv-vehicle-img"></div>
+                                    <div class="inv-vehicle-info">
+                                        <span class="inv-vehicle-name">2024 Hyundai Tucson SEL</span>
+                                        <span class="inv-vehicle-meta">VIN: 5NMS3...8H7 | Stock #HT2443</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="inv-td-price">$31,700</td>
+                            <td><span class="inv-days-badge inv-days--orange">39 days</span></td>
+                            <td>
+                                <span class="inv-shoppers-count">1</span>
+                                <span class="inv-shoppers-sub">1 in-market</span>
+                            </td>
+                            <td>
+                                <div class="inv-demand-cell">
+                                    <div class="inv-demand-bar"><div class="inv-demand-fill inv-demand--low"></div></div>
+                                    <span class="inv-demand-label">Low</span>
+                                </div>
+                            </td>
+                            <td><span class="inv-prospect-count">4</span></td>
+                            <td><span class="inv-lead-count inv-lead-count--zero">0</span></td>
+                            <td class="inv-td-activity">5d ago</td>
+                            <td><span class="inv-status inv-status--attention">Needs Attention</span></td>
+                            <td class="inv-td-expand"><button class="inv-expand-btn" data-target="5"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></button></td>
+                        </tr>
+                        <tr class="inv-detail-row inv-detail-row--hidden" id="inv-detail-5">
+                            <td colspan="10"><div class="inv-detail-content"><p class="inv-detail-placeholder">Expand to view shopper and prospect details.</p></div></td>
+                        </tr>
+
+                        <!-- Row 6 -->
+                        <tr class="inv-row" data-row="6">
+                            <td class="inv-td-vehicle">
+                                <div class="inv-vehicle-cell">
+                                    <div class="inv-vehicle-img"></div>
+                                    <div class="inv-vehicle-info">
+                                        <span class="inv-vehicle-name">2024 Chevrolet Equinox RS</span>
+                                        <span class="inv-vehicle-meta">VIN: 3GNAX...2C8 | Stock #CE2444</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="inv-td-price">$33,100</td>
+                            <td><span class="inv-days-badge inv-days--green">14 days</span></td>
+                            <td>
+                                <span class="inv-shoppers-count">4</span>
+                                <span class="inv-shoppers-sub">3 in-market</span>
+                            </td>
+                            <td>
+                                <div class="inv-demand-cell">
+                                    <div class="inv-demand-bar"><div class="inv-demand-fill inv-demand--med"></div></div>
+                                    <span class="inv-demand-label">Med</span>
+                                </div>
+                            </td>
+                            <td><span class="inv-prospect-count">0</span></td>
+                            <td><span class="inv-lead-count">3</span></td>
+                            <td class="inv-td-activity">45m ago</td>
+                            <td><span class="inv-status inv-status--covered">Covered</span></td>
+                            <td class="inv-td-expand"><button class="inv-expand-btn" data-target="6"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></button></td>
+                        </tr>
+                        <tr class="inv-detail-row inv-detail-row--hidden" id="inv-detail-6">
+                            <td colspan="10"><div class="inv-detail-content"><p class="inv-detail-placeholder">Expand to view shopper and prospect details.</p></div></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Shopper Profile View (hidden by default) -->
+        <div class="profile-container profile-container--hidden" id="shopper-profile-view">
+            <!-- LEFT PANEL -->
+            <aside class="profile-panel">
+                <a class="back-link" onclick="goBackToLeadsHub()">&lt; Leads Hub</a>
+                <div class="profile-header">
+                    <h1 id="profileName"></h1>
+                    <div class="tags-row" id="profileTags"></div>
+                </div>
+                <div class="contact-section" id="profileContact"></div>
+
+                <!-- Accordion: Shopper Activity -->
+                <div class="accordion-panel">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="header-left">
+                            <span class="gear-icon">⚙️</span>
+                            <h3>Shopper activity</h3>
                         </div>
-                    </article>
-                    </section>
+                        <svg class="chevron-icon" width="24" height="24" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z" fill="currentColor"/></svg>
+                    </button>
+                    <div class="accordion-content" id="profileActivity"></div>
+                </div>
+
+                <!-- Accordion: Payment -->
+                <div class="accordion-panel">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="header-left">
+                            <span class="gear-icon">⚙️</span>
+                            <h3>Payment</h3>
+                        </div>
+                        <svg class="chevron-icon" width="24" height="24" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z" fill="currentColor"/></svg>
+                    </button>
+                    <div class="accordion-content" id="profilePayment"></div>
+                </div>
+
+                <!-- Accordion: Trade-in -->
+                <div class="accordion-panel">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="header-left">
+                            <span class="gear-icon">⚙️</span>
+                            <h3>Trade-in vehicle</h3>
+                        </div>
+                        <svg class="chevron-icon" width="24" height="24" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z" fill="currentColor"/></svg>
+                    </button>
+                    <div class="accordion-content" id="profileTradein"></div>
+                </div>
+            </aside>
+
+            <!-- RIGHT PANEL -->
+            <section class="interests-panel">
+                <h2 class="profile-section-title">Shopper interests</h2>
+
+                <div class="stats-row" id="profileStats"></div>
+
+                <div class="two-column-section">
+                    <div class="column-left">
+                        <h3 class="subsection-title">Top model interests</h3>
+                        <div class="vehicle-cards-grid" id="profileTopModels"></div>
                     </div>
-                </section>
-
-                <section class="hub-pane" data-view-pane="performance">
-                    <div class="performance-mode-tabs" role="tablist" aria-label="Performance section views">
-                        <button class="performance-mode-tab active" type="button" data-performance-mode="a" aria-pressed="true">Single Rooftop</button>
-                        <button class="performance-mode-tab" type="button" data-performance-mode="b" aria-pressed="false">Multi Rooftop</button>
+                    <div class="column-right">
+                        <h3 class="subsection-title">Vehicle preferences</h3>
+                        <div class="preferences-grid" id="profilePreferences"></div>
                     </div>
+                </div>
 
-                    <section class="performance-mode-panel active" data-performance-panel="a">
-                        <section class="opening-rate-panel" aria-labelledby="opening-rate-title">
-                            <div class="opening-rate-header">
-                                <div>
-                                    <p class="opening-rate-eyebrow">Team performance</p>
-                                    <h2 id="opening-rate-title">Profile opening rate</h2>
-                                </div>
-                                <div class="opening-rate-tabs" role="tablist" aria-label="Profile opening rate time range">
-                                    <button class="performance-range-tab" type="button" data-option-a-range="7d" aria-pressed="false">Last 7 days</button>
-                                    <button class="performance-range-tab active" type="button" data-option-a-range="30d" aria-pressed="true">Last 30 days</button>
-                                    <button class="performance-range-tab" type="button" data-option-a-range="90d" aria-pressed="false">Last 90 days</button>
-                                </div>
-                            </div>
-                            <div class="opening-window-row">
-                                <p class="opening-window-label">Opening rate window</p>
-                                <div class="opening-window-tabs" role="tablist" aria-label="Opening rate measurement window">
-                                    <button class="opening-window-tab" type="button" data-single-opening-window="24h" aria-pressed="false">First 24 hours</button>
-                                    <button class="opening-window-tab" type="button" data-single-opening-window="3d" aria-pressed="false">First 3 days</button>
-                                    <button class="opening-window-tab active" type="button" data-single-opening-window="overall" aria-pressed="true">Overall</button>
-                                </div>
-                            </div>
-                            <div class="opening-rate-body">
-                                <div class="opening-rate-summary-grid">
-                                    <div class="opening-rate-metric-group">
-                                        <p class="opening-rate-label">Average opening rate</p>
-                                        <div class="opening-rate-trend-row">
-                                            <p class="opening-rate-primary" data-opening-rate-average>71%</p>
-                                            <span class="trend-pill trend-up" data-opening-rate-trend>
-                                                <span class="trend-icon" aria-hidden="true">↗</span>
-                                                <span data-opening-rate-trend-text>+4 pts</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="opening-rate-metric-group">
-                                        <p class="opening-rate-label">Average unique users</p>
-                                        <div class="opening-rate-trend-row">
-                                            <p class="opening-rate-secondary" data-opening-rate-secondary>6.0</p>
-                                            <span class="trend-pill trend-up" data-user-trend>
-                                                <span class="trend-icon" aria-hidden="true">↗</span>
-                                                <span data-user-trend-text>+2.0 users</span>
-                                            </span>
-                                        </div>
-                                        <p class="opening-rate-footnote" data-user-average-footnote>Average profile openers per day</p>
-                                    </div>
-                                </div>
-                                <div class="opening-rate-chart-grid">
-                                    <article class="chart-card">
-                                        <div class="chart-card-header">
-                                            <div>
-                                                <p class="chart-title">Opening rate over time</p>
-                                                <p class="chart-subtitle" data-opening-rate-chart-subtitle>Daily profile-open percentage with team average</p>
-                                            </div>
-                                            <p class="chart-callout" data-opening-rate-chart-callout>Today: 75%</p>
-                                        </div>
-                                        <div class="chart-frame">
-                                            <svg class="chart-svg" data-opening-rate-chart viewBox="0 0 520 260" aria-label="Opening rate line chart"></svg>
-                                        </div>
-                                    </article>
+                <!-- alert banner removed -->
 
-                                    <article class="chart-card">
-                                        <div class="chart-card-header">
-                                            <div>
-                                                <p class="chart-title">Opened by users over time</p>
-                                                <p class="chart-subtitle" data-user-chart-subtitle>Unique teammates who opened shopper profiles</p>
-                                            </div>
-                                            <p class="chart-callout" data-user-chart-callout>Peak: 9 users</p>
-                                        </div>
-                                        <div class="chart-frame">
-                                            <svg class="chart-svg" data-users-chart viewBox="0 0 520 260" aria-label="Unique users bar chart"></svg>
-                                        </div>
-                                    </article>
-                                </div>
-                            </div>
-                        </section>
-                    </section>
-
-                    <section class="performance-mode-panel" data-performance-panel="b">
-                        <section class="opening-rate-panel multi-rooftop-panel" aria-labelledby="multi-rooftop-title">
-                            <div class="opening-rate-header">
-                                <div>
-                                    <p class="opening-rate-eyebrow">Team performance</p>
-                                    <h2 id="multi-rooftop-title">Multi-rooftop performance</h2>
-                                </div>
-                                <div class="opening-rate-tabs" role="tablist" aria-label="Multi-rooftop performance time range">
-                                    <button class="performance-range-tab" type="button" data-option-b-range="7d" aria-pressed="false">Last 7 days</button>
-                                    <button class="performance-range-tab active" type="button" data-option-b-range="30d" aria-pressed="true">Last 30 days</button>
-                                    <button class="performance-range-tab" type="button" data-option-b-range="90d" aria-pressed="false">Last 90 days</button>
-                                </div>
-                            </div>
-                            <div class="opening-window-row">
-                                <p class="opening-window-label">Opening rate window</p>
-                                <div class="opening-window-tabs" role="tablist" aria-label="Multi-rooftop opening rate measurement window">
-                                    <button class="opening-window-tab" type="button" data-multi-opening-window="24h" aria-pressed="false">First 24 hours</button>
-                                    <button class="opening-window-tab" type="button" data-multi-opening-window="3d" aria-pressed="false">First 3 days</button>
-                                    <button class="opening-window-tab active" type="button" data-multi-opening-window="overall" aria-pressed="true">Overall</button>
-                                </div>
-                            </div>
-
-                            <div class="multi-rooftop-controls">
-                                <div class="multi-rooftop-selector">
-                                    <label class="opening-rate-label" for="rooftop-select">Compare rooftops</label>
-                                    <div class="multi-rooftop-select-row">
-                                        <select id="rooftop-select" class="rooftop-select" data-rooftop-select></select>
-                                        <button class="rooftop-add-button" type="button" data-add-rooftop>Add rooftop</button>
-                                    </div>
-                                </div>
-                                <div class="multi-rooftop-selected">
-                                    <p class="opening-rate-label">Selected rooftops</p>
-                                    <div class="rooftop-chip-row" data-rooftop-chip-row></div>
-                                </div>
-                            </div>
-
-                            <div class="multi-summary-grid">
-                                <div class="opening-rate-metric-group">
-                                    <p class="opening-rate-label">Combined opening rate</p>
-                                    <div class="opening-rate-trend-row">
-                                        <p class="opening-rate-primary" data-multi-opening-rate-average>73%</p>
-                                        <span class="trend-pill trend-up" data-multi-opening-rate-trend>
-                                            <span class="trend-icon" aria-hidden="true">↗</span>
-                                            <span data-multi-opening-rate-trend-text>+5 pts</span>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="opening-rate-metric-group">
-                                    <p class="opening-rate-label">Combined unique users</p>
-                                    <div class="opening-rate-trend-row">
-                                        <p class="opening-rate-secondary" data-multi-user-average>7.1</p>
-                                        <span class="trend-pill trend-up" data-multi-user-trend>
-                                            <span class="trend-icon" aria-hidden="true">↗</span>
-                                            <span data-multi-user-trend-text>+1.8 users</span>
-                                        </span>
-                                    </div>
-                                    <p class="opening-rate-footnote" data-multi-user-footnote>Average profile openers per day across selected rooftops</p>
-                                </div>
-                                <div class="opening-rate-metric-group">
-                                    <p class="opening-rate-label">Selected rooftops</p>
-                                    <div class="opening-rate-trend-row">
-                                        <p class="opening-rate-secondary" data-selected-rooftop-count>3</p>
-                                    </div>
-                                    <p class="opening-rate-footnote">Comparison updates automatically based on your selection</p>
-                                </div>
-                            </div>
-
-                            <div class="multi-rooftop-legend" data-multi-rooftop-legend></div>
-
-                            <div class="opening-rate-chart-grid">
-                                <article class="chart-card">
-                                    <div class="chart-card-header">
-                                        <div>
-                                            <p class="chart-title">Opening rate by rooftop</p>
-                                            <p class="chart-subtitle" data-multi-opening-rate-chart-subtitle>Compare shopper profile opening rate across selected rooftops</p>
-                                        </div>
-                                        <p class="chart-callout" data-multi-opening-rate-chart-callout>Combined avg: 73%</p>
-                                    </div>
-                                    <div class="chart-frame">
-                                        <svg class="chart-svg" data-multi-opening-rate-chart viewBox="0 0 520 260" aria-label="Multi-rooftop opening rate line chart"></svg>
-                                    </div>
-                                </article>
-
-                                <article class="chart-card">
-                                    <div class="chart-card-header">
-                                        <div>
-                                            <p class="chart-title">Users by rooftop</p>
-                                            <p class="chart-subtitle" data-multi-user-chart-subtitle>Compare unique teammates opening profiles across selected rooftops</p>
-                                        </div>
-                                        <p class="chart-callout" data-multi-user-chart-callout>Combined peak: 10 users</p>
-                                    </div>
-                                    <div class="chart-frame">
-                                        <svg class="chart-svg" data-multi-users-chart viewBox="0 0 520 260" aria-label="Multi-rooftop user line chart"></svg>
-                                    </div>
-                                </article>
-                            </div>
-                        </section>
-                    </section>
-                </section>
+                <!-- Profile Tabs: Leads / Recommended -->
+                <div class="profile-tabs-section">
+                    <div class="profile-tab-buttons">
+                        <button class="profile-tab-button active" onclick="switchProfileTab('leads', this)">Leads</button>
+                        <button class="profile-tab-button" onclick="switchProfileTab('recommended', this)">Recommended</button>
+                    </div>
+                    <div id="profile-leads-tab" class="profile-tab-content active">
+                        <p class="tab-note" id="profileLeadNote"></p>
+                        <div id="profileLeadCards"></div>
+                    </div>
+                    <div id="profile-recommended-tab" class="profile-tab-content">
+                        <p>Recommended vehicles will appear here.</p>
+                    </div>
+                </div>
             </section>
         </div>
     </main>
 
+    <!-- Split Panel Overlay -->
+    <div class="split-panel-backdrop" id="splitPanelBackdrop"></div>
+    <aside class="split-panel" id="splitPanel">
+        <button class="split-panel-close" id="splitPanelClose" aria-label="Close panel">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M15 5L5 15M5 5l10 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+        <div class="split-panel-body" id="splitPanelBody"></div>
+    </aside>
+
     <script>
+        /* ============================================================
+           SHOPPER DATA (all 3 shoppers)
+           ============================================================ */
+        var SHOPPER_PROFILES = {
+            'keanu': {
+                name: 'Keanu Matrix Reeves Jr.',
+                tags: ['Hot lead', 'Switch opportunity'],
+                contact: {
+                    email: 'keanumatrixreevesjr@domain.com',
+                    phone: '617-548-5569',
+                    location: '02138 (5.2 miles)',
+                    delivery: 'Not requested',
+                    appointment: 'Wednesday, 7/16/25, 2:00 PM'
+                },
+                activity: { cgActivity: 'Very active', date: '7/14/25', activityWithYou: 'Website visit | 1 hour ago', engagedListings: 5 },
+                payment: { preference: 'Financing', status: 'Pre-qualified', downPayment: '$8,000', monthlyPayment: '$650.00', loanTerm: '60 months', estAPR: '5.99% - 7.49%', deposit: '$1,000', creditScore: '740 - 799 (Self reported)', dealSummary: '2025 Audi Q7 quattro Premium' },
+                tradein: { vehicle: '2021 BMW X3 xDrive30i' },
+                stats: { uniqueVehicles: 18, vdpViews: 24, leads: 8, saves: 7 },
+                topModels: [
+                    { name: '2025 Audi Q7', match: 95 },
+                    { name: '2024 Volvo XC90', match: 82 },
+                    { name: '2025 Mercedes GLE 450', match: 68 }
+                ],
+                preferences: { flexibility: 'Flexible', budget: '$45,000-$75,000', features: 'Panoramic roof, Adaptive cruise, Heated seats', exteriorColor: 'Black, White', powertrain: 'ICE / Hybrid', bodyStyle: 'SUV', garageCondition: 'New', maxMileage: 'N/A' },
+                leads: [
+                    { vehicle: '2025 Audi Q7 quattro Premium', meta: '12 days on the lot · 8 leads', submitted: '8 hours ago', condition: 'New', price: '$62,400', stock: 'AQ7-2501', vin: 'WAUZZZ4M7ND012345', imgLabel: 'Audi+Q7' },
+                    { vehicle: '2023 Volvo XC90 Recharge T8 eAWD', meta: '3 days on the lot · 31 leads', submitted: '2 days ago', condition: 'New', price: '$65,320', stock: 'D2345678', vin: 'MAZE7CSXJG664455Z', imgLabel: 'Volvo+XC90' }
+                ],
+                leadNote: '3 other dealers in competition',
+                hasAlert: true
+            },
+            'maya': {
+                name: 'Maya Stellar Johnson',
+                tags: ['Hot lead'],
+                contact: {
+                    email: 'maya.stellar@gmail.com',
+                    phone: '617-548-5569',
+                    location: '02138 (5.2 miles)',
+                    delivery: 'Requested',
+                    appointment: 'Thursday, 7/17/25, 10:30 AM'
+                },
+                activity: { cgActivity: 'High activity', date: '7/13/25', activityWithYou: 'VDP view | 7/12/25', engagedListings: 4 },
+                payment: { preference: 'Lease', status: 'Qualified', downPayment: '$5,000', monthlyPayment: '$725.00', loanTerm: '36 months', estAPR: '4.99%', deposit: '$2,000', creditScore: '780+ (Self reported)', dealSummary: '2025 Mercedes-Benz GLE 450' },
+                tradein: { vehicle: '2022 Lexus RX 350' },
+                stats: { uniqueVehicles: 9, vdpViews: 14, leads: 3, saves: 4 },
+                topModels: [
+                    { name: '2025 Mercedes GLE 450', match: 88 },
+                    { name: '2024 BMW X5 xDrive40i', match: 76 },
+                    { name: '2025 Audi Q7', match: 62 }
+                ],
+                preferences: { flexibility: 'Somewhat Flexible', budget: '$55,000-$80,000', features: 'Premium audio, Ventilated seats, 360 camera', exteriorColor: 'Silver, Blue', powertrain: 'ICE', bodyStyle: 'SUV', garageCondition: 'New', maxMileage: 'N/A' },
+                leads: [
+                    { vehicle: '2025 Mercedes-Benz GLE 450 4MATIC', meta: '18 days on the lot · 14 leads', submitted: '7/12/25, 3:35 PM', condition: 'New', price: '$71,200', stock: 'MB-GLE-501', vin: 'W1KZJ8DB1NA456789', imgLabel: 'Mercedes+GLE' }
+                ],
+                leadNote: '2 other dealers in competition',
+                hasAlert: false
+            },
+            'ethan': {
+                name: 'Ethan Cosmic Lee',
+                tags: ['Hot lead', 'Switch opportunity'],
+                contact: {
+                    email: 'ethan.cosmic.lee@outlook.com',
+                    phone: '617-548-5569',
+                    location: '02138 (5.2 miles)',
+                    delivery: 'Not requested',
+                    appointment: 'Friday, 7/18/25, 1:15 PM'
+                },
+                activity: { cgActivity: 'Very active', date: '7/14/25', activityWithYou: 'Lead submitted | 8 hours ago', engagedListings: 6 },
+                payment: { preference: 'Cash', status: 'N/A', downPayment: 'Full payment', monthlyPayment: 'N/A', loanTerm: 'N/A', estAPR: 'N/A', deposit: '$2,500', creditScore: 'N/A', dealSummary: '2025 Volvo XC90 Recharge T8' },
+                tradein: { vehicle: '2020 Tesla Model 3 Long Range' },
+                stats: { uniqueVehicles: 14, vdpViews: 19, leads: 5, saves: 8 },
+                topModels: [
+                    { name: '2025 Volvo XC90', match: 91 },
+                    { name: '2024 Audi Q5', match: 79 },
+                    { name: '2024 Genesis GV80', match: 65 }
+                ],
+                preferences: { flexibility: 'Flexible', budget: '$50,000-$70,000', features: 'Third row, Pilot Assist, Harman Kardon', exteriorColor: 'White, Gray', powertrain: 'PHEV / Hybrid', bodyStyle: 'SUV', garageCondition: 'New / CPO', maxMileage: '10,000' },
+                leads: [
+                    { vehicle: '2025 Volvo XC90 Recharge T8 eAWD', meta: '3 days on the lot · 31 leads', submitted: '8 hours ago', condition: 'New', price: '$65,320', stock: 'D2345678', vin: 'MAZE7CSXJG664455Z', imgLabel: 'Volvo+XC90' },
+                    { vehicle: '2024 Audi Q5 quattro Progressive 45 TFSI', meta: '45 days on the lot · 12 leads', submitted: '7/10/25, 9:12 AM', condition: 'New', price: '$72,460', stock: 'A12345678', vin: 'MAZE7CSXJG664455Z', imgLabel: 'Audi+Q5' }
+                ],
+                leadNote: '1 other dealer in competition',
+                hasAlert: true
+            }
+        };
+
+        /* Vehicle split-panel data */
+        var VEHICLE_PANEL_DATA = {
+            'D2345678': {
+                name: '2023 Volvo XC90 Recharge T8 eAWD', vin: 'MAZE7CSXJG664455Z', stock: 'D2345678', price: '$65,320', condition: 'New',
+                stats: { daysOnLot: 3, activeShoppers: 2, prospects: 3, leads: 31, totalVdpViews: 48 },
+                activeShopper: [
+                    { name: 'Sarah Chen', action: 'Lead submitted 1d ago', vdpViews: 3, saved: true, leadType: 'Hot Lead', engagement: 'Highly Engaged', lastSeen: '4 hours ago', inMarket: true },
+                    { name: 'Marcus Webb', action: 'VDP view', vdpViews: 1, saved: false, leadType: 'Warm', engagement: 'Active', lastSeen: '2 days ago', inMarket: true },
+                    { name: 'Jennifer Liu', action: 'Lead submitted 5d ago', vdpViews: 2, saved: false, leadType: 'Cold', engagement: 'No Recent Activity', lastSeen: '14 days ago', inMarket: false }
+                ],
+                prospects: [
+                    { name: 'Keanu Matrix Reeves Jr.', originalVehicle: '2025 Audi Q7 quattro Premium', originalStatus: 'Sold', clusterMatch: 'Luxury SUV · Budget aligns', matchPercent: 82, flexibility: 'Flexible' },
+                    { name: 'Emma Smith Johnson', originalVehicle: '2023 RAM 1500', originalStatus: 'High Demand', clusterMatch: 'Large vehicle · Feature overlap', matchPercent: 64, flexibility: 'Somewhat Flexible' },
+                    { name: "Ryan O'Connor", originalVehicle: '2024 BMW X5', originalStatus: 'Sold', clusterMatch: 'Premium SUV · Price within range', matchPercent: 71, flexibility: 'Flexible' }
+                ]
+            },
+            'A12345678': {
+                name: '2024 Audi Q5 quattro Progressive 45 TFSI', vin: 'MAZE7CSXJG664455Z', stock: 'A12345678', price: '$72,460', condition: 'New',
+                stats: { daysOnLot: 45, activeShoppers: 2, prospects: 2, leads: 12, totalVdpViews: 29 },
+                activeShopper: [
+                    { name: 'David Park', action: 'Lead submitted 2d ago', vdpViews: 5, saved: true, leadType: 'Hot Lead', engagement: 'Highly Engaged', lastSeen: '6 hours ago', inMarket: true },
+                    { name: 'Amy Nguyen', action: 'VDP view', vdpViews: 2, saved: false, leadType: 'Warm', engagement: 'Recently Engaged', lastSeen: '3 days ago', inMarket: true }
+                ],
+                prospects: [
+                    { name: 'Keanu Matrix Reeves Jr.', originalVehicle: '2025 Audi Q7 quattro Premium', originalStatus: 'Sold', clusterMatch: 'Audi family · Budget aligns', matchPercent: 91, flexibility: 'Flexible' },
+                    { name: 'Tyler Morrison', originalVehicle: '2024 Mercedes GLC', originalStatus: 'Sold', clusterMatch: 'Luxury Compact SUV', matchPercent: 76, flexibility: 'Flexible' }
+                ]
+            },
+            'AQ7-2501': {
+                name: '2025 Audi Q7 quattro Premium', vin: 'WAUZZZ4M7ND012345', stock: 'AQ7-2501', price: '$62,400', condition: 'New',
+                stats: { daysOnLot: 12, activeShoppers: 3, prospects: 2, leads: 8, totalVdpViews: 35 },
+                activeShopper: [
+                    { name: 'Keanu Matrix Reeves Jr.', action: 'Lead submitted 8h ago', vdpViews: 6, saved: true, leadType: 'Hot Lead', engagement: 'Highly Engaged', lastSeen: '1 hour ago', inMarket: true },
+                    { name: 'Lisa Martinez', action: 'VDP view', vdpViews: 3, saved: true, leadType: 'Warm', engagement: 'Active', lastSeen: '1 day ago', inMarket: true },
+                    { name: 'Robert Kim', action: 'Lead submitted 6d ago', vdpViews: 1, saved: false, leadType: 'Cold', engagement: 'No Recent Activity', lastSeen: '10 days ago', inMarket: false }
+                ],
+                prospects: [
+                    { name: 'Maya Stellar Johnson', originalVehicle: '2025 Mercedes GLE 450', originalStatus: 'High Demand', clusterMatch: 'Premium SUV · Budget aligns', matchPercent: 78, flexibility: 'Somewhat Flexible' },
+                    { name: 'Ethan Cosmic Lee', originalVehicle: '2025 Volvo XC90', originalStatus: 'High Demand', clusterMatch: 'Luxury SUV · Feature overlap', matchPercent: 72, flexibility: 'Flexible' }
+                ]
+            },
+            'MB-GLE-501': {
+                name: '2025 Mercedes-Benz GLE 450 4MATIC', vin: 'W1KZJ8DB1NA456789', stock: 'MB-GLE-501', price: '$71,200', condition: 'New',
+                stats: { daysOnLot: 18, activeShoppers: 4, prospects: 1, leads: 14, totalVdpViews: 42 },
+                activeShopper: [
+                    { name: 'Maya Stellar Johnson', action: 'Lead submitted 2d ago', vdpViews: 4, saved: true, leadType: 'Hot Lead', engagement: 'Highly Engaged', lastSeen: '3 hours ago', inMarket: true },
+                    { name: 'Chris Donovan', action: 'VDP view', vdpViews: 2, saved: false, leadType: 'Warm', engagement: 'Active', lastSeen: '1 day ago', inMarket: true }
+                ],
+                prospects: [
+                    { name: 'Keanu Matrix Reeves Jr.', originalVehicle: '2025 Audi Q7 quattro Premium', originalStatus: 'Sold', clusterMatch: 'Premium SUV · Budget range match', matchPercent: 68, flexibility: 'Flexible' }
+                ]
+            }
+        };
+
+        /* ============================================================
+           NAVIGATION
+           ============================================================ */
+        var _lastActiveTab = 'shop-review';
+
         function navigateTo(page) {
             window.location.href = page;
         }
 
-        function openShopperProfile(shopperId) {
-            navigateTo(`shopper-profile.html?shopper=${encodeURIComponent(shopperId)}`);
-        }
+        function showProfile(shopperId) {
+            var s = SHOPPER_PROFILES[shopperId];
+            if (!s) return;
 
-        const performanceByRange = {
-            "7d": {
-                summary: {
-                    opened: 118,
-                    total: 157,
-                    percent: 75,
-                    averagePercent: 71,
-                    openingRateTrend: { direction: "up", label: "+4 pts" },
-                    averageUsers: 6.0,
-                    userAverageLabel: "Average profile openers per day",
-                    userTrend: { direction: "up", label: "+2.0 users" },
-                    uniqueUsers: 9
-                },
-                openingRates: [
-                    { label: "Feb 22", value: 62 },
-                    { label: "Feb 23", value: 66 },
-                    { label: "Feb 24", value: 70 },
-                    { label: "Feb 25", value: 73 },
-                    { label: "Feb 26", value: 69 },
-                    { label: "Feb 27", value: 77 },
-                    { label: "Feb 28", value: 75 }
-                ],
-                userSeries: [
-                    { label: "Feb 22", value: 3 },
-                    { label: "Feb 23", value: 5 },
-                    { label: "Feb 24", value: 4 },
-                    { label: "Feb 25", value: 6 },
-                    { label: "Feb 26", value: 7 },
-                    { label: "Feb 27", value: 9 },
-                    { label: "Feb 28", value: 8 }
-                ]
-            },
-            "30d": {
-                summary: {
-                    opened: 164,
-                    total: 200,
-                    percent: 82,
-                    averagePercent: 78,
-                    openingRateTrend: { direction: "up", label: "+6 pts" },
-                    averageUsers: 10.2,
-                    userAverageLabel: "Average profile openers per week",
-                    userTrend: { direction: "up", label: "+3.1 users" },
-                    uniqueUsers: 14
-                },
-                openingRates: [
-                    { label: "Week 1", value: 70 },
-                    { label: "Week 2", value: 74 },
-                    { label: "Week 3", value: 79 },
-                    { label: "Week 4", value: 82 },
-                    { label: "Week 5", value: 80 },
-                    { label: "Week 6", value: 84 }
-                ],
-                userSeries: [
-                    { label: "Week 1", value: 6 },
-                    { label: "Week 2", value: 8 },
-                    { label: "Week 3", value: 10 },
-                    { label: "Week 4", value: 12 },
-                    { label: "Week 5", value: 11 },
-                    { label: "Week 6", value: 14 }
-                ]
-            },
-            "90d": {
-                summary: {
-                    opened: 521,
-                    total: 640,
-                    percent: 81,
-                    averagePercent: 76,
-                    openingRateTrend: { direction: "up", label: "+9 pts" },
-                    averageUsers: 13.4,
-                    userAverageLabel: "Average profile openers per month",
-                    userTrend: { direction: "up", label: "+4.8 users" },
-                    uniqueUsers: 22
-                },
-                openingRates: [
-                    { label: "Dec", value: 68 },
-                    { label: "Jan", value: 74 },
-                    { label: "Feb", value: 81 }
-                ],
-                userSeries: [
-                    { label: "Dec", value: 10 },
-                    { label: "Jan", value: 13 },
-                    { label: "Feb", value: 17 }
-                ]
-            }
-        };
+            // Remember which tab was active
+            var activeTab = document.querySelector('.tab-btn.active');
+            if (activeTab) _lastActiveTab = activeTab.getAttribute('data-tab');
 
-        const accessibleRooftops = [
-            { dealerId: "411274", rooftopName: "Boston Audi", color: "#1e5eff" },
-            { dealerId: "62494", rooftopName: "Cambridge Honda", color: "#ef5b35" },
-            { dealerId: "274136", rooftopName: "Metro Lexus", color: "#0d8a5f" },
-            { dealerId: "64785", rooftopName: "North Shore BMW", color: "#7b4dff" }
-        ];
+            // Hide LeadsHub UI
+            document.querySelector('.page-header').style.display = 'none';
+            document.querySelectorAll('.tab-content').forEach(function(tc) { tc.style.display = 'none'; });
 
-        const multiRooftopPerformanceByRange = {
-            "7d": {
-                "411274": {
-                    summary: {
-                        averagePercent: 74,
-                        averageUsers: 6.1,
-                        openingRateTrend: { direction: "up", label: "+5 pts" },
-                        userTrend: { direction: "up", label: "+1.5 users" }
-                    },
-                    openingRates: [68, 71, 72, 74, 73, 76, 74],
-                    userSeries: [4, 5, 6, 6, 7, 8, 7]
-                },
-                "62494": {
-                    summary: {
-                        averagePercent: 69,
-                        averageUsers: 5.4,
-                        openingRateTrend: { direction: "up", label: "+3 pts" },
-                        userTrend: { direction: "up", label: "+1.1 users" }
-                    },
-                    openingRates: [63, 66, 68, 69, 67, 70, 69],
-                    userSeries: [3, 4, 4, 5, 5, 6, 6]
-                },
-                "274136": {
-                    summary: {
-                        averagePercent: 77,
-                        averageUsers: 7.3,
-                        openingRateTrend: { direction: "up", label: "+6 pts" },
-                        userTrend: { direction: "up", label: "+2.0 users" }
-                    },
-                    openingRates: [70, 73, 76, 78, 77, 80, 79],
-                    userSeries: [5, 6, 7, 7, 8, 9, 9]
-                },
-                "64785": {
-                    summary: {
-                        averagePercent: 65,
-                        averageUsers: 4.9,
-                        openingRateTrend: { direction: "up", label: "+2 pts" },
-                        userTrend: { direction: "up", label: "+0.9 users" }
-                    },
-                    openingRates: [60, 62, 64, 66, 65, 67, 68],
-                    userSeries: [3, 3, 4, 4, 5, 5, 5]
-                },
-                labels: ["Feb 22", "Feb 23", "Feb 24", "Feb 25", "Feb 26", "Feb 27", "Feb 28"]
-            },
-            "30d": {
-                "411274": {
-                    summary: {
-                        averagePercent: 79,
-                        averageUsers: 10.4,
-                        openingRateTrend: { direction: "up", label: "+6 pts" },
-                        userTrend: { direction: "up", label: "+2.8 users" }
-                    },
-                    openingRates: [72, 75, 77, 79, 80, 82],
-                    userSeries: [7, 8, 9, 10, 11, 12]
-                },
-                "62494": {
-                    summary: {
-                        averagePercent: 74,
-                        averageUsers: 8.9,
-                        openingRateTrend: { direction: "up", label: "+4 pts" },
-                        userTrend: { direction: "up", label: "+2.1 users" }
-                    },
-                    openingRates: [69, 71, 72, 74, 75, 77],
-                    userSeries: [6, 7, 8, 9, 9, 10]
-                },
-                "274136": {
-                    summary: {
-                        averagePercent: 82,
-                        averageUsers: 11.8,
-                        openingRateTrend: { direction: "up", label: "+7 pts" },
-                        userTrend: { direction: "up", label: "+3.4 users" }
-                    },
-                    openingRates: [75, 78, 80, 82, 83, 85],
-                    userSeries: [8, 9, 10, 12, 12, 14]
-                },
-                "64785": {
-                    summary: {
-                        averagePercent: 71,
-                        averageUsers: 8.1,
-                        openingRateTrend: { direction: "up", label: "+3 pts" },
-                        userTrend: { direction: "up", label: "+1.9 users" }
-                    },
-                    openingRates: [66, 68, 70, 71, 72, 74],
-                    userSeries: [5, 6, 7, 8, 8, 9]
-                },
-                labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6"]
-            },
-            "90d": {
-                "411274": {
-                    summary: {
-                        averagePercent: 81,
-                        averageUsers: 13.5,
-                        openingRateTrend: { direction: "up", label: "+8 pts" },
-                        userTrend: { direction: "up", label: "+4.1 users" }
-                    },
-                    openingRates: [74, 79, 81],
-                    userSeries: [10, 12, 15]
-                },
-                "62494": {
-                    summary: {
-                        averagePercent: 76,
-                        averageUsers: 11.6,
-                        openingRateTrend: { direction: "up", label: "+5 pts" },
-                        userTrend: { direction: "up", label: "+3.3 users" }
-                    },
-                    openingRates: [70, 74, 76],
-                    userSeries: [8, 10, 12]
-                },
-                "274136": {
-                    summary: {
-                        averagePercent: 84,
-                        averageUsers: 14.7,
-                        openingRateTrend: { direction: "up", label: "+9 pts" },
-                        userTrend: { direction: "up", label: "+4.8 users" }
-                    },
-                    openingRates: [77, 82, 84],
-                    userSeries: [11, 13, 17]
-                },
-                "64785": {
-                    summary: {
-                        averagePercent: 73,
-                        averageUsers: 10.1,
-                        openingRateTrend: { direction: "up", label: "+4 pts" },
-                        userTrend: { direction: "up", label: "+2.7 users" }
-                    },
-                    openingRates: [68, 71, 73],
-                    userSeries: [7, 9, 11]
-                },
-                labels: ["Dec", "Jan", "Feb"]
-            }
-        };
+            // Populate profile
+            document.getElementById('profileName').textContent = s.name;
+            document.getElementById('profileTags').innerHTML = s.tags.map(function(t) {
+                var cls = t === 'Hot lead' ? 'tag-hot' : 'tag-switch';
+                return '<span class="tag ' + cls + '">' + t + '</span>';
+            }).join('');
 
-        const shopperOpenStateById = {
-            keanu: {
-                wasOpened: true,
-                openCount: 4,
-                lastOpenedLabel: "Last opened 2 hours ago",
-                openedByUsers: 2
-            },
-            emma: {
-                wasOpened: true,
-                openCount: 7,
-                lastOpenedLabel: "Last opened 45 minutes ago",
-                openedByUsers: 3
-            },
-            maxwell: {
-                wasOpened: false,
-                openCount: 0,
-                lastOpenedLabel: "No opens yet",
-                openedByUsers: 0
-            }
-        };
-
-        const shopperProfilesById = {
-            keanu: {
-                name: "Keanu Matrix Reeves Jr.",
-                tags: [
-                    { text: "Hot", className: "status-hot", icon: "◔" },
-                    { text: "Switch opportunity", className: "status-switch", icon: "⇄" }
-                ],
-                contact: {
-                    email: "keanumatrixreevesjr@domain.com",
-                    phone: "617-548-5569",
-                    location: "02139 (5.2 miles away)"
-                },
-                activity: {
-                    lastActive: "12/24/25",
-                    level: "High activity",
-                    dealerActivity: "VDP view | 12/24/25",
-                    engagementCopy: "Engaged with 4 listings"
-                },
-                payment: {
-                    preference: "Financing",
-                    status: "Qualified",
-                    provider: "Audi Financial Services (Expires 1/16/26)",
-                    downPayment: "$4,500",
-                    monthlyPayment: "$798.00",
-                    loanTerm: "60 months",
-                    apr: "7.2%",
-                    deposit: "$750",
-                    creditScore: "700 - 759 (Self reported)",
-                    summary: "2025 Audi Q7 quattro Premium"
-                },
-                tradeIn: {
-                    preference: "Financing",
-                    status: "Qualified",
-                    provider: "Global Auto Lending (Expires 9/20/25)",
-                    downPayment: "$4,000",
-                    monthlyPayment: "$612.00",
-                    loanTerm: "60 - 72 months",
-                    apr: "8.8% - 10.2%",
-                    deposit: "$500 - $1,500",
-                    creditScore: "680 - 739",
-                    summary: "2022 BMW X5 xDrive40i"
-                },
-                fi: {
-                    totalValue: "$9,800",
-                    selectedProducts: "Vehicle service contract, tire & wheel"
-                },
-                interests: {
-                    stats: ["14 unique vehicles", "18 VDP views", "8 leads", "6 saves"],
-                    preferences: [
-                        { label: "FLEXIBILITY", type: "tag", value: "Flexible", tagClass: "profile-tag-green" },
-                        { label: "EST. BUDGET", type: "text", value: "$48,000-$62,000" },
-                        { label: "TOP FEATURES", type: "chips", values: ["Third row", "Panoramic roof", "Adaptive cruise"] },
-                        { label: "EXTERIOR COLOR", type: "colors", values: [
-                            { label: "Black", color: "#20262e" },
-                            { label: "Gray", color: "#c3c8ce" },
-                            { label: "White", color: "#f3f5f7" }
-                        ] },
-                        { label: "POWER-TRAIN", type: "text", value: "ICE" },
-                        { label: "BODY STYLE", type: "text", value: "SUV" },
-                        { label: "VEHICLE TYPE", type: "text", value: "Used" },
-                        { label: "MAX MILEAGE", type: "text", value: "55,000" }
-                    ],
-                    topModels: [
-                        { name: "2025 Audi Q7", rating: 89, color: "#dde6f3" },
-                        { name: "2024 Acura MDX", rating: 74, color: "#d7dde4" },
-                        { name: "2023 BMW X5", rating: 41, color: "#dbe8f7" }
-                    ]
-                },
-                competition: "2 other dealers in competition",
-                inventory: {
-                    submitted: [
-                        {
-                            title: "2025 Audi Q7 quattro Premium",
-                            tags: ["28 days on the lot", "8 leads"],
-                            submitted: "12/24/25",
-                            condition: "Used",
-                            price: "$49,100",
-                            stock: "Q7234501",
-                            vin: "AJSAH8263JF23",
-                            tone: "#dde7f5"
-                        },
-                        {
-                            title: "2024 Audi Q5 Prestige 45 TFSI",
-                            tags: ["33 days on the lot", "5 leads"],
-                            submitted: "12/21/25",
-                            condition: "Used",
-                            price: "$46,850",
-                            stock: "Q5231098",
-                            vin: "WA1C7AFY4R2012450",
-                            tone: "#d8dce2"
-                        }
-                    ],
-                    alternative: [
-                        {
-                            title: "2024 Volvo XC90 B6 Plus",
-                            tags: ["19 days on the lot", "3 leads"],
-                            submitted: "Match",
-                            condition: "Used",
-                            price: "$54,200",
-                            stock: "XC902331",
-                            vin: "YV4A22PK0R1981123",
-                            tone: "#dce5f1"
-                        },
-                        {
-                            title: "2023 Mercedes-Benz GLE 350",
-                            tags: ["42 days on the lot", "2 leads"],
-                            submitted: "Match",
-                            condition: "Used",
-                            price: "$57,990",
-                            stock: "GLE35012",
-                            vin: "4JGFB4KB2PA901245",
-                            tone: "#e6dde4"
-                        }
-                    ]
-                }
-            },
-            emma: {
-                name: "Emma Smith Johnson",
-                tags: [
-                    { text: "Hot", className: "status-hot", icon: "◔" },
-                    { text: "Switch opportunity", className: "status-switch", icon: "⇄" }
-                ],
-                contact: {
-                    email: "ejohnson@gmail.com",
-                    phone: "617-548-5569",
-                    location: "02139 (5.2 miles away)"
-                },
-                activity: {
-                    lastActive: "12/23/25",
-                    level: "High activity",
-                    dealerActivity: "VDP view | 12/22/25",
-                    engagementCopy: "Engaged with 3 listings"
-                },
-                payment: {
-                    preference: "Financing",
-                    status: "Qualified",
-                    provider: "Global Lending Services (Expires 1/12/26)",
-                    downPayment: "$4,000",
-                    monthlyPayment: "$425.00",
-                    loanTerm: "60 months",
-                    apr: "8%",
-                    deposit: "$500",
-                    creditScore: "670 - 739 (Self reported)",
-                    summary: "2023 RAM 1500 Sport Quad Cab 4WD"
-                },
-                tradeIn: {
-                    preference: "Financing",
-                    status: "Qualified",
-                    provider: "Global Lending Services (Expires 9/12/25)",
-                    downPayment: "$4,000",
-                    monthlyPayment: "$425.00",
-                    loanTerm: "60 - 72 months",
-                    apr: "10.99% - 12.99%",
-                    deposit: "$500 - $1,500",
-                    creditScore: "670 - 739",
-                    summary: "2023 Volvo XC90 Recharge T8 eAWD"
-                },
-                fi: {
-                    totalValue: "$8,000",
-                    selectedProducts: "Vehicle Service Contract"
-                },
-                interests: {
-                    stats: ["12 unique vehicles", "15 VDP views", "2 leads", "5 saves"],
-                    preferences: [
-                        { label: "FLEXIBILITY", type: "tag", value: "Flexible", tagClass: "profile-tag-green" },
-                        { label: "EST. BUDGET", type: "text", value: "$15,000-$20,000" },
-                        { label: "TOP FEATURES", type: "chips", values: ["Backup camera", "Navigation system", "Park assist"] },
-                        { label: "EXTERIOR COLOR", type: "colors", values: [
-                            { label: "Gold", color: "#f4be4c" },
-                            { label: "Blue", color: "#1f8de8" },
-                            { label: "Silver", color: "#e1e5ea" }
-                        ] },
-                        { label: "POWER-TRAIN", type: "text", value: "ICE" },
-                        { label: "BODY STYLE", type: "text", value: "Sedan" },
-                        { label: "VEHICLE TYPE", type: "text", value: "Used" },
-                        { label: "MAX MILEAGE", type: "text", value: "100,000" }
-                    ],
-                    topModels: [
-                        { name: "2025 Audi Q5", rating: 92, color: "#dde5ef" },
-                        { name: "2024 Tesla Model Y", rating: 72, color: "#ead7b1" },
-                        { name: "2025 Volvo XC90", rating: 28, color: "#d7e8f5" }
-                    ]
-                },
-                competition: "1 other dealer in competition",
-                inventory: {
-                    submitted: [
-                        {
-                            title: "2023 Volvo XC90 Recharge T8 eAWD",
-                            tags: ["3 days on the lot", "31 leads"],
-                            submitted: "12/22/25",
-                            condition: "New",
-                            price: "$65,320",
-                            stock: "D23456789",
-                            vin: "MAZE7C5XJG6644552",
-                            tone: "#dce5f4"
-                        },
-                        {
-                            title: "2024 Audi Q5 quattro Progressive 45 TFSI",
-                            tags: ["45 days on the lot", "12 leads"],
-                            submitted: "12/20/25",
-                            condition: "New",
-                            price: "$72,450",
-                            stock: "A12345678",
-                            vin: "MAZE7C5XJG6644552",
-                            tone: "#d8dde6"
-                        }
-                    ],
-                    alternative: [
-                        {
-                            title: "2024 Volvo XC60 B5 Ultimate Dark",
-                            tags: ["14 days on the lot", "6 leads"],
-                            submitted: "Match",
-                            condition: "Used",
-                            price: "$58,980",
-                            stock: "XC602178",
-                            vin: "YV4L12RM5R2011570",
-                            tone: "#e0e8f2"
-                        },
-                        {
-                            title: "2023 Mercedes-Benz GLC 300 4MATIC",
-                            tags: ["27 days on the lot", "4 leads"],
-                            submitted: "Match",
-                            condition: "Used",
-                            price: "$53,775",
-                            stock: "GLC30097",
-                            vin: "W1N0G8EB7PF104782",
-                            tone: "#e9dde4"
-                        }
-                    ]
-                }
-            },
-            maxwell: {
-                name: "Maxwell Starwind Smith",
-                tags: [
-                    { text: "Warm", className: "status-warm", icon: "♨" }
-                ],
-                contact: {
-                    email: "maxwellstarwindsmith@domain.com",
-                    phone: "202-555-0123",
-                    location: "02141 (7.0 miles away)"
-                },
-                activity: {
-                    lastActive: "12/18/25",
-                    level: "Medium activity",
-                    dealerActivity: "Email sent | 12/17/25",
-                    engagementCopy: "Engaged with 1 listing"
-                },
-                payment: {
-                    preference: "Cash",
-                    status: "Pending docs",
-                    provider: "No lender selected",
-                    downPayment: "$8,000",
-                    monthlyPayment: "$0.00",
-                    loanTerm: "N/A",
-                    apr: "N/A",
-                    deposit: "$0",
-                    creditScore: "Not provided",
-                    summary: "2021 BMW X5 xDrive40i"
-                },
-                tradeIn: {
-                    preference: "Lease",
-                    status: "Pre-qualified",
-                    provider: "Metro Credit Union (Expires 10/10/25)",
-                    downPayment: "$2,500",
-                    monthlyPayment: "$512.00",
-                    loanTerm: "48 months",
-                    apr: "6.9%",
-                    deposit: "$500",
-                    creditScore: "700 - 759",
-                    summary: "2019 BMW 530i xDrive"
-                },
-                fi: {
-                    totalValue: "$3,400",
-                    selectedProducts: "Wheel protection, key replacement"
-                },
-                interests: {
-                    stats: ["8 unique vehicles", "9 VDP views", "1 lead", "2 saves"],
-                    preferences: [
-                        { label: "FLEXIBILITY", type: "tag", value: "Somewhat flexible", tagClass: "profile-tag-neutral" },
-                        { label: "EST. BUDGET", type: "text", value: "$35,000-$48,000" },
-                        { label: "TOP FEATURES", type: "chips", values: ["Panoramic roof", "Heated seats", "Driver assist"] },
-                        { label: "EXTERIOR COLOR", type: "colors", values: [
-                            { label: "Black", color: "#20262e" },
-                            { label: "Blue", color: "#315ca8" },
-                            { label: "White", color: "#f2f4f6" }
-                        ] },
-                        { label: "POWER-TRAIN", type: "text", value: "Hybrid" },
-                        { label: "BODY STYLE", type: "text", value: "SUV" },
-                        { label: "VEHICLE TYPE", type: "text", value: "Used" },
-                        { label: "MAX MILEAGE", type: "text", value: "80,000" }
-                    ],
-                    topModels: [
-                        { name: "2021 BMW X5", rating: 84, color: "#e3e6eb" },
-                        { name: "2022 Lexus RX 350", rating: 69, color: "#dde4ef" },
-                        { name: "2023 Volvo XC60", rating: 46, color: "#dbe8f3" }
-                    ]
-                },
-                competition: "3 other dealers in competition",
-                inventory: {
-                    submitted: [
-                        {
-                            title: "2021 BMW X5 xDrive40i",
-                            tags: ["11 days on the lot", "7 leads"],
-                            submitted: "12/17/25",
-                            condition: "Used",
-                            price: "$62,500",
-                            stock: "BMWX5041",
-                            vin: "WBAKC4C5XJ7K12345",
-                            tone: "#dee2e8"
-                        }
-                    ],
-                    alternative: [
-                        {
-                            title: "2022 Lexus RX 350 Premium",
-                            tags: ["15 days on the lot", "4 leads"],
-                            submitted: "Match",
-                            condition: "Used",
-                            price: "$46,900",
-                            stock: "RX350712",
-                            vin: "2T2AZMDA5NC278114",
-                            tone: "#e7e1d6"
-                        },
-                        {
-                            title: "2023 Volvo XC60 B6 Core",
-                            tags: ["21 days on the lot", "2 leads"],
-                            submitted: "Match",
-                            condition: "Used",
-                            price: "$44,250",
-                            stock: "XC602284",
-                            vin: "YV4L12RL5P2092458",
-                            tone: "#dbe9f4"
-                        }
-                    ]
-                }
-            }
-        };
-
-        const viewTabs = Array.from(document.querySelectorAll("[data-view-tab]"));
-        const viewPanes = Array.from(document.querySelectorAll("[data-view-pane]"));
-        const performanceModeTabs = Array.from(document.querySelectorAll("[data-performance-mode]"));
-        const performanceModePanels = Array.from(document.querySelectorAll("[data-performance-panel]"));
-        const optionARangeTabs = Array.from(document.querySelectorAll("[data-option-a-range]"));
-        const optionBRangeTabs = Array.from(document.querySelectorAll("[data-option-b-range]"));
-        const singleOpeningWindowTabs = Array.from(document.querySelectorAll("[data-single-opening-window]"));
-        const multiOpeningWindowTabs = Array.from(document.querySelectorAll("[data-multi-opening-window]"));
-        const averageMetric = document.querySelector("[data-opening-rate-average]");
-        const secondaryMetric = document.querySelector("[data-opening-rate-secondary]");
-        const openingRateTrend = document.querySelector("[data-opening-rate-trend]");
-        const openingRateTrendText = document.querySelector("[data-opening-rate-trend-text]");
-        const userTrend = document.querySelector("[data-user-trend]");
-        const userTrendText = document.querySelector("[data-user-trend-text]");
-        const userAverageFootnote = document.querySelector("[data-user-average-footnote]");
-        const openingRateChartSubtitle = document.querySelector("[data-opening-rate-chart-subtitle]");
-        const userChartSubtitle = document.querySelector("[data-user-chart-subtitle]");
-        const openingRateChartCallout = document.querySelector("[data-opening-rate-chart-callout]");
-        const userChartCallout = document.querySelector("[data-user-chart-callout]");
-        const openingRateChart = document.querySelector("[data-opening-rate-chart]");
-        const usersChart = document.querySelector("[data-users-chart]");
-        const rooftopSelect = document.querySelector("[data-rooftop-select]");
-        const addRooftopButton = document.querySelector("[data-add-rooftop]");
-        const rooftopChipRow = document.querySelector("[data-rooftop-chip-row]");
-        const multiLegend = document.querySelector("[data-multi-rooftop-legend]");
-        const multiOpeningRateAverage = document.querySelector("[data-multi-opening-rate-average]");
-        const multiOpeningRateTrend = document.querySelector("[data-multi-opening-rate-trend]");
-        const multiOpeningRateTrendText = document.querySelector("[data-multi-opening-rate-trend-text]");
-        const multiUserAverage = document.querySelector("[data-multi-user-average]");
-        const multiUserTrend = document.querySelector("[data-multi-user-trend]");
-        const multiUserTrendText = document.querySelector("[data-multi-user-trend-text]");
-        const multiUserFootnote = document.querySelector("[data-multi-user-footnote]");
-        const selectedRooftopCount = document.querySelector("[data-selected-rooftop-count]");
-        const multiOpeningRateChart = document.querySelector("[data-multi-opening-rate-chart]");
-        const multiUsersChart = document.querySelector("[data-multi-users-chart]");
-        const multiOpeningRateChartSubtitle = document.querySelector("[data-multi-opening-rate-chart-subtitle]");
-        const multiOpeningRateChartCallout = document.querySelector("[data-multi-opening-rate-chart-callout]");
-        const multiUserChartSubtitle = document.querySelector("[data-multi-user-chart-subtitle]");
-        const multiUserChartCallout = document.querySelector("[data-multi-user-chart-callout]");
-        const shopperCards = Array.from(document.querySelectorAll("[data-shopper-id]"));
-        const shopperOverview = document.querySelector("[data-shopper-overview]");
-        let selectedRooftopIds = ["411274", "62494", "274136"];
-        let singleRooftopRange = "30d";
-        let multiRooftopRange = "30d";
-        let singleOpeningRateWindow = "overall";
-        let multiOpeningRateWindow = "overall";
-
-        const openingWindowConfig = {
-            "24h": {
-                metricCopy: "opened within 24 hours",
-                offset: -17,
-                percentOffset: -16,
-                trendDelta: -2,
-                wiggle: [-2, -1, 0, 0, 1, 1, 2]
-            },
-            "3d": {
-                metricCopy: "opened within 3 days",
-                offset: -8,
-                percentOffset: -7,
-                trendDelta: -1,
-                wiggle: [-1, 0, 0, 1, 0, 1, 1]
-            },
-            overall: {
-                metricCopy: "opened overall",
-                offset: 0,
-                percentOffset: 0,
-                trendDelta: 0,
-                wiggle: [0, 0, 0, 0, 0, 0, 0]
-            }
-        };
-
-        const rooftopWindowBias = {
-            "411274": 2,
-            "62494": -1,
-            "274136": 1,
-            "64785": -2
-        };
-
-        function clampRate(value) {
-            return Math.max(0, Math.min(100, Math.round(value)));
-        }
-
-        function extractTrendMagnitude(label) {
-            return Number(label.replace(/[^0-9.-]/g, "")) || 0;
-        }
-
-        function getRangeCadenceLabel(rangeKey) {
-            if (rangeKey === "7d") {
-                return "Daily";
-            }
-            if (rangeKey === "30d") {
-                return "Weekly";
-            }
-            return "Monthly";
-        }
-
-        function buildOpeningWindowSeries(baseValues, windowKey, extraOffset = 0) {
-            const config = openingWindowConfig[windowKey];
-            return baseValues.map((value, index) => clampRate(
-                value + config.offset + extraOffset + (config.wiggle[index % config.wiggle.length] || 0)
-            ));
-        }
-
-        function deriveOpeningTrend(baseTrend, windowKey, extraOffset = 0) {
-            const config = openingWindowConfig[windowKey];
-            const magnitude = Math.max(1, Math.round(extractTrendMagnitude(baseTrend.label) + config.trendDelta + extraOffset / 2));
-            return {
-                direction: baseTrend.direction,
-                label: `+${magnitude} pts`
-            };
-        }
-
-        function getSingleOpeningWindowData(rangeKey, windowKey) {
-            const rangeData = performanceByRange[rangeKey];
-            const config = openingWindowConfig[windowKey];
-            const openingRates = buildOpeningWindowSeries(
-                rangeData.openingRates.map((point) => point.value),
-                windowKey
-            );
-
-            return {
-                summary: {
-                    averagePercent: clampRate(rangeData.summary.averagePercent + config.offset),
-                    percent: clampRate(rangeData.summary.percent + config.percentOffset),
-                    openingRateTrend: deriveOpeningTrend(rangeData.summary.openingRateTrend, windowKey)
-                },
-                openingRates: rangeData.openingRates.map((point, index) => ({
-                    label: point.label,
-                    value: openingRates[index]
-                }))
-            };
-        }
-
-        function getMultiDealerOpeningWindowData(rangeKey, dealerId, windowKey) {
-            const rangeData = multiRooftopPerformanceByRange[rangeKey][dealerId];
-            const config = openingWindowConfig[windowKey];
-            const bias = windowKey === "overall" ? 0 : rooftopWindowBias[dealerId];
-            const openingRates = buildOpeningWindowSeries(rangeData.openingRates, windowKey, bias);
-
-            return {
-                summary: {
-                    averagePercent: clampRate(rangeData.summary.averagePercent + config.offset + bias),
-                    openingRateTrend: deriveOpeningTrend(rangeData.summary.openingRateTrend, windowKey, bias)
-                },
-                openingRates
-            };
-        }
-
-        function buildLineChart(svg, dataPoints, averageValue) {
-            const width = 520;
-            const height = 260;
-            const padding = { top: 24, right: 22, bottom: 44, left: 44 };
-            const chartWidth = width - padding.left - padding.right;
-            const chartHeight = height - padding.top - padding.bottom;
-            const maxValue = 100;
-            const xStep = dataPoints.length > 1 ? chartWidth / (dataPoints.length - 1) : chartWidth;
-
-            const yForValue = (value) => padding.top + chartHeight - (value / maxValue) * chartHeight;
-            const xForIndex = (index) => padding.left + index * xStep;
-
-            const gridValues = [0, 25, 50, 75, 100];
-            const gridMarkup = gridValues.map((value) => {
-                const y = yForValue(value);
-                return `
-                    <line x1="${padding.left}" y1="${y}" x2="${width - padding.right}" y2="${y}" class="chart-grid-line"></line>
-                    <text x="${padding.left - 10}" y="${y + 5}" text-anchor="end" class="chart-axis-label">${value}%</text>
-                `;
-            }).join("");
-
-            const pointCoordinates = dataPoints.map((point, index) => ({
-                ...point,
-                x: xForIndex(index),
-                y: yForValue(point.value)
-            }));
-
-            const path = pointCoordinates.map((point, index) => `${index === 0 ? "M" : "L"} ${point.x} ${point.y}`).join(" ");
-            const averageY = yForValue(averageValue);
-
-            const labelsMarkup = pointCoordinates.map((point) => `
-                <text x="${point.x}" y="${height - 16}" text-anchor="middle" class="chart-axis-label">${point.label}</text>
-            `).join("");
-
-            const pointsMarkup = pointCoordinates.map((point) => `
-                <g>
-                    <circle cx="${point.x}" cy="${point.y}" r="4.5" class="chart-point"></circle>
-                    <text x="${point.x}" y="${point.y - 12}" text-anchor="middle" class="chart-point-label">${point.value}%</text>
-                </g>
-            `).join("");
-
-            svg.innerHTML = `
-                ${gridMarkup}
-                <line x1="${padding.left}" y1="${averageY}" x2="${width - padding.right}" y2="${averageY}" class="chart-average-line"></line>
-                <text x="${width - padding.right}" y="${averageY - 8}" text-anchor="end" class="chart-average-label">Avg ${averageValue}%</text>
-                <path d="${path}" class="chart-line"></path>
-                ${pointsMarkup}
-                ${labelsMarkup}
-            `;
-        }
-
-        function buildBarChart(svg, dataPoints) {
-            const width = 520;
-            const height = 260;
-            const padding = { top: 24, right: 22, bottom: 44, left: 44 };
-            const chartWidth = width - padding.left - padding.right;
-            const chartHeight = height - padding.top - padding.bottom;
-            const maxValue = Math.max(...dataPoints.map((point) => point.value), 1);
-            const slotWidth = chartWidth / dataPoints.length;
-            const barWidth = Math.min(42, slotWidth * 0.55);
-
-            const yForValue = (value) => padding.top + chartHeight - (value / maxValue) * chartHeight;
-            const gridValues = Array.from({ length: maxValue + 1 }, (_, index) => index).filter((value) => value === 0 || value === maxValue || value % 2 === 0);
-
-            const gridMarkup = gridValues.map((value) => {
-                const y = yForValue(value);
-                return `
-                    <line x1="${padding.left}" y1="${y}" x2="${width - padding.right}" y2="${y}" class="chart-grid-line"></line>
-                    <text x="${padding.left - 10}" y="${y + 5}" text-anchor="end" class="chart-axis-label">${value}</text>
-                `;
-            }).join("");
-
-            const barsMarkup = dataPoints.map((point, index) => {
-                const x = padding.left + index * slotWidth + (slotWidth - barWidth) / 2;
-                const y = yForValue(point.value);
-                const barHeight = padding.top + chartHeight - y;
-                return `
-                    <g>
-                        <rect x="${x}" y="${y}" width="${barWidth}" height="${barHeight}" rx="10" class="chart-bar"></rect>
-                        <text x="${x + barWidth / 2}" y="${y - 10}" text-anchor="middle" class="chart-point-label">${point.value}</text>
-                        <text x="${x + barWidth / 2}" y="${height - 16}" text-anchor="middle" class="chart-axis-label">${point.label}</text>
-                    </g>
-                `;
-            }).join("");
-
-            svg.innerHTML = `
-                ${gridMarkup}
-                ${barsMarkup}
-            `;
-        }
-
-        function buildRateAxisRange(values) {
-            const minValue = Math.min(...values);
-            const maxValue = Math.max(...values);
-            const paddedMin = Math.floor((minValue - 3) / 5) * 5;
-            const paddedMax = Math.ceil((maxValue + 3) / 5) * 5;
-            const span = Math.max(10, paddedMax - paddedMin);
-            const normalizedMin = Math.max(0, Math.floor(paddedMin / 5) * 5);
-            const normalizedMax = Math.min(100, normalizedMin + span);
-            const safeMin = Math.max(0, normalizedMax - span);
-            const step = span <= 20 ? 5 : 10;
-
-            return {
-                min: safeMin,
-                max: normalizedMax,
-                step
-            };
-        }
-
-        function buildMultiLineChart(svg, labels, seriesList, formatter, maxValueOverride, minValueOverride) {
-            const width = 520;
-            const height = 260;
-            const padding = { top: 24, right: 22, bottom: 44, left: 44 };
-            const chartWidth = width - padding.left - padding.right;
-            const chartHeight = height - padding.top - padding.bottom;
-            const maxValue = maxValueOverride ?? Math.max(...seriesList.flatMap((series) => series.values), 1);
-            const minValue = minValueOverride ?? 0;
-            const safeSpan = Math.max(1, maxValue - minValue);
-            const xStep = labels.length > 1 ? chartWidth / (labels.length - 1) : chartWidth;
-            const yForValue = (value) => padding.top + chartHeight - ((value - minValue) / safeSpan) * chartHeight;
-            const xForIndex = (index) => padding.left + index * xStep;
-            const step = minValueOverride != null ? 5 : Math.max(1, Math.ceil(maxValue / 4));
-            const gridValues = [];
-
-            for (let value = minValue; value <= maxValue; value += step) {
-                gridValues.push(value);
-            }
-            if (gridValues[gridValues.length - 1] !== maxValue) {
-                gridValues.push(maxValue);
-            }
-
-            const gridMarkup = gridValues.map((value) => {
-                const y = yForValue(value);
-                return `
-                    <line x1="${padding.left}" y1="${y}" x2="${width - padding.right}" y2="${y}" class="chart-grid-line"></line>
-                    <text x="${padding.left - 10}" y="${y + 5}" text-anchor="end" class="chart-axis-label">${formatter(value)}</text>
-                `;
-            }).join("");
-
-            const seriesMarkup = seriesList.map((series) => {
-                const points = series.values.map((value, index) => ({
-                    x: xForIndex(index),
-                    y: yForValue(value),
-                    value
-                }));
-                const path = points.map((point, index) => `${index === 0 ? "M" : "L"} ${point.x} ${point.y}`).join(" ");
-                const pointsMarkup = points.map((point) => `
-                    <circle cx="${point.x}" cy="${point.y}" r="${series.isCombined ? 4.5 : 3.5}" fill="${series.color}" stroke="#ffffff" stroke-width="2"></circle>
-                `).join("");
-                const dash = series.isCombined ? `stroke-dasharray="0"` : "";
-                const widthAttr = series.isCombined ? 3.2 : 2.3;
-                return `
-                    <g>
-                        <path d="${path}" fill="none" stroke="${series.color}" stroke-linecap="round" stroke-linejoin="round" stroke-width="${widthAttr}" ${dash}></path>
-                        ${pointsMarkup}
-                    </g>
-                `;
-            }).join("");
-
-            const labelsMarkup = labels.map((label, index) => `
-                <text x="${xForIndex(index)}" y="${height - 16}" text-anchor="middle" class="chart-axis-label">${label}</text>
-            `).join("");
-
-            svg.innerHTML = `
-                ${gridMarkup}
-                ${seriesMarkup}
-                ${labelsMarkup}
-            `;
-        }
-
-        function updateOpeningRate(range) {
-            singleRooftopRange = range;
-            const rangeData = performanceByRange[range];
-            const openingWindowData = getSingleOpeningWindowData(range, singleOpeningRateWindow);
-            const metric = openingWindowData.summary;
-
-            averageMetric.textContent = `${metric.averagePercent}%`;
-            secondaryMetric.textContent = `${rangeData.summary.averageUsers.toFixed(1)}`;
-            userAverageFootnote.textContent = rangeData.summary.userAverageLabel;
-            openingRateChartCallout.textContent = `${range === "7d" ? "Latest" : "Current"}: ${metric.percent}%`;
-            userChartCallout.textContent = `Peak: ${Math.max(...rangeData.userSeries.map((point) => point.value))} users`;
-            openingRateChartSubtitle.textContent = `${getRangeCadenceLabel(range)} shopper profiles ${openingWindowConfig[singleOpeningRateWindow].metricCopy}`;
-            userChartSubtitle.textContent = range === "7d"
-                ? "Unique teammates who opened shopper profiles each day"
-                : range === "30d"
-                    ? "Unique teammates who opened shopper profiles each week"
-                    : "Unique teammates who opened shopper profiles each month";
-            openingRateTrend.classList.toggle("trend-up", metric.openingRateTrend.direction === "up");
-            openingRateTrend.classList.toggle("trend-down", metric.openingRateTrend.direction === "down");
-            openingRateTrend.querySelector(".trend-icon").textContent = metric.openingRateTrend.direction === "up" ? "↗" : "↘";
-            openingRateTrendText.textContent = metric.openingRateTrend.label;
-            userTrend.classList.toggle("trend-up", rangeData.summary.userTrend.direction === "up");
-            userTrend.classList.toggle("trend-down", rangeData.summary.userTrend.direction === "down");
-            userTrend.querySelector(".trend-icon").textContent = rangeData.summary.userTrend.direction === "up" ? "↗" : "↘";
-            userTrendText.textContent = rangeData.summary.userTrend.label;
-
-            optionARangeTabs.forEach((tab) => {
-                const isActive = tab.dataset.optionARange === range;
-                tab.classList.toggle("active", isActive);
-                tab.setAttribute("aria-pressed", String(isActive));
-            });
-
-            buildLineChart(openingRateChart, openingWindowData.openingRates, metric.averagePercent);
-            buildBarChart(usersChart, rangeData.userSeries);
-        }
-
-        function computeCombinedSeries(rangeKey, seriesKey) {
-            const rangeData = multiRooftopPerformanceByRange[rangeKey];
-            const values = rangeData.labels.map((_, index) => {
-                const sum = selectedRooftopIds.reduce((total, dealerId) => total + rangeData[dealerId][seriesKey][index], 0);
-                return Number((sum / selectedRooftopIds.length).toFixed(1));
-            });
-            return values;
-        }
-
-        function computeCombinedOpeningSeries(rangeKey, windowKey) {
-            const rangeData = multiRooftopPerformanceByRange[rangeKey];
-            return rangeData.labels.map((_, index) => {
-                const sum = selectedRooftopIds.reduce((total, dealerId) => {
-                    const rooftopOpeningData = getMultiDealerOpeningWindowData(rangeKey, dealerId, windowKey);
-                    return total + rooftopOpeningData.openingRates[index];
-                }, 0);
-                return Number((sum / selectedRooftopIds.length).toFixed(1));
-            });
-        }
-
-        function computeCombinedSummary(rangeKey, windowKey) {
-            const rangeData = multiRooftopPerformanceByRange[rangeKey];
-            const selectedOpening = selectedRooftopIds.map((dealerId) => getMultiDealerOpeningWindowData(rangeKey, dealerId, windowKey).summary);
-            const selectedUsers = selectedRooftopIds.map((dealerId) => rangeData[dealerId].summary);
-            return {
-                averagePercent: Math.round(selectedOpening.reduce((total, item) => total + item.averagePercent, 0) / selectedOpening.length),
-                averageUsers: Number((selectedUsers.reduce((total, item) => total + item.averageUsers, 0) / selectedUsers.length).toFixed(1)),
-                openingRateTrend: {
-                    direction: "up",
-                    label: `+${Math.round(selectedOpening.reduce((total, item) => total + extractTrendMagnitude(item.openingRateTrend.label), 0) / selectedOpening.length)} pts`
-                },
-                userTrend: {
-                    direction: "up",
-                    label: `+${(selectedUsers.reduce((total, item) => total + Number(item.userTrend.label.replace(/[^0-9.-]/g, "")), 0) / selectedUsers.length).toFixed(1)} users`
-                }
-            };
-        }
-
-        function renderRooftopSelect() {
-            const available = accessibleRooftops.filter((rooftop) => !selectedRooftopIds.includes(rooftop.dealerId));
-            rooftopSelect.innerHTML = available.map((rooftop) => `
-                <option value="${rooftop.dealerId}">${rooftop.rooftopName}</option>
-            `).join("");
-            rooftopSelect.disabled = available.length === 0;
-            addRooftopButton.disabled = available.length === 0;
-        }
-
-        function renderRooftopChips() {
-            rooftopChipRow.innerHTML = selectedRooftopIds.map((dealerId) => {
-                const rooftop = accessibleRooftops.find((item) => item.dealerId === dealerId);
-                return `
-                    <button class="rooftop-chip" type="button" data-remove-rooftop="${dealerId}">
-                        <span class="rooftop-chip-dot" style="background:${rooftop.color}"></span>
-                        ${rooftop.rooftopName}
-                        <span class="rooftop-chip-close" aria-hidden="true">&times;</span>
-                    </button>
-                `;
-            }).join("");
-        }
-
-        function renderMultiLegend() {
-            const combinedColor = "#0d1722";
-            const selectedLegend = selectedRooftopIds.map((dealerId) => {
-                const rooftop = accessibleRooftops.find((item) => item.dealerId === dealerId);
-                return `
-                    <span class="rooftop-legend-item">
-                        <span class="rooftop-legend-dot" style="background:${rooftop.color}"></span>
-                        ${rooftop.rooftopName}
-                    </span>
-                `;
-            }).join("");
-            multiLegend.innerHTML = `
-                <span class="rooftop-legend-item rooftop-legend-item-combined">
-                    <span class="rooftop-legend-dot" style="background:${combinedColor}"></span>
-                    Combined
-                </span>
-                ${selectedLegend}
-            `;
-        }
-
-        function updateMultiRooftopPerformance(rangeKey) {
-            multiRooftopRange = rangeKey;
-            const rangeData = multiRooftopPerformanceByRange[rangeKey];
-            const combinedSummary = computeCombinedSummary(rangeKey, multiOpeningRateWindow);
-            const combinedOpeningSeries = computeCombinedOpeningSeries(rangeKey, multiOpeningRateWindow);
-            const combinedUserSeries = computeCombinedSeries(rangeKey, "userSeries");
-            const openingRange = buildRateAxisRange([
-                ...combinedOpeningSeries,
-                ...selectedRooftopIds.flatMap((dealerId) => getMultiDealerOpeningWindowData(rangeKey, dealerId, multiOpeningRateWindow).openingRates)
-            ]);
-
-            multiOpeningRateAverage.textContent = `${combinedSummary.averagePercent}%`;
-            multiUserAverage.textContent = `${combinedSummary.averageUsers.toFixed(1)}`;
-            selectedRooftopCount.textContent = String(selectedRooftopIds.length);
-            multiOpeningRateTrend.classList.toggle("trend-up", combinedSummary.openingRateTrend.direction === "up");
-            multiOpeningRateTrend.classList.toggle("trend-down", combinedSummary.openingRateTrend.direction === "down");
-            multiOpeningRateTrendText.textContent = combinedSummary.openingRateTrend.label;
-            multiOpeningRateTrend.querySelector(".trend-icon").textContent = combinedSummary.openingRateTrend.direction === "up" ? "↗" : "↘";
-            multiUserTrend.classList.toggle("trend-up", combinedSummary.userTrend.direction === "up");
-            multiUserTrend.classList.toggle("trend-down", combinedSummary.userTrend.direction === "down");
-            multiUserTrendText.textContent = combinedSummary.userTrend.label;
-            multiUserTrend.querySelector(".trend-icon").textContent = combinedSummary.userTrend.direction === "up" ? "↗" : "↘";
-            multiUserFootnote.textContent = rangeKey === "7d"
-                ? "Average profile openers per day across selected rooftops"
-                : rangeKey === "30d"
-                    ? "Average profile openers per week across selected rooftops"
-                    : "Average profile openers per month across selected rooftops";
-            multiOpeningRateChartSubtitle.textContent = `${getRangeCadenceLabel(rangeKey)} opening rate comparison for shoppers ${openingWindowConfig[multiOpeningRateWindow].metricCopy}`;
-            multiUserChartSubtitle.textContent = rangeKey === "7d"
-                ? "Daily unique-user comparison across selected rooftops"
-                : rangeKey === "30d"
-                    ? "Weekly unique-user comparison across selected rooftops"
-                    : "Monthly unique-user comparison across selected rooftops";
-            multiOpeningRateChartCallout.textContent = `Combined avg: ${combinedSummary.averagePercent}%`;
-            multiUserChartCallout.textContent = `Combined peak: ${Math.max(...combinedUserSeries)} users`;
-
-            optionBRangeTabs.forEach((tab) => {
-                const isActive = tab.dataset.optionBRange === rangeKey;
-                tab.classList.toggle("active", isActive);
-                tab.setAttribute("aria-pressed", String(isActive));
-            });
-
-            const openingSeriesList = [
-                { name: "Combined", color: "#0d1722", values: combinedOpeningSeries, isCombined: true },
-                ...selectedRooftopIds.map((dealerId) => {
-                    const rooftop = accessibleRooftops.find((item) => item.dealerId === dealerId);
-                    const rooftopOpeningData = getMultiDealerOpeningWindowData(rangeKey, dealerId, multiOpeningRateWindow);
-                    return {
-                        name: rooftop.rooftopName,
-                        color: rooftop.color,
-                        values: rooftopOpeningData.openingRates
-                    };
-                })
+            // Contact
+            var contactItems = [
+                { label: 'EMAIL', value: s.contact.email },
+                { label: 'PHONE', value: s.contact.phone },
+                { label: 'LOCATION', value: s.contact.location },
+                { label: 'DELIVERY', value: s.contact.delivery },
+                { label: 'APPOINTMENT', value: s.contact.appointment }
             ];
+            document.getElementById('profileContact').innerHTML = contactItems.map(function(c) {
+                return '<div class="contact-item"><label>' + c.label + '</label><p>' + c.value + '</p></div>';
+            }).join('');
 
-            const userSeriesList = [
-                { name: "Combined", color: "#0d1722", values: combinedUserSeries, isCombined: true },
-                ...selectedRooftopIds.map((dealerId) => {
-                    const rooftop = accessibleRooftops.find((item) => item.dealerId === dealerId);
-                    return {
-                        name: rooftop.rooftopName,
-                        color: rooftop.color,
-                        values: rangeData[dealerId].userSeries
-                    };
-                })
+            // Activity
+            document.getElementById('profileActivity').innerHTML =
+                '<div class="contact-item"><label>CARGURUS ACTIVITY</label><div class="activity-row"><span class="activity-dot"></span><p>' + s.activity.date + ' | <span class="tag tag-green">' + s.activity.cgActivity + '</span></p></div></div>' +
+                '<div class="contact-item"><label>ACTIVITY WITH YOU</label><p>' + s.activity.activityWithYou + '</p><p>Engaged with ' + s.activity.engagedListings + ' listings</p></div>' +
+                '<a href="#" class="link">View all activity</a>';
+
+            // Payment
+            var payFields = [
+                ['PAYMENT PREFERENCE', s.payment.preference], ['FINANCING STATUS', s.payment.status],
+                ['DOWN PAYMENT', s.payment.downPayment], ['EST. MONTHLY PAYMENT', s.payment.monthlyPayment],
+                ['LOAN TERM', s.payment.loanTerm], ['EST. APR', s.payment.estAPR],
+                ['DEPOSIT', s.payment.deposit], ['CREDIT SCORE', s.payment.creditScore],
+                ['DEAL SUMMARY', s.payment.dealSummary]
             ];
+            document.getElementById('profilePayment').innerHTML = payFields.map(function(f) {
+                return '<div class="contact-item"><label>' + f[0] + '</label><p>' + f[1] + '</p></div>';
+            }).join('');
 
-            buildMultiLineChart(
-                multiOpeningRateChart,
-                rangeData.labels,
-                openingSeriesList,
-                (value) => `${Math.round(value)}%`,
-                openingRange.max,
-                openingRange.min
-            );
-            buildMultiLineChart(multiUsersChart, rangeData.labels, userSeriesList, (value) => `${Math.round(value)}`, Math.max(...userSeriesList.flatMap((series) => series.values)) + 2);
-            renderRooftopSelect();
-            renderRooftopChips();
-            renderMultiLegend();
+            // Trade-in
+            document.getElementById('profileTradein').innerHTML =
+                '<div class="contact-item"><label>VEHICLE</label><p>' + s.tradein.vehicle + '</p></div>';
+
+            // Stats
+            var statsData = [
+                { icon: '📊', val: s.stats.uniqueVehicles, label: 'unique vehicles' },
+                { icon: '👁️', val: s.stats.vdpViews, label: 'VDP views' },
+                { icon: '📧', val: s.stats.leads, label: 'leads' },
+                { icon: '💾', val: s.stats.saves, label: 'saves' }
+            ];
+            document.getElementById('profileStats').innerHTML = statsData.map(function(st) {
+                return '<div class="stat-item"><span class="stat-icon">' + st.icon + '</span><div class="stat-content"><div class="stat-number">' + st.val + '</div><div class="stat-label">' + st.label + '</div></div></div>';
+            }).join('');
+
+            // Top models
+            document.getElementById('profileTopModels').innerHTML = s.topModels.map(function(m) {
+                return '<div class="vehicle-card"><img src="https://via.placeholder.com/80x60/e5e7eb/5e6976?text=' + encodeURIComponent(m.name.split(' ').pop()) + '" alt="Vehicle"><div class="vehicle-card-info"><h4>' + m.name + '</h4><span class="match-badge">' + m.match + '% Match rating</span></div></div>';
+            }).join('');
+
+            // Preferences
+            var prefFields = [
+                ['FLEXIBILITY', s.preferences.flexibility], ['EST. BUDGET', s.preferences.budget],
+                ['TOP FEATURES', s.preferences.features], ['EXTERIOR COLOR', s.preferences.exteriorColor],
+                ['POWER-TRAIN', s.preferences.powertrain], ['BODY STYLE', s.preferences.bodyStyle],
+                ['GARAGE CONDITION', s.preferences.garageCondition], ['MAX MILEAGE', s.preferences.maxMileage]
+            ];
+            document.getElementById('profilePreferences').innerHTML = prefFields.map(function(f) {
+                return '<div class="pref-item"><label>' + f[0] + '</label><p>' + f[1] + '</p></div>';
+            }).join('');
+
+            // Lead note
+            document.getElementById('profileLeadNote').textContent = s.leadNote;
+
+            // Lead cards
+            document.getElementById('profileLeadCards').innerHTML = s.leads.map(function(l) {
+                return '<div class="lead-card">' +
+                    '<img src="https://via.placeholder.com/200x150/e5e7eb/5e6976?text=' + encodeURIComponent(l.imgLabel) + '" alt="Vehicle">' +
+                    '<div class="lead-details"><h4>' + l.vehicle + '</h4>' +
+                    '<p class="lead-meta">' + l.meta + '</p>' +
+                    '<div class="lead-grid">' +
+                    '<div><label>SUBMITTED</label><p>' + l.submitted + '</p></div>' +
+                    '<div><label>CONDITION</label><p>' + l.condition + '</p></div>' +
+                    '<div><label>PRICE</label><p>' + l.price + '</p></div>' +
+                    '<div><label>STOCK #</label><p>' + l.stock + '</p></div>' +
+                    '<div><label>VIN</label><p>' + l.vin + '</p></div>' +
+                    '</div>' +
+                    '<button class="view-details-btn" onclick="openSplitPanel(\'' + l.stock + '\')">View details</button>' +
+                    '</div></div>';
+            }).join('');
+
+            // Reset profile tabs
+            document.querySelectorAll('.profile-tab-button').forEach(function(b) { b.classList.remove('active'); });
+            document.querySelector('.profile-tab-button').classList.add('active');
+            document.querySelectorAll('.profile-tab-content').forEach(function(tc) { tc.classList.remove('active'); });
+            document.getElementById('profile-leads-tab').classList.add('active');
+
+            // Show profile
+            document.getElementById('shopper-profile-view').classList.remove('profile-container--hidden');
+            window.scrollTo(0, 0);
         }
 
-        function updateShopperReviewIndicators() {
-            shopperCards.forEach((card) => {
-                const indicator = card.querySelector("[data-open-state]");
-                const icon = indicator.querySelector(".review-indicator-icon");
-                const title = indicator.querySelector("[data-open-state-text]");
-                const count = indicator.querySelector("[data-open-count]");
-                const lastOpened = indicator.querySelector("[data-last-opened]");
-                const users = indicator.querySelector("[data-open-users]");
-                const reviewState = shopperOpenStateById[card.dataset.shopperId];
-                const isOpened = Boolean(reviewState?.wasOpened);
+        function goBackToLeadsHub() {
+            // Hide profile
+            document.getElementById('shopper-profile-view').classList.add('profile-container--hidden');
 
-                indicator.classList.toggle("review-indicator-opened", isOpened);
-                indicator.classList.toggle("review-indicator-unopened", !isOpened);
-                icon.textContent = isOpened ? "✓" : "○";
-                title.textContent = isOpened ? "Opened" : "Not opened";
-                count.textContent = `${reviewState.openCount} ${reviewState.openCount === 1 ? "open" : "opens"}`;
-                lastOpened.textContent = reviewState.lastOpenedLabel;
-                users.textContent = `${reviewState.openedByUsers} ${reviewState.openedByUsers === 1 ? "user" : "users"}`;
+            // Show LeadsHub UI
+            document.querySelector('.page-header').style.display = '';
+            document.querySelectorAll('.tab-content').forEach(function(tc) { tc.style.display = ''; });
+
+            // Re-activate the correct tab
+            document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+            document.querySelectorAll('.tab-content').forEach(function(tc) { tc.classList.remove('active'); });
+            var targetBtn = document.querySelector('.tab-btn[data-tab="' + _lastActiveTab + '"]');
+            if (targetBtn) targetBtn.classList.add('active');
+            var targetContent = document.getElementById('tab-' + _lastActiveTab);
+            if (targetContent) targetContent.classList.add('active');
+        }
+
+        /* ============================================================
+           ACCORDION
+           ============================================================ */
+        function toggleAccordion(header) {
+            header.nextElementSibling.classList.toggle('open');
+            header.classList.toggle('active');
+        }
+
+        /* ============================================================
+           PROFILE TABS
+           ============================================================ */
+        function switchProfileTab(tabName, btn) {
+            document.querySelectorAll('.profile-tab-button').forEach(function(b) { b.classList.remove('active'); });
+            document.querySelectorAll('.profile-tab-content').forEach(function(tc) { tc.classList.remove('active'); });
+            btn.classList.add('active');
+            document.getElementById('profile-' + tabName + '-tab').classList.add('active');
+        }
+
+        /* ============================================================
+           SPLIT PANEL
+           ============================================================ */
+        function openSplitPanel(stockNumber) {
+            var data = VEHICLE_PANEL_DATA[stockNumber];
+            if (!data) return;
+            document.getElementById('splitPanelBody').innerHTML = renderSplitPanelContent(data);
+            document.getElementById('splitPanel').classList.add('open');
+            document.getElementById('splitPanelBackdrop').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSplitPanel() {
+            document.getElementById('splitPanel').classList.remove('open');
+            document.getElementById('splitPanelBackdrop').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('splitPanelClose').addEventListener('click', closeSplitPanel);
+        document.getElementById('splitPanelBackdrop').addEventListener('click', closeSplitPanel);
+        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeSplitPanel(); });
+
+        function renderSplitPanelContent(v) {
+            return '<div class="sp-vehicle-header">' +
+                '<h2 class="sp-vehicle-name">' + v.name + '</h2>' +
+                '<div class="sp-vehicle-meta"><span>VIN: ' + v.vin + '</span><span class="sp-meta-sep"></span><span>Stock #' + v.stock + '</span><span class="sp-meta-sep"></span><span>' + v.condition + '</span><span class="sp-meta-sep"></span><span class="sp-price">' + v.price + '</span></div>' +
+                '<div class="sp-stats-row">' +
+                '<div class="sp-stat"><span class="sp-stat-value">' + v.stats.daysOnLot + '</span><span class="sp-stat-label">Days on Lot</span></div>' +
+                '<div class="sp-stat"><span class="sp-stat-value">' + v.stats.activeShoppers + '</span><span class="sp-stat-label">Active Shoppers</span></div>' +
+                '<div class="sp-stat"><span class="sp-stat-value">' + v.stats.prospects + '</span><span class="sp-stat-label">Prospects</span></div>' +
+                '<div class="sp-stat"><span class="sp-stat-value">' + v.stats.leads + '</span><span class="sp-stat-label">Leads</span></div>' +
+                '<div class="sp-stat"><span class="sp-stat-value">' + v.stats.totalVdpViews + '</span><span class="sp-stat-label">Total VDP Views</span></div>' +
+                '</div></div>' +
+                '<div class="sp-section"><div class="sp-section-header"><h3>Active Shoppers</h3><div class="sp-legend"><span class="sp-legend-item"><span class="sp-dot sp-dot-green"></span> In Market</span><span class="sp-legend-item"><span class="sp-dot sp-dot-gray"></span> Likely Bought / Gone Cold</span></div></div>' +
+                v.activeShopper.map(renderShopperRow).join('') + '</div>' +
+                '<div class="sp-section"><div class="sp-section-header"><h3>Prospect Pool</h3></div>' +
+                '<p class="sp-prospect-description">Shoppers already in your pipeline whose preferences match this vehicle. Their original interest is sold or high-demand.</p>' +
+                v.prospects.map(renderProspectRow).join('') + '</div>';
+        }
+
+        function renderShopperRow(s) {
+            var dotClass = s.inMarket ? 'sp-dot-green' : 'sp-dot-gray';
+            var rowClass = s.inMarket ? '' : ' sp-row-dimmed';
+            var leadClass = s.leadType === 'Hot Lead' ? 'sp-badge-hot' : (s.leadType === 'Cold' ? 'sp-badge-cold' : 'sp-badge-warm');
+            var engClass = s.engagement === 'Highly Engaged' ? 'sp-badge-engaged' : (s.engagement === 'No Recent Activity' ? 'sp-badge-inactive' : 'sp-badge-active');
+            return '<div class="sp-shopper-row' + rowClass + '"><div class="sp-shopper-left"><span class="sp-dot ' + dotClass + '"></span><div class="sp-shopper-info"><span class="sp-shopper-name">' + s.name + '</span><span class="sp-shopper-details">' + s.action + ' · ' + s.vdpViews + ' VDP view' + (s.vdpViews !== 1 ? 's' : '') + (s.saved ? ' · Saved' : '') + '</span></div></div><div class="sp-shopper-right"><span class="sp-badge ' + leadClass + '">' + s.leadType + '</span><span class="sp-badge ' + engClass + '">' + s.engagement + '</span><span class="sp-last-seen">Last: ' + s.lastSeen + '</span></div></div>';
+        }
+
+        function renderProspectRow(p) {
+            var matchColor = p.matchPercent >= 80 ? 'sp-match-high' : (p.matchPercent >= 70 ? 'sp-match-mid' : 'sp-match-low');
+            return '<div class="sp-prospect-row"><div class="sp-prospect-left"><span class="sp-prospect-name">' + p.name + '</span><span class="sp-prospect-original">Original: ' + p.originalVehicle + ' <span class="sp-prospect-status">(' + p.originalStatus + ')</span></span><span class="sp-prospect-cluster">Cluster match: ' + p.clusterMatch + '</span></div><div class="sp-prospect-right"><span class="sp-match-score ' + matchColor + '">' + p.matchPercent + '% match</span><span class="sp-flexibility">' + p.flexibility + '</span></div></div>';
+        }
+
+        /* ============================================================
+           LEADS HUB TAB SWITCHING
+           ============================================================ */
+        document.querySelectorAll('.tab-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var tabId = this.getAttribute('data-tab');
+                document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+                this.classList.add('active');
+                document.querySelectorAll('.tab-content').forEach(function(tc) { tc.classList.remove('active'); });
+                document.getElementById('tab-' + tabId).classList.add('active');
             });
-        }
+        });
 
-        function renderProfileHeroTags(tags) {
-            return tags.map((tag) => `
-                <span class="status-pill ${tag.className}">
-                    <span class="pill-icon" aria-hidden="true">${tag.icon}</span>
-                    ${tag.text}
-                </span>
-            `).join("");
-        }
-
-        function renderDetailGrid(content) {
-            return `
-                <div class="profile-key-block profile-key-block-full">
-                    <p class="profile-key-label">PAYMENT PREFERENCE</p>
-                    <p class="profile-key-value">${content.preference}</p>
-                </div>
-                <div class="profile-key-block profile-key-block-full">
-                    <p class="profile-key-label">FINANCING STATUS</p>
-                    <div class="profile-status-row">
-                        <span class="profile-tag profile-tag-green">${content.status}</span>
-                        <span class="profile-key-value">${content.provider}</span>
-                    </div>
-                </div>
-                <div class="profile-key-block">
-                    <p class="profile-key-label">DOWN PAYMENT</p>
-                    <p class="profile-key-value">${content.downPayment}</p>
-                </div>
-                <div class="profile-key-block">
-                    <p class="profile-key-label">EST. MONTHLY PAYMENT</p>
-                    <p class="profile-key-value">${content.monthlyPayment}</p>
-                </div>
-                <div class="profile-key-block">
-                    <p class="profile-key-label">LOAN TERM</p>
-                    <p class="profile-key-value">${content.loanTerm}</p>
-                </div>
-                <div class="profile-key-block">
-                    <p class="profile-key-label">EST. APR</p>
-                    <p class="profile-key-value">${content.apr}</p>
-                </div>
-                <div class="profile-key-block">
-                    <p class="profile-key-label">DEPOSIT</p>
-                    <p class="profile-key-value">${content.deposit}</p>
-                </div>
-                <div class="profile-key-block">
-                    <p class="profile-key-label">CREDIT SCORE</p>
-                    <p class="profile-key-value">${content.creditScore}</p>
-                </div>
-                <div class="profile-key-block profile-key-block-full">
-                    <p class="profile-key-label">DEAL SUMMARY</p>
-                    <p class="profile-link-value">${content.summary}</p>
-                </div>
-            `;
-        }
-
-        function renderPreferences(preferences) {
-            return preferences.map((item) => {
-                let valueMarkup = "";
-                if (item.type === "tag") {
-                    valueMarkup = `<span class="profile-tag ${item.tagClass}">${item.value}</span>`;
-                } else if (item.type === "chips") {
-                    valueMarkup = `<div class="profile-chip-list">${item.values.map((value) => `<span class="profile-chip">${value}</span>`).join("")}</div>`;
-                } else if (item.type === "colors") {
-                    valueMarkup = `<div class="profile-color-list">${item.values.map((value) => `
-                        <span class="profile-color-item">
-                            <span class="profile-color-dot" style="background:${value.color}"></span>
-                            <span>${value.label}</span>
-                        </span>
-                    `).join("")}</div>`;
+        /* ============================================================
+           INVENTORY TABLE EXPAND/COLLAPSE
+           ============================================================ */
+        document.querySelectorAll('.inv-expand-btn').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                var targetId = this.getAttribute('data-target');
+                var detailRow = document.getElementById('inv-detail-' + targetId);
+                var parentRow = this.closest('tr');
+                if (detailRow.classList.contains('inv-detail-row--hidden')) {
+                    detailRow.classList.remove('inv-detail-row--hidden');
+                    parentRow.classList.add('inv-row--expanded');
+                    this.classList.add('inv-expand-btn--open');
                 } else {
-                    valueMarkup = `<p class="profile-key-value">${item.value}</p>`;
+                    detailRow.classList.add('inv-detail-row--hidden');
+                    parentRow.classList.remove('inv-row--expanded');
+                    this.classList.remove('inv-expand-btn--open');
                 }
-
-                return `
-                    <div class="profile-key-block">
-                        <p class="profile-key-label">${item.label}</p>
-                        ${valueMarkup}
-                    </div>
-                `;
-            }).join("");
-        }
-
-        function renderTopModels(topModels) {
-            return topModels.map((model) => `
-                <div class="profile-model-row">
-                    <div class="profile-model-image" style="background:${model.color}">
-                        <span>${model.name}</span>
-                    </div>
-                    <div class="profile-model-copy">
-                        <p class="profile-model-name">${model.name}</p>
-                        <div class="profile-model-progress">
-                            <span class="profile-model-progress-fill" style="width:${model.rating}%"></span>
-                        </div>
-                        <p class="profile-model-rating">${model.rating}% Match rating</p>
-                    </div>
-                </div>
-            `).join("");
-        }
-
-        function renderInventoryMatches(matches) {
-            return matches.map((match) => `
-                <article class="profile-inventory-card">
-                    <div class="profile-inventory-image" style="background:${match.tone}">
-                        <span>${match.title}</span>
-                    </div>
-                    <div class="profile-inventory-content">
-                        <div class="profile-inventory-header">
-                            <div class="profile-inventory-title-group">
-                                <p class="profile-inventory-title">${match.title}</p>
-                                <div class="profile-chip-list">
-                                    ${match.tags.map((tag) => `<span class="profile-chip">${tag}</span>`).join("")}
-                                </div>
-                            </div>
-                            <button class="profile-secondary-action profile-secondary-action-small" type="button">View details</button>
-                        </div>
-                        <div class="profile-inventory-meta-grid">
-                            <div class="profile-key-block">
-                                <p class="profile-key-label">SUBMITTED</p>
-                                <p class="profile-key-value">${match.submitted}</p>
-                            </div>
-                            <div class="profile-key-block">
-                                <p class="profile-key-label">CONDITION</p>
-                                <p class="profile-key-value">${match.condition}</p>
-                            </div>
-                            <div class="profile-key-block">
-                                <p class="profile-key-label">PRICE</p>
-                                <p class="profile-key-value">${match.price}</p>
-                            </div>
-                            <div class="profile-key-block">
-                                <p class="profile-key-label">STOCK #</p>
-                                <p class="profile-key-value">${match.stock}</p>
-                            </div>
-                            <div class="profile-key-block">
-                                <p class="profile-key-label">VIN</p>
-                                <p class="profile-key-value">${match.vin}</p>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            `).join("");
-        }
-
-        function updateView(view) {
-            viewTabs.forEach((tab) => {
-                const isActive = tab.dataset.viewTab === view;
-                tab.classList.toggle("active", isActive);
-                tab.setAttribute("aria-pressed", String(isActive));
-            });
-
-            viewPanes.forEach((pane) => {
-                pane.classList.toggle("active", pane.dataset.viewPane === view);
-            });
-        }
-
-        function updatePerformanceMode(mode) {
-            performanceModeTabs.forEach((tab) => {
-                const isActive = tab.dataset.performanceMode === mode;
-                tab.classList.toggle("active", isActive);
-                tab.setAttribute("aria-pressed", String(isActive));
-            });
-
-            performanceModePanels.forEach((panel) => {
-                panel.classList.toggle("active", panel.dataset.performancePanel === mode);
-            });
-        }
-
-        viewTabs.forEach((tab) => {
-            tab.addEventListener("click", () => updateView(tab.dataset.viewTab));
-        });
-
-        performanceModeTabs.forEach((tab) => {
-            tab.addEventListener("click", () => updatePerformanceMode(tab.dataset.performanceMode));
-        });
-
-        optionARangeTabs.forEach((tab) => {
-            tab.addEventListener("click", () => updateOpeningRate(tab.dataset.optionARange));
-        });
-
-        optionBRangeTabs.forEach((tab) => {
-            tab.addEventListener("click", () => updateMultiRooftopPerformance(tab.dataset.optionBRange));
-        });
-
-        shopperCards.forEach((card) => {
-            const viewProfileButton = card.querySelector(".view-profile-button");
-            viewProfileButton.addEventListener("click", () => {
-                openShopperProfile(viewProfileButton.dataset.profileLink || card.dataset.shopperId);
             });
         });
 
-        singleOpeningWindowTabs.forEach((tab) => {
-            tab.addEventListener("click", () => {
-                singleOpeningRateWindow = tab.dataset.singleOpeningWindow;
-                singleOpeningWindowTabs.forEach((button) => {
-                    const isActive = button.dataset.singleOpeningWindow === singleOpeningRateWindow;
-                    button.classList.toggle("active", isActive);
-                    button.setAttribute("aria-pressed", String(isActive));
-                });
-                updateOpeningRate(singleRooftopRange);
+        document.querySelectorAll('.inv-row').forEach(function(row) {
+            row.addEventListener('click', function() {
+                var expandBtn = this.querySelector('.inv-expand-btn');
+                if (expandBtn) expandBtn.click();
             });
         });
 
-        multiOpeningWindowTabs.forEach((tab) => {
-            tab.addEventListener("click", () => {
-                multiOpeningRateWindow = tab.dataset.multiOpeningWindow;
-                multiOpeningWindowTabs.forEach((button) => {
-                    const isActive = button.dataset.multiOpeningWindow === multiOpeningRateWindow;
-                    button.classList.toggle("active", isActive);
-                    button.setAttribute("aria-pressed", String(isActive));
-                });
-                updateMultiRooftopPerformance(multiRooftopRange);
+        /* Inventory filter pills */
+        document.querySelectorAll('.inv-pill').forEach(function(pill) {
+            pill.addEventListener('click', function() {
+                document.querySelectorAll('.inv-pill').forEach(function(p) { p.classList.remove('active'); });
+                this.classList.add('active');
             });
         });
 
-        addRooftopButton.addEventListener("click", () => {
-            if (!rooftopSelect.value) {
-                return;
-            }
-            if (!selectedRooftopIds.includes(rooftopSelect.value) && selectedRooftopIds.length < 4) {
-                selectedRooftopIds = [...selectedRooftopIds, rooftopSelect.value];
-                updateMultiRooftopPerformance(multiRooftopRange);
-            }
+        /* New/Used/All toggle */
+        document.querySelectorAll('.inv-toggle').forEach(function(toggle) {
+            toggle.addEventListener('click', function() {
+                document.querySelectorAll('.inv-toggle').forEach(function(t) { t.classList.remove('active'); });
+                this.classList.add('active');
+            });
         });
 
-        rooftopChipRow.addEventListener("click", (event) => {
-            const button = event.target.closest("[data-remove-rooftop]");
-            if (!button) {
-                return;
-            }
-            if (selectedRooftopIds.length <= 1) {
-                return;
-            }
-            selectedRooftopIds = selectedRooftopIds.filter((dealerId) => dealerId !== button.dataset.removeRooftop);
-            updateMultiRooftopPerformance(multiRooftopRange);
-        });
-
-        updateView("overview");
-        updatePerformanceMode("a");
-        updateShopperReviewIndicators();
-        singleOpeningWindowTabs.forEach((button) => {
-            const isActive = button.dataset.singleOpeningWindow === singleOpeningRateWindow;
-            button.classList.toggle("active", isActive);
-            button.setAttribute("aria-pressed", String(isActive));
-        });
-        multiOpeningWindowTabs.forEach((button) => {
-            const isActive = button.dataset.multiOpeningWindow === multiOpeningRateWindow;
-            button.classList.toggle("active", isActive);
-            button.setAttribute("aria-pressed", String(isActive));
-        });
-        updateOpeningRate("30d");
-        updateMultiRooftopPerformance("30d");
+        /* ============================================================
+           WIRE UP VIEW PROFILE BUTTONS
+           ============================================================ */
+        (function() {
+            var shopperIds = ['keanu', 'maya', 'ethan'];
+            var btns = document.querySelectorAll('.shopper-card .view-profile-btn');
+            btns.forEach(function(btn, idx) {
+                if (shopperIds[idx]) {
+                    btn.addEventListener('click', function() {
+                        showProfile(shopperIds[idx]);
+                    });
+                }
+            });
+        })();
     </script>
 </body>
 </html>
