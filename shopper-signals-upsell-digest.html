@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shopper Signals Upsell Digest</title>
+    <style>
+      :root {
+        color-scheme: light;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background: #eef2f7;
+        color: #0d1722;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      table {
+        border-collapse: collapse;
+      }
+
+      a {
+        color: #0763d3;
+      }
+
+      .preheader {
+        display: none;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        color: transparent;
+        font-size: 1px;
+        line-height: 1px;
+      }
+
+      .page {
+        width: 100%;
+        background: #eef2f7;
+      }
+
+      .shell {
+        width: 600px;
+        max-width: 600px;
+        background: #ffffff;
+      }
+
+      .pad {
+        padding: 20px;
+      }
+
+      .logo {
+        font-size: 0;
+        line-height: 0;
+      }
+
+      .logo-car,
+      .logo-gurus {
+        display: inline-block;
+        font-size: 28px;
+        line-height: 28px;
+        font-weight: 700;
+        letter-spacing: 0;
+      }
+
+      .logo-car {
+        color: #f0313d;
+      }
+
+      .logo-gurus {
+        color: #1681e5;
+      }
+
+      .eyebrow {
+        margin: 16px 0 0;
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: 700;
+        letter-spacing: 0;
+        color: #5e6976;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2 {
+        margin: 0;
+        color: #0d1722;
+        font-weight: 700;
+      }
+
+      h1 {
+        margin-top: 6px;
+        font-size: 28px;
+        line-height: 32px;
+      }
+
+      h2 {
+        font-size: 24px;
+        line-height: 28px;
+      }
+
+      p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 20px;
+        color: #0d1722;
+      }
+
+      .muted {
+        color: #5e6976;
+      }
+
+      .intro {
+        margin-top: 16px;
+      }
+
+      .notice {
+        margin-top: 18px;
+        border: 1px solid #b6d5ff;
+        border-radius: 8px;
+        background: #eef6ff;
+      }
+
+      .notice td {
+        padding: 16px;
+      }
+
+      .notice-title {
+        margin: 0;
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 700;
+      }
+
+      .notice-copy {
+        margin-top: 6px;
+      }
+
+      .button {
+        display: inline-block;
+        border-radius: 60px;
+        background: #0b63ce;
+        color: #ffffff;
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: 700;
+        text-decoration: none;
+        padding: 10px 14px;
+      }
+
+      .button-secondary {
+        display: inline-block;
+        border: 1px solid #545b64;
+        border-radius: 60px;
+        color: #0d1722;
+        font-size: 14px;
+        line-height: 18px;
+        text-decoration: none;
+        padding: 8px 12px;
+      }
+
+      .section {
+        padding: 14px 20px 0;
+      }
+
+      .stats-card,
+      .shopper-card,
+      .final-card {
+        width: 100%;
+        border: 1px solid #d8dbde;
+        border-radius: 8px;
+        background: #ffffff;
+        border-collapse: separate;
+      }
+
+      .stats-card td {
+        padding: 14px 16px;
+        border-bottom: 1px solid #d8dbde;
+      }
+
+      .stats-card tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .stat-label {
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: 700;
+      }
+
+      .stat-value {
+        font-size: 18px;
+        line-height: 22px;
+        font-weight: 700;
+        text-align: right;
+      }
+
+      .stat-sub {
+        display: inline-block;
+        margin-left: 16px;
+        font-size: 12px;
+        line-height: 16px;
+        color: #5e6976;
+      }
+
+      .section-copy {
+        margin-top: 10px;
+      }
+
+      .shopper-card {
+        margin-top: 12px;
+        overflow: hidden;
+      }
+
+      .shopper-head td {
+        padding: 14px 16px;
+        border-bottom: 1px solid #d8dbde;
+        background: #fbfcfe;
+      }
+
+      .headline {
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: 700;
+      }
+
+      .badge {
+        display: inline-block;
+        border-radius: 4px;
+        padding: 3px 8px;
+        font-size: 12px;
+        line-height: 18px;
+        color: #0d1722;
+        white-space: nowrap;
+      }
+
+      .badge-hot {
+        background: #ffe2e2;
+      }
+
+      .badge-warm {
+        background: #fff1c0;
+      }
+
+      .badge-locked {
+        background: #e8ebed;
+        color: #303741;
+      }
+
+      .shopper-body td {
+        padding: 16px;
+      }
+
+      .locked-panel {
+        border: 1px dashed #a9b2bd;
+        border-radius: 8px;
+        background: #f6f8fb;
+      }
+
+      .locked-panel td {
+        padding: 12px;
+      }
+
+      .field-label {
+        margin-top: 18px;
+        font-size: 10px;
+        line-height: 16px;
+        color: #5e6976;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .field-value {
+        margin-top: 6px;
+        font-size: 14px;
+        line-height: 18px;
+        color: #0d1722;
+      }
+
+      .mask-line {
+        display: inline-block;
+        height: 13px;
+        border-radius: 4px;
+        background: linear-gradient(90deg, #c4cbd4 0%, #e5e9ee 52%, #c4cbd4 100%);
+        color: transparent;
+        filter: blur(0.9px);
+        vertical-align: -2px;
+      }
+
+      .mask-short {
+        width: 88px;
+      }
+
+      .mask-medium {
+        width: 178px;
+      }
+
+      .mask-long {
+        width: 282px;
+        max-width: 100%;
+      }
+
+      .visible-signal {
+        color: #078a0b;
+        font-weight: 700;
+      }
+
+      .locked-note {
+        margin-top: 12px;
+        font-size: 13px;
+        line-height: 18px;
+        color: #303741;
+      }
+
+      .final-card {
+        margin-top: 18px;
+        background: #0d1722;
+        border-color: #0d1722;
+      }
+
+      .final-card td {
+        padding: 18px 16px;
+      }
+
+      .final-title {
+        color: #ffffff;
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: 700;
+      }
+
+      .final-copy {
+        margin-top: 6px;
+        color: #e8ebed;
+      }
+
+      .footer {
+        padding: 22px 20px 28px;
+        font-size: 12px;
+        line-height: 18px;
+        color: #5e6976;
+      }
+
+      @media screen and (max-width: 620px) {
+        .shell {
+          width: 100% !important;
+          max-width: 100% !important;
+        }
+
+        .pad,
+        .section,
+        .footer {
+          padding-left: 16px !important;
+          padding-right: 16px !important;
+        }
+
+        h1 {
+          font-size: 24px !important;
+          line-height: 30px !important;
+        }
+
+        .stat-sub {
+          display: block !important;
+          margin: 4px 0 0 !important;
+        }
+
+        .mask-long {
+          width: 220px !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="preheader">
+      Preview the Shopper Signals activity your package is missing: real counts, locked shopper details, and an upgrade path.
+    </div>
+
+    <table role="presentation" width="100%" class="page" cellpadding="0" cellspacing="0">
+      <tr>
+        <td align="center">
+          <table role="presentation" class="shell" cellpadding="0" cellspacing="0">
+            <tr>
+              <td class="pad">
+                <div class="logo" aria-label="CarGurus">
+                  <span class="logo-car">Car</span><span class="logo-gurus">Gurus</span>
+                </div>
+
+                <div class="eyebrow">Shopper Signals preview</div>
+
+                <p class="intro">Hi Huggard &amp; Ewing team,</p>
+                <p class="intro">
+                  Shoppers interacted with your inventory in the last 24 hours. Your current package does not include Shopper Signals, so key intent signals are hidden below.
+                </p>
+
+                <table role="presentation" width="100%" class="notice" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td>
+                      <p class="notice-title">Just today: 19 shoppers with buying signals you cannot yet see.</p>
+                      <p class="notice-copy">
+                        Unlock preferences, recent activity, and likelihood to buy so your team can prioritize follow-up.
+                      </p>
+                      <p style="margin-top: 14px;">
+                        <a href="#" class="button">Unlock Shopper Signals</a>
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="section">
+                <h2>Your daily shopper stats</h2>
+                <table role="presentation" width="100%" class="stats-card" cellpadding="0" cellspacing="0" style="margin-top: 14px;">
+                  <tr>
+                    <td class="stat-label">Re-engaged shoppers</td>
+                    <td class="stat-value">8</td>
+                  </tr>
+                  <tr>
+                    <td class="stat-label">New shoppers</td>
+                    <td class="stat-value">11</td>
+                  </tr>
+                  <tr>
+                    <td class="stat-label">
+                      7-day total lead engagement
+                      <span class="stat-sub">Re-engaged: 61</span>
+                      <span class="stat-sub">New: 65</span>
+                    </td>
+                    <td class="stat-value">126</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="section" style="padding-top: 30px;">
+                <h2>Re-engaged shoppers</h2>
+                <p class="section-copy">These shoppers have reconnected or revisited your listings.</p>
+
+                <table role="presentation" width="100%" class="shopper-card" cellpadding="0" cellspacing="0">
+                  <tr class="shopper-head">
+                    <td>
+                      <span class="headline"><span class="mask-line mask-short" aria-label="Hidden shopper name">&nbsp;</span> viewed your VDP</span>
+                      <div class="field-value"><span class="mask-line mask-long" aria-label="Hidden vehicle detail">&nbsp;</span></div>
+                    </td>
+                    <td align="right" width="92">
+                      <span class="badge badge-hot">Hot</span>
+                    </td>
+                  </tr>
+                  <tr class="shopper-body">
+                    <td colspan="2">
+                      <table role="presentation" width="100%" class="locked-panel" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td>
+                            <span class="badge badge-locked">Locked preview</span>
+                            <p class="locked-note">Upgrade to see the shopper name, contact details, and full profile.</p>
+                          </td>
+                        </tr>
+                      </table>
+
+                      <div class="field-label">Shopper details</div>
+                      <div class="field-value"><span class="mask-line mask-medium" aria-label="Hidden shopper name">&nbsp;</span></div>
+                      <div class="field-value"><span class="mask-line mask-short" aria-label="Hidden distance">&nbsp;</span> away</div>
+
+                      <div class="field-label">Latest inquiry - 2 total</div>
+                      <div class="field-value"><span class="mask-line mask-long" aria-label="Hidden vehicle detail">&nbsp;</span></div>
+                      <div class="field-value">Stock #: <span class="mask-line mask-short" aria-label="Hidden stock number">&nbsp;</span></div>
+
+                      <div class="field-label">Overall connections with you</div>
+                      <div class="field-value"><span class="visible-signal">38 connections</span> across <span class="visible-signal">2 listings</span></div>
+
+                      <div class="field-label">Competition</div>
+                      <div class="field-value"><span class="visible-signal">2 other dealers</span> in competition</div>
+
+                      <p style="margin-top: 20px;">
+                        <a href="#" class="button-secondary">Upgrade to view profile</a>
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+                <table role="presentation" width="100%" class="shopper-card" cellpadding="0" cellspacing="0">
+                  <tr class="shopper-head">
+                    <td>
+                      <span class="headline"><span class="mask-line mask-short" aria-label="Hidden shopper name">&nbsp;</span> returned to a saved listing</span>
+                      <div class="field-value"><span class="mask-line mask-long" aria-label="Hidden vehicle detail">&nbsp;</span></div>
+                    </td>
+                    <td align="right" width="92">
+                      <span class="badge badge-warm">Warm</span>
+                    </td>
+                  </tr>
+                  <tr class="shopper-body">
+                    <td colspan="2">
+                      <div class="field-label">Why this matters</div>
+                      <div class="field-value">This shopper has <span class="visible-signal">12 recent connections</span> and came back after submitting a lead.</div>
+
+                      <div class="field-label">Locked details</div>
+                      <div class="field-value"><span class="mask-line mask-medium" aria-label="Hidden name and contact details">&nbsp;</span></div>
+                      <div class="field-value"><span class="mask-line mask-long" aria-label="Hidden profile history and activity">&nbsp;</span></div>
+
+                      <p style="margin-top: 20px;">
+                        <a href="#" class="button-secondary">Upgrade to view profile</a>
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="section" style="padding-top: 30px;">
+                <h2>New shoppers</h2>
+                <p class="section-copy">These shoppers submitted a lead on one of your listings.</p>
+
+                <table role="presentation" width="100%" class="shopper-card" cellpadding="0" cellspacing="0">
+                  <tr class="shopper-head">
+                    <td>
+                      <span class="headline"><span class="mask-line mask-short" aria-label="Hidden shopper name">&nbsp;</span> submitted a new lead</span>
+                      <div class="field-value"><span class="mask-line mask-long" aria-label="Hidden vehicle detail">&nbsp;</span></div>
+                    </td>
+                    <td align="right" width="92">
+                      <span class="badge badge-warm">Warm</span>
+                    </td>
+                  </tr>
+                  <tr class="shopper-body">
+                    <td colspan="2">
+                      <div class="field-label">Lead details</div>
+                      <div class="field-value"><span class="mask-line mask-medium" aria-label="Hidden name, email, and phone">&nbsp;</span></div>
+                      <div class="field-value">Distance: <span class="mask-line mask-short" aria-label="Hidden distance">&nbsp;</span></div>
+
+                      <div class="field-label">Activity</div>
+                      <div class="field-value"><span class="visible-signal">Submitted a lead today</span></div>
+                      <div class="field-value"><span class="visible-signal">Viewed 3 VDPs</span> in the last 7 days</div>
+                      <div class="field-value"><span class="visible-signal">Saved 1 listing</span></div>
+
+                      <p style="margin-top: 20px;">
+                        <a href="#" class="button-secondary">Upgrade to view profile</a>
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+                <table role="presentation" width="100%" class="final-card" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td>
+                      <div class="final-title">Turn this preview into actionable shopper profiles.</div>
+                      <p class="final-copy">Unlock the full digest to prioritize follow-up by shopper intent, latest activity, inventory interest, and competition signals.</p>
+                      <p style="margin-top: 14px;">
+                        <a href="#" class="button">Request package upgrade</a>
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="footer">
+                This preview uses Shopper Signals activity from your inventory, with shopper-specific details hidden because your current package does not include Shopper Signals.
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
